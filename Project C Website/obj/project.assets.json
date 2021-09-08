@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gebruiker\\source\\repos\\Project C Website\\Project C Website\\Project C Website.csproj",
+      "projectUniqueName": "C:\\Users\\Gebruiker\\Documents\\GitHub\\Groep1ProjectC\\Project C Website\\Project C Website.csproj",
       "projectName": "Project C Website",
-      "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\Project C Website\\Project C Website\\Project C Website.csproj",
+      "projectPath": "C:\\Users\\Gebruiker\\Documents\\GitHub\\Groep1ProjectC\\Project C Website\\Project C Website.csproj",
       "packagesPath": "C:\\Users\\Gebruiker\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gebruiker\\source\\repos\\Project C Website\\Project C Website\\obj\\",
+      "outputPath": "C:\\Users\\Gebruiker\\Documents\\GitHub\\Groep1ProjectC\\Project C Website\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Gebruiker\\AppData\\Roaming\\NuGet\\NuGet.Config",
