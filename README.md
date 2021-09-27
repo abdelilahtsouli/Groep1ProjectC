@@ -1,7 +1,8 @@
 ## Installation
 ```
-npm install -g yarn
+cd frontend
 
+npm install -g yarn
 npm install
 ```
 
