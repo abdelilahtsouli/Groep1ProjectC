@@ -1,3 +1,10 @@
+## Installation
+```
+npm install -g yarn
+
+npm install
+```
+
 ## Build the frontend in watch mode
 
 ```
