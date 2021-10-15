@@ -50,6 +50,11 @@ namespace Project_C_Website {
 					pattern: "",
 					defaults: new CdnController()
 				);
+				endpoints.MapControllerRoute(
+					name: "/api/auth/",
+					pattern: "login",
+					defaults: new AuthController()
+				);
 			});
 		}
 	}

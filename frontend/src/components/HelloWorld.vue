@@ -2,11 +2,11 @@
 <template>
   <div class="Log-in">
     <div class="login-box">
-      <input v-model="message_email" placeholder="Email">
-      <input v-model="message_password" type="password" placeholder="Password">
-      <button @click="userLogin()">Log in</button>
-      <h2>{{errormessage}}</h2>
-      <h1>{{response.data}}</h1>
+      <input @keyup.enter="userLogin" v-model="message_email" placeholder="Email">
+      <input @keyup.enter="userLogin" v-model="message_password"  type="password" placeholder="Password">
+      <button type="submit" @click="userLogin()">Log in</button>
+      <h3 v-if="response.data == ''">{{errormessage}}</h3>
+      <h3>{{response.data}}</h3>
     </div>
   </div>
 </template>
@@ -33,13 +33,11 @@ function userLogin(){
     errormessage.value = "You must enter a valid password"
     return
   }
-
+  
   var bodyFormData = new FormData();
   bodyFormData.append('email', message_email.value);
   bodyFormData.append('password', message_password.value);
-  
   axios.post(URL_base, bodyFormData).then((Response: any) => response.value = Response, (error: any) => {console.log(error)});
-  
 
 }
 
