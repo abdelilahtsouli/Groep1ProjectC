@@ -1,4 +1,3 @@
-
 <template>
   <div class="Log-in">
     <div class="login-box">
@@ -38,7 +37,7 @@ function userLogin(){
   bodyFormData.append('email', message_email.value);
   bodyFormData.append('password', message_password.value);
   axios.post(URL_base, bodyFormData).then((Response: any) => response.value = Response, (error: any) => {console.log(error)});
-
+  console.log(response.value);
 }
 
 
@@ -46,8 +45,6 @@ function validateEmail() {
   const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(message_email.value).toLowerCase());
 }
-
-
 
 </script>
 

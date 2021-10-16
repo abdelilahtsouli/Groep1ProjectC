@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\woute\\source\\repos\\abdelilahtsouli\\Groep1ProjectC\\backend\\Project C Website.csproj": {}
+    "C:\\Users\\woute\\source\\repos\\Groep1ProjectC\\backend\\Project C Website.csproj": {}
   },
   "projects": {
-    "C:\\Users\\woute\\source\\repos\\abdelilahtsouli\\Groep1ProjectC\\backend\\Project C Website.csproj": {
+    "C:\\Users\\woute\\source\\repos\\Groep1ProjectC\\backend\\Project C Website.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\woute\\source\\repos\\abdelilahtsouli\\Groep1ProjectC\\backend\\Project C Website.csproj",
+        "projectUniqueName": "C:\\Users\\woute\\source\\repos\\Groep1ProjectC\\backend\\Project C Website.csproj",
         "projectName": "Project C Website",
-        "projectPath": "C:\\Users\\woute\\source\\repos\\abdelilahtsouli\\Groep1ProjectC\\backend\\Project C Website.csproj",
+        "projectPath": "C:\\Users\\woute\\source\\repos\\Groep1ProjectC\\backend\\Project C Website.csproj",
         "packagesPath": "C:\\Users\\woute\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\woute\\source\\repos\\abdelilahtsouli\\Groep1ProjectC\\backend\\obj\\",
+        "outputPath": "C:\\Users\\woute\\source\\repos\\Groep1ProjectC\\backend\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\woute\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -61,7 +57,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

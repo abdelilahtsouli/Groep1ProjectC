@@ -19,14 +19,15 @@ namespace Project_C_Website.controllers
 
         [HttpPost]
         public string Post(){
-
+            
+            string userName = "Admin";
             // Get a value called email & password from the Request 
             string email = HttpContext.Request.Form["email"];
             string password = HttpContext.Request.Form["password"];
             
             if(email == "admin@admin.nl" && password == "admin")
             {
-                return "Logged in succesful";
+                return "Logged in succesfull";
             }
             else
             {
