@@ -19,6 +19,10 @@ namespace Project_C_Website
             NpgsqlCommand query = new NpgsqlCommand(sql, this.server.conn);
             data = query.ExecuteReader();
         }
+        public void Close()
+        {
+            this.server.conn.Close();
+        }
     }
     public class Server
     {

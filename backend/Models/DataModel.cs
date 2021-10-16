@@ -7,6 +7,7 @@ namespace Project_C_Website.Models
 {
     public class DataModel
     {
+
         public List<DataModel> ListModel = new List<DataModel>();
 
         public int id { get; set; }
