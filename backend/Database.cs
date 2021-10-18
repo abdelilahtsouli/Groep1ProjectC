@@ -30,7 +30,7 @@ namespace Project_C_Website
         public Server(IConfiguration server)
         {
             string connstring = String.Format(
-                server.GetSection("ConnectionString").GetSection("MyServer").Value
+                server.GetSection("ConnectionStrings").GetSection("MyServer").Value
                 );
             conn = new NpgsqlConnection(connstring);
             conn.Open();

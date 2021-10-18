@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Project_C_Website.Models;
+using Project_C_Website.controllers;
+using Microsoft.Extensions.Configuration;
 
 
 
@@ -17,8 +19,9 @@ namespace Project_C_Website.controllers
 
     public class AuthController : ControllerBase 
     {
-        
 
+        public IConfiguration server;
+  
         // POST api/<Authcontroller>
 
         [HttpPost]
@@ -28,8 +31,11 @@ namespace Project_C_Website.controllers
             // Get a value called email & password from the Request 
             string email_input = HttpContext.Request.Form["email"];
             string password_input = HttpContext.Request.Form["password"];
-
-            if (email_input == DataModel.email || password_input == DataModel.password)
+            DataModel list = new DataModel();
+            
+            HomeController hm = new(server);
+            hm.Index();
+            if (email_input == list.email.ToString() || password_input == list.password.ToString())
             {
                 return "Logged in succesfull";
             }

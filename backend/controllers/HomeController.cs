@@ -24,15 +24,18 @@ namespace Project_C_Website.controllers
                 {
                     list.ListModel.Add(new DataModel
                     {
-                        
+                        id = (int)db.data[0],
                         name = db.data[1].ToString(),
                         email = db.data[2].ToString(),
                         password = db.data[3].ToString()
-
-                    }); ;
+                        
+                    });
                 }
+                
             }
+            Console.WriteLine(list.name);
 
+            
             db.Close();
 
             return View();
@@ -43,5 +46,6 @@ namespace Project_C_Website.controllers
             this.server = server;
 
         }
+
     }
 }
