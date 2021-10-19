@@ -22,3 +22,10 @@ cd frontend
 
 yarn build:watch
 ```
+
+## Install the package npgsql
+
+```
+cd backend
+nuget install npgsql
+```
