@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Project_C_Website.Models;
 using Project_C_Website.controllers;
 using Microsoft.Extensions.Configuration;
+using System.IO;
 
 
 
@@ -20,29 +21,34 @@ namespace Project_C_Website.controllers
     public class AuthController : ControllerBase 
     {
 
-        public IConfiguration server;
-  
+
+        IConfiguration config = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", true, true)
+                .Build();
+
         // POST api/<Authcontroller>
 
-        [HttpPost]
+        [HttpPost] 
         public string Post(){
             
 
             // Get a value called email & password from the Request 
             string email_input = HttpContext.Request.Form["email"];
             string password_input = HttpContext.Request.Form["password"];
-            DataModel list = new DataModel();
+
+            HomeController hm = new(config);
+            List<DataModel> list = hm.Index();
+            foreach (var model in list)
+            {
+                if (email_input == model.email.ToString() && password_input == model.password.ToString())
+                {
+                    return "Logged in succesfull";
+                }
+            }
+            return "Either the email or the password is incorrect";
             
-            HomeController hm = new(server);
-            hm.Index();
-            if (email_input == list.email.ToString() || password_input == list.password.ToString())
-            {
-                return "Logged in succesfull";
-            }
-            else
-            {
-                return "Either the email or the password is incorrect";
-            }
+
+
         }
     }
 }
