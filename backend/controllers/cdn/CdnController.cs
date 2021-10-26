@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -14,18 +16,29 @@ namespace Project_C_Website.controllers {
 
 		// GET api/<CdnController>/5
 		[HttpGet("{id}")]
-		public string Get(int id) {
-			String[] tempCdnContext = new string[] {
-				"Dit is het eerste media dingetjes!",
-				"Dit is nog een tekst ding!"
-			};
+		public IActionResult Get(int id) {
+			Database database = new Database();
+			DataTable data = database.Select("select * from media where media_id=" + id);
 
-			if (id > 0 && id < 3) return tempCdnContext[(id - 1)];
+			foreach (DataRow row in data.Rows) {
+				String file = row["file"].ToString();
+
+				if (!System.IO.File.Exists(file)) {
+					this.HttpContext.Response.StatusCode = 500;
+					return Content(JsonSerializer.Serialize(new {
+						message = "Image Not Found (doesn't exist on the disk)"
+					}));
+				}
+
+				Byte[] b = System.IO.File.ReadAllBytes(file);
+				// TODO: Support all image types.
+				return File(b, "image/png");
+			}
 
 			this.HttpContext.Response.StatusCode = 404;
-			return JsonSerializer.Serialize(new {
+			return Content(JsonSerializer.Serialize(new {
 				message = "Not Found"
-			});
+			}));
 		}
 
 		// POST api/<CdnController>

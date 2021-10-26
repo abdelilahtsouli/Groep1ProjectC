@@ -9,9 +9,9 @@ namespace Project_C_Website.data {
 
 		public int Id { get; private set; }
 		public string Name { get; private set; }
-		public Media[] Media { get; private set; }
+		public List<Media> Media { get; private set; }
 
-		public Page(int id, string name, Media[] media) {
+		public Page(int id, string name, List<Media> media) {
 			this.Id = id;
 			this.Name = name;
 			this.Media = media;

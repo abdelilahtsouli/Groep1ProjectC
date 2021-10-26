@@ -4,5 +4,16 @@
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>Project_C_Website</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Npgsql.FSharp" Version="4.0.0" />
+  </ItemGroup>
 
+  <ItemGroup>
+    <None Update="logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="starshl-logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

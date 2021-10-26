@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Project_C_Website.data;
 using System.Text.Json;
+using System.Data;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -18,18 +19,39 @@ namespace Project_C_Website.controllers {
 			WriteIndented = true
 		};
 
+		private List<Media> getMediaOfPage(int page_id, Database database) {
+			List<Media> media = new List<Media>();
+
+			DataTable mediaOfPagesData = database.Select("select * from media_of_pages where page_id=" + page_id);
+			foreach (DataRow row in mediaOfPagesData.Rows) {
+				int media_id = (int)row["media_id"];
+				int location = (int)row["location"];
+
+				DataTable mediaData = database.Select("select * from media where media_id=" + media_id);
+				foreach (DataRow mediaRow in mediaData.Rows) {
+					media.Add(new Media(media_id, mediaRow["type"].ToString(), 
+						location, mediaRow["file"].ToString(), mediaRow["content"].ToString()));
+				}
+			}
+
+			return media;
+		}
+
 		// GET: api/pages
 		[HttpGet]
 		public string Get() {
-			Page[] pages = new Page[] {
-				new Page(1, "Homepage", new Media[] { 
-					new Media(1, "image", 1, "image1.png"),
-					new Media(2, "text", 2, "info_text.txt")
-				}),
-				new Page(2, "Bloedprikken", new Media[] { 
-					new Media(1, "image", 1, "image1.png") 
-				})
-			};
+			List<Page> pages = new List<Page>();
+
+			Database database = new Database();
+			DataTable pagesData = database.Select("select * from pages");
+
+			foreach (DataRow row in pagesData.Rows) {
+				int page_id = (int)row["id"];
+				List<Media> mediaOfPage = getMediaOfPage(page_id, database);
+
+				Page page = new Page(page_id, row["name"].ToString(), mediaOfPage);
+				pages.Add(page);
+			}
 
 			JsonSerializerOptions jsonOptions = new JsonSerializerOptions() {
 				WriteIndented=true
@@ -38,13 +60,23 @@ namespace Project_C_Website.controllers {
 			return JsonSerializer.Serialize(pages, jsonOptions);
 		}
 
-		// GET api/pages/5
+		// GET api/pages/1
 		[HttpGet("{id}")]
 		public string Get(int id) {
-			// Find the page in the database.
-			Page page = new Page(1, "Homepage", new Media[] { new Media(1, "image", 1, "image1.png") });
+			Database database = new Database();
+			DataTable pagesData = database.Select("select * from pages where id=" + id);
 
-			return JsonSerializer.Serialize(page, jsonOptions);
+			foreach (DataRow row in pagesData.Rows) {
+				List<Media> media = this.getMediaOfPage(id, database);
+				Page page = new Page(id, row["name"].ToString(), media);
+
+				return JsonSerializer.Serialize(page, jsonOptions);
+			}
+
+			this.HttpContext.Response.StatusCode = 404;
+			return JsonSerializer.Serialize(new {
+				message = "Not Found"
+			});
 		}
 
 		// POST api/pages
