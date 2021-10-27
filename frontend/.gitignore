@@ -1,4 +1,5 @@
 .DS_Store
+node_modules
 /dist
 
 
@@ -20,8 +21,3 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
-
-backend/bin/
-backend/wwwroot/
-
-frontend/node_modules/
