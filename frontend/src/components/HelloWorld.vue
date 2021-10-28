@@ -6,7 +6,10 @@
       <button type="submit" @click="userLogin()">Log in</button>
       <h3 v-if="response.data == ''">{{errormessage}}</h3>
       <h3>{{response.data}}</h3>
+      <button @click="twoFactorAuthentication()">2FA</button>
+
     </div>
+    <qrcode-vue style="margin-top: 50px;"  :value="qr" :size="size" level="H" />
   </div>
 </template>
 
@@ -14,13 +17,41 @@
 
 import { ref } from 'vue';
 import axios from 'axios';
-
+import QrcodeVue from 'qrcode.vue'
+import {
+  generateSecret,
+  encodeReadableSecret,
+  generateTOTPuri,
+  totpGenerate
+} from 'tiffy';
 const URL_base = '/api/auth/login'
 const message_email = ref('');
 const message_password = ref('');
 const errormessage = ref('');
 let response = ref('');
 
+
+
+// Output: true/false
+async function twoFactorAuthentication(){
+  const secret = generateSecret();
+  const readableSecret = encodeReadableSecret( secret );
+  const uri = generateTOTPuri( readableSecret, 'maxwellium', 'tiffy' );
+
+
+  console.log( 'readable secret:', readableSecret );
+
+  console.log(
+    `https://chart.googleapis.com/chart?cht=qr&chl=${ encodeURIComponent( uri ) }&chs=256x256`
+  );
+  console.log( 'scan it with your authenticator app to test it' );
+
+  console.log( totpGenerate( secret ) );
+
+
+  setInterval( () => console.log( totpGenerate( secret ) ), 10000 );
+  
+}
 function userLogin(){
   errormessage.value = ''
   if(!validateEmail() ){
