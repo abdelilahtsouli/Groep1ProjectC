@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "axios": "^0.23.0",
+    "qrcode": "^1.4.4",
+    "speakeasy": "^2.0.0",
     "vue": "^3.0.0",
     "vue-class-component": "^8.0.0-0"
   },

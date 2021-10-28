@@ -4,12 +4,11 @@
       <input @keyup.enter="userLogin" v-model="message_email" placeholder="Email">
       <input @keyup.enter="userLogin" v-model="message_password"  type="password" placeholder="Password">
       <button type="submit" @click="userLogin()">Log in</button>
-      <h3 v-if="response.data == ''">{{errormessage}}</h3>
-      <h3>{{response.data}}</h3>
+        <h3>{{errormessage}}</h3>
+        <h3>{{response.data}}</h3>
       <button @click="twoFactorAuthentication()">2FA</button>
-
+        <img v-if="response" :src='QR_Code'>
     </div>
-    <qrcode-vue style="margin-top: 50px;"  :value="qr" :size="size" level="H" />
   </div>
 </template>
 
@@ -17,58 +16,47 @@
 
 import { ref } from 'vue';
 import axios from 'axios';
-import QrcodeVue from 'qrcode.vue'
-import {
-  generateSecret,
-  encodeReadableSecret,
-  generateTOTPuri,
-  totpGenerate
-} from 'tiffy';
+import speakeasy from 'speakeasy';
+import qrcode from 'qrcode';
+import { error } from 'jquery';
+
 const URL_base = '/api/auth/login'
 const message_email = ref('');
 const message_password = ref('');
 const errormessage = ref('');
 let response = ref('');
 
+let QR_Code = ref('');
 
 
-// Output: true/false
-async function twoFactorAuthentication(){
-  const secret = generateSecret();
-  const readableSecret = encodeReadableSecret( secret );
-  const uri = generateTOTPuri( readableSecret, 'maxwellium', 'tiffy' );
 
+function twoFactorAuthentication(){
+  var secret = speakeasy.generateSecret({
+    name: "Star-shl"
+  })
 
-  console.log( 'readable secret:', readableSecret );
-
-  console.log(
-    `https://chart.googleapis.com/chart?cht=qr&chl=${ encodeURIComponent( uri ) }&chs=256x256`
-  );
-  console.log( 'scan it with your authenticator app to test it' );
-
-  console.log( totpGenerate( secret ) );
-
-
-  setInterval( () => console.log( totpGenerate( secret ) ), 10000 );
-  
+  qrcode.toDataURL(secret.otpauth_url, function(err: any,data: any){
+    QR_Code.value = data
+  })
 }
+
 function userLogin(){
-  errormessage.value = ''
+
   if(!validateEmail() ){
     errormessage.value = "You must enter a valid Email";
     return
   }
-
-  if(message_password.value == ""){
-    errormessage.value = "You must enter a valid password"
+  if(message_password.value == ''){
+    errormessage.value = "Enter a password"
     return
   }
-  
+
+
   var bodyFormData = new FormData();
   bodyFormData.append('email', message_email.value);
   bodyFormData.append('password', message_password.value);
-  axios.post(URL_base, bodyFormData).then((Response: any) => response.value = Response, (error: any) => {console.log(error)});
-  console.log(response.value);
+  axios.post(URL_base, bodyFormData).then((Response: any) => response.value = Response, (error: any) => {console.log(error.value)});
+
 }
 
 
