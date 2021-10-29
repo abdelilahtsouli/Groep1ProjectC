@@ -56,6 +56,11 @@ namespace Project_C_Website {
 					pattern: "login",
 					defaults: new AuthController()
 				);
+				endpoints.MapControllerRoute(
+					name: "/api/auth/",
+					pattern: "2FA",
+					defaults: new twoFAcontroller()
+				);
 			});
 		}
 	}

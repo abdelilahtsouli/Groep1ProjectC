@@ -12,6 +12,3 @@ declare module '*.qrcode'{
   import type {qrcode} from 'qrcode'
 }
 declare module '*./router';
-declare module '@bachdgvn/vue-otp-input'{
-  import type OtpInput from '@bachdgvn/vue-otp-input'
-}

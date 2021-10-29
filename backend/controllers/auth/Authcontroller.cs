@@ -31,11 +31,20 @@ namespace Project_C_Website.controllers {
 			// Loop through each row in the query and check if the details are correct.
 			foreach (DataRow row in data.Rows) {
 				if (row["email"].ToString() == email_input && row["password"].ToString() == password_input) {
-					return row["2FA"].ToString();
+					
+					return JsonSerializer.Serialize(new {
+						id = Int32.Parse(row["id"].ToString()),
+						twoFAenabled = bool.Parse(row["twoFA"].ToString()),
+						secret = row["secret_key"].ToString(),
+						success = true
+					});
 				}
 			}
 
-			return "Either the email or the password is incorrect";
+			return JsonSerializer.Serialize(new{
+				success = false,
+				message = "Either the email or the password is incorrect"
+			});
 		}
 	}
 }

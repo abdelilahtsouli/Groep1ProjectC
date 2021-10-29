@@ -8,16 +8,20 @@ const routes = [
     {
         path: '/',
         name: 'Home',
+        props: true,
         component: Login
+
     },  
     {
         path: '/twoFASetup',
         name: 'twoFA',
+        props: true,
         component: twoFASetup
     },
     {
-        path: '/twoFAverify',
-        name: 'verify',
+        path: '/Verify2FA',
+        name: 'verify2FA',
+        props: true,
         component: twoFAverify
     }
 ]

@@ -1,14 +1,9 @@
 <template>
     <div class="2FA">
-        <div style="display: flex; flex-direction: row;" class="2FA-Verify">
-            <v-otp-input
-            ref="otpInput"
-            input-classes="otp-input"
-            separator="-"
-            :num-inputs="6"
-            :should-auto-focus="true"
-            :is-input-num="true"
-                />
+        <div class="2FA-Verify">
+            <input v-model="verify_Token" placeholder="6-digit code recieved in the Authenticator app">
+            <button type="submit" @click="Verify()">Verify</button>
+            <h5 v-if="verified == true">Succesvol ingelogd!</h5>
         </div>
     </div>
 </template>
@@ -17,7 +12,22 @@
 
 <script lang="ts" setup>
 
+import { ref } from 'vue';
+import {defineProps} from 'vue';
+import speakeasy from 'speakeasy';
 
+const props = defineProps<{id : string, secret: string}>();
+const verify_Token = ref('');
+
+function Verify(){
+    console.log(props.secret)
+    console.log(verify_Token.value)
+    var verified = speakeasy.totp.verify({
+        secret: props.secret,
+        token: verify_Token.value
+    })
+    console.log(verified)
+}
 
 </script>
 

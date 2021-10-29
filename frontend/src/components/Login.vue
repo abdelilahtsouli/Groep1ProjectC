@@ -16,6 +16,7 @@ import axios from 'axios';
 import speakeasy from 'speakeasy';
 import qrcode from 'qrcode';
 import router from '../router';
+import { error } from 'jquery';
 
 
 
@@ -23,10 +24,10 @@ const URL_base = '/api/auth/login'
 const message_email = ref('');
 const message_password = ref('');
 const errormessage = ref('');
-const response = ref('');
 
 
-async function userLogin(){
+
+function userLogin(){
 
   if(!validateEmail() ){
     errormessage.value = "You must enter a valid Email";
@@ -41,14 +42,17 @@ async function userLogin(){
   var bodyFormData = new FormData();
   bodyFormData.append('email', message_email.value);
   bodyFormData.append('password', message_password.value);
-  await axios.post(URL_base, bodyFormData).then((Response: any) => response.value = Response, (error: any) => {console.log(error.value)});
-  console.log(response.value)
-  if(response.value.data == 'True' ){
-    router.push('twoFASetup')
-  }
-  else{
-    router.push('twoFAverify')
-  }
+  axios.post(URL_base, bodyFormData).then((Response: any) =>{
+    if(Response.data.twoFAenabled == false){
+    router.push({name: 'twoFA', params: {id: Response.data.id}})
+    }
+    else if(Response.data.twoFAenabled == true){
+    router.push({name: 'verify2FA', params: {id: Response.data.id, secret: Response.data.secret}})
+    }
+  }, (error: any) => {console.log(error.value)}).catch(e => {
+    console.log(e);
+});
+
 }
 
 function validateEmail() {

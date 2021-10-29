@@ -20,8 +20,9 @@ namespace Project_C_Website {
 
 		public void Query(string sql) {
 			NpgsqlCommand query = new NpgsqlCommand(sql, this.server.conn);
-			query.ExecuteReader();
+			query.ExecuteNonQuery();
 		}
+		
 
 		public DataTable Select(string sql) {
 			// Execute the query.
