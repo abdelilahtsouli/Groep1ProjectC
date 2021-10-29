@@ -5,9 +5,6 @@
       <input @keyup.enter="userLogin" v-model="message_password"  type="password" placeholder="Password">
       <button type="submit" @click="userLogin()">Log in</button>
         <h3>{{errormessage}}</h3>
-        <h3>{{response.data}}</h3>
-      <button @click="twoFactorAuthentication()">2FA</button>
-        <img v-if="response" :src='QR_Code'>
     </div>
   </div>
 </template>
@@ -18,29 +15,18 @@ import { ref } from 'vue';
 import axios from 'axios';
 import speakeasy from 'speakeasy';
 import qrcode from 'qrcode';
-import { error } from 'jquery';
+import router from '../router';
+
+
 
 const URL_base = '/api/auth/login'
 const message_email = ref('');
 const message_password = ref('');
 const errormessage = ref('');
-let response = ref('');
-
-let QR_Code = ref('');
+const response = ref('');
 
 
-
-function twoFactorAuthentication(){
-  var secret = speakeasy.generateSecret({
-    name: "Star-shl"
-  })
-
-  qrcode.toDataURL(secret.otpauth_url, function(err: any,data: any){
-    QR_Code.value = data
-  })
-}
-
-function userLogin(){
+async function userLogin(){
 
   if(!validateEmail() ){
     errormessage.value = "You must enter a valid Email";
@@ -55,10 +41,15 @@ function userLogin(){
   var bodyFormData = new FormData();
   bodyFormData.append('email', message_email.value);
   bodyFormData.append('password', message_password.value);
-  axios.post(URL_base, bodyFormData).then((Response: any) => response.value = Response, (error: any) => {console.log(error.value)});
-
+  await axios.post(URL_base, bodyFormData).then((Response: any) => response.value = Response, (error: any) => {console.log(error.value)});
+  console.log(response.value)
+  if(response.value.data == 'True' ){
+    router.push('twoFASetup')
+  }
+  else{
+    router.push('twoFAverify')
+  }
 }
-
 
 function validateEmail() {
   const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
