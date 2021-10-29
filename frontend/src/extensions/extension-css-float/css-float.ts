@@ -33,7 +33,7 @@ export const CSSFloat = Extension.create<CSSFloatOptions>({
     return {
       types: [],
       alignments: ['left', 'center', 'right', 'inherit'],
-      defaultAlignment: 'left',
+      defaultAlignment: '',
     }
   },
 
