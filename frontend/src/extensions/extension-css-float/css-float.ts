@@ -2,39 +2,39 @@
 // https://www.w3schools.com/Jsref/prop_style_cssfloat.asp
 // https://developer.mozilla.org/en-US/docs/Web/CSS/float
 
-import { Extension } from '@tiptap/core'
+import { Extension } from "@tiptap/core";
 
 export interface CSSFloatOptions {
-  types: string[],
-  alignments: string[],
-  defaultAlignment: string,
+  types: string[];
+  alignments: string[];
+  defaultAlignment: string;
 }
 // // declare module '@tiptap/core' {
-declare module '@tiptap/core' {
+declare module "@tiptap/core" {
   interface Commands<ReturnType> {
     cssFloat: {
       /**
        * Set the text align attribute
        */
-      setCSSFloat: (alignment: string) => ReturnType,
+      setCSSFloat: (alignment: string) => ReturnType;
       /**
        * Unset the text align attribute
        */
-      unsetCSSFloat: () => ReturnType,
-    }
+      unsetCSSFloat: () => ReturnType;
+    };
   }
 }
 
 // export const CSSFloat = Extension.create<CSSFloatOptions>({
 export const CSSFloat = Extension.create<CSSFloatOptions>({
-  name: 'cssFloat',
+  name: "cssFloat",
 
   addOptions() {
     return {
       types: [],
-      alignments: ['left', 'center', 'right', 'inherit'],
-      defaultAlignment: 'left',
-    }
+      alignments: ["left", "center", "right", "inherit"],
+      defaultAlignment: "",
+    };
   },
 
   addGlobalAttributes() {
@@ -44,32 +44,41 @@ export const CSSFloat = Extension.create<CSSFloatOptions>({
         attributes: {
           cssFloat: {
             default: this.options.defaultAlignment,
-            parseHTML: element => element.style.cssFloat || this.options.defaultAlignment,
-            renderHTML: attributes => {
+            parseHTML: (element) =>
+              element.style.cssFloat || this.options.defaultAlignment,
+            renderHTML: (attributes) => {
               if (attributes.cssFloat === this.options.defaultAlignment) {
-                return {}
+                return {};
               }
 
-              return { style: `float: ${attributes.cssFloat}` }
+              return { style: `float: ${attributes.cssFloat}` };
             },
           },
         },
       },
-    ] 
+    ];
   },
 
   addCommands() {
     return {
-      setCSSFloat: (alignment: string) => ({ commands }) => {
-        if (!this.options.alignments.includes(alignment)) {
-          return false
-        }
+      setCSSFloat:
+        (alignment: string) =>
+        ({ commands }) => {
+          if (!this.options.alignments.includes(alignment)) {
+            return false;
+          }
 
-        return this.options.types.every(type => commands.updateAttributes(type, { cssFloat: alignment }))
-      },
-      unsetCSSFloat: () => ({ commands }) => {
-        return this.options.types.every(type => commands.resetAttributes(type, 'cssFloat'))
-      },
-    }
+          return this.options.types.every((type) =>
+            commands.updateAttributes(type, { cssFloat: alignment })
+          );
+        },
+      unsetCSSFloat:
+        () =>
+        ({ commands }) => {
+          return this.options.types.every((type) =>
+            commands.resetAttributes(type, "cssFloat")
+          );
+        },
+    };
   },
-})
+});
