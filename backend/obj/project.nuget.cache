@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "as1rrQbVNrpkV9T46C4tHDGzYjvuOuveDvtvtXCumQs6pJLhrCof/WNmGbuBW246jAEWqkf27boXYppsGet3rg==",
+  "dgSpecHash": "HQpfydjPF+NZFLB0WPqkKrrgxukqF0sQLH5GfI6aHeGF5Hs99CDH0D/HP9sgAvFran1UFPAjU6aSnY6fbafhzQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Gebruiker\\source\\repos\\Project C Website\\backend\\Project C Website.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Gebruiker\\Documents\\GitHub\\Groep1ProjectC\\backend\\Project C Website.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Gebruiker\\.nuget\\packages\\fsharp.core\\4.7.2\\fsharp.core.4.7.2.nupkg.sha512",
+    "C:\\Users\\Gebruiker\\.nuget\\packages\\npgsql\\5.0.3\\npgsql.5.0.3.nupkg.sha512",
+    "C:\\Users\\Gebruiker\\.nuget\\packages\\npgsql.fsharp\\4.0.0\\npgsql.fsharp.4.0.0.nupkg.sha512",
+    "C:\\Users\\Gebruiker\\.nuget\\packages\\ply\\0.3.1\\ply.0.3.1.nupkg.sha512",
+    "C:\\Users\\Gebruiker\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.6.0\\system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512",
+    "C:\\Users\\Gebruiker\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
+  ],
   "logs": []
 }

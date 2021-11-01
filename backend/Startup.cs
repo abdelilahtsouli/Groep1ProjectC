@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Project_C_Website.controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace Project_C_Website {
 
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services) {
-			services.AddRazorPages();
+			services.AddControllers();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,10 +39,17 @@ namespace Project_C_Website {
 
 			app.UseRouting();
 
-			app.UseAuthorization();
-
 			app.UseEndpoints(endpoints => {
-				endpoints.MapRazorPages();
+				endpoints.MapControllerRoute(
+					name: "/api/",
+					pattern: "pages",
+					defaults: new ApiPagesController()
+				);
+				endpoints.MapControllerRoute(
+					name: "/cdn/",
+					pattern: "",
+					defaults: new CdnController()
+				);
 			});
 		}
 	}
