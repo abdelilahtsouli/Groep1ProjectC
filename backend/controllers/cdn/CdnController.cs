@@ -18,7 +18,8 @@ namespace Project_C_Website.controllers {
 		[HttpGet("{id}")]
 		public IActionResult Get(int id) {
 			Database database = new Database();
-			DataTable data = database.Select("select * from media where media_id=" + id);
+			
+			DataTable data = database.BuildQuery("select * from media where media_id=" + id).Select();
 
 			foreach (DataRow row in data.Rows) {
 				String file = row["file"].ToString();

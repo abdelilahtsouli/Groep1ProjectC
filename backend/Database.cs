@@ -18,22 +18,8 @@ namespace Project_C_Website {
 			this.server = new Server(this.configuration);
 		}
 
-		public void Query(string sql) {
-			NpgsqlCommand query = new NpgsqlCommand(sql, this.server.conn);
-			query.ExecuteReader();
-		}
-
-		public DataTable Select(string sql) {
-			// Execute the query.
-			NpgsqlCommand query = new NpgsqlCommand(sql, this.server.conn);
-			query.Prepare();
-			NpgsqlDataAdapter da = new NpgsqlDataAdapter(query);
-
-			// Fill the datatable.
-			DataTable dt = new DataTable();
-			da.Fill(dt);
-
-			return dt;
+		public QueryBuilder BuildQuery(string sql) {
+			return new QueryBuilder(this.server.conn, sql);
 		}
 
 		public void Close() {
@@ -51,4 +37,36 @@ namespace Project_C_Website {
 			conn.Open();
 		}
 	}
+	
+	public class QueryBuilder {
+
+		private NpgsqlCommand command;
+
+		public QueryBuilder(NpgsqlConnection conn, string sql) {
+			this.command = new NpgsqlCommand(sql, conn);
+		}
+
+		public QueryBuilder AddParameter(string key, object value) {
+			this.command.Parameters.AddWithValue(key, value);
+
+			return this;
+		}
+
+		public void Query() {
+			this.command.ExecuteNonQuery();
+		}
+
+		public DataTable Select() {
+			this.command.Prepare();
+			NpgsqlDataAdapter da = new NpgsqlDataAdapter(command);
+
+			// Fill the datatable.
+			DataTable dt = new DataTable();
+			da.Fill(dt);
+
+			return dt;
+		}
+
+	}
+
 }
