@@ -1,31 +1,25 @@
-<script>
+<script lang="ts">
 import { Editor, EditorContent } from "@tiptap/vue-3";
 import StarterKit from "@tiptap/starter-kit";
 import TextAlign from "@tiptap/extension-text-align";
 import Image from "@tiptap/extension-image";
 import CSSFloat from "../extensions/extension-css-float";
+import { defineComponent, onBeforeUnmount, onMounted, computed } from "vue";
 
-export default {
+export default defineComponent({
   components: {
     EditorContent,
   },
-
-  emits: ["changeContent"],
 
   props: {
     id: Number,
     content: String,
   },
 
-  data() {
-    return {
-      editor: null,
-      submitted: false,
-    };
-  },
+  setup(props, { emit }) {
+    let submitted = false;
 
-  mounted() {
-    this.editor = new Editor({
+    const editor = new Editor({
       extensions: [
         StarterKit,
         TextAlign.configure({
@@ -34,33 +28,56 @@ export default {
         Image,
         CSSFloat.configure({ types: ["image"] }),
       ],
-      content: this.content,
+      content: props.content,
     });
-  },
 
-  beforeUnmount() {
-    this.editor.destroy();
-  },
+    onBeforeUnmount(() => {
+      if (editor != null) {
+        editor.destroy();
+      }
+    });
 
-  computed: {
-    checkIfChangesMade() {
-      if (this.editor != null) {
-        return this.content == this.editor.getHTML() ? false : true;
+    const checkIfChangesMade = computed(() => {
+      console.log("test");
+      console.log(editor.getHTML());
+      console.log(props.content);
+      if (editor != null) {
+        return props.content == editor.getHTML() ? false : true;
       } else {
         return true;
       }
-    },
-  },
+    });
 
-  methods: {
-    submit() {
-      this.submitted = true;
-      this.$emit("changeContent", this.id, this.editor.getHTML());
-    },
+    function submit(): void {
+      submitted = true;
+      emit("changeContent", props.id, editor.getHTML());
+    }
+
+    function setFloatOnDrop(event: DragEvent) {
+      console.log(event);
+
+      if (event.pageX > window.innerWidth / 2) {
+        editor.chain().focus().setCSSFloat("right").run();
+        editor.chain().focus().setTextAlign("right").run();
+      } else {
+        editor.chain().focus().setCSSFloat("left").run();
+        editor.chain().focus().setTextAlign("left").run();
+      }
+    }
+
+    return {
+      editor,
+      submitted,
+      checkIfChangesMade,
+      submit,
+      setFloatOnDrop,
+      onMounted,
+      onBeforeUnmount,
+    };
   },
-};
+});
 </script>
-  
+
 <template>
   <div>
     <!-- Text Editing Buttons -->
@@ -150,7 +167,7 @@ export default {
     </div>
 
     <!-- Editor -->
-    <editor-content :editor="editor" />
+    <editor-content :editor="editor" @drop="setFloatOnDrop($event)" />
 
     <!-- Submit button -->
     <br />
