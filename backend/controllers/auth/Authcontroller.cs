@@ -34,6 +34,7 @@ namespace Project_C_Website.controllers {
 					
 					return JsonSerializer.Serialize(new {
 						id = Int32.Parse(row["id"].ToString()),
+						email = email_input,
 						twoFAenabled = bool.Parse(row["twofa"].ToString()),
 						secret = row["secret_key"].ToString(),
 						success = true

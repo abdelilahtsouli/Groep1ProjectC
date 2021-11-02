@@ -24,7 +24,7 @@ import axios from "axios";
 import speakeasy from "speakeasy";
 import qrcode from "qrcode";
 import router from "../router";
-import { error } from "jquery";
+
 
 const URL_base = "/api/auth/login";
 const message_email = ref("");
@@ -41,6 +41,9 @@ function userLogin() {
     return;
   }
 
+    
+
+
   var bodyFormData = new FormData();
   bodyFormData.append("email", message_email.value);
   bodyFormData.append("password", message_password.value);
@@ -48,12 +51,16 @@ function userLogin() {
     .post(URL_base, bodyFormData)
     .then(
       (Response: any) => {
+
         if (Response.data.twoFAenabled == false) {
-          router.push({ name: "twoFA", params: { id: Response.data.id } });
+          router.push({
+            name: "twoFA", 
+            params: { id: Response.data.id } });
         } else if (Response.data.twoFAenabled == true) {
+
           router.push({
             name: "verify2FA",
-            params: { id: Response.data.id, secret: Response.data.secret },
+            params: { id: Response.data.id, secret: Response.data.secret},
           });
         }
       },

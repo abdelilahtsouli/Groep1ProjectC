@@ -1,40 +1,54 @@
 <template>
-  <div class="2FA">
-    <div class="2FA-Verify">
-      <input
-        v-model="verify_Token"
-        placeholder="6-digit code recieved in the Authenticator app"
-      />
-      <button type="submit" @click="Verify()">Verify</button>
-      <h5 v-if="verified == true">Succesvol ingelogd!</h5>
+    <div class="2FA">
+        <div class="2FA-Verify">
+            <input v-model="verify_Token" placeholder="6-digit code recieved in the Authenticator app">
+            <button type="submit" @click="Verify()">Verify</button>
+            <h5 v-if="verified">Succesvol ingelogd!</h5>
+        </div>
     </div>
-  </div>
 </template>
 
+
+
 <script lang="ts" setup>
-import { ref } from "vue";
-import { defineProps } from "vue";
-import speakeasy from "speakeasy";
-import { authenticator } from "otplib";
 
-const props = defineProps<{ id: string; secret: string }>();
-const verify_Token = ref("");
+import { onMounted, ref } from 'vue';
+import {defineProps} from 'vue';
+import speakeasy from 'speakeasy';
 
-function Verify() {
-  var verified = speakeasy.totp.verify({
-    secret: props.secret,
-    encoding: ["base32"],
-    token: verify_Token.value,
-  });
-  const isValid = authenticator.verify({
-    token: verify_Token.value,
-    secret: props.secret,
-  });
-  console.log(verified);
+const props = defineProps<{id : string, secret: string}>();
+const verify_Token = ref('');
+
+function Secret_key (){
+
+    const token = speakeasy.totp({
+        secret: props.secret,
+        encoding: ['base32'],
+    })
+    console.log(token)
 }
+
+
+
+
+function Verify(){
+    console.log(props.secret)
+    console.log(verify_Token.value)
+    var verified = speakeasy.totp.verify({
+        secret: props.secret,
+        encoding: ['base32'],
+        token: verify_Token.value
+        
+    });
+    console.log(verified)
+}
+onMounted(function () {
+  setInterval(()=> { Secret_key()}, 1000)
+});
 </script>
 
 <style scoped>
+
 .otp-input {
   width: 40px;
   height: 40px;

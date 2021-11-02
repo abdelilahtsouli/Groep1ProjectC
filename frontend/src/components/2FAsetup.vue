@@ -10,8 +10,8 @@
 <script lang="ts" setup>
 import { onMounted, ref } from "vue";
 import axios from "axios";
-import speakeasy from "speakeasy";
-import qrcode from "qrcode";
+import speakeasy from "@levminer/speakeasy";
+import QRcode from "qrcode";
 import { defineProps } from "vue";
 
 let QR_Code = ref("");
@@ -22,17 +22,20 @@ async function twoFactorAuthentication() {
   var secret = speakeasy.generateSecret({
     name: "Star-shl",
   });
+  console.log(secret)
   var bodyFormData = new FormData();
-  bodyFormData.append("secretKey", secret.ascii);
+  bodyFormData.append("secretKey", secret.base32);
   bodyFormData.append("id", props.id);
   await axios
     .post("/api/auth/2FA", bodyFormData)
     .then((Response: any) => (response.value = Response)),
     (error: any) => console.log(error);
-
-  qrcode.toDataURL(secret.otpauth_url, function (err: any, data: any) {
+  const url = speakeasy.otpauthURL({secret: secret.base32, label: `wouter@star-shl.nl` , encoding: 'base32'});
+  QRcode.toDataURL(url, function (err: any, data: any) {
     QR_Code.value = data;
   });
+  console.log(url);
+  console.log(QR_Code.value);
 }
 onMounted(async function () {
   twoFactorAuthentication();

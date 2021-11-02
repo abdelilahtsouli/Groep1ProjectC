@@ -22,15 +22,17 @@ namespace Project_C_Website.controllers {
 		public string Post() {
 
 			string secret = HttpContext.Request.Form["secretKey"];
-			string id = HttpContext.Request.Form["id"];
+			string email = HttpContext.Request.Form["email"];
+			string id = (HttpContext.Request.Form["id"]);
 
 			Database database = new Database();
-			database.BuildQuery($"UPDATE td_user SET secret_key = '@secret', twofa = TRUE WHERE id = '@id'")
+			database.BuildQuery($"UPDATE td_user SET secret_key = @secret, twofa = TRUE WHERE id = @id")
 				.AddParameter("secret", secret)
-				.AddParameter("id", id)
+				.AddParameter("id", Int32.Parse(id))
 				.Query();
-
-			return secret;
+			return JsonSerializer.Serialize(new{
+				secret, email
+			});
 		}
 	}
 }
