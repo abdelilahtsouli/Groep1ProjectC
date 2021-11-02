@@ -21,24 +21,6 @@ namespace Project_C_Website {
 		public QueryBuilder BuildQuery(string sql) {
 			return new QueryBuilder(this.server.conn, sql);
 		}
-		public void Query(string sql) {
-			NpgsqlCommand query = new NpgsqlCommand(sql, this.server.conn);
-			query.ExecuteNonQuery();
-		}
-		
-
-		public DataTable Select(string sql) {
-			// Execute the query.
-			NpgsqlCommand query = new NpgsqlCommand(sql, this.server.conn);
-			query.Prepare();
-			NpgsqlDataAdapter da = new NpgsqlDataAdapter(query);
-
-			// Fill the datatable.
-			DataTable dt = new DataTable();
-			da.Fill(dt);
-
-			return dt;
-		}
 
 		public void Close() {
 			this.server.conn.Close();
@@ -55,7 +37,7 @@ namespace Project_C_Website {
 			conn.Open();
 		}
 	}
-	
+
 	public class QueryBuilder {
 
 		private NpgsqlCommand command;

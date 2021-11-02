@@ -20,4 +20,8 @@
     <PackageReference Include="Npgsql.FSharp" Version="4.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Npgsql.FSharp" Version="4.0.0" />
+  </ItemGroup>
+
 </Project>
