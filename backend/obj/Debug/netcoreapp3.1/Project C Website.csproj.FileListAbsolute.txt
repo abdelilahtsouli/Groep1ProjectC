@@ -20,3 +20,95 @@ C:\Users\Gebruiker\source\repos\Project C Website\Project C Website\obj\Debug\ne
 C:\Users\Gebruiker\source\repos\Project C Website\Project C Website\obj\Debug\netcoreapp3.1\Project C Website.pdb
 C:\Users\Gebruiker\source\repos\Project C Website\Project C Website\obj\Debug\netcoreapp3.1\Project C Website.genruntimeconfig.cache
 C:\Users\Gebruiker\source\repos\Project C Website\Project C Website\obj\Debug\netcoreapp3.1\Project C Website.csproj.CopyComplete
+C:\Users\jamey\repos\vue\sandboxes\nothing\backend\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\jamey\repos\vue\sandboxes\nothing\backend\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\jamey\repos\vue\sandboxes\nothing\backend\bin\Debug\netcoreapp3.1\Project C Website.exe
+C:\Users\jamey\repos\vue\sandboxes\nothing\backend\bin\Debug\netcoreapp3.1\Project C Website.deps.json
+C:\Users\jamey\repos\vue\sandboxes\nothing\backend\bin\Debug\netcoreapp3.1\Project C Website.runtimeconfig.json
+C:\Users\jamey\repos\vue\sandboxes\nothing\backend\bin\Debug\netcoreapp3.1\Project C Website.runtimeconfig.dev.json
+C:\Users\jamey\repos\vue\sandboxes\nothing\backend\bin\Debug\netcoreapp3.1\Project C Website.dll
+C:\Users\jamey\repos\vue\sandboxes\nothing\backend\bin\Debug\netcoreapp3.1\Project C Website.pdb
+C:\Users\jamey\repos\vue\sandboxes\nothing\backend\bin\Debug\netcoreapp3.1\Project C Website.Views.dll
+C:\Users\jamey\repos\vue\sandboxes\nothing\backend\obj\Debug\netcoreapp3.1\Project C Website.csproj.AssemblyReference.cache
+C:\Users\jamey\repos\vue\sandboxes\nothing\backend\obj\Debug\netcoreapp3.1\Project C Website.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jamey\repos\vue\sandboxes\nothing\backend\obj\Debug\netcoreapp3.1\Project C Website.AssemblyInfoInputs.cache
+C:\Users\jamey\repos\vue\sandboxes\nothing\backend\obj\Debug\netcoreapp3.1\Project C Website.AssemblyInfo.cs
+C:\Users\jamey\repos\vue\sandboxes\nothing\backend\obj\Debug\netcoreapp3.1\Project C Website.csproj.CoreCompileInputs.cache
+C:\Users\jamey\repos\vue\sandboxes\nothing\backend\obj\Debug\netcoreapp3.1\Project C Website.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\jamey\repos\vue\sandboxes\nothing\backend\obj\Debug\netcoreapp3.1\staticwebassets\Project C Website.StaticWebAssets.Manifest.cache
+C:\Users\jamey\repos\vue\sandboxes\nothing\backend\obj\Debug\netcoreapp3.1\staticwebassets\Project C Website.StaticWebAssets.xml
+C:\Users\jamey\repos\vue\sandboxes\nothing\backend\obj\Debug\netcoreapp3.1\scopedcss\bundle\Project C Website.styles.css
+C:\Users\jamey\repos\vue\sandboxes\nothing\backend\obj\Debug\netcoreapp3.1\Project C Website.RazorTargetAssemblyInfo.cache
+C:\Users\jamey\repos\vue\sandboxes\nothing\backend\obj\Debug\netcoreapp3.1\Project C Website.dll
+C:\Users\jamey\repos\vue\sandboxes\nothing\backend\obj\Debug\netcoreapp3.1\Project C Website.pdb
+C:\Users\jamey\repos\vue\sandboxes\nothing\backend\obj\Debug\netcoreapp3.1\Project C Website.genruntimeconfig.cache
+C:\Users\jamey\repos\vue\sandboxes\nothing\backend\obj\Debug\netcoreapp3.1\Project C Website.csproj.CopyComplete
+C:\Users\jamey\repos\vue\proj-c-editors\test\backend\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\jamey\repos\vue\proj-c-editors\test\backend\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\jamey\repos\vue\proj-c-editors\test\backend\bin\Debug\netcoreapp3.1\Project C Website.exe
+C:\Users\jamey\repos\vue\proj-c-editors\test\backend\bin\Debug\netcoreapp3.1\Project C Website.deps.json
+C:\Users\jamey\repos\vue\proj-c-editors\test\backend\bin\Debug\netcoreapp3.1\Project C Website.runtimeconfig.json
+C:\Users\jamey\repos\vue\proj-c-editors\test\backend\bin\Debug\netcoreapp3.1\Project C Website.runtimeconfig.dev.json
+C:\Users\jamey\repos\vue\proj-c-editors\test\backend\bin\Debug\netcoreapp3.1\Project C Website.dll
+C:\Users\jamey\repos\vue\proj-c-editors\test\backend\bin\Debug\netcoreapp3.1\Project C Website.pdb
+C:\Users\jamey\repos\vue\proj-c-editors\test\backend\bin\Debug\netcoreapp3.1\Project C Website.Views.dll
+C:\Users\jamey\repos\vue\proj-c-editors\test\backend\obj\Debug\netcoreapp3.1\Project C Website.csproj.AssemblyReference.cache
+C:\Users\jamey\repos\vue\proj-c-editors\test\backend\obj\Debug\netcoreapp3.1\Project C Website.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jamey\repos\vue\proj-c-editors\test\backend\obj\Debug\netcoreapp3.1\Project C Website.AssemblyInfoInputs.cache
+C:\Users\jamey\repos\vue\proj-c-editors\test\backend\obj\Debug\netcoreapp3.1\Project C Website.AssemblyInfo.cs
+C:\Users\jamey\repos\vue\proj-c-editors\test\backend\obj\Debug\netcoreapp3.1\Project C Website.csproj.CoreCompileInputs.cache
+C:\Users\jamey\repos\vue\proj-c-editors\test\backend\obj\Debug\netcoreapp3.1\Project C Website.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\jamey\repos\vue\proj-c-editors\test\backend\obj\Debug\netcoreapp3.1\staticwebassets\Project C Website.StaticWebAssets.Manifest.cache
+C:\Users\jamey\repos\vue\proj-c-editors\test\backend\obj\Debug\netcoreapp3.1\staticwebassets\Project C Website.StaticWebAssets.xml
+C:\Users\jamey\repos\vue\proj-c-editors\test\backend\obj\Debug\netcoreapp3.1\scopedcss\bundle\Project C Website.styles.css
+C:\Users\jamey\repos\vue\proj-c-editors\test\backend\obj\Debug\netcoreapp3.1\Project C Website.RazorTargetAssemblyInfo.cache
+C:\Users\jamey\repos\vue\proj-c-editors\test\backend\obj\Debug\netcoreapp3.1\Project C Website.dll
+C:\Users\jamey\repos\vue\proj-c-editors\test\backend\obj\Debug\netcoreapp3.1\Project C Website.pdb
+C:\Users\jamey\repos\vue\proj-c-editors\test\backend\obj\Debug\netcoreapp3.1\Project C Website.genruntimeconfig.cache
+C:\Users\jamey\repos\vue\proj-c-editors\test\backend\obj\Debug\netcoreapp3.1\Project C Website.csproj.CopyComplete
+C:\Users\jamey\repos\vue\proj-c-editors\tiptap\v3-tt\backend\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\jamey\repos\vue\proj-c-editors\tiptap\v3-tt\backend\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\jamey\repos\vue\proj-c-editors\tiptap\v3-tt\backend\bin\Debug\netcoreapp3.1\Project C Website.exe
+C:\Users\jamey\repos\vue\proj-c-editors\tiptap\v3-tt\backend\bin\Debug\netcoreapp3.1\Project C Website.deps.json
+C:\Users\jamey\repos\vue\proj-c-editors\tiptap\v3-tt\backend\bin\Debug\netcoreapp3.1\Project C Website.runtimeconfig.json
+C:\Users\jamey\repos\vue\proj-c-editors\tiptap\v3-tt\backend\bin\Debug\netcoreapp3.1\Project C Website.runtimeconfig.dev.json
+C:\Users\jamey\repos\vue\proj-c-editors\tiptap\v3-tt\backend\bin\Debug\netcoreapp3.1\Project C Website.dll
+C:\Users\jamey\repos\vue\proj-c-editors\tiptap\v3-tt\backend\bin\Debug\netcoreapp3.1\Project C Website.pdb
+C:\Users\jamey\repos\vue\proj-c-editors\tiptap\v3-tt\backend\bin\Debug\netcoreapp3.1\Project C Website.Views.dll
+C:\Users\jamey\repos\vue\proj-c-editors\tiptap\v3-tt\backend\obj\Debug\netcoreapp3.1\Project C Website.csproj.AssemblyReference.cache
+C:\Users\jamey\repos\vue\proj-c-editors\tiptap\v3-tt\backend\obj\Debug\netcoreapp3.1\Project C Website.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jamey\repos\vue\proj-c-editors\tiptap\v3-tt\backend\obj\Debug\netcoreapp3.1\Project C Website.AssemblyInfoInputs.cache
+C:\Users\jamey\repos\vue\proj-c-editors\tiptap\v3-tt\backend\obj\Debug\netcoreapp3.1\Project C Website.AssemblyInfo.cs
+C:\Users\jamey\repos\vue\proj-c-editors\tiptap\v3-tt\backend\obj\Debug\netcoreapp3.1\Project C Website.csproj.CoreCompileInputs.cache
+C:\Users\jamey\repos\vue\proj-c-editors\tiptap\v3-tt\backend\obj\Debug\netcoreapp3.1\Project C Website.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\jamey\repos\vue\proj-c-editors\tiptap\v3-tt\backend\obj\Debug\netcoreapp3.1\staticwebassets\Project C Website.StaticWebAssets.Manifest.cache
+C:\Users\jamey\repos\vue\proj-c-editors\tiptap\v3-tt\backend\obj\Debug\netcoreapp3.1\staticwebassets\Project C Website.StaticWebAssets.xml
+C:\Users\jamey\repos\vue\proj-c-editors\tiptap\v3-tt\backend\obj\Debug\netcoreapp3.1\scopedcss\bundle\Project C Website.styles.css
+C:\Users\jamey\repos\vue\proj-c-editors\tiptap\v3-tt\backend\obj\Debug\netcoreapp3.1\Project C Website.RazorTargetAssemblyInfo.cache
+C:\Users\jamey\repos\vue\proj-c-editors\tiptap\v3-tt\backend\obj\Debug\netcoreapp3.1\Project C Website.dll
+C:\Users\jamey\repos\vue\proj-c-editors\tiptap\v3-tt\backend\obj\Debug\netcoreapp3.1\Project C Website.pdb
+C:\Users\jamey\repos\vue\proj-c-editors\tiptap\v3-tt\backend\obj\Debug\netcoreapp3.1\Project C Website.genruntimeconfig.cache
+C:\Users\jamey\repos\vue\proj-c-editors\tiptap\v3-tt\backend\obj\Debug\netcoreapp3.1\Project C Website.csproj.CopyComplete
+C:\Users\jamey\repos\vue\Groep1ProjectC\backend\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\jamey\repos\vue\Groep1ProjectC\backend\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\jamey\repos\vue\Groep1ProjectC\backend\bin\Debug\netcoreapp3.1\Project C Website.exe
+C:\Users\jamey\repos\vue\Groep1ProjectC\backend\bin\Debug\netcoreapp3.1\Project C Website.deps.json
+C:\Users\jamey\repos\vue\Groep1ProjectC\backend\bin\Debug\netcoreapp3.1\Project C Website.runtimeconfig.json
+C:\Users\jamey\repos\vue\Groep1ProjectC\backend\bin\Debug\netcoreapp3.1\Project C Website.runtimeconfig.dev.json
+C:\Users\jamey\repos\vue\Groep1ProjectC\backend\bin\Debug\netcoreapp3.1\Project C Website.dll
+C:\Users\jamey\repos\vue\Groep1ProjectC\backend\bin\Debug\netcoreapp3.1\Project C Website.pdb
+C:\Users\jamey\repos\vue\Groep1ProjectC\backend\bin\Debug\netcoreapp3.1\Project C Website.Views.dll
+C:\Users\jamey\repos\vue\Groep1ProjectC\backend\obj\Debug\netcoreapp3.1\Project C Website.csproj.AssemblyReference.cache
+C:\Users\jamey\repos\vue\Groep1ProjectC\backend\obj\Debug\netcoreapp3.1\Project C Website.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jamey\repos\vue\Groep1ProjectC\backend\obj\Debug\netcoreapp3.1\Project C Website.AssemblyInfoInputs.cache
+C:\Users\jamey\repos\vue\Groep1ProjectC\backend\obj\Debug\netcoreapp3.1\Project C Website.AssemblyInfo.cs
+C:\Users\jamey\repos\vue\Groep1ProjectC\backend\obj\Debug\netcoreapp3.1\Project C Website.csproj.CoreCompileInputs.cache
+C:\Users\jamey\repos\vue\Groep1ProjectC\backend\obj\Debug\netcoreapp3.1\Project C Website.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\jamey\repos\vue\Groep1ProjectC\backend\obj\Debug\netcoreapp3.1\staticwebassets\Project C Website.StaticWebAssets.Manifest.cache
+C:\Users\jamey\repos\vue\Groep1ProjectC\backend\obj\Debug\netcoreapp3.1\staticwebassets\Project C Website.StaticWebAssets.xml
+C:\Users\jamey\repos\vue\Groep1ProjectC\backend\obj\Debug\netcoreapp3.1\scopedcss\bundle\Project C Website.styles.css
+C:\Users\jamey\repos\vue\Groep1ProjectC\backend\obj\Debug\netcoreapp3.1\Project C Website.RazorTargetAssemblyInfo.cache
+C:\Users\jamey\repos\vue\Groep1ProjectC\backend\obj\Debug\netcoreapp3.1\Project C Website.dll
+C:\Users\jamey\repos\vue\Groep1ProjectC\backend\obj\Debug\netcoreapp3.1\Project C Website.pdb
+C:\Users\jamey\repos\vue\Groep1ProjectC\backend\obj\Debug\netcoreapp3.1\Project C Website.genruntimeconfig.cache
+C:\Users\jamey\repos\vue\Groep1ProjectC\backend\obj\Debug\netcoreapp3.1\Project C Website.csproj.CopyComplete

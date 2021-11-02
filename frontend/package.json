@@ -19,6 +19,10 @@
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
+    "@tiptap/extension-image": "^2.0.0-beta.20",
+    "@tiptap/extension-text-align": "^2.0.0-beta.24",
+    "@tiptap/starter-kit": "^2.0.0-beta.131",
+    "@tiptap/vue-3": "^2.0.0-beta.73",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "@vue/cli-plugin-eslint": "~4.5.0",

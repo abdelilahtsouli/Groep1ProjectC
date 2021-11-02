@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\backend"
+    "\\frontend",
+    "\\frontend\\src"
   ],
-  "SelectedNode": "\\backend\\Properties",
+  "SelectedNode": "\\frontend\\src\\App.vue",
   "PreviewInSolutionExplorer": false
 }
