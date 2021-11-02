@@ -1,17 +1,19 @@
 import Vue from 'vue';
-import {createRouter, createWebHistory} from 'vue-router';
+import {
+    createRouter,
+    createWebHistory
+} from 'vue-router';
 const Login = () => import('../components/Login.vue')
 const twoFASetup = () => import('../components/2FAsetup.vue')
 const twoFAverify = () => import('../components/Verify2FA.vue')
 
-const routes = [
-    {
+const routes = [{
         path: '/',
         name: 'Home',
         props: true,
         component: Login
 
-    },  
+    },
     {
         path: '/twoFASetup',
         name: 'twoFA',

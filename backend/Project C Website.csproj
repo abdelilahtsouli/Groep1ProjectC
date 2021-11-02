@@ -16,6 +16,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Npgsql.FSharp" Version="4.0.0" />
   </ItemGroup>
 
