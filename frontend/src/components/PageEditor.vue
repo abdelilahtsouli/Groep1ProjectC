@@ -37,7 +37,11 @@ export default defineComponent({
       }
     });
 
-    const checkIfChangesMade = computed(() => {
+    const checkIfChangesMade = computed(function () {
+      console.log("test");
+
+      console.log(props.content);
+      console.log(editor.getHTML());
       if (editor != null) {
         return props.content == editor.getHTML() ? false : true;
       } else {
@@ -88,6 +92,7 @@ export default defineComponent({
     <!-- Text Editing Buttons -->
 
     <div v-if="editor">
+      <h3>Text buttons</h3>
       <button @click="addImage">add image from URL</button>
       <button
         @click="editor.chain().focus().toggleHeading({ level: 1 }).run()"
@@ -152,6 +157,7 @@ export default defineComponent({
       <!-- Image editing buttons -->
       <br />
       <br />
+      <h3>Image buttons</h3>
       <button
         @click="editor.chain().focus().setCSSFloat('left').run()"
         :class="{ 'is-active': editor.isActive({ cssFloat: 'left' }) }"
@@ -209,6 +215,8 @@ export default defineComponent({
 .ProseMirror img {
   max-width: 100%;
   height: auto;
+  /* margin-left: 10px; */
+  /* margin-right: 10px; */
 }
 .ProseMirror img.ProseMirror-selectednode {
   outline: 3px solid #68cef8;

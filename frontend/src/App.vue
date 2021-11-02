@@ -32,7 +32,7 @@ export default {
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   setup() {
-    let page1 = ref(false);
+    let page1 = ref(true);
     let page2 = ref(false);
     return { page1, page2 };
   },
