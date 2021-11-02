@@ -30,11 +30,15 @@ namespace Project_C_Website.controllers {
 
 			// Loop through each row in the query and check if the details are correct.
 			foreach (DataRow row in data.Rows) {
+				Console.WriteLine(row["email"]);
+				Console.WriteLine(row["password"]);
+				Console.WriteLine(email_input);
+				Console.WriteLine(password_input);
 				if (row["email"].ToString() == email_input && row["password"].ToString() == password_input) {
 					
 					return JsonSerializer.Serialize(new {
 						id = Int32.Parse(row["id"].ToString()),
-						twoFAenabled = bool.Parse(row["twoFA"].ToString()),
+						twoFAenabled = bool.Parse(row["twofa"].ToString()),
 						secret = row["secret_key"].ToString(),
 						success = true
 					});

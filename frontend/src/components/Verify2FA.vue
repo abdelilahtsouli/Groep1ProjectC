@@ -15,17 +15,19 @@
 import { ref } from 'vue';
 import {defineProps} from 'vue';
 import speakeasy from 'speakeasy';
+import { authenticator } from 'otplib';
 
 const props = defineProps<{id : string, secret: string}>();
 const verify_Token = ref('');
 
 function Verify(){
-    console.log(props.secret)
-    console.log(verify_Token.value)
+
     var verified = speakeasy.totp.verify({
         secret: props.secret,
+        encoding: ['base32'],
         token: verify_Token.value
     })
+    const isValid = authenticator.verify({ token: verify_Token.value , secret: props.secret });
     console.log(verified)
 }
 

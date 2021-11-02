@@ -11,6 +11,7 @@
   "dependencies": {
     "@bachdgvn/vue-otp-input": "^1.0.8",
     "axios": "^0.23.0",
+    "otplib": "^12.0.1",
     "qrcode": "^1.4.4",
     "speakeasy": "^2.0.0",
     "vue": "^3.0.0",
