@@ -22,11 +22,13 @@ namespace Project_C_Website.controllers {
 		public string Post() {
 
 			string secret = HttpContext.Request.Form["secretKey"];
-
 			string id = HttpContext.Request.Form["id"];
+
 			Database database = new Database();
-			// database.Insert("INSERT INTO td_users (secret_key) VALUES " + secret, secret);
-			database.Query($"UPDATE td_user SET secret_key = '{secret}', twofa = TRUE WHERE id = '{id}'");
+			database.BuildQuery($"UPDATE td_user SET secret_key = '@secret', twofa = TRUE WHERE id = '@id'")
+				.AddParameter("secret", secret)
+				.AddParameter("id", id)
+				.Query();
 
 			return secret;
 		}

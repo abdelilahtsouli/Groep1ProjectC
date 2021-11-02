@@ -26,14 +26,10 @@ namespace Project_C_Website.controllers {
 
 			// Execute the query on the database.
 			Database database = new Database();
-			DataTable data = database.Select("select * from td_user");
+			DataTable data = database.BuildQuery("select * from td_user").Select();
 
 			// Loop through each row in the query and check if the details are correct.
 			foreach (DataRow row in data.Rows) {
-				Console.WriteLine(row["email"]);
-				Console.WriteLine(row["password"]);
-				Console.WriteLine(email_input);
-				Console.WriteLine(password_input);
 				if (row["email"].ToString() == email_input && row["password"].ToString() == password_input) {
 					
 					return JsonSerializer.Serialize(new {
