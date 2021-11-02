@@ -1,6 +1,9 @@
 import { createApp } from "vue";
 import App from "./App.vue";
+import router from './router';
 
-createApp(App).mount("#app");
+import { Vue } from "vue-class-component";
 
-console.log("Hello!");
+
+createApp(App).use(router).mount("#app");
+

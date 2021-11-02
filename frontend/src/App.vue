@@ -1,20 +1,26 @@
 <template>
-  <div>
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <div id="app">
+    <img style="width: 50%;" alt="Vue logo" src="./assets/logo.png" />
+    <router-view />
   </div>
-</template>
+</template> 
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
-import HelloWorld from "./components/HelloWorld.vue";
 
-@Options({
+import { Options, Vue } from "vue-class-component";
+import Login from "./components/Login.vue";
+import twoFASetup from "./components/2FAsetup.vue"
+
+
+@Options({ 
   components: {
-    HelloWorld,
+    Login,
+    twoFASetup
   },
 })
 export default class App extends Vue {}
+
+
 </script>
 
 <style>

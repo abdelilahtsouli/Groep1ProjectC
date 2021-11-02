@@ -274,19 +274,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Gebruiker\\.nuget\\packages\\": {}
+    "C:\\Users\\woute\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gebruiker\\Documents\\GitHub\\Groep1ProjectC\\backend\\Project C Website.csproj",
+      "projectUniqueName": "C:\\Users\\woute\\source\\repos\\Groep1ProjectC\\backend\\Project C Website.csproj",
       "projectName": "Project C Website",
-      "projectPath": "C:\\Users\\Gebruiker\\Documents\\GitHub\\Groep1ProjectC\\backend\\Project C Website.csproj",
-      "packagesPath": "C:\\Users\\Gebruiker\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gebruiker\\Documents\\GitHub\\Groep1ProjectC\\backend\\obj\\",
+      "projectPath": "C:\\Users\\woute\\source\\repos\\Groep1ProjectC\\backend\\Project C Website.csproj",
+      "packagesPath": "C:\\Users\\woute\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\woute\\source\\repos\\Groep1ProjectC\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Gebruiker\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\woute\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
