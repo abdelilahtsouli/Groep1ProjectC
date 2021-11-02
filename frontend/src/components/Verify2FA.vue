@@ -14,7 +14,9 @@
 
 import { onMounted, ref } from 'vue';
 import {defineProps} from 'vue';
-import speakeasy from 'speakeasy';
+import speakeasy from '@levminer/speakeasy';
+import { prop } from 'vue-class-component';
+import { authenticator } from "otplib";
 
 const props = defineProps<{id : string, secret: string}>();
 const verify_Token = ref('');
@@ -23,7 +25,7 @@ function Secret_key (){
 
     const token = speakeasy.totp({
         secret: props.secret,
-        encoding: ['base32'],
+        encoding: 'base32',
     })
     console.log(token)
 }
@@ -36,11 +38,13 @@ function Verify(){
     console.log(verify_Token.value)
     var verified = speakeasy.totp.verify({
         secret: props.secret,
-        encoding: ['base32'],
-        token: verify_Token.value
-        
+        encoding: 'base32',
+        token: verify_Token.value,
+        window: 2,
     });
+
     console.log(verified)
+
 }
 onMounted(function () {
   setInterval(()=> { Secret_key()}, 1000)

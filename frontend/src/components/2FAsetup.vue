@@ -22,6 +22,11 @@ async function twoFactorAuthentication() {
   var secret = speakeasy.generateSecret({
     name: "Star-shl",
   });
+  const temp_token = speakeasy.totp({
+        secret: secret.base32,
+        encoding: 'base32',
+  })
+
   console.log(secret)
   var bodyFormData = new FormData();
   bodyFormData.append("secretKey", secret.base32);
