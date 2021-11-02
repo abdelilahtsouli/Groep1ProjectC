@@ -38,9 +38,6 @@ export default defineComponent({
     });
 
     const checkIfChangesMade = computed(() => {
-      console.log("test");
-      console.log(editor.getHTML());
-      console.log(props.content);
       if (editor != null) {
         return props.content == editor.getHTML() ? false : true;
       } else {
@@ -65,12 +62,20 @@ export default defineComponent({
       }
     }
 
+    function addImage() {
+      const url = window.prompt("URL");
+
+      if (url) {
+        editor.chain().focus().setImage({ src: url }).run();
+      }
+    }
     return {
       editor,
       submitted,
       checkIfChangesMade,
       submit,
       setFloatOnDrop,
+      addImage,
       onMounted,
       onBeforeUnmount,
     };
@@ -83,6 +88,7 @@ export default defineComponent({
     <!-- Text Editing Buttons -->
 
     <div v-if="editor">
+      <button @click="addImage">add image from URL</button>
       <button
         @click="editor.chain().focus().toggleHeading({ level: 1 }).run()"
         :class="{ 'is-active': editor.isActive('heading', { level: 1 }) }"
@@ -182,6 +188,38 @@ export default defineComponent({
 </template>
 
 <style>
+.ProseMirror > * + * {
+  margin-top: 0.75em;
+}
+
+.ProseMirror ul,
+.ProseMirror ol {
+  padding: 0 1rem;
+}
+
+.ProseMirror h1,
+.ProseMirror h2,
+.ProseMirror h3,
+.ProseMirror h4,
+.ProseMirror h5,
+.ProseMirror h6 {
+  line-height: 1.1;
+}
+
+.ProseMirror img {
+  max-width: 100%;
+  height: auto;
+}
+.ProseMirror img.ProseMirror-selectednode {
+  outline: 3px solid #68cef8;
+}
+
+.ProseMirror hr {
+  border: none;
+  border-top: 2px solid rgba(13, 13, 13, 0.1);
+  margin: 2rem 0;
+}
+
 .is-active {
   background: #0d0d0d;
   color: #fff;
