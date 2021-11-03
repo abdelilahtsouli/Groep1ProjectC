@@ -12,11 +12,11 @@
 
 <script lang="ts" setup>
 
-import { onMounted, ref } from 'vue';
+import { ref } from 'vue';
 import {defineProps} from 'vue';
-import { prop } from 'vue-class-component';
+
 import axios from "axios";
-let temp_token = ''
+
 const props = defineProps<{id : string}>();
 const verify_Token = ref('');
 let verified = ref(false)
@@ -26,7 +26,6 @@ function Verify(){
     bodyFormData.append("id", props.id);
     bodyFormData.append("token_input", verify_Token.value)
     axios.post("/api/auth/2FAverify", bodyFormData).then((Response: any) => verified.value = Response.data.isCorrectPIN)
-    console.log(verified.value)
 }
 
 

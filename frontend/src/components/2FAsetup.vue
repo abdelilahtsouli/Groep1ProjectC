@@ -19,12 +19,11 @@ import { defineProps } from "vue";
 import router from "../router";
 
 let QR_Code = ref("");
-const response = ref('');
+
 const props = defineProps<{ id: string, email: string}>();
-var temp_secret = ref('');
+
 
 async function twoFactorAuthentication() {
-
 
   var bodyFormData = new FormData();
   bodyFormData.append("email", props.email);
@@ -34,7 +33,6 @@ async function twoFactorAuthentication() {
     .then((Response: any) => QR_Code.value = (Response.data.qrCodeImageUrl)),
     (error: any) => console.log(error);
   
-
 }
 onMounted(async function () {
   twoFactorAuthentication();

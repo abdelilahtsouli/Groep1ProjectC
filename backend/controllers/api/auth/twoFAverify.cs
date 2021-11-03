@@ -39,13 +39,6 @@ namespace Project_C_Website.controllers
 			
             TwoFactorAuthenticator tfa = new TwoFactorAuthenticator();
 			bool isCorrectPIN = tfa.ValidateTwoFactorPIN(secret, token, true);
-			
-
-
-
-
-
-
 			return JsonSerializer.Serialize(new
 			{
 				isCorrectPIN
