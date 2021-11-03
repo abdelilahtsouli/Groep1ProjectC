@@ -21,8 +21,7 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import axios from "axios";
-import speakeasy from "speakeasy";
-import qrcode from "qrcode";
+
 import router from "../router";
 
 
@@ -40,9 +39,6 @@ function userLogin() {
     errormessage.value = "Enter a password";
     return;
   }
-
-    
-
 
   var bodyFormData = new FormData();
   bodyFormData.append("email", message_email.value);
