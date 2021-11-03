@@ -1,7 +1,7 @@
 <template>
     <div class="2FA">
         <div class="2FA-Verify">
-            <input v-model="verify_Token" placeholder="6-digit code recieved in the Authenticator app">
+            <input  @keyup.enter="Verify" v-model="verify_Token" placeholder="6-digit code recieved in the Authenticator app">
             <button type="submit" @click="Verify()">Verify</button>
             <h5 v-if="verified">Succesvol ingelogd!</h5>
         </div>
@@ -17,38 +17,32 @@ import {defineProps} from 'vue';
 import speakeasy from '@levminer/speakeasy';
 import { prop } from 'vue-class-component';
 import { authenticator } from "otplib";
-
+let temp_token = ''
 const props = defineProps<{id : string, secret: string}>();
 const verify_Token = ref('');
+let verified = ref(false)
+function verify2fa(){
 
-function Secret_key (){
-
-    const token = speakeasy.totp({
+    temp_token = speakeasy.totp({
         secret: props.secret,
         encoding: 'base32',
-    })
-    console.log(token)
+
+  });
 }
-
-
-
 
 function Verify(){
-    console.log(props.secret)
-    console.log(verify_Token.value)
-    var verified = speakeasy.totp.verify({
-        secret: props.secret,
-        encoding: 'base32',
-        token: verify_Token.value,
-        window: 2,
-    });
-
-    console.log(verified)
-
+    if(temp_token == verify_Token.value){
+        verified.value =  true;
+    }
+    else{
+        verified.value = false
+    }
 }
-onMounted(function () {
-  setInterval(()=> { Secret_key()}, 1000)
+
+onMounted(function() {
+    setInterval(() => {verify2fa()}, 1000);
 });
+
 </script>
 
 <style scoped>
