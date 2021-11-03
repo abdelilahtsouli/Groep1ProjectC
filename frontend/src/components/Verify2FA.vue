@@ -14,34 +14,21 @@
 
 import { onMounted, ref } from 'vue';
 import {defineProps} from 'vue';
-import speakeasy from '@levminer/speakeasy';
 import { prop } from 'vue-class-component';
-import { authenticator } from "otplib";
+import axios from "axios";
 let temp_token = ''
-const props = defineProps<{id : string, secret: string}>();
+const props = defineProps<{id : string}>();
 const verify_Token = ref('');
 let verified = ref(false)
-function verify2fa(){
-
-    temp_token = speakeasy.totp({
-        secret: props.secret,
-        encoding: 'base32',
-
-  });
-}
 
 function Verify(){
-    if(temp_token == verify_Token.value){
-        verified.value =  true;
-    }
-    else{
-        verified.value = false
-    }
+    var bodyFormData = new FormData();
+    bodyFormData.append("id", props.id);
+    bodyFormData.append("token_input", verify_Token.value)
+    axios.post("/api/auth/2FAverify", bodyFormData).then((Response: any) => verified.value = Response.data.isCorrectPIN)
+    console.log(verified.value)
 }
 
-onMounted(function() {
-    setInterval(() => {verify2fa()}, 1000);
-});
 
 </script>
 

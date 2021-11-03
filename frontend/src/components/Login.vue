@@ -56,7 +56,7 @@ function userLogin() {
 
           router.push({
             name: "verify2FA",
-            params: { id: Response.data.id, secret: Response.data.secret},
+            params: { id: Response.data.id, email: Response.data.email},
           });
         }
       },

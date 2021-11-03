@@ -1,13 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "c9TGSnHJWuNBfFWCViO9CVvGRHsB7RlL6SaLZTH/zBeP38GGw5LoGV/FSsoZ8X8kE1yhRupLN0EsVGQmCEot+Q==",
+  "dgSpecHash": "H3AaJFMdvSXgblZ6mdp15RBTEg/pAVkuVnL3r5u/w6zKJ7JklIKoJN/VhPNUjT9KvPFIsPlL2IsDAwUlYBc7cA==",
   "success": true,
   "projectFilePath": "C:\\Users\\woute\\source\\repos\\abdelilahtsouli\\Groep1ProjectC\\backend\\Project C Website.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\woute\\.nuget\\packages\\fsharp.core\\4.7.2\\fsharp.core.4.7.2.nupkg.sha512",
+    "C:\\Users\\woute\\.nuget\\packages\\googleauthenticator\\2.2.0\\googleauthenticator.2.2.0.nupkg.sha512",
+    "C:\\Users\\woute\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\woute\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\woute\\.nuget\\packages\\npgsql\\5.0.3\\npgsql.5.0.3.nupkg.sha512",
     "C:\\Users\\woute\\.nuget\\packages\\npgsql.fsharp\\4.0.0\\npgsql.fsharp.4.0.0.nupkg.sha512",
     "C:\\Users\\woute\\.nuget\\packages\\ply\\0.3.1\\ply.0.3.1.nupkg.sha512",
+    "C:\\Users\\woute\\.nuget\\packages\\qrcoder\\1.4.1\\qrcoder.1.4.1.nupkg.sha512",
+    "C:\\Users\\woute\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
     "C:\\Users\\woute\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.6.0\\system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512",
     "C:\\Users\\woute\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
   ],
