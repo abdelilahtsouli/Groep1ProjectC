@@ -1,10 +1,20 @@
 <script lang="ts">
+import { defineComponent, onBeforeUnmount, onMounted, computed } from "vue";
+// Standard Tiptap modules & extensions
 import { Editor, EditorContent } from "@tiptap/vue-3";
 import StarterKit from "@tiptap/starter-kit";
 import TextAlign from "@tiptap/extension-text-align";
 import Image from "@tiptap/extension-image";
+// Custom Tiptap extensions
 import CSSFloat from "../extensions/extension-css-float";
-import { defineComponent, onBeforeUnmount, onMounted, computed } from "vue";
+import Video from "../extensions/extension-video";
+import Source from "../extensions/extension-source";
+import SourceSrc from "../extensions/extension-source-src";
+import SourceType from "../extensions/extension-source-type";
+import HeightAttr from "../extensions/extension-height-attr";
+import WidthAttr from "../extensions/extension-width-attr";
+import ControlsAttr from "../extensions/extension-controls-attr";
+import ControlsListAttr from "../extensions/extension-controlslist-attr";
 
 export default defineComponent({
   components: {
@@ -21,12 +31,22 @@ export default defineComponent({
 
     const editor = new Editor({
       extensions: [
+        // Standard extensions
         StarterKit,
         TextAlign.configure({
           types: ["heading", "paragraph"],
         }),
         Image,
-        CSSFloat.configure({ types: ["image"] }),
+        // Custom extensions
+        Video,
+        Source,
+        CSSFloat.configure({ types: ["image", "video"] }),
+        SourceSrc.configure({ types: ["source"] }),
+        SourceType.configure({ types: ["source"] }),
+        HeightAttr.configure({ types: ["video"] }),
+        WidthAttr.configure({ types: ["video"] }),
+        ControlsAttr.configure({ types: ["video"] }),
+        ControlsListAttr.configure({ types: ["video"] }),
       ],
       content: props.content,
     });
@@ -38,10 +58,6 @@ export default defineComponent({
     });
 
     const checkIfChangesMade = computed(function () {
-      console.log("test");
-
-      console.log(props.content);
-      console.log(editor.getHTML());
       if (editor != null) {
         return props.content == editor.getHTML() ? false : true;
       } else {
@@ -51,6 +67,8 @@ export default defineComponent({
 
     function submit(): void {
       submitted = true;
+      // console.log(props.content);
+      // console.log(editor.getHTML());
       emit("changeContent", props.id, editor.getHTML());
     }
 
@@ -73,6 +91,7 @@ export default defineComponent({
         editor.chain().focus().setImage({ src: url }).run();
       }
     }
+
     return {
       editor,
       submitted,
@@ -198,10 +217,10 @@ export default defineComponent({
   margin-top: 0.75em;
 }
 
-.ProseMirror ul,
+/* .ProseMirror ul,
 .ProseMirror ol {
   padding: 0 1rem;
-}
+} */
 
 .ProseMirror h1,
 .ProseMirror h2,
@@ -212,12 +231,12 @@ export default defineComponent({
   line-height: 1.1;
 }
 
-.ProseMirror img {
+/* .ProseMirror img {
   max-width: 100%;
-  height: auto;
-  /* margin-left: 10px; */
-  /* margin-right: 10px; */
-}
+  height: auto; 
+  margin-left: 10px;
+  margin-right: 10px; 
+} */
 .ProseMirror img.ProseMirror-selectednode {
   outline: 3px solid #68cef8;
 }
@@ -231,5 +250,9 @@ export default defineComponent({
 .is-active {
   background: #0d0d0d;
   color: #fff;
+}
+
+.ProseMirror video.ProseMirror-selectednode {
+  outline: 3px solid #68cef8;
 }
 </style>

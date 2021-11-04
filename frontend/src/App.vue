@@ -2,14 +2,16 @@
   <button
     @click="
       page1 = true;
-      page2 = false;"
+      page2 = false;
+    "
   >
     Admin editor
   </button>
   <button
     @click="
       page2 = true;
-      page1 = false;"
+      page1 = false;
+    "
   >
     Admin login
   </button>

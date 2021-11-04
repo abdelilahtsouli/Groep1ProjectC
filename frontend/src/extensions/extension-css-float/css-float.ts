@@ -45,7 +45,6 @@ export const CSSFloat = Extension.create<CSSFloatOptions>({
               if (attributes.cssFloat === this.options.defaultAlignment) {
                 return {};
               }
-
               if (attributes.cssFloat == "left") {
                 return {
                   style: `float: ${attributes.cssFloat};margin-right: 10px;`,
