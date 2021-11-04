@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <img style="width: 50%" alt="Vue logo" src="../assets/logo.png" />
+    <img style="  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;" alt="Vue logo" src="../assets/logo.png" />
     <router-view />
   </div>
 </template>

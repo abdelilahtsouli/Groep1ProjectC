@@ -32,18 +32,21 @@ function Verify(){
 </script>
 
 <style scoped>
-
-.otp-input {
-  width: 40px;
-  height: 40px;
-  padding: 5px;
-  margin: 0 10px;
-  font-size: 20px;
-  border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  text-align: "center";
+input{
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
-.error {
-  border: 1px solid red !important;
+button{
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 </style>
