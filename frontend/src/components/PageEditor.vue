@@ -1,16 +1,21 @@
 <script lang="ts">
 import { defineComponent, onBeforeUnmount, onMounted, computed } from "vue";
+
 // Standard Tiptap modules & extensions
 import { Editor, EditorContent } from "@tiptap/vue-3";
 import StarterKit from "@tiptap/starter-kit";
 import TextAlign from "@tiptap/extension-text-align";
 import Image from "@tiptap/extension-image";
-// Custom Tiptap extensions
-import CSSFloat from "../extensions/extension-css-float";
+
+// Custom Tiptap modules & extensions
+// -- HTML Tags
 import Video from "../extensions/extension-video";
 import Source from "../extensions/extension-source";
-import SourceSrc from "../extensions/extension-source-src";
-import SourceType from "../extensions/extension-source-type";
+// -- Styling CSS
+import CSSFloat from "../extensions/extension-css-float";
+// -- HTMLElement Attributes
+import SourceSrc from "../extensions/extension-src-attr";
+import SourceType from "../extensions/extension-type-attr";
 import HeightAttr from "../extensions/extension-height-attr";
 import WidthAttr from "../extensions/extension-width-attr";
 import ControlsAttr from "../extensions/extension-controls-attr";
@@ -76,10 +81,14 @@ export default defineComponent({
       console.log(event);
 
       if (event.pageX > window.innerWidth / 2) {
+        // If Image
         editor.chain().focus().setCSSFloat("right").run();
+        // If Text (paragraph, heading)
         editor.chain().focus().setTextAlign("right").run();
       } else {
+        // If Image
         editor.chain().focus().setCSSFloat("left").run();
+        // If Text (paragraph, heading)
         editor.chain().focus().setTextAlign("left").run();
       }
     }
@@ -108,11 +117,10 @@ export default defineComponent({
 
 <template>
   <div>
-    <!-- Text Editing Buttons -->
-
+    <!-- Editor Buttons -->
     <div v-if="editor">
+      <!-- Text Editing Buttons -->
       <h3>Text buttons</h3>
-      <button @click="addImage">add image from URL</button>
       <button
         @click="editor.chain().focus().toggleHeading({ level: 1 }).run()"
         :class="{ 'is-active': editor.isActive('heading', { level: 1 }) }"
@@ -130,6 +138,24 @@ export default defineComponent({
         :class="{ 'is-active': editor.isActive('heading', { level: 3 }) }"
       >
         h3
+      </button>
+      <button
+        @click="editor.chain().focus().toggleHeading({ level: 4 }).run()"
+        :class="{ 'is-active': editor.isActive('heading', { level: 4 }) }"
+      >
+        h4
+      </button>
+      <button
+        @click="editor.chain().focus().toggleHeading({ level: 5 }).run()"
+        :class="{ 'is-active': editor.isActive('heading', { level: 5 }) }"
+      >
+        h5
+      </button>
+      <button
+        @click="editor.chain().focus().toggleHeading({ level: 6 }).run()"
+        :class="{ 'is-active': editor.isActive('heading', { level: 6 }) }"
+      >
+        h6
       </button>
       <button
         @click="editor.chain().focus().setParagraph().run()"
@@ -173,10 +199,38 @@ export default defineComponent({
       >
         right
       </button>
+      <button @click="editor.chain().focus().setHorizontalRule().run()">
+        horizontal rule
+      </button>
+      <button @click="editor.chain().focus().setHardBreak().run()">
+        hard break
+      </button>
+      <!-- <button
+        @click="editor.chain().focus().toggleBlockquote().run()"
+        :class="{ 'is-active': editor.isActive('blockquote') }"
+      >
+        blockquote
+      </button> -->
+      <button @click="editor.chain().focus().undo().run()">undo</button>
+      <button @click="editor.chain().focus().redo().run()">redo</button>
+      <!-- <button
+        @click="editor.chain().focus().toggleBulletList().run()"
+        :class="{ 'is-active': editor.isActive('bulletList') }"
+      >
+        bullet list
+      </button>
+      <button
+        @click="editor.chain().focus().toggleOrderedList().run()"
+        :class="{ 'is-active': editor.isActive('orderedList') }"
+      >
+        ordered list
+      </button> -->
+      <br />
+      <br />
+
       <!-- Image editing buttons -->
-      <br />
-      <br />
       <h3>Image buttons</h3>
+      <button @click="addImage">add image from URL</button>
       <button
         @click="editor.chain().focus().setCSSFloat('left').run()"
         :class="{ 'is-active': editor.isActive({ cssFloat: 'left' }) }"
@@ -231,12 +285,13 @@ export default defineComponent({
   line-height: 1.1;
 }
 
-/* .ProseMirror img {
-  max-width: 100%;
+.ProseMirror img {
+  /* max-width: 100%;
   height: auto; 
   margin-left: 10px;
-  margin-right: 10px; 
-} */
+  margin-right: 10px;  */
+  margin-top: 0px;
+}
 .ProseMirror img.ProseMirror-selectednode {
   outline: 3px solid #68cef8;
 }
@@ -254,5 +309,10 @@ export default defineComponent({
 
 .ProseMirror video.ProseMirror-selectednode {
   outline: 3px solid #68cef8;
+}
+
+.ProseMirror blockquote {
+  padding-left: 1rem;
+  border-left: 2px solid rgba(13, 13, 13, 0.1);
 }
 </style>

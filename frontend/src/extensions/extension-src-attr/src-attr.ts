@@ -1,27 +1,27 @@
 import { Extension } from "@tiptap/core";
 
-export interface SourceTypeOptions {
+export interface SRCAttrOptions {
   types: string[];
   default: string;
 }
 
 declare module "@tiptap/core" {
   interface Commands<ReturnType> {
-    sourceType: {
+    srcAttr: {
       /**
        * Set the float attribute
        */
-      setSourceType: (alignment: string) => ReturnType;
+      setSRCAttr: (alignment: string) => ReturnType;
       /**
        * Unset the float attribute
        */
-      unsetSourceType: () => ReturnType;
+      unsetSRCAttr: () => ReturnType;
     };
   }
 }
 
-export const SourceType = Extension.create<SourceTypeOptions>({
-  name: "sourceType",
+export const SRCAttr = Extension.create<SRCAttrOptions>({
+  name: "srcAttr",
 
   addOptions() {
     return {
@@ -35,15 +35,17 @@ export const SourceType = Extension.create<SourceTypeOptions>({
       {
         types: this.options.types,
         attributes: {
-          type: {
+          srcAttr: {
             default: this.options.default,
             parseHTML: (element) =>
-              element.getAttribute("type") || this.options.default,
+              element.getAttribute("src") || this.options.default,
+            // element.style.cssFloat || this.options.defaultAlignment,
+            // element.hasAttribute("src")
             renderHTML: (attributes) => {
-              if (attributes.type === this.options.default) {
+              if (attributes.srcAttr === this.options.default) {
                 return {};
               }
-              return { type: attributes.type };
+              return { src: attributes.srcAttr };
             },
           },
         },
