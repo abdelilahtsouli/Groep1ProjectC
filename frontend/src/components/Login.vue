@@ -21,7 +21,7 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import axios from "axios";
-
+import bcrypt from 'bcryptjs';
 import router from "../router";
 
 
@@ -29,6 +29,12 @@ const URL_base = "/api/auth/login";
 const message_email = ref("");
 const message_password = ref("");
 const errormessage = ref("");
+const salt = ref("");
+
+// function encryptPassword(password){        
+//   salt.value = bcrypt.genSaltSync(10)
+//   message_password.value = bcrypt.hashSync(password, salt)
+// }
 
 function userLogin() {
   if (!validateEmail()) {
@@ -47,13 +53,12 @@ function userLogin() {
     .post(URL_base, bodyFormData)
     .then(
       (Response: any) => {
-
         if (Response.data.twoFAenabled == false) {
           router.push({
             name: "twoFA", 
             params: { id: Response.data.id } });
-        } else if (Response.data.twoFAenabled == true) {
-
+        }
+        else if (Response.data.twoFAenabled == true) {
           router.push({
             name: "verify2FA",
             params: { id: Response.data.id, email: Response.data.email},

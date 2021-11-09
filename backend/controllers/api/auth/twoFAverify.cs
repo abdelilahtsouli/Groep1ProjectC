@@ -9,7 +9,7 @@ using Microsoft.Extensions.Configuration;
 using System.IO;
 using System.Data;
 using Google.Authenticator;
-
+using System.Security.Cryptography;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Project_C_Website.controllers
@@ -28,6 +28,7 @@ namespace Project_C_Website.controllers
 			string secret = "";
 			string token = HttpContext.Request.Form["token_input"];
 			string id = (HttpContext.Request.Form["id"]);
+			string oauth_token = "";
 
 			Database database = new Database();
 			DataTable data = database.BuildQuery("select secret_key from td_user WHERE id = @id")
@@ -39,9 +40,23 @@ namespace Project_C_Website.controllers
 			
             TwoFactorAuthenticator tfa = new TwoFactorAuthenticator();
 			bool isCorrectPIN = tfa.ValidateTwoFactorPIN(secret, token, true);
+			//Generate secret oauth token every time a user logs in.
+			using(RandomNumberGenerator rng = new RNGCryptoServiceProvider())
+			{
+				byte[] tokenData = new byte[32];
+				rng.GetBytes(tokenData);
+				oauth_token = Convert.ToBase64String(tokenData);
+			}
+			//Update the oauth_token in the database.
+			database.BuildQuery($"UPDATE td_user SET oauth_token = @oauth_token WHERE id = @id")
+				.AddParameter("oauth_token", oauth_token)
+				.AddParameter("id", Int32.Parse(id))
+				.Query();
+
 			return JsonSerializer.Serialize(new
 			{
-				isCorrectPIN
+				isCorrectPIN,
+				token = oauth_token
 			});
 		}
 

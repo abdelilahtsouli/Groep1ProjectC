@@ -14,18 +14,27 @@
 
 import { ref } from 'vue';
 import {defineProps} from 'vue';
-
+import { VueCookieNext } from 'vue-cookie-next'
 import axios from "axios";
 
 const props = defineProps<{id : string}>();
 const verify_Token = ref('');
 let verified = ref(false)
+let token = ref('');
+
+function delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+}
 
 function Verify(){
     var bodyFormData = new FormData();
     bodyFormData.append("id", props.id);
     bodyFormData.append("token_input", verify_Token.value)
-    axios.post("/api/auth/2FAverify", bodyFormData).then((Response: any) => verified.value = Response.data.isCorrectPIN)
+    axios.post("/api/auth/2FAverify", bodyFormData).then((Response: any) => {verified.value = Response.data.isCorrectPIN, token.value = Response.data.token})
+    delay(1000);
+    if(verified.value){
+      VueCookieNext.setCookie("token", token.value, {expire :"1d"});
+    }
 }
 
 

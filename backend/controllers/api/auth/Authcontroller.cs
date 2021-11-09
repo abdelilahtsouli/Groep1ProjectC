@@ -23,15 +23,14 @@ namespace Project_C_Website.controllers {
 			// Get a value called email & password from the Request 
 			string email_input = HttpContext.Request.Form["email"];
 			string password_input = HttpContext.Request.Form["password"];
-
 			// Execute the query on the database.
 			Database database = new Database();
 			DataTable data = database.BuildQuery("select * from td_user").Select();
-
+		
 			// Loop through each row in the query and check if the details are correct.
 			foreach (DataRow row in data.Rows) {
 				if (row["email"].ToString() == email_input && row["password"].ToString() == password_input) {
-					
+
 					return JsonSerializer.Serialize(new {
 						id = Int32.Parse(row["id"].ToString()),
 						email = email_input,
