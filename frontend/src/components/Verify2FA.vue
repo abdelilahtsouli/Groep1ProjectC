@@ -26,12 +26,11 @@ function delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
 }
 
-function Verify(){
+async function Verify(){
     var bodyFormData = new FormData();
     bodyFormData.append("id", props.id);
     bodyFormData.append("token_input", verify_Token.value)
-    axios.post("/api/auth/2FAverify", bodyFormData).then((Response: any) => {verified.value = Response.data.isCorrectPIN, token.value = Response.data.token})
-    delay(1000);
+    await axios.post("/api/auth/2FAverify", bodyFormData).then((Response: any) => {verified.value = Response.data.isCorrectPIN, token.value = Response.data.token})
     if(verified.value){
       VueCookieNext.setCookie("token", token.value, {expire :"1d"});
     }
