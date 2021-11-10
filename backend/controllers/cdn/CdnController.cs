@@ -19,7 +19,9 @@ namespace Project_C_Website.controllers {
 		public IActionResult Get(int id) {
 			Database database = new Database();
 			
-			DataTable data = database.BuildQuery("select * from media where media_id=" + id).Select();
+			DataTable data = database.BuildQuery("select * from media where media_id=@id")
+				.AddParameter("id", id)
+				.Select();
 
 			foreach (DataRow row in data.Rows) {
 				String file = row["file"].ToString();
@@ -27,7 +29,8 @@ namespace Project_C_Website.controllers {
 				if (!System.IO.File.Exists(file)) {
 					this.HttpContext.Response.StatusCode = 500;
 					return Content(JsonSerializer.Serialize(new {
-						message = "Image Not Found (doesn't exist on the disk)"
+						Success = false,
+						Message = "Image Not Found (doesn't exist on the disk)"
 					}));
 				}
 
@@ -38,7 +41,8 @@ namespace Project_C_Website.controllers {
 
 			this.HttpContext.Response.StatusCode = 404;
 			return Content(JsonSerializer.Serialize(new {
-				message = "Not Found"
+				Success = false,
+				Message = "Not Found"
 			}));
 		}
 
