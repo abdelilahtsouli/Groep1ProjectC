@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
-using Project_C_Website.data;
 using System.Text.Json;
 using System.Data;
 using Npgsql;
