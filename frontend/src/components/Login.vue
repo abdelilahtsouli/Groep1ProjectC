@@ -21,7 +21,6 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import axios from "axios";
-import bcrypt from 'bcryptjs';
 import router from "../router";
 
 
@@ -29,7 +28,7 @@ const URL_base = "/api/auth/login";
 const message_email = ref("");
 const message_password = ref("");
 const errormessage = ref("");
-const salt = ref("");
+
 
 // function encryptPassword(password){        
 //   salt.value = bcrypt.genSaltSync(10)

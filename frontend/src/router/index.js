@@ -7,7 +7,7 @@ import {
 const Login = () => import('../components/Login.vue')
 const twoFASetup = () => import('../components/2FAsetup.vue')
 const twoFAverify = () => import('../components/Verify2FA.vue')
-
+const createaccount = () => import('../components/CreateAccount.vue')
 
 const routes = [
     {
@@ -28,6 +28,12 @@ const routes = [
         name: 'verify2FA',
         props: true,
         component: twoFAverify
+    },
+    {
+        path: '/CreateAccount',
+        name: 'Createaccount',
+        props: true,
+        component: createaccount
     }
 ]
 

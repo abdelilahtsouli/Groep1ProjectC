@@ -16,6 +16,7 @@ import { ref } from 'vue';
 import {defineProps} from 'vue';
 import { VueCookieNext } from 'vue-cookie-next'
 import axios from "axios";
+import router from '../router';
 
 const props = defineProps<{id : string}>();
 const verify_Token = ref('');
@@ -32,6 +33,7 @@ async function Verify(){
     if(verified.value){
       VueCookieNext.setCookie("token", decodeURI(token.value), {expire :"2h"});
     }
+    router.push({name: "Createaccount"})
 }
 
 
