@@ -52,7 +52,7 @@ namespace Project_C_Website.controllers
 				.AddParameter("oauth_token", oauth_token)
 				.AddParameter("id", Int32.Parse(id))
 				.Query();
-
+			Console.WriteLine(oauth_token);
 			return JsonSerializer.Serialize(new
 			{
 				isCorrectPIN,

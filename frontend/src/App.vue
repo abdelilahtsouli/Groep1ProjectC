@@ -28,6 +28,7 @@ export default {
   components: {
     AdminEditor,
     AdminLogin,
+    
   },
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types

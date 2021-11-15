@@ -22,9 +22,7 @@ const verify_Token = ref('');
 let verified = ref(false)
 let token = ref('');
 
-function delay(ms: number) {
-    return new Promise( resolve => setTimeout(resolve, ms) );
-}
+
 
 async function Verify(){
     var bodyFormData = new FormData();
@@ -32,7 +30,7 @@ async function Verify(){
     bodyFormData.append("token_input", verify_Token.value)
     await axios.post("/api/auth/2FAverify", bodyFormData).then((Response: any) => {verified.value = Response.data.isCorrectPIN, token.value = Response.data.token})
     if(verified.value){
-      VueCookieNext.setCookie("token", token.value, {expire :"1d"});
+      VueCookieNext.setCookie("token", decodeURI(token.value), {expire :"2h"});
     }
 }
 
