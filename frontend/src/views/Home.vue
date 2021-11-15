@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div v-for="page in pages" :key="page.Id">
-      <div v-if="page.Name == 'Homepage'">
+      <div v-if="page.Id == 1">
         <div v-for="media in page.Media" :key="media.Id">
         <div v-if="media.Type == 'image'">
           <img :class="['img-' + media.Location]" :src="media.Path" />

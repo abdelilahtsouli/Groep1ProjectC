@@ -3,7 +3,7 @@
     <router-link to="/home">Home</router-link> |
     <router-link to="/bloedprikken">Bloedprikken</router-link>
   </div>
-  <router-view/>
+  <router-view />
 </template>
 
 <style>
