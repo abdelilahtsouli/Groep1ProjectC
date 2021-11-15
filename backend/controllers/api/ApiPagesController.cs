@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Text.Json;
 using System.Data;
 using Npgsql;
+using Microsoft.Extensions.Primitives;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -62,30 +63,64 @@ namespace Project_C_Website.controllers {
 			}, jsonOptions);
 		}
 
+		public bool isValidOauth(string token) {
+			Database database = new Database();
+			DataTable data = database.BuildQuery("select * from td_user where oauth_token=@token")
+				.AddParameter("token", token)
+				.Select();
+
+			return data.Rows.Count == 1;
+		}
+
 		// POST api/pages
 		[HttpPost]
 		public string Post([FromBody] JsonElement json) {
+			// Authorization check
+			StringValues oauth_token;
+			Request.Headers.TryGetValue("Authorization", out oauth_token);
+			if (!isValidOauth(oauth_token)) {
+				return JsonSerializer.Serialize(new {
+					Success = false,
+					Message = "Invalid oauth token."
+				});
+			}
+
 			string name = json.GetProperty("name").GetString();
-			string content = json.GetProperty("content").GetString();
 
 			long timeInMs = DateTimeOffset.Now.ToUnixTimeMilliseconds();
 
 			Database database = new Database();
-			database.BuildQuery("insert into pages values (default, @name, @created_at, @updated_at, @content)")
+			DataTable data = database.BuildQuery("insert into pages values (default, @name, @created_at, @updated_at, @content) returning id")
 				.AddParameter("name", name)
 				.AddParameter("created_at", timeInMs)
 				.AddParameter("updated_at", timeInMs)
-				.AddParameter("content", content)
-				.Query();
+				.AddParameter("content", "")
+				.Select();
+
+			int id = -1;
+			foreach (DataRow row in data.Rows) {
+				id = int.Parse(row["id"].ToString());
+			}
 
 			return JsonSerializer.Serialize(new {
-				Success = true
+				Success = true,
+				Id = id
 			}, jsonOptions);
 		}
 
 		// PUT api/pages/5
 		[HttpPut("{id}")]
 		public string Put(int id, [FromBody] JsonElement json) {
+			// Authorization check
+			StringValues oauth_token;
+			Request.Headers.TryGetValue("Authorization", out oauth_token);
+			if (!isValidOauth(oauth_token)) {
+				return JsonSerializer.Serialize(new {
+					Success = false,
+					Message = "Invalid oauth token."
+				});
+			}
+
 			string content = json.GetProperty("content").GetString();
 			long timeInMs = DateTimeOffset.Now.ToUnixTimeMilliseconds();
 
@@ -104,6 +139,16 @@ namespace Project_C_Website.controllers {
 		// DELETE api/pages/5
 		[HttpDelete("{id}")]
 		public string Delete(int id) {
+			// Authorization check
+			StringValues oauth_token;
+			Request.Headers.TryGetValue("Authorization", out oauth_token);
+			if (!isValidOauth(oauth_token)) {
+				return JsonSerializer.Serialize(new {
+					Success = false,
+					Message = "Invalid oauth token."
+				});
+			}
+
 			Database database = new Database();
 			database.BuildQuery("delete from pages where id=@id")
 				.AddParameter("id", id)

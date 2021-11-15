@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -47,9 +48,28 @@ namespace Project_C_Website.controllers {
 			}));
 		}
 
+		public bool isValidOauth(string token) {
+			Database database = new Database();
+			DataTable data = database.BuildQuery("select * from td_user where oauth_token=@token")
+				.AddParameter("token", token)
+				.Select();
+
+			return data.Rows.Count == 1;
+		}
+
 		// POST /cdn/
 		[HttpPost]
 		public ActionResult Post() {
+			// Authorization check
+			StringValues oauth_token;
+			Request.Headers.TryGetValue("Authorization", out oauth_token);
+			if (!isValidOauth(oauth_token)) {
+				BadRequest(new {
+					Success = false,
+					Message = "Invalid oauth token."
+				});
+			}
+
 			var file = Request.Form.Files[0];
 			string type = file.ContentType;
 
@@ -87,12 +107,6 @@ namespace Project_C_Website.controllers {
 				Success = true,
 				Id = id,
 			});
-		}
-
-		// DELETE cdn/1
-		[HttpDelete("{id}")]
-		public void Delete(int id) {
-
 		}
 	}
 }
