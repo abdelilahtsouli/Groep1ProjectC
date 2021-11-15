@@ -1,4 +1,6 @@
 <template>
+  <upload-file-demo></upload-file-demo>
+
   <button
     @click="
       page1 = true;
@@ -23,12 +25,12 @@
 import { ref } from "@vue/reactivity";
 import AdminEditor from "./pages/AdminEditor.vue";
 import AdminLogin from "./pages/AdminLogin.vue";
+import UploadFileDemo from "./pages/UploadFileDemo.vue";
 
 export default {
   components: {
     AdminEditor,
     AdminLogin,
-    
   },
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types

@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
@@ -14,47 +16,97 @@ namespace Project_C_Website.controllers {
 	[ApiController]
 	public class CdnController : ControllerBase {
 
-		// GET api/<CdnController>/5
+		// GET cdn/1
 		[HttpGet("{id}")]
 		public IActionResult Get(int id) {
 			Database database = new Database();
 			
-			DataTable data = database.BuildQuery("select * from media where media_id=" + id).Select();
+			DataTable data = database.BuildQuery("select * from media where media_id=@id")
+				.AddParameter("id", id)
+				.Select();
 
 			foreach (DataRow row in data.Rows) {
-				String file = row["file"].ToString();
+				string file = row["media_id"].ToString();
+				string type = row["type"].ToString();
 
 				if (!System.IO.File.Exists(file)) {
 					this.HttpContext.Response.StatusCode = 500;
 					return Content(JsonSerializer.Serialize(new {
-						message = "Image Not Found (doesn't exist on the disk)"
+						Success = false,
+						Message = "File Not Found (doesn't exist on the disk)"
 					}));
 				}
 
 				Byte[] b = System.IO.File.ReadAllBytes(file);
-				// TODO: Support all image types.
-				return File(b, "image/png");
+				return File(b, type);
 			}
 
 			this.HttpContext.Response.StatusCode = 404;
 			return Content(JsonSerializer.Serialize(new {
-				message = "Not Found"
+				Success = false,
+				Message = "Not Found"
 			}));
 		}
 
-		// POST api/<CdnController>
+		public bool isValidOauth(string token) {
+			Database database = new Database();
+			DataTable data = database.BuildQuery("select * from td_user where oauth_token=@token")
+				.AddParameter("token", token)
+				.Select();
+
+			return data.Rows.Count == 1;
+		}
+
+		// POST /cdn/
 		[HttpPost]
-		public void Post([FromBody] string value) {
-		}
+		public ActionResult Post() {
+			// Authorization check
+			StringValues oauth_token;
+			Request.Headers.TryGetValue("Authorization", out oauth_token);
+			if (!isValidOauth(oauth_token)) {
+				BadRequest(new {
+					Success = false,
+					Message = "Invalid oauth token."
+				});
+			}
 
-		// PUT api/<CdnController>/5
-		[HttpPut("{id}")]
-		public void Put(int id, [FromBody] string value) {
-		}
+			var file = Request.Form.Files[0];
+			string type = file.ContentType;
 
-		// DELETE api/<CdnController>/5
-		[HttpDelete("{id}")]
-		public void Delete(int id) {
+			if (file.Length == 0) {
+				return BadRequest(new {
+					Success = false,
+					Message = "Invalid file."
+				});
+			}
+
+			// Make sure the file is not larger then 10mb.
+			if (file.Length > 1000000 * 10) {
+				return BadRequest(new {
+					Success = false,
+					Message = "The file is too large."
+				});
+			}
+
+			// Add the media to the database.
+			Database database = new Database();
+			DataTable data = database.BuildQuery("insert into media VALUES (default, @type) RETURNING media_id")
+				.AddParameter("type", type)
+				.Select();
+
+			int id = -1;
+			foreach (DataRow row in data.Rows) {
+				id = int.Parse((row["media_id"].ToString()));
+			}
+
+			using (var stream = new FileStream(id.ToString(), FileMode.Create)) {
+				file.CopyTo(stream);
+			}
+
+			return Ok(new {
+				Success = true,
+				Id = id,
+			});
 		}
 	}
 }
