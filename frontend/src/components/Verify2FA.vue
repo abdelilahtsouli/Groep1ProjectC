@@ -1,51 +1,58 @@
 <template>
-  <div class="2FA">
-    <div class="2FA-Verify">
-      <input
-        v-model="verify_Token"
-        placeholder="6-digit code recieved in the Authenticator app"
-      />
-      <button type="submit" @click="Verify()">Verify</button>
-      <h5 v-if="verified == true">Succesvol ingelogd!</h5>
+    <div class="2FA">
+        <div class="2FA-Verify">
+            <input  @keyup.enter="Verify" v-model="verify_Token" placeholder="6-digit code recieved in the Authenticator app">
+            <button type="submit" @click="Verify()">Verify</button>
+            <h5 v-if="verified">Succesvol ingelogd!</h5>
+        </div>
     </div>
-  </div>
 </template>
 
+
+
 <script lang="ts" setup>
-import { ref } from "vue";
-import { defineProps } from "vue";
-import speakeasy from "speakeasy";
-import { authenticator } from "otplib";
 
-const props = defineProps<{ id: string; secret: string }>();
-const verify_Token = ref("");
+import { ref } from 'vue';
+import {defineProps} from 'vue';
+import { VueCookieNext } from 'vue-cookie-next'
+import axios from "axios";
 
-function Verify() {
-  var verified = speakeasy.totp.verify({
-    secret: props.secret,
-    encoding: ["base32"],
-    token: verify_Token.value,
-  });
-  const isValid = authenticator.verify({
-    token: verify_Token.value,
-    secret: props.secret,
-  });
-  console.log(verified);
+const props = defineProps<{id : string}>();
+const verify_Token = ref('');
+let verified = ref(false)
+let token = ref('');
+
+
+
+async function Verify(){
+    var bodyFormData = new FormData();
+    bodyFormData.append("id", props.id);
+    bodyFormData.append("token_input", verify_Token.value)
+    await axios.post("/api/auth/2FAverify", bodyFormData).then((Response: any) => {verified.value = Response.data.isCorrectPIN, token.value = Response.data.token})
+    if(verified.value){
+      VueCookieNext.setCookie("token", decodeURI(token.value), {expire :"2h"});
+    }
 }
+
+
 </script>
 
 <style scoped>
-.otp-input {
-  width: 40px;
-  height: 40px;
-  padding: 5px;
-  margin: 0 10px;
-  font-size: 20px;
-  border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  text-align: "center";
+input{
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
-.error {
-  border: 1px solid red !important;
+button{
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 </style>

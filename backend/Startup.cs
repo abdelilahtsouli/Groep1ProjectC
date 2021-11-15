@@ -59,7 +59,12 @@ namespace Project_C_Website {
 				endpoints.MapControllerRoute(
 					name: "/api/auth/",
 					pattern: "2FA",
-					defaults: new twoFAcontroller()
+					defaults: new twoFAsetup()
+				);
+				endpoints.MapControllerRoute(
+					name: "/api/auth/",
+					pattern: "2FAverify",
+					defaults: new twoFAverify()
 				);
 			});
 		}

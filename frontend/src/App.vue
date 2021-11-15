@@ -31,7 +31,6 @@ export default {
   components: {
     AdminEditor,
     AdminLogin,
-    UploadFileDemo,
   },
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
