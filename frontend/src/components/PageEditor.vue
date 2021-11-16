@@ -106,6 +106,7 @@ export default defineComponent({
 
 <template>
   <div>
+    <!-- The Whole Editor -->
     <div class="editor" v-if="editor">
       <!-- Editor Buttons -->
       <page-editor-header :editor="editor"></page-editor-header>
@@ -161,10 +162,25 @@ export default defineComponent({
         </button>
       </div>
     </div>
+    <!-- Phone view -->
+    <!-- <div v-html="editor.getHTML()" class="phone-view"></div> -->
+    <!-- <div v-html="editor.getHTML()" class="tablet-view"></div> -->
   </div>
 </template>
 
 <style scoped>
+.phone-view {
+  /* Based on Iphon X */
+  width: 375px;
+  height: 812px;
+}
+
+.tablet-view {
+  /* Based on Ipad */
+  width: 768px;
+  height: 1024px;
+}
+
 /* Editor button & Layout styling */
 .editor {
   display: flex;
