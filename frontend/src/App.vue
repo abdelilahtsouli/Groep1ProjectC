@@ -1,45 +1,36 @@
 <template>
-  <button
-    @click="
-      page1 = true;
-      page2 = false;
-    "
-  >
-    Admin editor
-  </button>
-  <button
-    @click="
-      page2 = true;
-      page1 = false;
-    "
-  >
-    Admin login
-  </button>
-  <hr />
-  <hr />
-  <admin-editor v-show="page1"></admin-editor>
-  <admin-login v-show="page2"></admin-login>
+  <div id="app">
+    <header>
+    <Header/>
+    </header>
+    </div>
+      
 </template>
 
 <script lang="ts">
-import { ref } from "@vue/reactivity";
-import AdminEditor from "./pages/AdminEditor.vue";
-import AdminLogin from "./pages/AdminLogin.vue";
-
+import Header from './components/Header.vue'
 export default {
+  name: 'app',
   components: {
-    AdminEditor,
-    AdminLogin,
-  },
+    Header
+  }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  setup() {
-    let page1 = ref(true);
-    let page2 = ref(false);
-    return { page1, page2 };
-  },
 };
 </script>
 
-<style>
+<style>{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+  font-family: 'monsterrat', sans-serif;
+}
+
+header {
+  width: 100vw;
+  background-color: rgb(0, 0, 0);
+  padding: 15px;
+}
 </style>
