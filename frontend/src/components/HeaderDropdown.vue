@@ -16,7 +16,7 @@
   </div>
 </template>
 
-<script>
+<script lang = "ts">
 export default {
   name: 'HeaderDropdown',
   props: ['title', 'items'],
@@ -35,7 +35,7 @@ nav .menu-item svg {
 }
 nav .menu-item .sub-menu {
   position: absolute;
-  background-color: rgb(0, 0, 0);
+  background-color: #142d49;
   top: calc(100% + 18px);
   left: 50%;
   transform: translateX(-50%);

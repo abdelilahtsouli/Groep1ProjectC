@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <img class= "starshl" src="../assets/logo.png">
+        <a href="/"><img class= "starshl" src="../assets/logo.png"></a>
         <div class="menu-item"><a href="#">Home</a></div>
         <div class="menu-item"><a href="#">Bloedprikken</a></div>
         <HeaderDropdown title="Contact" :items="services" />
@@ -8,7 +8,7 @@
     </nav>
 </template>
 
-<script>
+<script lang = "ts">
 import HeaderDropdown from './HeaderDropdown.vue'
 export default {
   components: { HeaderDropdown },
@@ -35,6 +35,10 @@ export default {
 </script>
 
 <style>
+body{
+  padding: 0px;
+  margin: 0px;
+}
 nav {
     display: flex;
     align-items: center;
@@ -42,10 +46,10 @@ nav {
 }
 
 .starshl {
-    position: absolute;
-    left: 10px;
-    width: 20%;
-    height: 7.5%;
+    max-width: 180px;
+    max-height: 40px;
+    width: 100%;
+    height: 100%;
 }
 nav .menu-item {
     color: rgb(244, 244, 255);
@@ -59,7 +63,7 @@ nav .menu-item {
 
 nav .menu-item.active,
 nav .menu-item:hover {
-    background-color:  rgb(0, 0, 0);
+    background-color:  #142d49;
     border-bottom-color: #FF5858;
 }
 

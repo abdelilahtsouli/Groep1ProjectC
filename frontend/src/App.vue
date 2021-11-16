@@ -18,11 +18,7 @@ export default {
 };
 </script>
 
-<style>{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
+<style>
 
 body {
   font-family: 'monsterrat', sans-serif;
@@ -30,7 +26,7 @@ body {
 
 header {
   width: 100vw;
-  background-color: rgb(0, 0, 0);
+  background-color: #142d49;
   padding: 15px;
 }
 </style>
