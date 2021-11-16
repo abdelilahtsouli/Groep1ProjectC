@@ -2,9 +2,19 @@
   <div id="nav">
     <router-link to="/home">Home</router-link> |
     <router-link to="/bloedprikken">Bloedprikken</router-link>
+    <router-link to="/login">Login</router-link>
   </div>
   <router-view />
 </template>
+
+<script lang="ts">
+
+export default {
+  components: {
+
+  }
+};
+</script>
 
 <style>
 #app {
@@ -27,4 +37,5 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
 </style>

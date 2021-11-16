@@ -1,32 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gebruiker\\source\\repos\\Project C Website\\backend\\Project C Website.csproj": {}
+    "C:\\Users\\woute\\OneDrive\\Documenten\\GitHub\\Groep1ProjectC\\backend\\Project C Website.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gebruiker\\source\\repos\\Project C Website\\backend\\Project C Website.csproj": {
+    "C:\\Users\\woute\\OneDrive\\Documenten\\GitHub\\Groep1ProjectC\\backend\\Project C Website.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gebruiker\\source\\repos\\Project C Website\\backend\\Project C Website.csproj",
+        "projectUniqueName": "C:\\Users\\woute\\OneDrive\\Documenten\\GitHub\\Groep1ProjectC\\backend\\Project C Website.csproj",
         "projectName": "Project C Website",
-        "projectPath": "C:\\Users\\Gebruiker\\source\\repos\\Project C Website\\backend\\Project C Website.csproj",
-        "packagesPath": "C:\\Users\\Gebruiker\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gebruiker\\source\\repos\\Project C Website\\backend\\obj\\",
+        "projectPath": "C:\\Users\\woute\\OneDrive\\Documenten\\GitHub\\Groep1ProjectC\\backend\\Project C Website.csproj",
+        "packagesPath": "C:\\Users\\woute\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\woute\\OneDrive\\Documenten\\GitHub\\Groep1ProjectC\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Gebruiker\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\woute\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1"
+          "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
+          "net5.0": {
+            "targetAlias": "net5.0",
             "projectReferences": {}
           }
         },
@@ -37,8 +37,18 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "GoogleAuthenticator": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Npgsql.FSharp": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
