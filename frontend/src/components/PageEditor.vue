@@ -35,8 +35,7 @@ export default defineComponent({
   },
 
   props: {
-    id: Number,
-    content: String,
+    content: String
   },
 
   setup(props, { emit }) {
@@ -83,7 +82,7 @@ export default defineComponent({
       submitted = true;
       console.log(props.content);
       console.log(editor.getHTML());
-      emit("changeContent", props.id, editor.getHTML());
+      emit("changeContent", editor.getHTML());
     }
 
     function setFloatOnDrop(event: DragEvent) {

@@ -33,8 +33,8 @@ async function Verify(){
     if(verified.value){
       VueCookieNext.setCookie("token", decodeURI(token.value), {expire :"2h"});
       router.push({
-        name: "createNewUser", 
-        params: {cookie: token.value}})
+        name: "Home", 
+        params: {cookie: token.value }})
     }
 
     

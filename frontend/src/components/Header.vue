@@ -4,7 +4,6 @@
         <router-link to="/home" class="menu-item"><a>Home</a></router-link>
         <router-link to="/bloedprikken" class="menu-item"><a>Bloedprikken</a></router-link>
         <HeaderDropdown title="Contact" :items="services" />
-
     </nav>
 </template>
 
