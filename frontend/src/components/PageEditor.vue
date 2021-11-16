@@ -1,4 +1,5 @@
 <script lang="ts">
+import PageEditorHeader from "./PageEditorHeader.vue";
 import { defineComponent, onBeforeUnmount, onMounted, computed } from "vue";
 
 // Standard Tiptap modules & extensions
@@ -24,6 +25,7 @@ import ControlsListAttr from "../extensions/extension-controlslist-attr";
 export default defineComponent({
   components: {
     EditorContent,
+    PageEditorHeader,
   },
 
   props: {
@@ -72,8 +74,8 @@ export default defineComponent({
 
     function submit(): void {
       submitted = true;
-      // console.log(props.content);
-      // console.log(editor.getHTML());
+      console.log(props.content);
+      console.log(editor.getHTML());
       emit("changeContent", props.id, editor.getHTML());
     }
 
@@ -81,23 +83,11 @@ export default defineComponent({
       console.log(event);
 
       if (event.pageX > window.innerWidth / 2) {
-        // If Image
-        editor.chain().focus().setCSSFloat("right").run();
-        // If Text (paragraph, heading)
         editor.chain().focus().setTextAlign("right").run();
+        editor.chain().focus().setCSSFloat("right").run();
       } else {
-        // If Image
-        editor.chain().focus().setCSSFloat("left").run();
-        // If Text (paragraph, heading)
         editor.chain().focus().setTextAlign("left").run();
-      }
-    }
-
-    function addImage() {
-      const url = window.prompt("URL");
-
-      if (url) {
-        editor.chain().focus().setImage({ src: url }).run();
+        editor.chain().focus().setCSSFloat("left").run();
       }
     }
 
@@ -107,7 +97,6 @@ export default defineComponent({
       checkIfChangesMade,
       submit,
       setFloatOnDrop,
-      addImage,
       onMounted,
       onBeforeUnmount,
     };
@@ -117,164 +106,139 @@ export default defineComponent({
 
 <template>
   <div>
-    <!-- Editor Buttons -->
-    <div v-if="editor">
-      <!-- Text Editing Buttons -->
-      <h3>Text buttons</h3>
-      <button
-        @click="editor.chain().focus().toggleHeading({ level: 1 }).run()"
-        :class="{ 'is-active': editor.isActive('heading', { level: 1 }) }"
-      >
-        h1
-      </button>
-      <button
-        @click="editor.chain().focus().toggleHeading({ level: 2 }).run()"
-        :class="{ 'is-active': editor.isActive('heading', { level: 2 }) }"
-      >
-        h2
-      </button>
-      <button
-        @click="editor.chain().focus().toggleHeading({ level: 3 }).run()"
-        :class="{ 'is-active': editor.isActive('heading', { level: 3 }) }"
-      >
-        h3
-      </button>
-      <button
-        @click="editor.chain().focus().toggleHeading({ level: 4 }).run()"
-        :class="{ 'is-active': editor.isActive('heading', { level: 4 }) }"
-      >
-        h4
-      </button>
-      <button
-        @click="editor.chain().focus().toggleHeading({ level: 5 }).run()"
-        :class="{ 'is-active': editor.isActive('heading', { level: 5 }) }"
-      >
-        h5
-      </button>
-      <button
-        @click="editor.chain().focus().toggleHeading({ level: 6 }).run()"
-        :class="{ 'is-active': editor.isActive('heading', { level: 6 }) }"
-      >
-        h6
-      </button>
-      <button
-        @click="editor.chain().focus().setParagraph().run()"
-        :class="{ 'is-active': editor.isActive('paragraph') }"
-      >
-        paragraph
-      </button>
-      <button
-        @click="editor.chain().focus().toggleBold().run()"
-        :class="{ 'is-active': editor.isActive('bold') }"
-      >
-        bold
-      </button>
-      <button
-        @click="editor.chain().focus().toggleItalic().run()"
-        :class="{ 'is-active': editor.isActive('italic') }"
-      >
-        italic
-      </button>
-      <button
-        @click="editor.chain().focus().toggleStrike().run()"
-        :class="{ 'is-active': editor.isActive('strike') }"
-      >
-        strike
-      </button>
-      <button
-        @click="editor.chain().focus().setTextAlign('left').run()"
-        :class="{ 'is-active': editor.isActive({ textAlign: 'left' }) }"
-      >
-        left
-      </button>
-      <button
-        @click="editor.chain().focus().setTextAlign('center').run()"
-        :class="{ 'is-active': editor.isActive({ textAlign: 'center' }) }"
-      >
-        center
-      </button>
-      <button
-        @click="editor.chain().focus().setTextAlign('right').run()"
-        :class="{ 'is-active': editor.isActive({ textAlign: 'right' }) }"
-      >
-        right
-      </button>
-      <button @click="editor.chain().focus().setHorizontalRule().run()">
-        horizontal rule
-      </button>
-      <button @click="editor.chain().focus().setHardBreak().run()">
-        hard break
-      </button>
-      <!-- <button
-        @click="editor.chain().focus().toggleBlockquote().run()"
-        :class="{ 'is-active': editor.isActive('blockquote') }"
-      >
-        blockquote
-      </button> -->
-      <button @click="editor.chain().focus().undo().run()">undo</button>
-      <button @click="editor.chain().focus().redo().run()">redo</button>
-      <!-- <button
-        @click="editor.chain().focus().toggleBulletList().run()"
-        :class="{ 'is-active': editor.isActive('bulletList') }"
-      >
-        bullet list
-      </button>
-      <button
-        @click="editor.chain().focus().toggleOrderedList().run()"
-        :class="{ 'is-active': editor.isActive('orderedList') }"
-      >
-        ordered list
-      </button> -->
-      <br />
-      <br />
-
-      <!-- Image editing buttons -->
-      <h3>Image buttons</h3>
-      <button @click="addImage">add image from URL</button>
-      <button
-        @click="editor.chain().focus().setCSSFloat('left').run()"
-        :class="{ 'is-active': editor.isActive({ cssFloat: 'left' }) }"
-      >
-        left
-      </button>
-      <button
-        @click="editor.chain().focus().setCSSFloat('right').run()"
-        :class="{ 'is-active': editor.isActive({ cssFloat: 'right' }) }"
-      >
-        right
-      </button>
-      <button
-        @click="editor.chain().focus().setCSSFloat('center').run()"
-        :class="{ 'is-active': editor.isActive({ cssFloat: 'center' }) }"
-      >
-        center
-      </button>
+    <div class="editor" v-if="editor">
+      <!-- Editor Buttons -->
+      <page-editor-header :editor="editor"></page-editor-header>
+      <!-- Editor -->
+      <editor-content
+        class="editor__content"
+        :editor="editor"
+        @drop="setFloatOnDrop($event)"
+        spellcheck="false"
+      />
+      <div class="editor__footer">
+        <!-- Cross Icon -->
+        <svg
+          v-if="checkIfChangesMade"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+          style="fill: white; background: red; border-radius: 0.4rem"
+        >
+          <path fill="none" d="M0 0h24v24H0z" />
+          <path
+            d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"
+          />
+        </svg>
+        <!-- Check icon -->
+        <svg
+          v-else
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+          style="fill: white; background: green; border-radius: 0.4rem"
+        >
+          <path fill="none" d="M0 0h24v24H0z" />
+          <path
+            d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
+          />
+        </svg>
+        <!-- Submit button -->
+        <button class="editor-button" @click="submit">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+          >
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path
+              d="M3.741 1.408l18.462 10.154a.5.5 0 0 1 0 .876L3.741 22.592A.5.5 0 0 1 3 22.154V1.846a.5.5 0 0 1 .741-.438zM5 13v6.617L18.85 12 5 4.383V11h5v2H5z"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
-
-    <!-- Editor -->
-    <editor-content :editor="editor" @drop="setFloatOnDrop($event)" />
-
-    <!-- Submit button -->
-    <br />
-    <br />
-    <button @click="submit">Submit changes</button>
-    <p v-if="checkIfChangesMade" :style="{ color: 'red' }">
-      Changes are not saved
-    </p>
-    <p v-else :style="{ color: 'green' }">Up to date</p>
-    <br />
   </div>
 </template>
 
-<style>
+<style scoped>
+/* Editor button & Layout styling */
+.editor {
+  display: flex;
+  flex-direction: column;
+  color: #0d0d0d;
+  background-color: #fff;
+  border: 3px solid #0d0d0d;
+  border-radius: 0.75rem;
+}
+
+.editor__header {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  padding: 0.25rem;
+  border-bottom: 3px solid #0d0d0d;
+}
+
+.editor__content {
+  padding: 1.25rem 1rem;
+  flex: 1 1 auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.editor__footer {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  white-space: nowrap;
+  border-top: 3px solid #0d0d0d;
+  font-size: 12px;
+  font-weight: 600;
+  color: #0d0d0d;
+  white-space: nowrap;
+  padding: 0.25rem 0.75rem;
+}
+
+/* Editor button styling */
+.editor-button {
+  width: 1.75rem;
+  height: 1.75rem;
+  color: #0d0d0d;
+  border: none;
+  background-color: transparent;
+  border-radius: 0.4rem;
+  padding: 0.25rem;
+  margin-right: 0.25rem;
+  cursor: pointer;
+}
+
+.editor-button svg {
+  width: 100%;
+  height: 100%;
+}
+
+.editor-button.is-active,
+.editor-button:hover {
+  background: #0d0d0d;
+  fill: #fff;
+}
+
+/* ProseMirror/Editor-Content styling*/
+::v-deep(.ProseMirror) {
+  outline: none;
+}
+
 .ProseMirror > * + * {
   margin-top: 0.75em;
 }
-
-/* .ProseMirror ul,
-.ProseMirror ol {
-  padding: 0 1rem;
-} */
 
 .ProseMirror h1,
 .ProseMirror h2,
@@ -285,34 +249,28 @@ export default defineComponent({
   line-height: 1.1;
 }
 
-.ProseMirror img {
-  /* max-width: 100%;
-  height: auto; 
-  margin-left: 10px;
-  margin-right: 10px;  */
+::v-deep(.ProseMirror img) {
   margin-top: 0px;
 }
-.ProseMirror img.ProseMirror-selectednode {
-  outline: 3px solid #68cef8;
+
+::v-deep(.ProseMirror img:hover) {
+  cursor: pointer;
+}
+::v-deep(.ProseMirror img.ProseMirror-selectednode) {
+  outline: 2px solid #0d0d0d;
 }
 
-.ProseMirror hr {
+::v-deep(.ProseMirror video:hover) {
+  cursor: pointer;
+}
+
+::v-deep(.ProseMirror video.ProseMirror-selectednode) {
+  outline: 2px solid #0d0d0d;
+}
+
+::v-deep(.ProseMirror hr) {
   border: none;
   border-top: 2px solid rgba(13, 13, 13, 0.1);
   margin: 2rem 0;
-}
-
-.is-active {
-  background: #0d0d0d;
-  color: #fff;
-}
-
-.ProseMirror video.ProseMirror-selectednode {
-  outline: 3px solid #68cef8;
-}
-
-.ProseMirror blockquote {
-  padding-left: 1rem;
-  border-left: 2px solid rgba(13, 13, 13, 0.1);
 }
 </style>
