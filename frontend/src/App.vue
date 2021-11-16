@@ -1,5 +1,8 @@
 
 <template>
+    <header>
+    <Header/>
+    </header>
   <div id="nav">
     <router-link to="/home">Home</router-link> |
     <router-link to="/bloedprikken">Bloedprikken</router-link> |
@@ -11,7 +14,7 @@
 
 <script lang="ts" setup>
 import { onMounted } from 'vue';
-
+import Header from './components/Header.vue'
 
 
 
