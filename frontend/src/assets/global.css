@@ -1,0 +1,23 @@
+:root {
+    --red: #e7334c;
+    --darkblue: #142d49;
+    --lightblue: #79b9d5;
+}
+  
+@font-face {
+    font-family: Regular;
+    src: url("Offside-Regular.ttf");
+}
+
+@font-face {
+    font-family: LightAndBold;
+    src: url("OpenSans-Regular.ttf")
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Regular;
+}
+
+p {
+    font-family: LightAndBold;
+}
