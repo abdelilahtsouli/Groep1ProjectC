@@ -31,18 +31,16 @@ namespace Project_C_Website.controllers {
 			byte[] salt = new byte[128 / 8];
 			using (var rngCsp = new RNGCryptoServiceProvider())
 			{
-				rngCsp.GetNonZeroBytes(salt);
+				rngCsp.GetBytes(salt);
 			}
-			string newSalt =  Encoding.ASCII.GetString(salt);
-			// derive a 256-bit subkey (use HMACSHA256 with 100,000 iterations)
-			string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
-				password: Password,
-				salt: salt,
-				prf: KeyDerivationPrf.HMACSHA256,
-				iterationCount: 100000,
-				numBytesRequested: 256 / 8));
-				
-			Console.WriteLine(hashed);
+			var newSalt =  Convert.ToBase64String(salt);
+
+			var newPassword = Password + newSalt;
+
+			var crypt = new SHA256Managed();
+			byte[] crypto = crypt.ComputeHash(Encoding.ASCII.GetBytes(newPassword));
+			string hash = Encoding.ASCII.GetString(crypto);
+
 			
 
 
@@ -50,17 +48,27 @@ namespace Project_C_Website.controllers {
             Database database = new Database();
 			DataTable data = database.BuildQuery($"SELECT (id) FROM td_user").Select();
 			
-			database.BuildQuery($"INSERT INTO td_user (id, name, email, password, salt) VALUES (@id, @Name, @Email, @Password, @salt)")
+			database.BuildQuery($"INSERT INTO td_user (id, name, email,twofa, password, salt) VALUES (@id, @Name, @Email,@twofa, @Password, @salt)")
 				.AddParameter("id", (data.Rows.Count + 1))
 			    .AddParameter("name", Name)
                 .AddParameter("email", Email)
-                .AddParameter("password", hashed)
+				.AddParameter("twofa", false)
+                .AddParameter("password", hash)
                 .AddParameter("salt", newSalt)
                 .Query();
 
             return JsonSerializer.Serialize(new{
 				userCreated = true
 			});
+		}
+		static string BytesToString(byte[] bytes)
+		{
+			using (MemoryStream stream = new MemoryStream(bytes))
+			{
+				using (StreamReader streamReader = new StreamReader(stream)) {
+					return streamReader.ReadToEnd();
+				}
+			}
 		}
         
 	}

@@ -1,46 +1,82 @@
-<template>
-  <upload-file-demo></upload-file-demo>
 
-  <button
-    @click="
-      page1 = true;
-      page2 = false;"
-  >
-    Admin editor
-  </button>
-  <button
-    @click="
-      page2 = true;
-      page1 = false;"
-  >
-    Admin login
-  </button>
-  <hr />
-  <hr />
-  <admin-editor v-show="page1"></admin-editor>
-  <admin-login v-show="page2"></admin-login>
+<template>
+  <div id="nav">
+    <router-link to="/home">Home</router-link> |
+    <router-link to="/bloedprikken">Bloedprikken</router-link> |
+    <router-link v-if="isNotLoggedIn()" to="/login">Login</router-link>
+    <img src='./assets/logo.png'>
+  </div>
+  <router-view @newCookieValue="setCookie" />
 </template>
 
-<script lang="ts">
-import { ref } from "@vue/reactivity";
-import AdminEditor from "./pages/AdminEditor.vue";
-import AdminLogin from "./pages/AdminLogin.vue";
-import UploadFileDemo from "./pages/UploadFileDemo.vue";
+<script lang="ts" setup>
+import { onMounted } from 'vue';
 
-export default {
-  components: {
-    AdminEditor,
-    AdminLogin,
-  },
 
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  setup() {
-    let page1 = ref(false);
-    let page2 = ref(false);
-    return { page1, page2 };
-  },
-};
+
+
+onMounted( function()  {
+  getCookie('token'),
+  console.log('test')
+  isNotLoggedIn()
+}); 
+
+function isNotLoggedIn(){
+  return getCookie('token').length == 0
+}
+
+function getCookie(cname : string) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
 </script>
 
 <style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+
+}
+
+body{
+  padding: 0px;
+  margin: 0px;
+}
+
+#nav {
+  width: 100%;
+  background-color: #79b9d5;
+  margin-bottom: 10px;
+
+}
+
+#nav a {
+  font-weight: bold;
+  color: #142d49;
+}
+
+#nav a.router-link-exact-active {
+  color: #e7334c;
+}
+img{
+  width: 80%;
+  padding-top: 10px;
+  margin: 5px;
+  padding-bottom: 0px;
+}
 </style>

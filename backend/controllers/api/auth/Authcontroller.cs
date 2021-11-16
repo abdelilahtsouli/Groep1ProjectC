@@ -11,6 +11,7 @@ using System.Text;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Data;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using System.Security.Cryptography;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Project_C_Website.controllers {
@@ -30,22 +31,15 @@ namespace Project_C_Website.controllers {
 			// Execute the query on the database.
 			Database database = new Database();
 			DataTable data = database.BuildQuery("select * from td_user").Select();
-
+	
 			// Loop through each row in the query and check if the details are correct.
 			foreach (DataRow row in data.Rows) {
+				var newPassword = password_input + row["salt"].ToString();
+				var crypt = new SHA256Managed();
+				byte[] crypto = crypt.ComputeHash(Encoding.ASCII.GetBytes(newPassword));
+				string hash = Encoding.ASCII.GetString(crypto);
 
-				
-				string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
-				password: password_input,
-				salt: Encoding.ASCII.GetBytes(row["salt"].ToString()),
-				prf: KeyDerivationPrf.HMACSHA256,
-				iterationCount: 100000,
-				numBytesRequested: 256 / 8));
-				Console.WriteLine(hashed);
-				Console.WriteLine(row["password"].ToString());
-
-
-				if (row["email"].ToString() == email_input && row["password"].ToString() == hashed) {
+				if (row["email"].ToString() == email_input && row["password"].ToString() == hash) {
 
 					return JsonSerializer.Serialize(new {
 						id = Int32.Parse(row["id"].ToString()),

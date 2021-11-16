@@ -32,8 +32,12 @@ async function Verify(){
     await axios.post("/api/auth/2FAverify", bodyFormData).then((Response: any) => {verified.value = Response.data.isCorrectPIN, token.value = Response.data.token})
     if(verified.value){
       VueCookieNext.setCookie("token", decodeURI(token.value), {expire :"2h"});
+      router.push({
+        name: "createNewUser", 
+        params: {cookie: token.value}})
     }
-    router.push({name: "Createaccount"})
+
+    
 }
 
 
@@ -42,16 +46,19 @@ async function Verify(){
 <style scoped>
 input{
   width: 50%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
+  height: 40px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
 button{
   width: 50%;
-  padding: 12px 20px;
-  margin: 8px 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   display: inline-block;
   text-align: center;
   border: 1px solid #ccc;
