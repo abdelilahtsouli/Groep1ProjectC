@@ -321,4 +321,10 @@ export default defineComponent({
   border-top: 2px solid rgba(13, 13, 13, 0.1);
   margin: 2rem 0;
 }
+
+@media only screen and (max-width: 500px) {
+}
+
+@media only screen and (min-width: 500px) and (max-width: 1000px) {
+}
 </style>
