@@ -1,46 +1,41 @@
 <template>
-  <upload-file-demo></upload-file-demo>
-
-  <button
-    @click="
-      page1 = true;
-      page2 = false;"
-  >
-    Admin editor
-  </button>
-  <button
-    @click="
-      page2 = true;
-      page1 = false;"
-  >
-    Admin login
-  </button>
-  <hr />
-  <hr />
-  <admin-editor v-show="page1"></admin-editor>
-  <admin-login v-show="page2"></admin-login>
+  <div id="nav">
+    <router-link to="/home">Home</router-link> |
+    <router-link to="/bloedprikken">Bloedprikken</router-link>
+    <router-link to="/login">Login</router-link>
+  </div>
+  <router-view />
 </template>
 
 <script lang="ts">
-import { ref } from "@vue/reactivity";
-import AdminEditor from "./pages/AdminEditor.vue";
-import AdminLogin from "./pages/AdminLogin.vue";
-import UploadFileDemo from "./pages/UploadFileDemo.vue";
 
 export default {
   components: {
-    AdminEditor,
-    AdminLogin,
-  },
 
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  setup() {
-    let page1 = ref(false);
-    let page2 = ref(false);
-    return { page1, page2 };
-  },
+  }
 };
 </script>
 
 <style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+
 </style>

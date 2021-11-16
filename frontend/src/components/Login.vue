@@ -21,7 +21,6 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import axios from "axios";
-import bcrypt from 'bcryptjs';
 import router from "../router";
 
 
