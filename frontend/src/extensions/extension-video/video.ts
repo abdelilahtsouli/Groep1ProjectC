@@ -1,4 +1,4 @@
-import { Node, mergeAttributes, wrappingInputRule } from "@tiptap/core";
+import { Node, mergeAttributes } from "@tiptap/core";
 
 export interface VideoOptions {
   HTMLAttributes: Record<string, any>;

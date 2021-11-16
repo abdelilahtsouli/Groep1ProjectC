@@ -6,6 +6,14 @@ export default defineComponent({
   props: {
     editor: Editor,
   },
+
+  setup(props, { emit }) {
+    function changeView(view: string) {
+      emit("changeView", view);
+    }
+
+    return { changeView };
+  },
 });
 </script>
 
@@ -194,7 +202,10 @@ export default defineComponent({
     <div class="divider"></div>
     <!-- Align Left -->
     <button
-      @click="editor.chain().focus().setTextAlign('left').run()"
+      @click="
+        editor.chain().focus().setTextAlign('left').run();
+        editor.chain().focus().setCSSFloat('left').run();
+      "
       class="editor-button"
       :class="{
         'is-active':
@@ -214,7 +225,10 @@ export default defineComponent({
     </button>
     <!-- Align Center -->
     <button
-      @click="editor.chain().focus().setTextAlign('center').run()"
+      @click="
+        editor.chain().focus().setTextAlign('center').run();
+        editor.chain().focus().setCSSFloat('center').run();
+      "
       class="editor-button"
       :class="{
         'is-active':
@@ -236,7 +250,10 @@ export default defineComponent({
     </button>
     <!-- Align Right -->
     <button
-      @click="editor.chain().focus().setTextAlign('right').run()"
+      @click="
+        editor.chain().focus().setTextAlign('right').run();
+        editor.chain().focus().setCSSFloat('right').run();
+      "
       class="editor-button"
       :class="{
         'is-active':
@@ -318,7 +335,7 @@ export default defineComponent({
     </button>
     <div class="divider"></div>
     <!-- PC View -->
-    <button class="editor-button">
+    <button class="editor-button" @click="changeView('pc')">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -332,7 +349,7 @@ export default defineComponent({
       </svg>
     </button>
     <!-- Phone View -->
-    <button class="editor-button">
+    <button class="editor-button" @click="changeView('phone')">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -346,7 +363,7 @@ export default defineComponent({
       </svg>
     </button>
     <!-- Tablet View -->
-    <button class="editor-button">
+    <button class="editor-button" @click="changeView('tablet')">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"

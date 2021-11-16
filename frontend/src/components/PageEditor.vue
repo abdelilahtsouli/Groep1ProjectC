@@ -1,6 +1,12 @@
 <script lang="ts">
 import PageEditorHeader from "./PageEditorHeader.vue";
-import { defineComponent, onBeforeUnmount, onMounted, computed } from "vue";
+import {
+  defineComponent,
+  onBeforeUnmount,
+  onMounted,
+  computed,
+  ref,
+} from "vue";
 
 // Standard Tiptap modules & extensions
 import { Editor, EditorContent } from "@tiptap/vue-3";
@@ -34,6 +40,7 @@ export default defineComponent({
   },
 
   setup(props, { emit }) {
+    let currentView = ref("pc");
     let submitted = false;
 
     const editor = new Editor({
@@ -50,8 +57,8 @@ export default defineComponent({
         CSSFloat.configure({ types: ["image", "video"] }),
         SourceSrc.configure({ types: ["source"] }),
         SourceType.configure({ types: ["source"] }),
-        HeightAttr.configure({ types: ["video"] }),
-        WidthAttr.configure({ types: ["video"] }),
+        HeightAttr.configure({ types: ["video", "image"] }),
+        WidthAttr.configure({ types: ["video", "image"] }),
         ControlsAttr.configure({ types: ["video"] }),
         ControlsListAttr.configure({ types: ["video"] }),
       ],
@@ -80,18 +87,30 @@ export default defineComponent({
     }
 
     function setFloatOnDrop(event: DragEvent) {
-      console.log(event);
+      // get dimensions of div
+      // float for phone & tablet view
+      let element = document.getElementById("test");
+      if (element != null) {
+        var rect = element.getBoundingClientRect();
 
-      if (event.pageX > window.innerWidth / 2) {
-        editor.chain().focus().setTextAlign("right").run();
-        editor.chain().focus().setCSSFloat("right").run();
-      } else {
-        editor.chain().focus().setTextAlign("left").run();
-        editor.chain().focus().setCSSFloat("left").run();
+        console.log(event);
+        if (event.pageX > rect.left && event.pageX < rect.right / 2) {
+          editor.chain().focus().setTextAlign("left").run();
+          editor.chain().focus().setCSSFloat("left").run();
+        } else {
+          editor.chain().focus().setTextAlign("right").run();
+          editor.chain().focus().setCSSFloat("right").run();
+        }
       }
+      // if (event.pageX > window.innerWidth / 2) {
+    }
+
+    function changeEditorView(view: string) {
+      currentView.value = view;
     }
 
     return {
+      currentView,
       editor,
       submitted,
       checkIfChangesMade,
@@ -99,6 +118,7 @@ export default defineComponent({
       setFloatOnDrop,
       onMounted,
       onBeforeUnmount,
+      changeEditorView,
     };
   },
 });
@@ -109,13 +129,22 @@ export default defineComponent({
     <!-- The Whole Editor -->
     <div class="editor" v-if="editor">
       <!-- Editor Buttons -->
-      <page-editor-header :editor="editor"></page-editor-header>
+      <page-editor-header
+        :editor="editor"
+        @changeView="changeEditorView"
+      ></page-editor-header>
       <!-- Editor -->
       <editor-content
         class="editor__content"
+        :class="{
+          'pc-view': currentView === 'pc',
+          'phone-view': currentView === 'phone',
+          'tablet-view': currentView === 'tablet',
+        }"
         :editor="editor"
         @drop="setFloatOnDrop($event)"
         spellcheck="false"
+        id="test"
       />
       <div class="editor__footer">
         <!-- Cross Icon -->
@@ -169,16 +198,19 @@ export default defineComponent({
 </template>
 
 <style scoped>
+.pc-view {
+}
+
 .phone-view {
   /* Based on Iphon X */
-  width: 375px;
-  height: 812px;
+  max-width: 375px;
+  max-height: 812px;
 }
 
 .tablet-view {
   /* Based on Ipad */
-  width: 768px;
-  height: 1024px;
+  max-width: 768px;
+  max-height: 1024px;
 }
 
 /* Editor button & Layout styling */
