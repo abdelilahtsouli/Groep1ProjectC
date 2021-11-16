@@ -42,7 +42,6 @@ function getCookie(cname : string) {
 }
 
 </script>
-
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -80,3 +79,4 @@ img{
   padding-bottom: 0px;
 }
 </style>
+
