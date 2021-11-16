@@ -1,0 +1,41 @@
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\bin\Debug\net5.0\appsettings.json
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\bin\Debug\net5.0\Project C Website.exe
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\bin\Debug\net5.0\starshl-logo.png
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\bin\Debug\net5.0\Project C Website.deps.json
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\bin\Debug\net5.0\Project C Website.runtimeconfig.json
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\bin\Debug\net5.0\Project C Website.runtimeconfig.dev.json
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\bin\Debug\net5.0\Project C Website.dll
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\bin\Debug\net5.0\ref\Project C Website.dll
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\bin\Debug\net5.0\Project C Website.pdb
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\bin\Debug\net5.0\FSharp.Core.dll
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\bin\Debug\net5.0\Npgsql.dll
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\bin\Debug\net5.0\Npgsql.FSharp.dll
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\bin\Debug\net5.0\Ply.dll
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\bin\Debug\net5.0\cs\FSharp.Core.resources.dll
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\bin\Debug\net5.0\de\FSharp.Core.resources.dll
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\bin\Debug\net5.0\es\FSharp.Core.resources.dll
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\bin\Debug\net5.0\fr\FSharp.Core.resources.dll
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\bin\Debug\net5.0\it\FSharp.Core.resources.dll
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\bin\Debug\net5.0\ja\FSharp.Core.resources.dll
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\bin\Debug\net5.0\ko\FSharp.Core.resources.dll
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\bin\Debug\net5.0\pl\FSharp.Core.resources.dll
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\bin\Debug\net5.0\pt-BR\FSharp.Core.resources.dll
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\bin\Debug\net5.0\ru\FSharp.Core.resources.dll
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\bin\Debug\net5.0\tr\FSharp.Core.resources.dll
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\bin\Debug\net5.0\zh-Hans\FSharp.Core.resources.dll
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\bin\Debug\net5.0\zh-Hant\FSharp.Core.resources.dll
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\obj\Debug\net5.0\Project C Website.csproj.AssemblyReference.cache
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\obj\Debug\net5.0\Project C Website.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\obj\Debug\net5.0\Project C Website.AssemblyInfoInputs.cache
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\obj\Debug\net5.0\Project C Website.AssemblyInfo.cs
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\obj\Debug\net5.0\Project C Website.csproj.CoreCompileInputs.cache
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\obj\Debug\net5.0\Project C Website.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\obj\Debug\net5.0\staticwebassets\Project C Website.StaticWebAssets.Manifest.cache
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\obj\Debug\net5.0\staticwebassets\Project C Website.StaticWebAssets.xml
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\obj\Debug\net5.0\scopedcss\bundle\Project C Website.styles.css
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\obj\Debug\net5.0\Project C Website.RazorTargetAssemblyInfo.cache
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\obj\Debug\net5.0\Project C Website.dll
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\obj\Debug\net5.0\ref\Project C Website.dll
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\obj\Debug\net5.0\Project C Website.pdb
+C:\Users\jamey\repos\vue\proj-c-editors\Groep1ProjectC\backend\obj\Debug\net5.0\Project C Website.genruntimeconfig.cache
