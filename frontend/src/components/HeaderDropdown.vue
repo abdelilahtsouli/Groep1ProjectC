@@ -9,7 +9,7 @@
     <transition name="fade" appear>
       <div class="sub-menu" v-if="isOpen">
         <div v-for="(item, i) in items" :key="i" class="menu-item">
-          <a :href="item.link">{{ item.title }}</a>
+          <router-link :to="`/${item.link}`">{{ item.title }}</router-link>
         </div>
       </div>
     </transition>
@@ -28,16 +28,29 @@ export default {
 }
 </script>
 
-<style>
+<style >
 nav .menu-item svg {
   width: 10px;
   margin-left: 10px;
 }
+/* 
+@media only screen and (max-width: 500px){
+  nav .menu-item .sub-menu {
+  position: absolute;
+  background-color: #142d49;
+  top: calc(100% + 18px);
+  left: -25%;
+  transform: translateX(-50%);
+  width: max-content;
+  border-radius: 0px 0px 16px 16px;
+  }
+} */
+
 nav .menu-item .sub-menu {
   position: absolute;
   background-color: #142d49;
   top: calc(100% + 18px);
-  left: 50%;
+  left: -25%;
   transform: translateX(-50%);
   width: max-content;
   border-radius: 0px 0px 16px 16px;

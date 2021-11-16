@@ -1,15 +1,16 @@
 <template>
     <nav>
         <a href="/"><img class= "starshl" src="../assets/logo.png"></a>
-        <div class="menu-item"><a href="#">Home</a></div>
-        <div class="menu-item"><a href="#">Bloedprikken</a></div>
+        <router-link to="/home" class="menu-item"><a>Home</a></router-link>
+        <router-link to="/bloedprikken" class="menu-item"><a>Bloedprikken</a></router-link>
         <HeaderDropdown title="Contact" :items="services" />
-        <div class="menu-item"><a href="#">Afspraak maken</a></div>
+
     </nav>
 </template>
 
 <script lang = "ts">
 import HeaderDropdown from './HeaderDropdown.vue'
+import router from './router';
 export default {
   components: { HeaderDropdown },
     name: 'Header',
@@ -17,8 +18,8 @@ export default {
         return {
             services: [
             {
-                title: 'Contact met ons opnemen',
-                link: '#'
+                title: 'Log in als Administrator',
+                link: 'login'
             },
             {
                 title: 'Vacatures',
@@ -43,22 +44,35 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-}
+    height: 50px;
+    background-color: #142d49;
+    }
+@media only screen and (min-width: 750px ) and ( max-width: 1000px){
+    .starshl {
 
+    width: 40% !important;
+    height: 40% !important;
+    display: flex;
+    padding: 0px;
+    }
+}
 .starshl {
-    max-width: 180px;
-    max-height: 40px;
+
     width: 100%;
     height: 100%;
+    display: flex;
+    padding: 0px;
 }
 nav .menu-item {
-    color: rgb(244, 244, 255);
-    padding: 10px 20px;
+    color: rgb(255, 255, 255);
+    padding: 5px 5px;
     position: relative;
     text-align: center;
     border-bottom: 3px solid transparent;
     display: flex;
-    transition: 0.4s
+    transition: 0.4s;
+    font-size: 1em;
+
 }
 
 nav .menu-item.active,

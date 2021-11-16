@@ -3,13 +3,8 @@
     <header>
     <Header/>
     </header>
-  <div id="nav">
-    <router-link to="/home">Home</router-link> |
-    <router-link to="/bloedprikken">Bloedprikken</router-link> |
-    <router-link v-if="isNotLoggedIn()" to="/login">Login</router-link>
-    <img src='./assets/logo.png'>
-  </div>
-  <router-view @newCookieValue="setCookie" />
+
+  <router-view/>
 </template>
 
 <script lang="ts" setup>
@@ -60,26 +55,10 @@ body{
   margin: 0px;
 }
 
-#nav {
-  width: 100%;
-  background-color: #79b9d5;
-  margin-bottom: 10px;
 
-}
 
-#nav a {
-  font-weight: bold;
-  color: #142d49;
-}
 
-#nav a.router-link-exact-active {
-  color: #e7334c;
-}
-img{
-  width: 80%;
-  padding-top: 10px;
-  margin: 5px;
-  padding-bottom: 0px;
-}
+
+
 </style>
 
