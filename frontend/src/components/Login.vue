@@ -21,15 +21,19 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import axios from "axios";
-import speakeasy from "speakeasy";
-import qrcode from "qrcode";
 import router from "../router";
-import { error } from "jquery";
+
 
 const URL_base = "/api/auth/login";
 const message_email = ref("");
 const message_password = ref("");
 const errormessage = ref("");
+
+
+// function encryptPassword(password){        
+//   salt.value = bcrypt.genSaltSync(10)
+//   message_password.value = bcrypt.hashSync(password, salt)
+// }
 
 function userLogin() {
   if (!validateEmail()) {
@@ -48,12 +52,16 @@ function userLogin() {
     .post(URL_base, bodyFormData)
     .then(
       (Response: any) => {
+        console.log(Response.data)
         if (Response.data.twoFAenabled == false) {
-          router.push({ name: "twoFA", params: { id: Response.data.id } });
-        } else if (Response.data.twoFAenabled == true) {
+          router.push({
+            name: "twoFA", 
+            params: { id: Response.data.id } });
+        }
+        else if (Response.data.twoFAenabled == true) {
           router.push({
             name: "verify2FA",
-            params: { id: Response.data.id, secret: Response.data.secret },
+            params: { id: Response.data.id, email: Response.data.email},
           });
         }
       },
@@ -64,6 +72,7 @@ function userLogin() {
     .catch((e) => {
       console.log(e);
     });
+
 }
 
 function validateEmail() {
@@ -75,18 +84,24 @@ function validateEmail() {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 10px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
+
+input{
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
   display: inline-block;
-  margin: 0 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
-a {
-  color: #42b983;
+button{
+  width: 50%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 </style>

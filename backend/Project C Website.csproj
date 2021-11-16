@@ -5,6 +5,7 @@
     <RootNamespace>Project_C_Website</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="GoogleAuthenticator" Version="2.2.0" />
     <PackageReference Include="Npgsql.FSharp" Version="4.0.0" />
   </ItemGroup>
 

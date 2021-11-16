@@ -3,11 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
-using Project_C_Website.data;
 using System.Text.Json;
 using System.Data;
 using Npgsql;
+using Microsoft.Extensions.Primitives;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -20,47 +19,20 @@ namespace Project_C_Website.controllers {
 			WriteIndented = true
 		};
 
-		private List<Media> getMediaOfPage(int page_id, Database database) {
-			List<Media> media = new List<Media>();
-
-			DataTable data = database.BuildQuery(@"
-				select m.media_id, m.type, m.file, m.content, mp.location from media_of_pages mp
-					join media m on m.media_id=mp.media_id
-					where page_id=@page_id;
-			").AddParameter("page_id", page_id).Select();
-
-			foreach (DataRow row in data.Rows) {
-				int media_id = (int)row["media_id"];
-				int location = (int)row["location"];
-				string type = row["type"].ToString();
-				string file = row["file"].ToString();
-				string content = row["content"].ToString();
-
-				media.Add(new Media(media_id, type, location, file, content));
-			}
-
-			return media;
-		}
-
 		// GET: api/pages
 		[HttpGet]
 		public string Get() {
-			List<Page> pages = new List<Page>();
+			List<Object> pages = new List<Object>();
 
 			Database database = new Database();
 			DataTable pagesData = database.BuildQuery("select * from pages").Select();
 
 			foreach (DataRow row in pagesData.Rows) {
-				int page_id = (int)row["id"];
-				List<Media> mediaOfPage = getMediaOfPage(page_id, database);
-
-				Page page = new Page(page_id, row["name"].ToString(), mediaOfPage);
-				pages.Add(page);
+				pages.Add(new {
+					Id = (int)row["id"],
+					Name = row["name"].ToString()
+				});
 			}
-
-			JsonSerializerOptions jsonOptions = new JsonSerializerOptions() {
-				WriteIndented=true
-			};
 
 			return JsonSerializer.Serialize(pages, jsonOptions);
 		}
@@ -69,34 +41,122 @@ namespace Project_C_Website.controllers {
 		[HttpGet("{id}")]
 		public string Get(int id) {
 			Database database = new Database();
-			DataTable pagesData = database.BuildQuery("select * from pages where id=" + id).Select();
+			DataTable pagesData = database.BuildQuery("select * from pages where id=@id")
+				.AddParameter("id", id)
+				.Select();
 
 			foreach (DataRow row in pagesData.Rows) {
-				List<Media> media = this.getMediaOfPage(id, database);
-				Page page = new Page(id, row["name"].ToString(), media);
+				Object page = new {
+					Success = true,
+					Id = (int)row["id"],
+					Name = row["name"].ToString(),
+					Content = row["content"].ToString()
+				};
 
 				return JsonSerializer.Serialize(page, jsonOptions);
 			}
 
 			this.HttpContext.Response.StatusCode = 404;
 			return JsonSerializer.Serialize(new {
-				message = "Not Found"
-			});
+				Success = false,
+				Message = "Not Found"
+			}, jsonOptions);
+		}
+
+		public bool isValidOauth(string token) {
+			Database database = new Database();
+			DataTable data = database.BuildQuery("select * from td_user where oauth_token=@token")
+				.AddParameter("token", token)
+				.Select();
+
+			return data.Rows.Count == 1;
 		}
 
 		// POST api/pages
 		[HttpPost]
-		public void Post([FromBody] string value) {
+		public string Post([FromBody] JsonElement json) {
+			// Authorization check
+			StringValues oauth_token;
+			Request.Headers.TryGetValue("Authorization", out oauth_token);
+			if (!isValidOauth(oauth_token)) {
+				return JsonSerializer.Serialize(new {
+					Success = false,
+					Message = "Invalid oauth token."
+				});
+			}
+
+			string name = json.GetProperty("name").GetString();
+
+			long timeInMs = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+
+			Database database = new Database();
+			DataTable data = database.BuildQuery("insert into pages values (default, @name, @created_at, @updated_at, @content) returning id")
+				.AddParameter("name", name)
+				.AddParameter("created_at", timeInMs)
+				.AddParameter("updated_at", timeInMs)
+				.AddParameter("content", "")
+				.Select();
+
+			int id = -1;
+			foreach (DataRow row in data.Rows) {
+				id = int.Parse(row["id"].ToString());
+			}
+
+			return JsonSerializer.Serialize(new {
+				Success = true,
+				Id = id
+			}, jsonOptions);
 		}
 
 		// PUT api/pages/5
 		[HttpPut("{id}")]
-		public void Put(int id, [FromBody] string value) {
+		public string Put(int id, [FromBody] JsonElement json) {
+			// Authorization check
+			StringValues oauth_token;
+			Request.Headers.TryGetValue("Authorization", out oauth_token);
+			if (!isValidOauth(oauth_token)) {
+				return JsonSerializer.Serialize(new {
+					Success = false,
+					Message = "Invalid oauth token."
+				});
+			}
+
+			string content = json.GetProperty("content").GetString();
+			long timeInMs = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+
+			Database database = new Database();
+			database.BuildQuery("update pages set content=@content, updated_at=@updated_at where id=@id")
+				.AddParameter("content", content)
+				.AddParameter("updated_at", timeInMs)
+				.AddParameter("id", id)
+				.Query();
+
+			return JsonSerializer.Serialize(new {
+				Success = true
+			}, jsonOptions);
 		}
 
 		// DELETE api/pages/5
 		[HttpDelete("{id}")]
-		public void Delete(int id) {
+		public string Delete(int id) {
+			// Authorization check
+			StringValues oauth_token;
+			Request.Headers.TryGetValue("Authorization", out oauth_token);
+			if (!isValidOauth(oauth_token)) {
+				return JsonSerializer.Serialize(new {
+					Success = false,
+					Message = "Invalid oauth token."
+				});
+			}
+
+			Database database = new Database();
+			database.BuildQuery("delete from pages where id=@id")
+				.AddParameter("id", id)
+				.Query();
+
+			return JsonSerializer.Serialize(new {
+				Success = true
+			}, jsonOptions);
 		}
 	}
 }
