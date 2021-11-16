@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Project_C_Website.controllers;
 using Microsoft.Extensions.Configuration;
 using System.IO;
+using System.Text;
 using System.Data;
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
@@ -32,7 +33,7 @@ namespace Project_C_Website.controllers {
 			{
 				rngCsp.GetNonZeroBytes(salt);
 			}
-			
+			string newSalt =  Encoding.ASCII.GetString(salt);
 			// derive a 256-bit subkey (use HMACSHA256 with 100,000 iterations)
 			string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
 				password: Password,
@@ -40,7 +41,8 @@ namespace Project_C_Website.controllers {
 				prf: KeyDerivationPrf.HMACSHA256,
 				iterationCount: 100000,
 				numBytesRequested: 256 / 8));
-			
+				
+			Console.WriteLine(hashed);
 			
 
 
@@ -53,7 +55,7 @@ namespace Project_C_Website.controllers {
 			    .AddParameter("name", Name)
                 .AddParameter("email", Email)
                 .AddParameter("password", hashed)
-                .AddParameter("salt", salt)
+                .AddParameter("salt", newSalt)
                 .Query();
 
             return JsonSerializer.Serialize(new{
