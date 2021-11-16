@@ -21,13 +21,13 @@ export default {
                 link: 'login'
             },
             {
-                title: 'Vacatures',
+                title: 'Info',
                 link: '#'
             },
             {
-                title: 'PLACEHOLDER',
-                link: '#'
+                title: 'Locaties'
             }
+
         ]
         }
     }

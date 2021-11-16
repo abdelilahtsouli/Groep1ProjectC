@@ -1,8 +1,9 @@
 <template>
     <div class="2FA">
-        <div class="2FA-Verify">
+        <div class="twoVerify">
+            <br>
             <input  @keyup.enter="Verify" v-model="verify_Token" placeholder="6-digit code recieved in the Authenticator app">
-            <button type="submit" @click="Verify()">Verify</button>
+            <br><button type="submit" @click="Verify()">Verify</button>
             <h5 v-if="verified">Succesvol ingelogd!</h5>
         </div>
     </div>
@@ -45,7 +46,7 @@ async function Verify(){
 
 <style scoped>
 input{
-  width: 50%;
+  width: 100%;
   height: 40px;
   display: block;
   margin-right: auto;
@@ -53,8 +54,12 @@ input{
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
-button{
+.twoVerify{
   width: 50%;
+  margin: 0 auto;
+}
+button{
+  width: 100%;
   height: 40px;
   display: flex;
   align-items: center;
@@ -64,4 +69,5 @@ button{
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
+
 </style>

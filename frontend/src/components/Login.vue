@@ -1,17 +1,18 @@
 <template>
   <div class="Log-in">
     <div class="login-box">
+      <br>
       <input
         @keyup.enter="userLogin"
         v-model="message_email"
         placeholder="Email"
-      />
+      /><br>
       <input
         @keyup.enter="userLogin"
         v-model="message_password"
         type="password"
         placeholder="Password"
-      />
+      /><br>
       <button type="submit" @click="userLogin()">Log in</button>
       <h3>{{ errormessage }}</h3>
     </div>
@@ -86,15 +87,19 @@ function validateEmail() {
 <style scoped>
 
 input{
-  width: 50%;
+  width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
-button{
+.login-box{
   width: 50%;
+  margin: 0 auto;
+}
+button{
+  width: 100%;
   height: 40px;
   display: flex;
   align-items: center;
