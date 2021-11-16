@@ -28,7 +28,7 @@ const URL_base = "/api/auth/login";
 const message_email = ref("");
 const message_password = ref("");
 const errormessage = ref("");
-const salt = ref("");
+
 
 // function encryptPassword(password){        
 //   salt.value = bcrypt.genSaltSync(10)
@@ -52,6 +52,7 @@ function userLogin() {
     .post(URL_base, bodyFormData)
     .then(
       (Response: any) => {
+        console.log(Response.data)
         if (Response.data.twoFAenabled == false) {
           router.push({
             name: "twoFA", 
@@ -71,6 +72,7 @@ function userLogin() {
     .catch((e) => {
       console.log(e);
     });
+
 }
 
 function validateEmail() {
@@ -93,9 +95,10 @@ input{
 }
 button{
   width: 50%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  margin-left: 25%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   display: inline-block;
   text-align: center;
   border: 1px solid #ccc;

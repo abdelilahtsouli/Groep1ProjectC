@@ -7,8 +7,11 @@ using System.Threading.Tasks;
 using Project_C_Website.controllers;
 using Microsoft.Extensions.Configuration;
 using System.IO;
+using System.Text;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Data;
-
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using System.Security.Cryptography;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Project_C_Website.controllers {
@@ -23,13 +26,20 @@ namespace Project_C_Website.controllers {
 			// Get a value called email & password from the Request 
 			string email_input = HttpContext.Request.Form["email"];
 			string password_input = HttpContext.Request.Form["password"];
+
+
 			// Execute the query on the database.
 			Database database = new Database();
 			DataTable data = database.BuildQuery("select * from td_user").Select();
-		
+	
 			// Loop through each row in the query and check if the details are correct.
 			foreach (DataRow row in data.Rows) {
-				if (row["email"].ToString() == email_input && row["password"].ToString() == password_input) {
+				var newPassword = password_input + row["salt"].ToString();
+				var crypt = new SHA256Managed();
+				byte[] crypto = crypt.ComputeHash(Encoding.ASCII.GetBytes(newPassword));
+				string hash = Encoding.ASCII.GetString(crypto);
+
+				if (row["email"].ToString() == email_input && row["password"].ToString() == hash) {
 
 					return JsonSerializer.Serialize(new {
 						id = Int32.Parse(row["id"].ToString()),
@@ -45,5 +55,6 @@ namespace Project_C_Website.controllers {
 				message = "Either the email or the password is incorrect"
 			});
 		}
+
 	}
 }

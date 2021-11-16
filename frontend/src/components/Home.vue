@@ -20,10 +20,16 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref, watch, watchEffect, defineEmits } from 'vue';
 import axios from 'axios'
+import {defineProps} from 'vue';
 
+
+const props = defineProps<{cookie : any}>();
 var pages = ref([])
+const emit = defineEmits(['newCookieValue']) 
+
+watchEffect(() => emit("newCookieValue", props.cookie))
 
 onMounted(() => {
   const baseURI = 'http://localhost:3000/pages'
