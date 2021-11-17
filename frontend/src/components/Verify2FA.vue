@@ -1,12 +1,13 @@
 <template>
-    <div class="twoFA">
-        <div class="twoVerify">
-            <h3 class="h3-text">Twee staps verificatie code</h3>
-            <input  @keyup.enter="Verify" v-model="verify_Token" placeholder="6-cijferige code uit de authenticator app">
-            <br><br><button type="submit" @click="Verify()">Verify</button>
-            <h5 v-if="verified">Succesvol ingelogd!</h5>
-            <h3>{{errormessage}}</h3>
-        </div>
+      <div class="twoFA">
+          <div class="twoVerify">
+              <h3 class="h3-text">Twee staps verificatie code</h3>
+              <input  @keyup.enter="Verify" v-model="verify_Token" placeholder="6-cijferige code uit de authenticator app">
+              <br><br><button type="submit" @click="Verify()">Verify</button>
+              <h5 v-if="verified">Succesvol ingelogd!</h5>
+              <h3>{{errormessage}}</h3>
+          </div>
+      </div>
     </div>
 </template>
 
@@ -36,8 +37,8 @@ async function Verify(){
     if(verified.value){
       VueCookieNext.setCookie("token", decodeURI(token.value), {expire :"2h"});
       router.push({
-        name: "Home", 
-        params: {cookie: decodeURI(token.value) }})
+        name: "Home"
+      })
     }
 
 

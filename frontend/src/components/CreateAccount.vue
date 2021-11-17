@@ -1,29 +1,36 @@
 <template>
+    <div>
+
     <div class="Home">
         <div class="Home-Page">
             <div class="createAccountForm">
+                <h3 class="h3-text">Naam</h3>
                 <input
                 v-model="Name"
                 placeholder="Naam"
                 />
+                <h3 class="h3-text">E-mail adres</h3>
                 <input
                 v-model="Email"
                 placeholder="Email"
                 />
+                <h3 class="h3-text">Wachtwoord</h3>
                 <input
                 v-model="password"
                 placeholder="Wachtwoord"
                 type="password"
                 />
+                <h3 class="h3-text">Herhaal wachtwoord</h3>
                 <input
                 v-model="Password_check"
                 placeholder="Wachtwoord"
                 type="password"
-                />
+                /><br><br>
                 <button @click="validateEmail(); passwordCheck(); sendToServer();">Create account</button>
                 <h5>{{Error_message}}</h5>
             </div>
         </div>
+    </div>
     </div>
 
 
@@ -70,7 +77,47 @@ async function sendToServer(){
 </script>
 
 <style scoped>
-
-
+h3{
+  color: #ffffff;
+  font-size: 0.8em;
+  margin: 0;
+}
+.Home{
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 50% !important;
+  padding: 30px;
+  background-color: #142d49;
+  border-radius: 5px;
+}
+.Home-page{
+  width: 100%;
+  margin: 0 auto;
+  background-color: #142d49;
+}
+input{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #142d49;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+button{
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid;
+  background-color: #FF5858;
+  border: 1px solid #142d49;
+  box-sizing: border-box;
+  border-radius: 5px;
+  color: white;
+}
 
 </style>

@@ -1,4 +1,6 @@
 <template>
+  <div>
+
   <div class="twoFA">
     <div class="twoFA-QR">
       <h5>Scan de onderstaande code met de google Authenticator</h5><br>
@@ -10,6 +12,7 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 
 
@@ -18,7 +21,7 @@ import { onMounted, ref } from "vue";
 import axios from "axios";
 import { defineProps } from "vue";
 import router from "../router";
-
+import Header from './Header.vue'
 let QR_Code = ref("");
 
 const props = defineProps<{ id: string, email: string}>();

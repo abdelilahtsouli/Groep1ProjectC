@@ -1,22 +1,26 @@
 <template>
-  <div class="Log-in">
-    <div class="login-box">
-      <h3 class="h3-text">E-mail adres</h3>
-      <input
-        @keyup.enter="userLogin"
-        v-model="message_email"
-        placeholder="Email"
-      /><br>
-      <h3 class="h3-text">Wachtwoord</h3>
-      <input
-        @keyup.enter="userLogin"
-        v-model="message_password"
-        type="password"
-        placeholder="Password"
-      /><br>
-      <br><button type="submit" @click="userLogin()">Log in</button>
-      <h3>{{ errormessage }}</h3>
+  <div>
 
+
+    <div class="Log-in">
+      <div class="login-box">
+        <h3 class="h3-text">E-mail adres</h3>
+        <input
+          @keyup.enter="userLogin"
+          v-model="message_email"
+          placeholder="Email"
+        /><br>
+        <h3 class="h3-text">Wachtwoord</h3>
+        <input
+          @keyup.enter="userLogin"
+          v-model="message_password"
+          type="password"
+          placeholder="Password"
+        /><br>
+        <br><button type="submit" @click="userLogin()">Log in</button>
+        <h3>{{ errormessage }}</h3>
+
+      </div>
     </div>
   </div>
 </template>
