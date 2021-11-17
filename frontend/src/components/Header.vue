@@ -1,25 +1,23 @@
+
 <template>
     <nav>
         <a href="/"><img class= "starshl" src="../assets/logo.png"></a>
-        <router-link to="/home" class="menu-item"><a>Home</a></router-link>
-        <router-link to="/bloedprikken" class="menu-item"><a>Bloedprikken</a></router-link>
-        <HeaderDropdown title="Contact" :items="services" />
     </nav>
 </template>
 
 <script lang = "ts">
-import HeaderDropdown from './HeaderDropdown.vue'
+
+import { onMounted, ref } from 'vue';
+import { watchEffect } from 'vue';
 import router from './router';
+
 export default {
-  components: { HeaderDropdown },
+    
+
     name: 'Header',
     data () {
         return {
             services: [
-            { 
-                title: 'Log in als Administrator',
-                link: 'login'
-            },
             {
                 title: 'Info',
                 link: '#'
@@ -32,6 +30,7 @@ export default {
         }
     }
 }
+
 </script>
 
 <style>
@@ -57,8 +56,8 @@ nav {
 }
 .starshl {
 
-    width: 100%;
-    height: 100%;
+    width: 50%;
+    height: 50%;
     display: flex;
     padding: 0px;
 }

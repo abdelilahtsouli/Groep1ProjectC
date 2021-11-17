@@ -1,21 +1,22 @@
-
 <template>
-    <header>
-    <Header/>
-    </header>
 
+      <header>
+        <Header/>
+      </header>
+      <footer>
+      <Footer/>
+      </footer>
   <router-view/>
 </template>
 
 <script lang="ts" setup>
 import { onMounted } from 'vue';
 import Header from './components/Header.vue'
-
+import Footer from './components/footer.vue'
 
 
 onMounted( function()  {
   getCookie('token'),
-  console.log('test')
   isNotLoggedIn()
 }); 
 

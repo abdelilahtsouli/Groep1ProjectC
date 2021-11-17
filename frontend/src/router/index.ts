@@ -5,6 +5,7 @@ import Login from '../components/Login.vue'
 import twoFASetup from '../components/2FAsetup.vue'
 import twoFAverify from '../components/Verify2FA.vue'
 import createNewUser from '../components/CreateAccount.vue'
+import logout from '../components/logout.vue'
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -46,6 +47,12 @@ const routes: Array<RouteRecordRaw> = [
         name: 'createNewUser',
         props: true,
         component: createNewUser
+    },
+    {
+        path: '/logout/:page',
+        name: 'logout',
+        props: true,
+        component: logout
     }
 
 ]
