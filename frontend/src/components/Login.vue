@@ -1,20 +1,22 @@
 <template>
   <div class="Log-in">
     <div class="login-box">
-      <br>
+      <h3 class="h3-text">E-mail adres</h3>
       <input
         @keyup.enter="userLogin"
         v-model="message_email"
         placeholder="Email"
       /><br>
+      <h3 class="h3-text">Wachtwoord</h3>
       <input
         @keyup.enter="userLogin"
         v-model="message_password"
         type="password"
         placeholder="Password"
       /><br>
-      <button type="submit" @click="userLogin()">Log in</button>
+      <br><button type="submit" @click="userLogin()">Log in</button>
       <h3>{{ errormessage }}</h3>
+
     </div>
   </div>
 </template>
@@ -31,14 +33,11 @@ const message_password = ref("");
 const errormessage = ref("");
 
 
-// function encryptPassword(password){        
-//   salt.value = bcrypt.genSaltSync(10)
-//   message_password.value = bcrypt.hashSync(password, salt)
-// }
+
 
 function userLogin() {
   if (!validateEmail()) {
-    errormessage.value = "You must enter a valid Email";
+    errormessage.value = "Voer een geldig e-mail adres in";
     return;
   }
   if (message_password.value == "") {
@@ -53,6 +52,7 @@ function userLogin() {
     .post(URL_base, bodyFormData)
     .then(
       (Response: any) => {
+        errormessage.value = Response.data.message
         console.log(Response.data)
         if (Response.data.twoFAenabled == false) {
           router.push({
@@ -91,12 +91,25 @@ input{
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  border: 1px solid #ccc;
+  border: 1px solid #142d49;
   box-sizing: border-box;
-}
-.login-box{
+  border-radius: 5px;
+} 
+.Log-in{
   width: 50%;
   margin: 0 auto;
+  margin-top: 50%;
+  padding: 30px;
+  background-color: #142d49;
+  border-radius: 5px;
+
+}
+.login-box{
+  width: 100%;
+  margin: 0 auto;
+
+  background-color: #142d49;
+
 }
 button{
   width: 100%;
@@ -106,7 +119,21 @@ button{
   justify-content: center;
   display: inline-block;
   text-align: center;
-  border: 1px solid #ccc;
+  border: 1px solid;
+  background-color: #FF5858;
+  border: 1px solid #142d49;
   box-sizing: border-box;
+  border-radius: 5px;
+  color: white;
+}
+h3{
+  color: #FF5858;
+  font-size: 0.8em;
+  margin: 0;
+}
+.h3-text{
+  color: white;
+  font-size: 0.8em;
+  margin: 0;
 }
 </style>

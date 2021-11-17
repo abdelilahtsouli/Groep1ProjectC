@@ -57,6 +57,7 @@ namespace Project_C_Website.controllers {
                 .AddParameter("salt", newSalt)
                 .Query();
 
+			database.Close();
             return JsonSerializer.Serialize(new{
 				userCreated = true
 			});

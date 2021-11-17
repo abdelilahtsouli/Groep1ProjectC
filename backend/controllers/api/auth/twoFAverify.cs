@@ -52,12 +52,21 @@ namespace Project_C_Website.controllers
 				.AddParameter("oauth_token", oauth_token)
 				.AddParameter("id", Int32.Parse(id))
 				.Query();
-			Console.WriteLine(oauth_token);
-			return JsonSerializer.Serialize(new
-			{
-				isCorrectPIN,
-				token = oauth_token
-			});
+			database.Close();
+			if(isCorrectPIN){
+				return JsonSerializer.Serialize(new
+				{
+					isCorrectPIN,
+					token = oauth_token,
+					error = ""
+				});
+			}
+			else{
+				return JsonSerializer.Serialize(new{
+					error = "De ingevoerde PIN is niet juist"
+				});
+			}
+
 		}
 
 	}
