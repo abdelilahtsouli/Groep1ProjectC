@@ -40,11 +40,12 @@ export default defineComponent({
     },
     watch: {
         '$route.params': {
-        handler(value) {
-            this.updatePage(value.id);
-        },
-        immediate: true,
+            handler(value) {
+                this.updatePage(value.id);
+            },
+            immediate: true,
+        }
     }
-}});
+});
 
 </script>
