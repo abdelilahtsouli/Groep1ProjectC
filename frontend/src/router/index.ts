@@ -5,22 +5,17 @@ import Login from '../components/Login.vue'
 import twoFASetup from '../components/2FAsetup.vue'
 import twoFAverify from '../components/Verify2FA.vue'
 import createNewUser from '../components/CreateAccount.vue'
+import Page from '../components/Page.vue'
 
 const routes: Array<RouteRecordRaw> = [
     {
-        path: '/', redirect : '/home'
+        path: '/', redirect : '/page/1'
     },
     {
-        path: '/home',
-        name: 'Home',
+        path: '/page/:id',
+        name: 'Page',
         props: true,
-        component: Home
-    },
-    {
-        path: '/bloedprikken',
-        name: 'Bloedprikken',
-        props: true,
-        component: Bloedprikken
+        component: Page
     },
     {
         path: '/login',

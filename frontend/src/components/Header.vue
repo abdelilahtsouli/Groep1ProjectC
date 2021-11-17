@@ -1,35 +1,56 @@
 <template>
     <nav>
         <a href="/"><img class= "starshl" src="../assets/logo.png"></a>
-        <router-link to="/home" class="menu-item"><a>Home</a></router-link>
-        <router-link to="/bloedprikken" class="menu-item"><a>Bloedprikken</a></router-link>
+
+        <router-link :key="item" v-for="item in pages" :to="'/page/' + item.Id" class="menu-item">
+            <span>{{item.Name}}</span>
+        </router-link>
         <HeaderDropdown title="Contact" :items="services" />
+
+        <!--
+        <router-link to="/page/1" class="menu-item"><a>Home</a></router-link>
+        <router-link to="/page/2" class="menu-item"><a>Bloedprikken</a></router-link>
+        <HeaderDropdown title="Contact" :items="services" />
+        -->
     </nav>
 </template>
 
 <script lang = "ts">
+import { ref } from 'vue';
 import HeaderDropdown from './HeaderDropdown.vue'
-import router from './router';
+import axios from "axios";
+
 export default {
-  components: { HeaderDropdown },
+    components: { HeaderDropdown },
     name: 'Header',
     data () {
         return {
             services: [
-            {
-                title: 'Log in als Administrator',
-                link: 'login'
-            },
-            {
-                title: 'Info',
-                link: '#'
-            },
-            {
-                title: 'Locaties'
-            }
-
-        ]
+                {
+                    title: 'Log in als Administrator',
+                    link: 'login'
+                },
+                {
+                    title: 'Info',
+                    link: '#'
+                },
+                {
+                    title: 'Locaties'
+                }
+            ]
         }
+    },
+    setup() {
+        const pages = ref([]);
+
+        axios.get("./api/pages")
+        .then((response: any) => {
+            pages.value = response.data;
+        });
+
+        return {
+            pages
+        };
     }
 }
 </script>
