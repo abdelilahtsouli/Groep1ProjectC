@@ -34,6 +34,7 @@ namespace Project_C_Website.controllers {
 				});
 			}
 
+			database.Close();
 			return JsonSerializer.Serialize(pages, jsonOptions);
 		}
 
@@ -53,9 +54,11 @@ namespace Project_C_Website.controllers {
 					Content = row["content"].ToString()
 				};
 
+				database.Close();
 				return JsonSerializer.Serialize(page, jsonOptions);
 			}
 
+			database.Close();
 			this.HttpContext.Response.StatusCode = 404;
 			return JsonSerializer.Serialize(new {
 				Success = false,
@@ -69,6 +72,7 @@ namespace Project_C_Website.controllers {
 				.AddParameter("token", token)
 				.Select();
 
+			database.Close();
 			return data.Rows.Count == 1;
 		}
 
@@ -102,6 +106,7 @@ namespace Project_C_Website.controllers {
 				id = int.Parse(row["id"].ToString());
 			}
 
+			database.Close();
 			return JsonSerializer.Serialize(new {
 				Success = true,
 				Id = id
@@ -131,6 +136,7 @@ namespace Project_C_Website.controllers {
 				.AddParameter("id", id)
 				.Query();
 
+			database.Close();
 			return JsonSerializer.Serialize(new {
 				Success = true
 			}, jsonOptions);
@@ -154,6 +160,7 @@ namespace Project_C_Website.controllers {
 				.AddParameter("id", id)
 				.Query();
 
+			database.Close();
 			return JsonSerializer.Serialize(new {
 				Success = true
 			}, jsonOptions);
