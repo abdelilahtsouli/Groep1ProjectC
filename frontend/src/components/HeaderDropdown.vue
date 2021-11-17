@@ -1,3 +1,4 @@
+
 <template>
   <div class="menu-item" @click="isOpen = !isOpen">
     <a href="#">
@@ -11,21 +12,34 @@
         <div v-for="(item, i) in items" :key="i" class="menu-item">
           <router-link :to="`/${item.link}`">{{ item.title }}</router-link>
         </div>
+        <div class="menu-item">
+          <router-link v-if="cookie != ''" to="/createNewUser"><a>account aanmaken</a></router-link>
+        </div>
       </div>
     </transition>
   </div>
 </template>
 
 <script lang = "ts">
+import { onMounted, ref } from 'vue'
+
+const cookie = ref('');
 export default {
   name: 'HeaderDropdown',
   props: ['title', 'items'],
   data () {
     return {
       isOpen: false
+
     }
   }
 }
+
+onMounted(() => {
+
+  cookie.value = document.cookie
+  console.log(cookie.value)
+})
 </script>
 
 <style >

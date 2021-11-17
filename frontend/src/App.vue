@@ -52,6 +52,7 @@ function getCookie(cname : string) {
 body{
   padding: 0px;
   margin: 0px;
+  background-color: rgb(238, 238, 238);
 }
 
 

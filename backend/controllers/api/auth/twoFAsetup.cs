@@ -46,6 +46,8 @@ namespace Project_C_Website.controllers {
 				.AddParameter("secret", rString)
 				.AddParameter("id", Int32.Parse(id))
 				.Query();
+
+			database.Close();
 			return JsonSerializer.Serialize(new{
 				qrCodeImageUrl,
 			});

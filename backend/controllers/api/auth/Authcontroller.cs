@@ -49,10 +49,10 @@ namespace Project_C_Website.controllers {
 					});
 				}
 			}
-
+			database.Close();
 			return JsonSerializer.Serialize(new{
 				success = false,
-				message = "Either the email or the password is incorrect"
+				message = "Het e-mail adres of wachtwoord is onjuist"
 			});
 		}
 

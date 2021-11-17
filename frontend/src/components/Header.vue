@@ -16,7 +16,7 @@ export default {
     data () {
         return {
             services: [
-            {
+            { 
                 title: 'Log in als Administrator',
                 link: 'login'
             },
