@@ -35,7 +35,8 @@ export default {
                     link: '#'
                 },
                 {
-                    title: 'Locaties'
+                    title: 'Locaties',
+                    link: 'location'
                 }
             ]
         }

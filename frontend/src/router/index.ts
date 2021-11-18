@@ -6,6 +6,7 @@ import twoFASetup from '../components/2FAsetup.vue'
 import twoFAverify from '../components/Verify2FA.vue'
 import createNewUser from '../components/CreateAccount.vue'
 import Page from '../components/Page.vue'
+import Location from '../components/Location.vue'
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -41,6 +42,12 @@ const routes: Array<RouteRecordRaw> = [
         name: 'createNewUser',
         props: true,
         component: createNewUser
+    },
+    {
+        path: '/location',
+        name: 'location',
+        props: true,
+        component: Location
     }
 
 ]
