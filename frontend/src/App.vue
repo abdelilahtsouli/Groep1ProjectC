@@ -52,10 +52,5 @@ function setNewPage(pageName: string): void {
   color: #2c3e50;
 }
 
-body {
-  padding: 0px;
-  margin: 0px;
-  background-color: rgb(238, 238, 238);
-}
 </style>
 
