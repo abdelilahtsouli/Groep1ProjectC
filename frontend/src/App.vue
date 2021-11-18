@@ -55,11 +55,5 @@ body{
   margin: 0px;
   background-color: rgb(238, 238, 238);
 }
-
-
-
-
-
-
 </style>
 

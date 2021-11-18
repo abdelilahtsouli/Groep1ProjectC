@@ -1,7 +1,7 @@
 <template>
     <div>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <nav class="nav">
+        <nav class="footer">
             <router-link to="/Home" class="nav__link">
                 <i class="material-icons nav__icon">home</i>
                 <a class="nav__text">Home</a>
@@ -37,11 +37,8 @@ export default {
 </script>
 
 <style>
-body {
-    margin: 0 0 55px 0;
-}
 
-.nav {
+.footer {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -51,6 +48,9 @@ body {
     overflow-x: auto;
     opacity: 100;
     z-index: 1;
+      display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav__link {
@@ -64,14 +64,14 @@ body {
     white-space: nowrap;
     font-family: sans-serif;
     font-size: 13px;
-    color: var(--Grey);
+    color: var(--grey);
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
     transition: background-color 0.1s ease-in-out;
 }
-.nav--link.active,
+.nav__link.active,
 .nav__link:hover {
-    color: var(--dark-red);
+    color: var(--light-red);
     background-color: var(--white);
 }
 
@@ -87,7 +87,7 @@ body {
     white-space: nowrap;
     font-family: sans-serif;
     font-size: 13px;
-    color: #00408f;
+    color: var(--grey);
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
     transition: background-color 0.1s ease-in-out;
@@ -95,7 +95,7 @@ body {
 
 .navMenu.active,
 .navMenu:hover {
-    color: (--dark-red);
+    color: var(--light-red);
     background-color: var(--white);
 }
 .nav__icon {
