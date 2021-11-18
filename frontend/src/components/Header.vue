@@ -1,47 +1,46 @@
 
 <template>
-    <nav>
-      <img class= "starshl" src="../assets/logo.png">
-    </nav>
+  <nav class="header">
+    <!-- <img class="img" src="../assets/images/star-shl-logo-kleur.png" /> -->
+    <img
+      class="img"
+      src="../assets/images/star-shl-logo-kleur-diapositief.png"
+    />
+  </nav>
 </template>
 
 <script lang = "ts">
-
-
 export default {
-    name: 'Header',
-
-}
+  name: "Header",
+};
 </script>
 
-<style>
-body{
-  padding: 0px;
-  margin: 0px;
-}
-nav{
+<style scoped>
+.header {
+  position: fixed;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 50px;
+  height: 55px;
   background-color: var(--dark-blue);
+  /* background-color: var(--white); */
 }
 
 @media only screen and (min-width: 750px) and (max-width: 1000px) {
-  .starshl {
+  .header .img {
     width: 40% !important;
     height: 40% !important;
     display: flex;
     padding: 0px;
   }
 }
-.starshl {
-  height: 50px;
-  display: flex;
+.header .img {
+  height: 35px;
   padding: 0px;
-  float: center;
+  display: flex;
+  /* background-color: var(--white); */
+  background-color: var(--dark-blue);
 }
-
-
 </style>
