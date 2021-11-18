@@ -45,6 +45,7 @@ const content = ref("<h1 style='text-align: center'>Star-shl homepage</h1><p>Lor
   width: 100%;
   height: 55px;
 }
+
 .edit-button{
   width: 10%;
   height: 30px;

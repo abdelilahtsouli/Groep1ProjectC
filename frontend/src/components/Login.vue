@@ -82,7 +82,7 @@ function validateEmail() {
   color: var(--light-red);
   font-size: 0.8em;
 }
-input{
+.login-box input{
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -106,7 +106,7 @@ input{
   background-color: var(--dark-blue);
 
 }
-button{
+.login-box button{
   width: 100%;
   height: 40px;
   display: flex;
