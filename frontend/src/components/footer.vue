@@ -69,7 +69,7 @@ export default defineComponent({
   bottom: 0;
   width: 100%;
   height: 55px;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 0 3px rgba(0, 0, 0, 0.2); */
   background-color: var(--white);
   overflow-x: auto;
   opacity: 100;
@@ -77,6 +77,10 @@ export default defineComponent({
   display: flex;
   align-items: center;
   justify-content: center;
+  /* box-shadow: 0 -6px 6px -2px rgba(0, 0, 0, 0.5); */
+  box-shadow: 0 -6px 6px -2px rgba(112, 128, 144, 0.5);
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
 }
 
 .footer .active-item {

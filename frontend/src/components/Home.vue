@@ -10,7 +10,7 @@
         <img src="../assets/images/stock-img-smiling-chemists.jpg" />
       </div>
       <div class="block-container">
-        <button class="block">
+        <button class="block top-left-border">
           <router-link to="/Bloedprikken"
             ><div v-html="bloodDropletSvg"></div>
             <a>Bloedprikken</a></router-link
@@ -22,13 +22,13 @@
             <a>Urine Onderzoek</a></router-link
           >
         </button>
-        <button class="block">
+        <button class="block top-right-border">
           <router-link to="#"
             ><div v-html="mapMarkerSvg"></div>
             <a>Locaties</a></router-link
           >
         </button>
-        <button class="block">
+        <button class="block bottom-left-border ">
           <router-link to="#"
             ><div v-html="clockSvg"></div>
             <a>Openingstijden</a></router-link
@@ -40,7 +40,7 @@
             <a>Routeplanner</a></router-link
           >
         </button>
-        <button class="block">
+        <button class="block bottom-right-border ">
           <router-link to="#"
             ><div v-html="paperPlaneSvg"></div>
             <a>Contact</a></router-link
@@ -109,7 +109,7 @@ function cookieTest() {
   return document.cookie != "";
 }
 
-onMounted (() => emit("switchPage", "home"));
+onMounted(() => emit("switchPage", "home"));
 
 const editting = ref(false);
 const content = ref("");
@@ -151,6 +151,27 @@ const chestListSvg = `<svg aria-hidden="true" focusable="false" data-prefix="fas
   box-sizing: border-box;
 }
 
+.bottom-left-border {
+  border-bottom-left-radius: 8px;
+}
+
+.bottom-right-border {
+  border-bottom-right-radius: 8px;
+}
+
+.top-left-border {
+  border-top-left-radius: 8px;
+}
+
+.top-right-border {
+  border-top-right-radius: 8px;
+}
+
+.block-container {
+  /* box-shadow: 0 6px 6px -2px rgba(0, 0, 0, 0.5); */
+  /* box-shadow: 0 6px 6px -2px rgba(112, 128, 144, 0.5); */
+}
+
 .block {
   /* width: 33vw; */
   width: calc(100% / 3);
@@ -162,6 +183,9 @@ const chestListSvg = `<svg aria-hidden="true" focusable="false" data-prefix="fas
   color: var(--dark-blue);
   background-color: var(--white);
   border: 1px solid var(--light-grey);
+  /* border-radius: 8px; */
+  /* box-shadow: 0 6px 6px -2px rgba(0, 0, 0, 0.5); */
+  box-shadow: 0 6px 6px -2px rgba(112, 128, 144, 0.5);
 }
 
 .block a {
