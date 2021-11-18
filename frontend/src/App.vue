@@ -1,36 +1,35 @@
 <template>
-
-      <header>
-        <Header/>
-      </header>
-      <footer>
-      <Footer/>
-      </footer>
-  <router-view/>
+  <header>
+    <Header />
+  </header>
+  <footer>
+    <Footer :activePage="activePage" @switchPage="setNewPage" />
+  </footer>
+  <router-view @switchPage="setNewPage"/>
 </template>
 
 <script lang="ts" setup>
-import { onMounted } from 'vue';
-import Header from './components/Header.vue'
-import Footer from './components/footer.vue'
+import { onMounted, ref } from "vue";
+import Header from "./components/Header.vue";
+import Footer from "./components/footer.vue";
 
+const activePage = ref("home");
 
-onMounted( function()  {
-  getCookie('token'),
-  isNotLoggedIn()
-}); 
+onMounted(function () {
+  getCookie("token"), isNotLoggedIn();
+});
 
-function isNotLoggedIn(){
-  return getCookie('token').length == 0
+function isNotLoggedIn() {
+  return getCookie("token").length == 0;
 }
 
-function getCookie(cname : string) {
+function getCookie(cname: string) {
   var name = cname + "=";
   var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(';');
-  for(var i = 0; i <ca.length; i++) {
+  var ca = decodedCookie.split(";");
+  for (var i = 0; i < ca.length; i++) {
     var c = ca[i];
-    while (c.charAt(0) == ' ') {
+    while (c.charAt(0) == " ") {
       c = c.substring(1);
     }
     if (c.indexOf(name) == 0) {
@@ -40,6 +39,10 @@ function getCookie(cname : string) {
   return "";
 }
 
+function setNewPage(pageName: string): void {
+  activePage.value = pageName;
+}
+
 </script>
 <style>
 #app {
@@ -47,10 +50,9 @@ function getCookie(cname : string) {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-
 }
 
-body{
+body {
   padding: 0px;
   margin: 0px;
   background-color: rgb(238, 238, 238);

@@ -1,7 +1,7 @@
 
 <template>
   <nav class="header">
-    <img class="starshl" src="../assets/images/logo.png" />
+    <img class="starshl" src="../assets/images/star-shl-logo.png" />
   </nav>
 </template>
 

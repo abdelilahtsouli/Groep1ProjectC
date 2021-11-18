@@ -41,6 +41,7 @@ nav .menu-item svg {
   width: 10px;
   margin-left: 10px;
 }
+
 /* 
 @media only screen and (max-width: 500px){
   nav .menu-item .sub-menu {
@@ -53,8 +54,5 @@ nav .menu-item svg {
   border-radius: 0px 0px 16px 16px;
   }
 } */
-
-
-
 
 </style>

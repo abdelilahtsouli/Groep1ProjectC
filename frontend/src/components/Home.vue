@@ -10,7 +10,7 @@
         <img src="../assets/images/stock-img-smiling-chemists.jpg" />
       </div>
       <div class="block-container">
-        <button class="block">
+        <button class="block" @click="emitActivePage('bloedprikken')">
           <router-link to="/Bloedprikken"
             ><div v-html="bloodDropletSvg"></div>
             <a>Bloedprikken</a></router-link
@@ -94,8 +94,10 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import { defineEmits, ref } from "vue";
 import PageEditor from "../components/PageEditor.vue";
+
+const emit = defineEmits(["switchPage"]);
 
 function setNewContent(newContent: string): void {
   content.value = newContent;
@@ -106,6 +108,11 @@ function toggleEditor() {
 function cookieTest() {
   return document.cookie != "";
 }
+
+function emitActivePage(pageName: string): void {
+  emit("switchPage", pageName);
+}
+
 const editting = ref(false);
 const content = ref("");
 
