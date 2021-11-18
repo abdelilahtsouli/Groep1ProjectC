@@ -2,38 +2,37 @@
     <div>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <nav class="nav">
-        <router-link to="/Home" class="nav__link">
-            <i class="material-icons nav__icon">home</i>
-            <a class="nav__text">Home</a>
-            
-        </router-link>
-        <router-link to="/Bloedprikken" class="nav__link nav__link--active">
-            <i class="material-icons nav__icon">vaccines</i>
-            <a class="nav__text">Info</a>
-        
-        </router-link>
-        <a href="#" class="navMenu">
-            <i class="material-icons nav__icon">menu</i>
-            <a class="nav__text">Menu</a>
-        </a>
-        <router-link to="/login" class="nav__link">
-            <i class="material-icons nav__icon">lock</i>
-            <a class="nav__text">Admin</a>
-            
-        </router-link>
-        <router-link to="/Home" class="nav__link">
-            <i class="material-icons nav__icon">settings</i>
-            <a class="nav__text">Settings</a>
-            
-        </router-link>
+            <router-link to="/Home" class="nav__link">
+                <i class="material-icons nav__icon">home</i>
+                <a class="nav__text">Home</a>
+            </router-link>
+            <router-link to="/Bloedprikken" class="nav__link nav__link--active">
+                <i class="material-icons nav__icon">vaccines</i>
+                <a class="nav__text">Info</a>
+            </router-link>
+            <!-- DROPUP -->
+            <a class="navMenu">
+                <i class="material-icons nav__icon">menu</i>
+                <a class="nav__text">Menu</a>
+            </a>
+            <router-link to="/login" class="nav__link">
+                <i class="material-icons nav__icon">lock</i>
+                <a class="nav__text">Admin</a> 
+            </router-link>
+            <router-link to="/createNewUser" class="nav__link" @click="sideBar">
+                <i class="material-icons nav__icon">settings</i>
+                <a class="nav__text">Settings</a>
+            </router-link>
         </nav>
     </div>
-
+    
 </template>
 
 <script>
+import router from "../router"
 export default {
-    name: 'Footer'
+    name: 'Footer',
+
 }
 </script>
 
@@ -48,6 +47,8 @@ body {
     --Grey: #8796a8;
 }
 
+
+
 .nav {
     position: fixed;
     bottom: 0;
@@ -56,7 +57,9 @@ body {
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
     background-color: var(--White);
     overflow-x: auto;
-    overflow: hidden;
+    opacity: 100;
+    z-index: 1;
+
 }
 
 .nav__link {

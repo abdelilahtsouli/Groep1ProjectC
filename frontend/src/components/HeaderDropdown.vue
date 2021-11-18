@@ -17,15 +17,12 @@ const cookie = ref('');
 export default {
   setup(){
     watchEffect(() => cookie.value = document.cookie )
-    function cookieTest(){
 
-      return document.cookie != ''
-    }
     function logOut(){
       router.push({
         name: "logout", params: {page: router.currentRoute.value.path} })
     }
-    return{cookie,logOut,cookieTest}
+    return{cookie,logOut}
   },
   name: 'HeaderDropdown',
   props: ['title', 'items'],

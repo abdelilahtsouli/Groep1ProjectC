@@ -1,45 +1,30 @@
 <template>
-
+  
   <div>
 
     <div>
       <div v-if="cookieTest()" >
-        <button class="edit-button" @click="toggleEditor">Edit</button>
+        <button class="edit-button" @click="toggleEditor()">Edit</button>
       </div>
 
       <div v-if="!editting" style="margin: 0px 10px 0px 10px;" v-html="content"></div>
 
-      <page-editor
-      v-else
-      :content="content"
-      @changeContent="setNewContent"
-      ></page-editor>
+    
+        <page-editor
+        v-else
+        :content="content"
+        @changeContent="setNewContent"
+        ></page-editor>
+      <div class="white-space"></div>
     </div>
   </div>
-  <!-- <div class="home">
-    <div v-for="page in pages" :key="page.Id">
-      <div v-if="page.Id == 1">
-        <div v-for="media in page.Media" :key="media.Id">
-        <div v-if="media.Type == 'image'">
-          <img :class="['img-' + media.Location]" :src="media.Path" />
-        </div>
-        <div v-if="media.Type == 'video'">
-          <span :class="['vid-' + media.Location]" v-html="media.Video_HTML"></span>
-        </div>
-        <div v-else>
-          <h1 :class="['txt-' + media.Location]">{{ media.Content }}</h1>
-        </div>
-      </div>
-      </div>
-    </div>
-
-  </div> -->
 </template>
 
 <script lang="ts" setup>
 
 import {ref} from 'vue';
-import { queuePostFlushCb } from 'vue'
+import PageEditor from "../components/PageEditor.vue";
+
 
 function setNewContent(newContent: string): void {
     content.value = newContent;
@@ -50,7 +35,7 @@ function toggleEditor() {
 
 }
 function cookieTest(){
-  console.log('69'+document.cookie)
+
 
   return document.cookie != ''
 }
@@ -64,45 +49,14 @@ const content = ref("<h1 style='text-align: center'>Star-shl homepage</h1><p>Lor
 </script>
 
 <style>
-
-.bloedprikken {
-  white-space: pre-wrap;
+.w3-bar-item w3-large{
+  display: block;
 }
 
-.img-left {
-  float: left;
-  margin: 50px;
-  position: relative;
-  left: 0%
-}
-
-.img-right {
-  float: right;
-  margin: 50px;
-  position: relative;
-  right: 0%
-}
-
-.vid-left {
-  float: left;
-  margin: 50px;
-}
-
-.vid-right {
-  float: right;
-  margin: 50px;
-}
-
-.txt-left {
-  float: left;
-  text-align: left;
-  margin: 50px;
-}
-
-.txt-right {
-  float: right;
-  text-align: right;
-  margin: 50px;
+.white-space{
+    background-color: white;
+    width: 100%;
+    height: 55px;
 }
 .edit-button{
   width: 10%;

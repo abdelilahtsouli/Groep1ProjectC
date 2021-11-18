@@ -40,10 +40,6 @@ async function Verify(){
         name: "Home"
       })
     }
-
-
-
-
 }
 
 
