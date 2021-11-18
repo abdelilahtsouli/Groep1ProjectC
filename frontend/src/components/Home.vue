@@ -10,7 +10,7 @@
         <img src="../assets/images/stock-img-smiling-chemists.jpg" />
       </div>
       <div class="block-container">
-        <button class="block" @click="emitActivePage('bloedprikken')">
+        <button class="block">
           <router-link to="/Bloedprikken"
             ><div v-html="bloodDropletSvg"></div>
             <a>Bloedprikken</a></router-link
@@ -94,7 +94,7 @@
 </template>
 
 <script lang="ts" setup>
-import { defineEmits, ref } from "vue";
+import { defineEmits, onMounted, ref } from "vue";
 import PageEditor from "../components/PageEditor.vue";
 
 const emit = defineEmits(["switchPage"]);
@@ -109,9 +109,7 @@ function cookieTest() {
   return document.cookie != "";
 }
 
-function emitActivePage(pageName: string): void {
-  emit("switchPage", pageName);
-}
+onMounted (() => emit("switchPage", "home"));
 
 const editting = ref(false);
 const content = ref("");
@@ -171,7 +169,6 @@ const chestListSvg = `<svg aria-hidden="true" focusable="false" data-prefix="fas
   text-decoration: none;
 }
 
-.block:active,
 .block:hover a {
   color: var(--white);
   transition: 0.7s ease;
@@ -188,6 +185,7 @@ const chestListSvg = `<svg aria-hidden="true" focusable="false" data-prefix="fas
   fill: var(--white);
 }
 
+.block:active,
 .block:hover {
   border: 2.5px solid var(--white);
   color: var(--white);

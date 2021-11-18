@@ -13,7 +13,7 @@ import { onMounted, ref } from "vue";
 import Header from "./components/Header.vue";
 import Footer from "./components/footer.vue";
 
-const activePage = ref("home");
+const activePage = ref("");
 
 onMounted(function () {
   getCookie("token"), isNotLoggedIn();

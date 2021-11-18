@@ -9,7 +9,6 @@
         to="/Home"
         class="nav__link"
         :class="{ 'active-item': activePage === 'home' }"
-        @click="emitActivePage('home')"
       >
         <i class="material-icons nav__icon">home</i>
         <a class="nav__text">Home</a>
@@ -18,7 +17,6 @@
         to="/Bloedprikken"
         class="nav__link nav__link--active"
         :class="{ 'active-item': activePage === 'bloedprikken' }"
-        @click="emitActivePage('bloedprikken')"
       >
         <i class="material-icons nav__icon">vaccines</i>
         <a class="nav__text">Info</a>
@@ -32,7 +30,6 @@
         to="/login"
         class="nav__link"
         :class="{ 'active-item': activePage === 'admin' }"
-        @click="emitActivePage('admin')"
       >
         <i class="material-icons nav__icon">lock</i>
         <a class="nav__text">Admin</a>
@@ -41,7 +38,6 @@
         to="/createNewUser"
         class="nav__link"
         :class="{ 'active-item': activePage === 'settings' }"
-        @click="emitActivePage('settings')"
       >
         <i class="material-icons nav__icon">settings</i>
         <a class="nav__text">Settings</a>
