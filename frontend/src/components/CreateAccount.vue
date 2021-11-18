@@ -1,6 +1,5 @@
 <template>
     <div>
-
     <div class="Home">
         <div class="Home-Page">
             <div class="createAccountForm">
@@ -41,8 +40,6 @@
 
 
 </template>
-
-
 
 <script lang="ts" setup>
 import { ref } from "vue";
@@ -104,34 +101,34 @@ async function sendToServer(){
 </script>
 
 <style scoped>
-h3{
+.createAccountForm h3{
   color: #ffffff;
   font-size: 0.8em;
   margin: 0;
 }
-h5{
+.createAccountForm h5{
   margin-top: 10px;
-  color: #FF5858;
+  color: var(--light-red);
 }
 .Home{
   width: 50%;
   margin: 0 auto;
   margin-top: 30% !important;
   padding: 30px;
-  background-color: #142d49;
+  background-color: var(--dark-blue);
   border-radius: 5px;
 }
 .Home-page{
   width: 100%;
   margin: 0 auto;
-  background-color: #142d49;
+  background-color: var(--dark-blue)v;
 }
-input{
+.createAccountForm input{
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  border: 1px solid #142d49;
+  border: 1px solid var(--dark-blue);
   box-sizing: border-box;
   border-radius: 5px;
 }
@@ -140,11 +137,11 @@ input{
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  border: 1px solid #142d49;
+  border: 1px solid var(--dark-blue);
   box-sizing: border-box;
   border-radius: 5px;
 }
-button{
+.createAccountForm button{
   width: 100%;
   height: 40px;
   display: flex;
@@ -153,8 +150,8 @@ button{
   display: inline-block;
   text-align: center;
   border: 1px solid;
-  background-color: #FF5858;
-  border: 1px solid #142d49;
+  background-color: var(--light-red);
+  border: 1px solid var(--dark-blue);
   box-sizing: border-box;
   border-radius: 5px;
   color: white;

@@ -1,6 +1,5 @@
 <template>
   <div>
-
   <div class="twoFA">
     <div class="twoFA-QR">
       <h5>Scan de onderstaande code met de google Authenticator</h5><br>
@@ -20,12 +19,9 @@
 import { onMounted, ref } from "vue";
 import axios from "axios";
 import { defineProps } from "vue";
-import router from "../router";
-import Header from './Header.vue'
+
 let QR_Code = ref("");
-
 const props = defineProps<{ id: string, email: string}>();
-
 
 async function twoFactorAuthentication() {
 
@@ -34,27 +30,27 @@ async function twoFactorAuthentication() {
   bodyFormData.append("id", props.id);
   await axios
     .post("/api/auth/2FA", bodyFormData)
-    .then((Response: any) => QR_Code.value = (Response.data.qrCodeImageUrl)),
-    (error: any) => console.log(error);
-  
+    .then((Response: any) => QR_Code.value = (Response.data.qrCodeImageUrl))
 }
+
 onMounted(async function () {
   twoFactorAuthentication();
 });
+
 </script>
 
 <style>
 .twoFA-QR{
   width: 100%;
   margin: 0 auto;
-  background-color: #142d49;
+  background-color: var(--dark-blue);
 }
 .twoFA{
   width: 50%;
   margin: 0 auto;
   margin-top: 50% !important;
   padding: 30px;
-  background-color: #142d49;
+  background-color: var(--dark-blue);
   border-radius: 5px;
 }
 .qr-img{
@@ -62,7 +58,7 @@ onMounted(async function () {
   display: block;
 
 }
-button{
+.twoFA-QR button{
   width: 100%;
   height: 40px;
   display: flex;
@@ -72,12 +68,12 @@ button{
   text-align: center;
   border: 1px solid;
   color: white;
-  background-color: #FF5858;
-  border: 1px solid #142d49;
+  background-color: var(--light-red);
+  border: 1px solid var(--dark-blue);
   box-sizing: border-box;
   border-radius: 5px;
 }
-h5{
+.twoFA-QR h5{
   color: white;
   font-size: 0.8em;
   margin: 0;

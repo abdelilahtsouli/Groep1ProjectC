@@ -1,8 +1,9 @@
 :root {
-    --red: #e7334c;
-    --darkblue: #142d49;
-    --lightblue: #79b9d5;
-}
+    --dark-blue: #142d49;
+    --light-blue: #79b9d5;
+    --light-red: #e7334c;
+    --white: #fff;
+  }
   
 @font-face {
     font-family: Regular;

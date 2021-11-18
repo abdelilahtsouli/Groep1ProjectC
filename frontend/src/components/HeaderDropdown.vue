@@ -54,23 +54,7 @@ nav .menu-item svg {
   }
 } */
 
-nav .menu-item .sub-menu {
-  position: absolute;
-  background-color: #142d49;
-  top: calc(100% + 18px);
-  left: -25%;
-  transform: translateX(-50%);
-  width: max-content;
-  border-radius: 0px 0px 16px 16px;
-}
-.fade-enter-active,
-.fade-leave-active {
-  transition: all .5s ease-out;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
+
 
 
 </style>

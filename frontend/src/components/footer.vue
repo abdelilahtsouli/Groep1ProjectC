@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import router from "../router"
+
 export default {
     name: 'Footer',
 
@@ -41,25 +41,16 @@ body {
     margin: 0 0 55px 0;
 }
 
-:root {
-    --darkRed: #ad0303;
-    --White: #ffffff;
-    --Grey: #8796a8;
-}
-
-
-
 .nav {
     position: fixed;
     bottom: 0;
     width: 100%;
     height: 55px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-    background-color: var(--White);
+    background-color: var(--white);
     overflow-x: auto;
     opacity: 100;
     z-index: 1;
-
 }
 
 .nav__link {
@@ -80,8 +71,8 @@ body {
 }
 .nav--link.active,
 .nav__link:hover {
-    color: var(--darkRed);
-    background-color: var(--White);
+    color: var(--dark-red);
+    background-color: var(--white);
 }
 
 .navMenu {
@@ -104,8 +95,8 @@ body {
 
 .navMenu.active,
 .navMenu:hover {
-    color: (--darkRed);
-    background-color: var(--White);
+    color: (--dark-red);
+    background-color: var(--white);
 }
 .nav__icon {
     font-size: 18px;

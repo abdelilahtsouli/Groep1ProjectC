@@ -1,7 +1,5 @@
 <template>
   <div>
-
-
     <div class="Log-in">
       <div class="login-box">
         <h3 class="h3-text">E-mail adres</h3>
@@ -18,7 +16,7 @@
           placeholder="Password"
         /><br>
         <br><button type="submit" @click="userLogin()">Log in</button>
-        <h3>{{ errormessage }}</h3>
+        <h3 class="h3-error">{{ errormessage }}</h3>
 
       </div>
     </div>
@@ -35,9 +33,6 @@ const URL_base = "/api/auth/login";
 const message_email = ref("");
 const message_password = ref("");
 const errormessage = ref("");
-
-
-
 
 function userLogin() {
   if (!validateEmail()) {
@@ -69,15 +64,7 @@ function userLogin() {
             params: { id: Response.data.id, email: Response.data.email},
           });
         }
-      },
-      (error: any) => {
-        console.log(error.value);
-      }
-    )
-    .catch((e) => {
-      console.log(e);
-    });
-
+      })
 }
 
 function validateEmail() {
@@ -85,17 +72,22 @@ function validateEmail() {
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(message_email.value).toLowerCase());
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.h3-error{
+  margin-top: 10px;
+  color: var(--light-red);
+  font-size: 0.8em;
+}
 input{
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  border: 1px solid #142d49;
+  border: 1px solid var(--dark-blue);
   box-sizing: border-box;
   border-radius: 5px;
 } 
@@ -104,15 +96,14 @@ input{
   margin: 0 auto;
   margin-top: 50%;
   padding: 30px;
-  background-color: #142d49;
+  background-color: var(--dark-blue);
   border-radius: 5px;
 
 }
 .login-box{
   width: 100%;
   margin: 0 auto;
-
-  background-color: #142d49;
+  background-color: var(--dark-blue);
 
 }
 button{
@@ -124,17 +115,13 @@ button{
   display: inline-block;
   text-align: center;
   border: 1px solid;
-  background-color: #FF5858;
-  border: 1px solid #142d49;
+  background-color: var(--light-red);
+  border: 1px solid var(--dark-blue);
   box-sizing: border-box;
   border-radius: 5px;
   color: white;
 }
-h3{
-  color: #FF5858;
-  font-size: 0.8em;
-  margin: 0;
-}
+
 .h3-text{
   color: white;
   font-size: 0.8em;
