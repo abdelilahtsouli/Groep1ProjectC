@@ -26,7 +26,8 @@ namespace Project_C_Website.controllers {
 			string Name = HttpContext.Request.Form["Name"];
 			string Email = HttpContext.Request.Form["Email"];
             string Password = HttpContext.Request.Form["Password"];
-
+			bool superUser = bool.Parse(HttpContext.Request.Form["Superuser"]);
+			System.Console.WriteLine(superUser);
 			// generate a 128-bit salt using a cryptographically strong random sequence of nonzero values
 			byte[] salt = new byte[128 / 8];
 			using (var rngCsp = new RNGCryptoServiceProvider())
@@ -48,11 +49,12 @@ namespace Project_C_Website.controllers {
             Database database = new Database();
 			DataTable data = database.BuildQuery($"SELECT (id) FROM td_user").Select();
 			
-			database.BuildQuery($"INSERT INTO td_user (id, name, email,twofa, password, salt) VALUES (@id, @Name, @Email,@twofa, @Password, @salt)")
+			database.BuildQuery($"INSERT INTO td_user (id, name, email,twofa,superuser, password, salt) VALUES (@id, @Name, @Email,@twofa,@superuser, @Password, @salt)")
 				.AddParameter("id", (data.Rows.Count + 1))
 			    .AddParameter("name", Name)
                 .AddParameter("email", Email)
 				.AddParameter("twofa", false)
+				.AddParameter("superuser", superUser)
                 .AddParameter("password", hash)
                 .AddParameter("salt", newSalt)
                 .Query();

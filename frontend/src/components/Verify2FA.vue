@@ -1,16 +1,14 @@
 <template>
-    <div class="twoFA">
-        <div class="twoVerify">
-            <h3 class="h3-text">Twee staps verificatie code</h3>
-            <input  @keyup.enter="Verify" v-model="verify_Token" placeholder="6-cijferige code uit de authenticator app">
-            <br><br><button type="submit" @click="Verify()">Verify</button>
-            <h5 v-if="verified">Succesvol ingelogd!</h5>
-            <h3>{{errormessage}}</h3>
-        </div>
-    </div>
+      <div class="twoFA">
+          <div class="twoVerify">
+              <h3 class="h3-text">Twee staps verificatie code</h3>
+              <input @keyup.enter="Verify" v-model="verify_Token" placeholder="6-cijferige code uit de authenticator app">
+              <br><br><button type="submit" @click="Verify()">Verify</button>
+              <h3 class="h3-error">{{errormessage}}</h3>
+          </div>
+      </div>
+    
 </template>
-
-
 
 <script lang="ts" setup>
 
@@ -36,44 +34,44 @@ async function Verify(){
     if(verified.value){
       VueCookieNext.setCookie("token", decodeURI(token.value), {expire :"2h"});
       router.push({
-        name: "Home", 
-        params: {cookie: decodeURI(token.value) }})
+        name: "Home"
+      })
     }
-
-
-
-
 }
 
 
 </script>
 
 <style scoped>
-input{
+.h3-error{
+  color: var(--light-red);
+  font-size: 0.8em;
+
+}
+
+.twoVerify input{
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  border: 1px solid #142d49;
+  border: 1px solid var(--dark-blue);
   box-sizing: border-box;
   border-radius: 5px;
 }
 .twoVerify{
   width: 100%;
   margin: 0 auto;
-
-  background-color: #142d49;
+  background-color: var(--dark-blue);
 }
 .twoFA{
   width: 50%;
   margin-top: 50%;
   margin: 0 auto;
-
   padding: 30px;
-  background-color: #142d49;
+  background-color: var(--dark-blue);
   border-radius: 5px;
 }
-button{
+.twoVerify button{
   width: 100%;
   height: 40px;
   display: flex;
@@ -82,16 +80,13 @@ button{
   display: inline-block;
   text-align: center;
   border: 1px solid;
-  background-color: #FF5858;
-  border: 1px solid #142d49;
+  background-color: var(--light-red);
+  border: 1px solid var(--dark-blue);
   color: white;
   box-sizing: border-box;
   border-radius: 5px;
 }
-h3{
-  color: #FF5858;
-  font-size: 0.8em;
-}
+
 .h3-text{
   color: white;
   font-size: 0.8em;
