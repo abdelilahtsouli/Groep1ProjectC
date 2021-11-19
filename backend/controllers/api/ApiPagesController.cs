@@ -25,7 +25,7 @@ namespace Project_C_Website.controllers {
 			List<Object> pages = new List<Object>();
 
 			Database database = new Database();
-			DataTable pagesData = database.BuildQuery("select * from pages").Select();
+			DataTable pagesData = database.BuildQuery("select * from pages order by id").Select();
 
 			foreach (DataRow row in pagesData.Rows) {
 				pages.Add(new {

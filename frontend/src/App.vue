@@ -53,4 +53,3 @@ function setNewPage(pageName: string): void {
 }
 
 </style>
-
