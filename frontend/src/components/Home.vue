@@ -188,7 +188,7 @@ const chestListSvg = `<svg aria-hidden="true" focusable="false" data-prefix="fas
   border: 1px solid var(--light-grey);
   /* border-radius: 8px; */
   /* box-shadow: 0 6px 6px -2px rgba(0, 0, 0, 0.5); */
-  box-shadow: 0 6px 6px -2px rgba(112, 128, 144, 0.5);
+  box-shadow: 0 6px 15px -2px rgba(112, 128, 144, 0.5);
 }
 
 .block a {
