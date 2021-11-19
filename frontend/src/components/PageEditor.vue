@@ -7,6 +7,8 @@ import {
   computed,
   ref,
 } from "vue";
+import axios from 'axios';
+import { VueCookieNext } from 'vue-cookie-next'
 
 // Standard Tiptap modules & extensions
 import { Editor, EditorContent } from "@tiptap/vue-3";
@@ -35,12 +37,15 @@ export default defineComponent({
   },
 
   props: {
-    content: String
+    content: String,
+    pageId: String
   },
 
   setup(props, { emit }) {
     let currentView = ref("pc");
     let submitted = false;
+
+    console.log(props.pageId);
 
     const editor = new Editor({
       extensions: [
@@ -82,6 +87,23 @@ export default defineComponent({
       submitted = true;
       console.log(props.content);
       console.log(editor.getHTML());
+
+      // Send the new content of the editor to the backend.
+      // Note: POST creates a new page while PUT modifies a page.
+      axios.put("./api/pages/" + props.pageId, 
+      {
+        "content": editor.getHTML()
+      }, 
+      {
+        headers: {
+          authorization: VueCookieNext.getCookie("token"),
+        }
+      })
+      .then((response: any) => {
+        console.log(response);
+        // TODO: Show that the request is successfull.
+      });
+
       emit("changeContent", editor.getHTML());
     }
 
