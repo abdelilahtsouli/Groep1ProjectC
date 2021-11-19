@@ -5,7 +5,7 @@
   <footer>
     <Footer :activePage="activePage" @switchPage="setNewPage" :loggedIn="userIsLoggedIn" @logOut="logOut"/>
   </footer>
-  <router-view @switchPage="setNewPage" @userLoggedIn="isLoggedIn"/>
+  <router-view @switchPage="setNewPage" @userLoggedIn="isLoggedIn" :isLoggedIn="userIsLoggedIn"/>
 </template>
 
 <script lang="ts" setup>

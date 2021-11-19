@@ -24,14 +24,16 @@ h3,
 h4,
 h5,
 h6,
-label {
+label,
+a {
     font-family: Regular;
 }
 
 p,
 div,
 input::placeholder,
-option, select {
+option,
+select {
     font-family: LightAndBold;
 }
 

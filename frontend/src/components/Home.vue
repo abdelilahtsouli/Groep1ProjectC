@@ -1,73 +1,71 @@
 <template>
   <div>
-  <div class="white-space-top"></div>
-  <div>
-    <div class="home">
-      <div class="header">
-        <img src="../assets/images/stock-img-smiling-chemists.jpg" />
+    <div class="white-space-top"></div>
+    <div>
+      <div class="home">
+        <div class="header">
+          <img src="../assets/images/stock-img-smiling-chemists.jpg" />
+        </div>
+        <div class="block-container">
+          <button class="block top-left-border">
+            <router-link to="/Bloedprikken"
+              ><div v-html="bloodDropletSvg"></div>
+              <a>Bloedprikken</a></router-link
+            >
+          </button>
+          <button class="block">
+            <router-link to="#"
+              ><div v-html="vialSvg"></div>
+              <a>Urine Onderzoek</a></router-link
+            >
+          </button>
+          <button class="block top-right-border">
+            <router-link to="#"
+              ><div v-html="mapMarkerSvg"></div>
+              <a>Locaties</a></router-link
+            >
+          </button>
+          <button class="block bottom-left-border">
+            <router-link to="#"
+              ><div v-html="clockSvg"></div>
+              <a>Openingstijden</a></router-link
+            >
+          </button>
+          <button class="block">
+            <router-link to="#"
+              ><div v-html="locationArrowSvg"></div>
+              <a>Routeplanner</a></router-link
+            >
+          </button>
+          <button class="block bottom-right-border">
+            <router-link to="#"
+              ><div v-html="paperPlaneSvg"></div>
+              <a>Contact</a></router-link
+            >
+          </button>
+          <router-view></router-view>
+        </div>
+        <page-content id="1" :isLoggedIn="isLoggedIn"></page-content>
+        <div class="white-space-bottom"></div>
       </div>
-      <div class="block-container">
-        <button class="block top-left-border">
-          <router-link to="/Bloedprikken"
-            ><div v-html="bloodDropletSvg"></div>
-            <a>Bloedprikken</a></router-link
-          >
-        </button>
-        <button class="block">
-          <router-link to="#"
-            ><div v-html="vialSvg"></div>
-            <a>Urine Onderzoek</a></router-link
-          >
-        </button>
-        <button class="block top-right-border">
-          <router-link to="#"
-            ><div v-html="mapMarkerSvg"></div>
-            <a>Locaties</a></router-link
-          >
-        </button>
-        <button class="block bottom-left-border">
-          <router-link to="#"
-            ><div v-html="clockSvg"></div>
-            <a>Openingstijden</a></router-link
-          >
-        </button>
-        <button class="block">
-          <router-link to="#"
-            ><div v-html="locationArrowSvg"></div>
-            <a>Routeplanner</a></router-link
-          >
-        </button>
-        <button class="block bottom-right-border">
-          <router-link to="#"
-            ><div v-html="paperPlaneSvg"></div>
-            <a>Contact</a></router-link
-          >
-        </button>
-        <router-view></router-view>
-      </div>
-      <page-content id="1"></page-content>
-      <div class="white-space-bottom"></div>
     </div>
-  </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { defineEmits, onMounted } from "vue";
+import { defineEmits, onMounted, defineProps } from "vue";
 import PageContent from "./PageContent.vue";
 
-
-
-function cookieTest() {
-  return document.cookie != "";
-}
+const props = defineProps({
+  isLoggedIn: Boolean,
+});
 
 const emit = defineEmits(["switchPage", "userLoggedIn"]);
 
 onMounted(function () {
   emit("switchPage", "home");
   if (document.cookie != "") {
-    emit("userLoggedIn",true)
+    emit("userLoggedIn", true);
   }
 });
 
@@ -95,19 +93,6 @@ const chestListSvg = `<svg aria-hidden="true" focusable="false" data-prefix="fas
   width: 100%;
   height: 55px;
   border-radius: 0px 8px;
-}
-
-.edit-button {
-  width: 10%;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--light-red);
-  display: inline-block;
-  text-align: center;
-  border-radius: 5px;
-  box-sizing: border-box;
 }
 
 .bottom-left-border {
@@ -141,7 +126,7 @@ const chestListSvg = `<svg aria-hidden="true" focusable="false" data-prefix="fas
   height: 20vw;
   font-weight: 500;
   /* font-size: 23px; */
-  font-size: 14px;
+  font-size: 12px;
   cursor: pointer;
   color: var(--dark-blue);
   background-color: var(--white);

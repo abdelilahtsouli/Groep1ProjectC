@@ -20,6 +20,7 @@ export default {
 <style scoped>
 
 .header {
+  z-index: 100;
   position: fixed;
   top: 0;
   display: flex;
