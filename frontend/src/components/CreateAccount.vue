@@ -15,9 +15,9 @@
                 />
                 <h3 class="h3-text">superUser</h3>
                 <select v-model="superUser" class="dropdown">
-                  <option value="" disabled selected hidden>false</option>
-                  <option value="true">true</option>
-                  <option value="false">false</option>
+                  <option value="false" disabled selected hidden></option>
+                  <option @click="superUser = 'true'">true</option>
+                  <option @click="superUser = 'false'">false</option>
                 </select>
                 <h3 class="h3-text">Wachtwoord</h3>
                 <input
