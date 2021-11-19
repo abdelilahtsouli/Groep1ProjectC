@@ -7,29 +7,33 @@
     <nav class="footer">
       <router-link to="/Home" class="nav__link">
         <i class="material-icons nav__icon">home</i>
-        <a @click="w3_close()" class="nav__text">Home</a>
+        <a @click="w3_close(); sidebar_close()" class="nav__text">Home</a>
       </router-link>
       <router-link to="/Bloedprikken" class="nav__link nav__link--active">
         <i class="material-icons nav__icon">vaccines</i>
-        <a @click="w3_close()" class="nav__text">Info</a>
+        <a @click="w3_close(); sidebar_close()" class="nav__text">Info</a>
       </router-link>
-      <div class="w3-button w3-teal w3-xlarge" @click="w3_open();">
+      <div class="w3-button w3-teal w3-xlarge" @click="w3_open(); sidebar_close()">
         <div class="MenuButton">
           <i class="material-icons nav__icon">menu</i>
           <span class="nav__text">Menu</span>
         </div>
       </div>
-      <router-link to="/login" class="nav__link">
+      <router-link v-if="loggedIn" to="/" class="nav__link">
         <i class="material-icons nav__icon">lock</i>
-        <a @click="w3_close()" class="nav__text">Admin</a>
+        <a @click="w3_close(); sidebar_close()" class="nav__text">Admin</a>
       </router-link>
-      <router-link to="/createNewUser" class="nav__link">
+      <router-link v-if="!loggedIn" to="/login" class="nav__link">
+        <i class="material-icons nav__icon">lock</i>
+        <a @click="w3_close(); sidebar_close()" class="nav__text">Admin</a>
+      </router-link>
+      <div to="" class="nav__link" @click="sidebar_open(); w3_close()">
         <i class="material-icons nav__icon">settings</i>
-        <a @click="w3_close()" class="nav__text">Settings</a>
-      </router-link>
+        <a @click="w3_close(); sidebar_close()" class="nav__text">Settings</a>
+      </div>
     </nav>
     <transition name="fade">
-      <div class="SideBar" style="display: none" id="mySidebar">
+      <div class="UnderBar" style="display: none" id="myUnderbar">
         <i
           @click="w3_close()"
           class="material-icons nav__icon w3-bar-item w3-large exitButton"
@@ -61,6 +65,35 @@
         >
       </div>
     </transition>
+    <transition name="fade-sidebar">
+      <div class="SideBar" style="display: none" id="mySidebar">
+        <i
+          @click="sidebar_close()"
+          class="material-icons nav__icon w3-bar-item w3-large exitButton-sidebar"
+          >close</i
+        >
+        <div class="menu-buttons-sidebar icon" v-if="loggedIn" v-html="profileSVG"></div>
+        <div class="menu-buttons-sidebar" v-if="loggedIn"><a><h6 class="menu-text-sidebar">Welkom user</h6></a></div>
+        <router-link class="menu-buttons-sidebar" @click="sidebar_close()" to="/Bloedprikken"
+          ><a><h4 class="menu-text-sidebar">Bloedprikken</h4></a></router-link
+        >
+        <router-link class="menu-buttons-sidebar" @click="sidebar_close()" to="/Urineonderzoek"
+          ><a><h4 class="menu-text-sidebar">Urine onderzoek</h4></a></router-link
+        >
+        <router-link class="menu-buttons-sidebar" @click="sidebar_close()" to="/Locaties"
+          ><a><h4 class="menu-text-sidebar">Locaties</h4></a></router-link
+        >
+        <router-link class="menu-buttons-sidebar" @click="sidebar_close()" to="/Openingstijden"
+          ><a><h4 class="menu-text-sidebar">Openingstijden</h4></a></router-link
+        >
+        <router-link class="menu-buttons-sidebar" @click="sidebar_close()" to="/Routeplanner"
+          ><a><h4 class="menu-text-sidebar">Routeplanner</h4></a></router-link
+        >
+        <router-link class="menu-buttons-sidebar" @click="sidebar_close()" to="/Contact"
+          ><a><h4 class="menu-text-sidebar">Contact</h4></a></router-link
+        >
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -79,11 +112,16 @@ export default defineComponent({
   setup(props, { emit }) {
     
     function w3_open() {
+      document.getElementById("myUnderbar").style.display = "block";
+    }
+    function sidebar_open() {
       document.getElementById("mySidebar").style.display = "block";
     }
-
-    function w3_close() {
+    function sidebar_close() {
       document.getElementById("mySidebar").style.display = "none";
+    }
+    function w3_close() {
+      document.getElementById("myUnderbar").style.display = "none";
     }
     function logOut(){
       VueCookieNext.removeCookie("token")
@@ -91,7 +129,7 @@ export default defineComponent({
 
 
     }
-
+    const profileSVG = `<svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="user-circle" class="svg-inline--fa fa-user-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M248 104c-53 0-96 43-96 96s43 96 96 96 96-43 96-96-43-96-96-96zm0 144c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm0-240C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 448c-49.7 0-95.1-18.3-130.1-48.4 14.9-23 40.4-38.6 69.6-39.5 20.8 6.4 40.6 9.6 60.5 9.6s39.7-3.1 60.5-9.6c29.2 1 54.7 16.5 69.6 39.5-35 30.1-80.4 48.4-130.1 48.4zm162.7-84.1c-24.4-31.4-62.1-51.9-105.1-51.9-10.2 0-26 9.6-57.6 9.6-31.5 0-47.4-9.6-57.6-9.6-42.9 0-80.6 20.5-105.1 51.9C61.9 339.2 48 299.2 48 256c0-110.3 89.7-200 200-200s200 89.7 200 200c0 43.2-13.9 83.2-37.3 115.9z"></path></svg>`;
     const isOpen = ref(false);
     function emitActivePage(pageName: string): void {
       emit("switchPage", pageName);
@@ -101,7 +139,10 @@ export default defineComponent({
       w3_close,
       emitActivePage,
       isOpen,
-      logOut
+      logOut,
+      sidebar_open,
+      sidebar_close,
+      profileSVG
     };
   },
 });
@@ -256,12 +297,12 @@ export default defineComponent({
   margin: auto;
   width: 50%;
 }
-.SideBar {
-  animation: fadeIn 1s;
-  -webkit-animation: fadeIn 1s;
-  -moz-animation: fadeIn 1s;
-  -o-animation: fadeIn 1s;
-  -ms-animation: fadeIn 1s;
+.UnderBar {
+  animation: fadeIn 0.5s;
+  -webkit-animation: fadeIn 0.5s;
+  -moz-animation: fadeIn 0.5s;
+  -o-animation: fadeIn 0.5s;
+  -ms-animation: fadeIn 0.5s;
   background-color: var(--dark-blue);
   position: fixed;
   bottom: 55px;
@@ -271,6 +312,66 @@ export default defineComponent({
   overflow-x: auto;
   opacity: 90%;
   border-radius: 15px 15px 0px 0px;
+}
+.menu-text-sidebar {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  color: white;
+}
+.menu-buttons-sidebar {
+  position: relative;
+  top: 15%;
+  width: 100%;
+  height: 10%;
+  display: inline-block;
+  outline: none;
+  z-index: 1;
+  /* text-align: center;
+    position: relative;
+    top: 10%;
+    display: inline-block;
+    width: 100%;
+    outline: none;
+    background-color: transparent;
+    border: 2px solid var(--dark-blue);
+    height: 15%;
+    z-index: -1;*/
+}
+
+
+.exitButton-sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  font-size: 50px !important;
+
+} 
+
+
+.SideBar{
+  animation: fadeIn 1s;
+  -webkit-animation: fadeIn 1s;
+  -moz-animation: fadeIn 1s;
+  -o-animation: fadeIn 1s;
+  -ms-animation: fadeIn 1s;
+  background-color: var(--dark-blue);
+  position: fixed;
+  bottom: 55px;
+  width: 60%;
+  right: 0;
+  height: 100%;
+  z-index: 3;
+  overflow-x: auto;
+  opacity: 90%;
+  border-radius: 15px 15px 0px 0px;
+}
+.icon{
+  position: relative;
+  left: 40%;
+  height: 50px;
+  width: 50px;
+  color: white;
 }
 
 @keyframes fadeIn {

@@ -94,6 +94,7 @@ function validateEmail() {
   border-radius: 5px;
 }
 .Log-in {
+
   width: 50%;
   margin: 0 auto;
   margin-top: 50%;
