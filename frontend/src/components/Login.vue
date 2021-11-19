@@ -82,6 +82,8 @@ function validateEmail() {
   color: var(--light-red);
   font-size: 0.8em;
 }
+
+
 .login-box input {
   width: 100%;
   padding: 12px 20px;

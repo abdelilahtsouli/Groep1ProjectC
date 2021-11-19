@@ -28,7 +28,7 @@
             <a>Locaties</a></router-link
           >
         </button>
-        <button class="block bottom-left-border ">
+        <button class="block bottom-left-border">
           <router-link to="#"
             ><div v-html="clockSvg"></div>
             <a>Openingstijden</a></router-link
@@ -40,7 +40,7 @@
             <a>Routeplanner</a></router-link
           >
         </button>
-        <button class="block bottom-right-border ">
+        <button class="block bottom-right-border">
           <router-link to="#"
             ><div v-html="paperPlaneSvg"></div>
             <a>Contact</a></router-link
@@ -130,12 +130,14 @@ const chestListSvg = `<svg aria-hidden="true" focusable="false" data-prefix="fas
   background-color: var(--light-grey);
   width: 100%;
   height: 55px;
+  border-radius: 8px 0px;
 }
 
 .white-space-bottom {
   background-color: var(--light-grey);
   width: 100%;
   height: 55px;
+  border-radius: 0px 8px;
 }
 
 .edit-button {
@@ -171,6 +173,7 @@ const chestListSvg = `<svg aria-hidden="true" focusable="false" data-prefix="fas
   background-color: var(--light-grey);
   height: 100%;
   width: 100%;
+  border-radius: 8px;
   /* box-shadow: 0 6px 6px -2px rgba(0, 0, 0, 0.5); */
   /* box-shadow: 0 6px 6px -2px rgba(112, 128, 144, 0.5); */
 }
@@ -222,8 +225,8 @@ const chestListSvg = `<svg aria-hidden="true" focusable="false" data-prefix="fas
 
 .container {
   padding-top: 5px;
-  border-top: 1px solid var(--light-grey);
-  border-bottom: 1px solid var(--light-grey);
+  /* border-top: 1px solid var(--light-grey); */
+  /* border-bottom: 1px solid var(--light-grey); */
 }
 
 .text-box {
@@ -260,6 +263,7 @@ const chestListSvg = `<svg aria-hidden="true" focusable="false" data-prefix="fas
   height: 50vw;
   object-fit: cover;
   object-position: -20% 0;
+  border-radius: 8px;
   /* height: 100vw; */
 }
 

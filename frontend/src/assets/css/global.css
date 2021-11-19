@@ -29,7 +29,9 @@ label {
 }
 
 p,
-div {
+div,
+input::placeholder,
+option, select {
     font-family: LightAndBold;
 }
 

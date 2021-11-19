@@ -35,19 +35,21 @@ export default {
   /* background-color: var(--white); */
 }
 
-@media only screen and (min-width: 750px) and (max-width: 1000px) {
+/* @media only screen and (min-width: 750px) and (max-width: 1000px) {
   .header .img {
     width: 40% !important;
     height: 40% !important;
     display: flex;
     padding: 0px;
   }
-}
+} */
 .header .img {
   height: 35px;
   padding: 0px;
   display: flex;
   /* background-color: var(--white); */
   background-color: var(--dark-blue);
+  /* Not sure about the image styling if it is allowed */
+  border-radius: 8px; 
 }
 </style>
