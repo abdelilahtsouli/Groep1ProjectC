@@ -127,13 +127,13 @@ const chestListSvg = `<svg aria-hidden="true" focusable="false" data-prefix="fas
 
 <style>
 .white-space-top {
-  background-color: white;
+  background-color: var(--light-grey);
   width: 100%;
   height: 55px;
 }
 
 .white-space-bottom {
-  background-color: white;
+  background-color: var(--light-grey);
   width: 100%;
   height: 55px;
 }
@@ -168,6 +168,9 @@ const chestListSvg = `<svg aria-hidden="true" focusable="false" data-prefix="fas
 }
 
 .block-container {
+  background-color: var(--light-grey);
+  height: 100%;
+  width: 100%;
   /* box-shadow: 0 6px 6px -2px rgba(0, 0, 0, 0.5); */
   /* box-shadow: 0 6px 6px -2px rgba(112, 128, 144, 0.5); */
 }

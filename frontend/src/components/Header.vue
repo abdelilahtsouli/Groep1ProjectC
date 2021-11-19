@@ -1,12 +1,14 @@
 
 <template>
-  <nav class="header">
-    <!-- <img class="img" src="../assets/images/star-shl-logo-kleur.png" /> -->
-    <img
-      class="img"
-      src="../assets/images/star-shl-logo-kleur-diapositief.png"
-    />
-  </nav>
+  <div>
+    <nav class="header">
+      <!-- <img class="img" src="../assets/images/star-shl-logo-kleur.png" /> -->
+      <img
+        class="img"
+        src="../assets/images/star-shl-logo-kleur-diapositief.png"
+      />
+    </nav>
+  </div>
 </template>
 
 <script lang = "ts">
@@ -16,6 +18,7 @@ export default {
 </script>
 
 <style scoped>
+
 .header {
   position: fixed;
   top: 0;
