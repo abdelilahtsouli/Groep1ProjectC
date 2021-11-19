@@ -72,8 +72,23 @@ export default {
 </script>
 
 <style>
-body {
-    margin: 0 0 55px 0;
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 55px;
+  /* box-shadow: 0 0 3px rgba(0, 0, 0, 0.2); */
+  background-color: var(--white);
+  overflow-x: auto;
+  opacity: 100;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* box-shadow: 0 -6px 6px -2px rgba(0, 0, 0, 0.5); */
+  box-shadow: 0 -6px 15px -2px rgba(112, 128, 144, 0.5);
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
 }
 
 :root {
