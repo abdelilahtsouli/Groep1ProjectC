@@ -2,7 +2,6 @@
   <div>
     <div v-if="cookie != ''" >
       <button class="edit-button" @click="toggleEditor">Edit</button>
-
     </div>
 
     <div v-if="!editting" style="margin: 0px 10px 0px 10px;" v-html="content"></div>
@@ -68,59 +67,3 @@ onMounted(() => {
 })
 
 </script>
-
-<style>
-
-.bloedprikken {
-  white-space: pre-wrap;
-}
-
-.img-left {
-  float: left;
-  margin: 50px;
-  position: relative;
-  left: 0%
-}
-
-.img-right {
-  float: right;
-  margin: 50px;
-  position: relative;
-  right: 0%
-}
-
-.vid-left {
-  float: left;
-  margin: 50px;
-}
-
-.vid-right {
-  float: right;
-  margin: 50px;
-}
-
-.txt-left {
-  float: left;
-  text-align: left;
-  margin: 50px;
-}
-
-.txt-right {
-  float: right;
-  text-align: right;
-  margin: 50px;
-}
-.edit-button{
-  width: 10%;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  display: inline-block;
-  text-align: center;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-
-</style>

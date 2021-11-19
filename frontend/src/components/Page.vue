@@ -1,19 +1,32 @@
 <template>
-    <div v-html="content">
-
+    <div v-if="isLoggedIn()" >
+      <button class="edit-button" @click="editing=!editing">Edit</button>
     </div>
+
+    <div v-if="!editing" style="margin: 0px 10px 0px 10px;" v-html="content"></div>
+
+    <page-editor
+        v-else :content="content" :pageId="pageId" @changeContent="setNewContent"
+    ></page-editor>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
+import { VueCookieNext } from 'vue-cookie-next'
 import axios from "axios";
+import PageEditor from "../components/PageEditor.vue";
 
 export default defineComponent({
     props: {
         id: String
     },
+    components: {
+        PageEditor
+    },
     setup(props) {
         const content = ref("");
+        const pageId = ref(props.id);
+        const editing = ref(false);
 
         function updatePage(id: string) {
             axios.get("./api/pages/" + id)
@@ -31,17 +44,30 @@ export default defineComponent({
             });
         }
 
+        function setNewContent(newContent: string) {
+            content.value = newContent;
+        }
+
+        function isLoggedIn() {
+            return VueCookieNext.getCookie('token') != null;
+        }
+
         updatePage(<string>props.id);
 
         return {
             content,
-            updatePage
+            pageId,
+            editing,
+            updatePage,
+            setNewContent,
+            isLoggedIn
         };
     },
     watch: {
         '$route.params': {
             handler(value) {
                 this.updatePage(value.id);
+                this.pageId = value.id;
             },
             immediate: true,
         }
@@ -49,3 +75,17 @@ export default defineComponent({
 });
 
 </script>
+
+<style scoped>
+.edit-button{
+  width: 10%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+</style>

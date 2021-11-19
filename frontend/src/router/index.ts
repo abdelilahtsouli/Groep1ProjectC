@@ -6,10 +6,17 @@ import twoFASetup from '../components/2FAsetup.vue'
 import twoFAverify from '../components/Verify2FA.vue'
 import createNewUser from '../components/CreateAccount.vue'
 import Page from '../components/Page.vue'
+import PageEditor from '../components/PageEditor.vue'
 
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/', redirect : '/page/1'
+    },
+    {
+        path: '/editor/:content',
+        name: 'Editor',
+        props: true,
+        component: PageEditor
     },
     {
         path: '/page/:id',

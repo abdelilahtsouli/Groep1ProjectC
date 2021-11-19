@@ -12,7 +12,6 @@ import { onMounted } from 'vue';
 import Header from './components/Header.vue'
 
 
-
 onMounted( function()  {
   getCookie('token'),
   console.log('test')
