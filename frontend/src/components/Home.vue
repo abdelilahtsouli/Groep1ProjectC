@@ -2,10 +2,6 @@
   <div class="white-space-top"></div>
   <div>
     <div class="home">
-      <div v-if="cookieTest()">
-        <button class="edit-button" @click="toggleEditor()">Edit</button>
-      </div>
-
       <div class="header">
         <img src="../assets/images/stock-img-smiling-chemists.jpg" />
       </div>
@@ -55,14 +51,10 @@
 </template>
 
 <script lang="ts" setup>
-import { defineEmits, onMounted, ref } from "vue";
+import { defineEmits, onMounted } from "vue";
 import PageContent from "./PageContent.vue";
 
 const emit = defineEmits(["switchPage"]);
-
-function cookieTest() {
-  return document.cookie != "";
-}
 
 onMounted(() => emit("switchPage", "home"));
 

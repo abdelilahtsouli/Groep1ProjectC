@@ -62,7 +62,7 @@ export default defineComponent({
       return VueCookieNext.getCookie("token") != null;
     }
 
-    updatePage(<string>props.id);
+    if (props.id != undefined) updatePage(props.id);
 
     return {
       content,
@@ -88,5 +88,4 @@ export default defineComponent({
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
-
 </style>
