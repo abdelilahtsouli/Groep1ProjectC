@@ -2,73 +2,88 @@
   <div class="white-space-top"></div>
   <div class="container">
     <div class="text-box">
-      <h3>Placeholder</h3>
+      <h3>Over bloed prikken</h3>
       <p>
-        Op een klein deel werken we voor bloedafname volgens geplande afspraken.
-        Op deze pagina kunt u direct online een afspraak inplannen voor
-        bloedafname op de locaties waar een afspraak nodig is. In dit overzicht
-        ziet u in de kolom 'Bijzonderheden' welke locaties dit zijn. Wilt u een
-        afspraak maken voor bloedafname voor NIPT? Bekijk dan eerst hier op
-        welke locaties dat kan.
+        Moet jij bloed laten prikken? Dat gebeurt in de meeste gevallen voor
+        medisch onderzoek. Het afnemen van bloed daarentegen kan ook wanneer je
+        bloed komt doneren bij Sanquin. Jouw bloed wordt dan gebruikt om
+        patiënten te helpen.
       </p>
-      <h3>Placeholder</h3>
+      <h3>Bloedafname</h3>
       <p>
-        Op een klein deel werken we voor bloedafname volgens geplande afspraken.
-        Op deze pagina kunt u direct online een afspraak inplannen voor
-        bloedafname op de locaties waar een afspraak nodig is. In dit overzicht
-        ziet u in de kolom 'Bijzonderheden' welke locaties dit zijn. Wilt u een
-        afspraak maken voor bloedafname voor NIPT? Bekijk dan eerst hier op
-        welke locaties dat kan.
+        Een bloedafname wordt uitgevoerd op aanvraag van een hiertoe bevoegde
+        professional, bijvoorbeeld de huisarts of medisch specialist. Bij een
+        bloedafname wordt een hoeveelheid bloed afgenomen. In de meeste gevallen
+        worden er een aantal buisjes gevuld met bloed om te onderzoeken.
       </p>
       <div class="row">
         <div class="col">
           <div class="tabs">
             <div class="tab">
               <input type="checkbox" id="chck1" />
-              <label class="tab-label" for="chck1">Placeholder</label>
+              <label class="tab-label" for="chck1"
+                >Op welke plek bloedafnemen?</label
+              >
               <div class="tab-content">
-                Op een klein deel werken we voor bloedafname volgens geplande
-                afspraken. Op deze pagina kunt u direct online een afspraak
-                inplannen voor bloedafname op de locaties waar een afspraak
-                nodig is. In dit overzicht ziet u in de kolom 'Bijzonderheden'
-                welke locaties dit zijn. Wilt u een afspraak maken voor
-                bloedafname voor NIPT? Bekijk dan eerst hier op welke locaties
-                dat kan.
+                Bloed kan op verschillende plekken worden afgenomen, namelijk:
+                <ul>
+                  <li>
+                    Afname via elleboogholte, bijvoorkeur de niet-dominante arm.
+                  </li>
+                  <li>
+                    Afname via de bovenkant van de hand. Deze wijze van afname
+                    wordt alleen gebruikt wanneer de bloedafname in de
+                    elleboogholte onmogelijk is.
+                  </li>
+                  <li>
+                    Indien de bovengenoemde manieren niet lukken, dan wordt in
+                    enkele gevallen bloed afgenomen via een vingerprik.
+                  </li>
+                  <li>
+                    Indien er op meerdere tijdstippen bloed moet worden
+                    afgenomen kan in enkele gevallen een infuusnaald geplaatst
+                    worden.
+                  </li>
+                  <li>
+                    Bij jonge baby's wordt bloed afgenomen uit het hieltje.
+                    Zodra baby’s ouder zijn wordt vaak gekozen voor een
+                    vingerprik.
+                  </li>
+                </ul>
               </div>
             </div>
             <div class="tab">
               <input type="checkbox" id="chck2" />
-              <label class="tab-label" for="chck2">Placeholder</label>
+              <label class="tab-label" for="chck2"
+                >Flauwvallen na bloed prikken</label
+              >
               <div class="tab-content">
-                Op een klein deel werken we voor bloedafname volgens geplande
-                afspraken. Op deze pagina kunt u direct online een afspraak
-                inplannen voor bloedafname op de locaties waar een afspraak
-                nodig is. In dit overzicht ziet u in de kolom 'Bijzonderheden'
-                welke locaties dit zijn. Wilt u een afspraak maken voor
-                bloedafname voor NIPT? Bekijk dan eerst hier op welke locaties
-                dat kan.
+                Een flauwval reactie ontstaat doordat een deel van het
+                zenuwstelsel, waar je geen invloed op hebt, onvoldoende reageert
+                op bepaalde bloeddrukschommelingen. Dit kan veroorzaakt worden
+                door naaldvrees. Meestal weten mensen in welke omstandigheden ze
+                gevoelig zijn voor flauwvallen en passen zich daarop aan.
+                Bijvoorbeeld tijdens het bloedprikken gaan liggen in plaats van
+                staan of zitten.
               </div>
             </div>
           </div>
         </div>
       </div>
-      <h3>Placeholder</h3>
+      <h3>Waarom bloedprikken?</h3>
       <p>
-        Op een klein deel werken we voor bloedafname volgens geplande afspraken.
-        Op deze pagina kunt u direct online een afspraak inplannen voor
-        bloedafname op de locaties waar een afspraak nodig is. In dit overzicht
-        ziet u in de kolom 'Bijzonderheden' welke locaties dit zijn. Wilt u een
-        afspraak maken voor bloedafname voor NIPT? Bekijk dan eerst hier op
-        welke locaties dat kan.
+        Bijna iedereen moet wel eens bloed laten prikken. Via een bloedonderzoek
+        krijg je een goed beeld van hoe je ervoor staat. Een bloedonderzoek zegt
+        meer over iemands gezondheidstoestand dan welke andere vorm van
+        diagnose.
       </p>
-      <h3>Placeholder</h3>
+      <h3>Waar bloedafname?</h3>
       <p>
-        Op een klein deel werken we voor bloedafname volgens geplande afspraken.
-        Op deze pagina kunt u direct online een afspraak inplannen voor
-        bloedafname op de locaties waar een afspraak nodig is. In dit overzicht
-        ziet u in de kolom 'Bijzonderheden' welke locaties dit zijn. Wilt u een
-        afspraak maken voor bloedafname voor NIPT? Bekijk dan eerst hier op
-        welke locaties dat kan.
+        Je kunt behalve bij het ziekenhuis ook terecht bij veel priklocaties in
+        de regio. Zo kun je dicht bij huis bloed af laten nemen. Is een
+        bloedafname aan huis nodig? Dit zogeheten ‘thuisprikken’ is alleen op
+        aanvraag van een arts mogelijk. Vaak kiest een arts hier alleen voor als
+        het voor een patiënt onmogelijk is om naar een priklocatie te gaan.
       </p>
     </div>
   </div>
@@ -97,16 +112,7 @@ export default defineComponent({
   --background-mask: var(--light-grey);
 }
 
-h1 {
-  margin: 0;
-  line-height: 2;
-  text-align: center;
-}
-h2 {
-  margin: 0 0 0.5em;
-  font-weight: normal;
-}
-input {
+.tab input {
   position: absolute;
   opacity: 0;
   z-index: -1;
@@ -119,7 +125,8 @@ input {
 }
 .row .col:last-child {
   /* margin-left: 1em; */
-  margin: 0 10px;
+  /* margin: 0 10px; */
+  margin: 0 10px 5px 10px;
 }
 
 /* Accordion styles */
@@ -169,6 +176,11 @@ input {
   /* transition: all 0.35s; */
   /* transition: all 0.5s ease; */
   transition: all 1s ease;
+}
+
+.tab-content li {
+  margin: 5px 0;
+  /* text-align: left; */
 }
 
 .tab-close {

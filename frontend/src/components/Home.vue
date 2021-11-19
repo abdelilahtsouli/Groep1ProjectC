@@ -234,10 +234,12 @@ const chestListSvg = `<svg aria-hidden="true" focusable="false" data-prefix="fas
 .text-box p {
   font-size: 15px;
   margin-top: 0;
+  margin-bottom: 20px;
 }
 
 .text-box h3 {
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .text-box svg {
@@ -246,6 +248,7 @@ const chestListSvg = `<svg aria-hidden="true" focusable="false" data-prefix="fas
   color: var(--light-red);
   fill: var(--light-red);
   margin: 5px 0 0 0;
+  margin-bottom: 5px;
 }
 
 .home .header {
