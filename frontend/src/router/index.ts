@@ -5,25 +5,23 @@ import Login from '../components/Login.vue'
 import twoFASetup from '../components/2FAsetup.vue'
 import twoFAverify from '../components/Verify2FA.vue'
 import createNewUser from '../components/CreateAccount.vue'
-import Page from '../components/Page.vue'
 import logout from '../components/logout.vue'
-import PageEditor from '../components/PageEditor.vue'
 
 const routes: Array<RouteRecordRaw> = [
     {
-        path: '/', redirect : '/page/1'
+        path: '/', redirect : '/Home'
     },
     {
-        path: '/editor/:content',
-        name: 'Editor',
+        path: '/Home',
+        name: 'Home',
         props: true,
-        component: PageEditor
-    },
+        component: Home
+    },   
     {
-        path: '/page/:id',
-        name: 'Page',
+        path: '/Bloedprikken',
+        name: 'Bloedprikken',
         props: true,
-        component: Page
+        component: Bloedprikken
     },
     {
         path: '/login',
