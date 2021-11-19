@@ -25,6 +25,7 @@ pnpm-debug.log*
 backend/bin/*
 backend/wwwroot/*
 backend/obj/*
+backend/appsettings.json
 
 frontend/node_modules/
 backend/obj/Project C Website.csproj.nuget.dgspec.json
