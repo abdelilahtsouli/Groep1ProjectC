@@ -12,6 +12,9 @@ const props = defineProps<{page: any}>();
 router.push({path: props.page })
 
 
+
+
+
 </script>
 
 <style scoped>
