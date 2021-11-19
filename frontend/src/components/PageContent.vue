@@ -89,5 +89,4 @@ export default defineComponent({
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
-
 </style>

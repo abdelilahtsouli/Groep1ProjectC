@@ -1,9 +1,8 @@
 <template>
+  <div>
   <div class="white-space-top"></div>
   <div>
     <div class="home">
-
-
       <div class="header">
         <img src="../assets/images/stock-img-smiling-chemists.jpg" />
       </div>
@@ -50,10 +49,11 @@
       <div class="white-space-bottom"></div>
     </div>
   </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { defineEmits, onMounted, ref } from "vue";
+import { defineEmits, onMounted } from "vue";
 import PageContent from "./PageContent.vue";
 
 
