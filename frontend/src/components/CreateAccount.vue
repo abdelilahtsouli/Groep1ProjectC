@@ -146,6 +146,7 @@ async function sendToServer(){
   border: 1px solid var(--dark-blue);
   box-sizing: border-box;
   border-radius: 5px;
+  background-color: white;
 }
 .createAccountForm button{
   width: 100%;
@@ -162,5 +163,6 @@ async function sendToServer(){
   border-radius: 5px;
   color: white;
 }
+
 
 </style>

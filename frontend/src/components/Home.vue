@@ -2,9 +2,7 @@
   <div class="white-space-top"></div>
   <div>
     <div class="home">
-      <div v-if="cookieTest()">
-        <button class="edit-button" @click="toggleEditor()">Edit</button>
-      </div>
+
 
       <div class="header">
         <img src="../assets/images/stock-img-smiling-chemists.jpg" />
@@ -58,13 +56,20 @@
 import { defineEmits, onMounted, ref } from "vue";
 import PageContent from "./PageContent.vue";
 
-const emit = defineEmits(["switchPage"]);
+
 
 function cookieTest() {
   return document.cookie != "";
 }
 
-onMounted(() => emit("switchPage", "home"));
+const emit = defineEmits(["switchPage", "userLoggedIn"]);
+
+onMounted(function () {
+  emit("switchPage", "home");
+  if (document.cookie != "") {
+    emit("userLoggedIn",true)
+  }
+});
 
 const bloodDropletSvg = `<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="tint" class="svg-inline--fa fa-tint fa-w-11" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path fill="currentColor" d="M205.22 22.09c-7.94-28.78-49.44-30.12-58.44 0C100.01 179.85 0 222.72 0 333.91 0 432.35 78.72 512 176 512s176-79.65 176-178.09c0-111.75-99.79-153.34-146.78-311.82zM176 448c-61.75 0-112-50.25-112-112 0-8.84 7.16-16 16-16s16 7.16 16 16c0 44.11 35.89 80 80 80 8.84 0 16 7.16 16 16s-7.16 16-16 16z"></path></svg>`;
 const vialSvg = `<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="vial" class="svg-inline--fa fa-vial fa-w-15" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path fill="currentColor" d="M477.7 186.1L309.5 18.3c-3.1-3.1-8.2-3.1-11.3 0l-34 33.9c-3.1 3.1-3.1 8.2 0 11.3l11.2 11.1L33 316.5c-38.8 38.7-45.1 102-9.4 143.5 20.6 24 49.5 36 78.4 35.9 26.4 0 52.8-10 72.9-30.1l246.3-245.7 11.2 11.1c3.1 3.1 8.2 3.1 11.3 0l34-33.9c3.1-3 3.1-8.1 0-11.2zM318 256H161l148-147.7 78.5 78.3L318 256z"></path></svg>`;

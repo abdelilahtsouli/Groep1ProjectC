@@ -59,10 +59,11 @@ export default defineComponent({
     }
 
     function isLoggedIn() {
-      return VueCookieNext.getCookie("token") != null;
+      return document.cookie != '';
     }
 
-    updatePage(<string>props.id);
+    if (props.id != undefined)
+        updatePage(props.id);
 
     return {
       content,

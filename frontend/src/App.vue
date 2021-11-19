@@ -3,15 +3,16 @@
     <Header />
   </header>
   <footer>
-    <Footer :activePage="activePage" @switchPage="setNewPage" />
+    <Footer :activePage="activePage" @switchPage="setNewPage" :loggedIn="userIsLoggedIn" @logOut="logOut"/>
   </footer>
-  <router-view @switchPage="setNewPage"/>
+  <router-view @switchPage="setNewPage" @userLoggedIn="isLoggedIn"/>
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch, watchEffect } from "vue";
 import Header from "./components/Header.vue";
 import Footer from "./components/footer.vue";
+import { VueCookieNext } from "vue-cookie-next";
 
 const activePage = ref("");
 
@@ -42,6 +43,16 @@ function getCookie(cname: string) {
 function setNewPage(pageName: string): void {
   activePage.value = pageName;
 }
+
+const userIsLoggedIn = ref(false);
+function isLoggedIn(loggedIn: boolean) {
+  userIsLoggedIn.value = loggedIn;
+}
+function logOut() {
+  userIsLoggedIn.value = false;
+  console.log(userIsLoggedIn.value)
+}
+
 
 </script>
 <style>

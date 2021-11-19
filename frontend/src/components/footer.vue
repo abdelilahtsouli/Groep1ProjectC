@@ -13,7 +13,7 @@
         <i class="material-icons nav__icon">vaccines</i>
         <a @click="w3_close()" class="nav__text">Info</a>
       </router-link>
-      <div class="w3-button w3-teal w3-xlarge" @click="w3_open()">
+      <div class="w3-button w3-teal w3-xlarge" @click="w3_open();">
         <div class="MenuButton">
           <i class="material-icons nav__icon">menu</i>
           <span class="nav__text">Menu</span>
@@ -35,38 +35,49 @@
           class="material-icons nav__icon w3-bar-item w3-large exitButton"
           >close</i
         >
-        <router-link class="menu-buttons" to="/Bloedprikken"
+        <router-link class="menu-buttons" @click="w3_close()" to="/Bloedprikken"
           ><a><h4 class="menu-text">Bloedprikken</h4></a></router-link
         >
-        <router-link class="menu-buttons" to="/Urineonderzoek"
+        <router-link class="menu-buttons" @click="w3_close()" to="/Urineonderzoek"
           ><a><h4 class="menu-text">Urine onderzoek</h4></a></router-link
         >
-        <router-link class="menu-buttons" to="/Locaties"
+        <router-link class="menu-buttons" @click="w3_close()" to="/Locaties"
           ><a><h4 class="menu-text">Locaties</h4></a></router-link
         >
-        <router-link class="menu-buttons" to="/Openingstijden"
+        <router-link class="menu-buttons" @click="w3_close()" to="/Openingstijden"
           ><a><h4 class="menu-text">Openingstijden</h4></a></router-link
         >
-        <router-link class="menu-buttons" to="/Routeplanner"
+        <router-link class="menu-buttons" @click="w3_close()" to="/Routeplanner"
           ><a><h4 class="menu-text">Routeplanner</h4></a></router-link
         >
-        <router-link class="menu-buttons" to="/Contact"
+        <router-link class="menu-buttons" @click="w3_close()" to="/Contact"
           ><a><h4 class="menu-text">Contact</h4></a></router-link
+        >
+        <router-link v-if="loggedIn" @click="w3_close()" class="menu-buttons" to="/createNewUser"
+          ><a><h4 class="menu-text">Nieuw account aanmaken</h4></a></router-link
+        >
+        <router-link v-if="loggedIn" @click="w3_close();logOut();" class="menu-buttons" :to="`/${activePage}`"
+          ><a><h4 class="menu-text">Uitloggen</h4></a></router-link
         >
       </div>
     </transition>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { isNodeEmpty } from "@tiptap/core";
-import { ref } from "vue";
-
-export default {
+import { VueCookieNext } from 'vue-cookie-next'
+import { defineComponent, ref,defineProps } from "vue";
+import router from '../router'
+export default defineComponent({
   name: "Footer",
-  props: ["title", "items"],
+  props: {
+    activePage: String,
+    loggedIn: Boolean
+  },
 
-  setup() {
+  setup(props, { emit }) {
+    
     function w3_open() {
       document.getElementById("mySidebar").style.display = "block";
     }
@@ -74,16 +85,26 @@ export default {
     function w3_close() {
       document.getElementById("mySidebar").style.display = "none";
     }
+    function logOut(){
+      VueCookieNext.removeCookie("token")
+      emit("logOut")
+
+
+    }
 
     const isOpen = ref(false);
-
+    function emitActivePage(pageName: string): void {
+      emit("switchPage", pageName);
+    }
     return {
       w3_open,
       w3_close,
+      emitActivePage,
       isOpen,
+      logOut
     };
   },
-};
+});
 </script>
 
 <style scoped>
@@ -183,7 +204,7 @@ export default {
   height: 15%;
   display: inline-block;
   outline: none;
-  z-index: -1;
+  z-index: 1;
   /* text-align: center;
     position: relative;
     top: 10%;
@@ -200,6 +221,7 @@ export default {
   position: fixed;
   right: 0;
   font-size: 50px !important;
+  z-index: 2;
 }
 .MenuButton {
   z-index: 1;
