@@ -14,3 +14,17 @@ CREATE TABLE IF NOT EXISTS public.media
     type character varying(64) COLLATE pg_catalog."default",
     CONSTRAINT media_pkey PRIMARY KEY (media_id)
 )
+
+CREATE TABLE public.td_user
+(
+    id smallint NOT NULL,
+    name character varying(25) COLLATE pg_catalog."default",
+    email character varying(30) COLLATE pg_catalog."default",
+    password character varying(50) COLLATE pg_catalog."default",
+    twofa boolean,
+    secret_key character varying(100) COLLATE pg_catalog."default",
+    oauth_token character varying(50) COLLATE pg_catalog."default",
+    salt character varying(100) COLLATE pg_catalog."default",
+    superuser boolean,
+    CONSTRAINT td_user_pkey PRIMARY KEY (id)
+)
