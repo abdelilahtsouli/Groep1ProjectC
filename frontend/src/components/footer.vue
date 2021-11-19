@@ -134,6 +134,7 @@ export default {
   justify-content: center;
   flex-grow: 1;
   min-width: 50px;
+  width: 20vw;
   overflow: hidden;
   white-space: nowrap;
   font-family: sans-serif;
@@ -208,6 +209,7 @@ export default {
   justify-content: center;
   flex-grow: 1;
   min-width: 40px;
+  width: 20vw;
   overflow: hidden;
   white-space: nowrap;
   font-family: sans-serif;
