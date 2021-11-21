@@ -8,11 +8,11 @@
             </div>
             <div class="content">
                 <div class="content-header"><h2><b>Klantcontactcentrum</b></h2></div>
-                <p>Heeft u vragen? Bekijk dan de veelgestelde vragen. Vindt u daar geen antwoord op uw vraag? Neem dan contact op met het Klantcontactcentrum (telefoonnummer 088 020 95 55, geopend op werkdagen van 8.00 uur tot 17.30 uur)
+                <p>Heeft u vragen? <a href="/#/Veelgesteldevragen">Bekijk dan de veelgestelde vragen</a>. Vindt u daar geen antwoord op uw vraag? Neem dan contact op met het Klantcontactcentrum (telefoonnummer <a href="tel:088 020 95 55>">088 020 95 55</a>, geopend op werkdagen van 8.00 uur tot 17.30 uur)
                 </p>
                 <p>Wegens een verhoogd aantal telefoontjes kan de wachttijd oplopen. Wij adviseren u in de middag te bellen, dan is het doorgaans minder druk.
                 Aanvullende informatie rondom Corona
-                Moet u bloed laten prikken of heeft u een afspraak voor onderzoek, en heeft u recent klachten van hoesten of benauwdheid of koorts, stel uw bezoek dan uit totdat u volledig hersteld bent. Twijfelt u of u kunt komen of wilt u uw afspraak verzetten, belt u dan met het Klantcontactcentrum via telefoonnummer 088 020 95 55.
+                Moet u bloed laten prikken of heeft u een afspraak voor onderzoek, en heeft u recent klachten van hoesten of benauwdheid of koorts, stel uw bezoek dan uit totdat u volledig hersteld bent. Twijfelt u of u kunt komen of wilt u uw afspraak verzetten, belt u dan met het Klantcontactcentrum via telefoonnummer <a href="tel:088 020 95 55">088 020 95 55</a>.
                 </p>
                 <div class="content-header"><h2><b>Klachten en suggesties</b></h2></div> 
                 <p>
@@ -57,6 +57,10 @@
 }
 .header-contact{
     margin-bottom: 80px;
+}
+.content a{
+    color: #e7334c !important;
+    text-decoration: none;
 }
 
 </style>

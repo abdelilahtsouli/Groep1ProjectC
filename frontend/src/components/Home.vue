@@ -38,7 +38,7 @@
           >
         </button>
         <button class="block bottom-right-border">
-          <router-link to="#"
+          <router-link to="/contact"
             ><div v-html="paperPlaneSvg"></div>
             <a>Contact</a></router-link
           >
