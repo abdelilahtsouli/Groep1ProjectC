@@ -51,8 +51,8 @@
         <router-link class="menu-buttons" @click="w3_close()" to="/Openingstijden"
           ><a><h4 class="menu-text">Openingstijden</h4></a></router-link
         >
-        <router-link class="menu-buttons" @click="w3_close()" to="/Routeplanner"
-          ><a><h4 class="menu-text">Routeplanner</h4></a></router-link
+        <router-link class="menu-buttons" @click="w3_close()" to="/Veelgesteldevragen"
+          ><a><h4 class="menu-text">Veelgestelde vragen</h4></a></router-link
         >
         <router-link class="menu-buttons" @click="w3_close()" to="/Contact"
           ><a><h4 class="menu-text">Contact</h4></a></router-link
@@ -463,5 +463,8 @@ export default defineComponent({
     opacity: 0.9;
   }
 }
+
+
+
 </style>
 
