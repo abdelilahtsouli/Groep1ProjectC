@@ -2,11 +2,13 @@
 <template>
   <div>
     <nav class="header">
+      <router-link to="/#/Home">
       <!-- <img class="img" src="../assets/images/star-shl-logo-kleur.png" /> -->
       <img
         class="img"
         src="../assets/images/star-shl-logo-kleur-diapositief.png"
       />
+      </router-link>
     </nav>
   </div>
 </template>
