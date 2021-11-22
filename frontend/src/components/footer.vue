@@ -263,6 +263,7 @@ export default defineComponent({
   right: 0;
   font-size: 50px !important;
   z-index: 2;
+  color: white;
 }
 .MenuButton {
   z-index: 1;
@@ -345,7 +346,7 @@ export default defineComponent({
   right: 0;
   top: 0;
   font-size: 50px !important;
-
+  color: white;
 } 
 
 

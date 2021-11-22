@@ -7,11 +7,11 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, ref } from "vue";
-import PageContent from "./PageContent.vue"
+import PageContent from "./PageContent.vue";
 
 export default defineComponent({
   components: {
-    PageContent
+    PageContent,
   },
   setup(props, { emit }) {
     onMounted(() => {
@@ -24,7 +24,7 @@ export default defineComponent({
 });
 </script>
 
-<style >
+<style>
 /* :root {
   --text-color: var(--dark-blue);
   --background-mask: var(--light-grey);
