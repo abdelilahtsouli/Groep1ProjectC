@@ -16,11 +16,16 @@ export default defineComponent({
   setup(props, { emit }) {
     onMounted(() => {
       emit("switchPage", "bloedprikken");
+      
+      if (document.cookie != "") {
+        emit("userLoggedIn",true)
+      }
     });
 
     const show = ref(true);
     return { show };
   },
+
 });
 </script>
 

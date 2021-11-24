@@ -25,7 +25,7 @@ namespace Project_C_Website.controllers {
 
 			string email = HttpContext.Request.Form["email"];
 			string id = HttpContext.Request.Form["id"].ToString();
-			System.Console.WriteLine(id);
+
 			TwoFactorAuthenticator tfa = new TwoFactorAuthenticator();
 			Random random = new Random();
 
@@ -38,6 +38,7 @@ namespace Project_C_Website.controllers {
 			var setupInfo = tfa.GenerateSetupCode("star-shl", email, rString, true);
 
 			string qrCodeImageUrl = setupInfo.QrCodeSetupImageUrl;
+
 
 
 

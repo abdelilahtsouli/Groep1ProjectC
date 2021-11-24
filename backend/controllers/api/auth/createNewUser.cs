@@ -26,11 +26,7 @@ namespace Project_C_Website.controllers {
 			string Name = HttpContext.Request.Form["Name"];
 			string Email = HttpContext.Request.Form["Email"];
             string Password = HttpContext.Request.Form["Password"];
-			bool superUser = bool.Parse(HttpContext.Request.Form["Superuser"]);
-
-
-	
-
+			bool superUser = bool.Parse(HttpContext.Request.Form["Superuser"].ToString());
 			// generate a 128-bit salt using a cryptographically strong random sequence of nonzero values
 			byte[] salt = new byte[128 / 8];
 			using (var rngCsp = new RNGCryptoServiceProvider())
