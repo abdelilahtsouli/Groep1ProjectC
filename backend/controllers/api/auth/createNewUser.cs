@@ -28,6 +28,7 @@ namespace Project_C_Website.controllers {
             string Password = HttpContext.Request.Form["Password"];
 			bool superUser = bool.Parse(HttpContext.Request.Form["Superuser"]);
 
+
 	
 
 			// generate a 128-bit salt using a cryptographically strong random sequence of nonzero values
@@ -63,7 +64,8 @@ namespace Project_C_Website.controllers {
 
 			database.Close();
             return JsonSerializer.Serialize(new{
-				userCreated = true
+				userCreated = true,
+				id = data.Rows.Count + 1
 			});
 		}
 		static string BytesToString(byte[] bytes)

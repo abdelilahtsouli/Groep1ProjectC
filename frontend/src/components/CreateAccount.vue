@@ -31,7 +31,7 @@
                 placeholder="Wachtwoord"
                 type="password"
                 /><br><br>
-                <button @click="sendToServer();">Create account</button>
+                <button @click="sendToServer">Create account</button>
                 <br><h5>{{Error_message}}</h5>
             </div>
         </div>
@@ -47,10 +47,11 @@ import axios from "axios";
 
 // Jamey
 import {defineEmits, onMounted} from "vue";
+import router from "../router";
 const emit = defineEmits(["switchPage"]);
 onMounted(() => emit("switchPage", "settings"))
 //
-
+const id = ref('');
 const Name = ref('');
 const Email = ref('');
 const superUser = ref('');
@@ -77,6 +78,13 @@ function nameCheck(){
     return false
   }
 }
+function isSuperUser(){
+  if (superUser.value == ''){
+    superUser.value = 'false'
+    return true
+  }
+  return true
+}
 
 function validateEmail() {
   const re =
@@ -91,15 +99,19 @@ function validateEmail() {
 }
 
 async function sendToServer(){
-    if(nameCheck() && passwordCheck() && validateEmail()){
+    if(nameCheck() && passwordCheck() && validateEmail() && isSuperUser()){
       var bodyFormData = new FormData();
       bodyFormData.append("Name", Name.value);
       bodyFormData.append("Email", Email.value);
       bodyFormData.append("Superuser",superUser.value);
       bodyFormData.append("Password", password.value);
       await axios.post('/api/auth/createNewUser', bodyFormData)
-          .then((Response: any) => Created.value = Response.data.userCreated)
-      console.log(Created.value);
+          .then((Response: any) => (Created.value = Response.data.userCreated) &&  (id.value = Response.data.id))
+      if(Created.value){
+          router.push({
+          name: "twoFA", params: {email: Email.value, id: id.value}
+        })
+      }
     }
 }
 

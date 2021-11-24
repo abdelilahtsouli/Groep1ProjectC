@@ -53,7 +53,6 @@ function userLogin() {
   bodyFormData.append("password", message_password.value);
   axios.post(URL_base, bodyFormData).then((Response: any) => {
     errormessage.value = Response.data.message;
-    console.log(Response.data);
     if (Response.data.twoFAenabled == false) {
       router.push({
         name: "twoFA",

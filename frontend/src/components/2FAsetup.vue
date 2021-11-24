@@ -19,12 +19,12 @@
 import { onMounted, ref } from "vue";
 import axios from "axios";
 import { defineProps } from "vue";
+import router from '../router'
 
 let QR_Code = ref("");
 const props = defineProps<{ id: string, email: string}>();
 
 async function twoFactorAuthentication() {
-
   var bodyFormData = new FormData();
   bodyFormData.append("email", props.email);
   bodyFormData.append("id", props.id);
