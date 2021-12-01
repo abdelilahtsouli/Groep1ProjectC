@@ -9,12 +9,23 @@
         <div v-html="paragraphSVG"></div>
       </button>
       <div class="divider"></div>
-      <button @click="formatDoc('insertorderedlist')" class="editor-button">
+      <button
+        @click="
+          formatDoc(
+            'insertHTML',
+            `<details><summary >PLACEHOLDER</summary><div class='content'><p>PLACEHOLDER</p></div></details>`
+          )
+        "
+      >
+        Insert Accordion
+      </button>
+
+      <!-- <button @click="formatDoc('insertorderedlist')" class="editor-button">
         <div v-html="orderedListSVG"></div>
       </button>
       <button @click="formatDoc('insertunorderedlist')" class="editor-button">
         <div v-html="unorderedListSVG"></div>
-      </button>
+      </button> -->
     </div>
 
     <!-- Edit Button -->
@@ -29,9 +40,6 @@
       :contenteditable="editing"
       @keyup="checkIfChangesMade()"
     ></div>
-
-    <!-- TODO add contenteditable tag to accordion -->
-    <!-- TODO add @keydown.down.prevent to the div with class="tab" ? -->
 
     <!-- Editor Footer -->
     <div v-if="isLoggedIn && editing" class="footer">
@@ -144,7 +152,7 @@ export default defineComponent({
       }
       // }
     }
-    
+
     // Compares original content with editor content
     const checkIfChangesMade = () => {
       changesMade.value =
@@ -207,7 +215,8 @@ export default defineComponent({
 
 /* Editor */
 .editor {
-  border: 3px solid black;
+  border-bottom: 3px solid black;
+  border-top: 3px solid black;
   border-radius: 8px;
 }
 
