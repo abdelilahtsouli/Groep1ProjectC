@@ -188,23 +188,25 @@ const props = defineProps({
   /* border-bottom: 1px solid var(--light-grey); */
 }
 
-.text-box {
+.uneditableContent {
   margin: 0 10px;
   text-align: center;
 }
 
-.text-box p {
+.uneditableContent p {
   font-size: 15px;
   margin-top: 0;
+  margin-left: 10px;
+  margin-right: 10px;
   margin-bottom: 20px;
 }
 
-.text-box h3 {
+.uneditableContent h3 {
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-.text-box svg {
+.uneditableContent svg {
   height: 24px;
   width: 24px;
   color: var(--light-red);

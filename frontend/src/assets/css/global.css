@@ -28,6 +28,7 @@ label,
 a {
     font-family: Regular;
     text-decoration: none;
+    text-align: center;
 }
 
 p,
@@ -36,6 +37,7 @@ input::placeholder,
 option,
 select {
     font-family: LightAndBold;
+    text-align: center;
 }
 
 body {
