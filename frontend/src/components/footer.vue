@@ -39,14 +39,14 @@
         <i class="material-icons nav__icon">lock</i>
         <a @click="w3_close(); sidebar_close()" class="nav__text">Admin</a>
       </router-link>
-      <router-link
-        :to="`/${activePage}`"
+      <div
         class="nav__link"
+        @click="sidebar_toggle()"
         :class="{ 'active-item': activePage === 'settings' }"
       >
         <i class="material-icons nav__icon">settings</i>
-        <a @click="sidebar_toggle()" class="nav__text">Settings</a>
-      </router-link>
+        <a  class="nav__text">Settings</a>
+      </div>
     
     </nav>
     <transition name="fade">
