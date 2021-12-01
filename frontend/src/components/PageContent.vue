@@ -200,7 +200,7 @@ export default defineComponent({
   color: var(--light-red);
   right: 0;
   margin: 15px 10px 0 0;
-  z-index: 5;
+  z-index: 0;
   position: absolute;
   opacity: 40%;
 }

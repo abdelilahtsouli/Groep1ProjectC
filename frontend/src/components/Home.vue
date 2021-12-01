@@ -235,4 +235,5 @@ const props = defineProps({
   opacity: 50%;
 }
 
+
 </style>
