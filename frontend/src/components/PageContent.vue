@@ -9,17 +9,9 @@
         <div v-html="paragraphSVG"></div>
       </button>
       <div class="divider"></div>
-      <button
-        @click="
-          formatDoc(
-            'insertHTML',
-            `<details contenteditable='false'><summary><h3>PLACEHOLDER</h3></summary><div class='content'><p>PLACEHOLDER</p></div></details>`
-          )
-        "
-      >
+      <button @click="formatDoc('insertHTML', createAccordionElement()); toggleContenteditableAttr()">
         Insert Accordion
       </button>
-      <button @click="test">x</button>
 
       <!-- <button @click="formatDoc('insertorderedlist')" class="editor-button">
         <div v-html="orderedListSVG"></div>
@@ -31,7 +23,14 @@
 
     <!-- Edit Button -->
     <div v-if="isLoggedIn" class="icon-container">
-      <div v-html="editSVG" class="icon" @click="editing = !editing"></div>
+      <div
+        v-html="editSVG"
+        class="icon"
+        @click="
+          editing = !editing;
+          toggleContenteditableAttr();
+        "
+      ></div>
     </div>
 
     <!-- Page content loaded from database -->
@@ -88,35 +87,81 @@ export default defineComponent({
     const editing = ref(false);
     const changesMade = ref(false);
 
-    const test = () => {
+    const closeOpenAttr = () =>
+      document
+        .querySelectorAll("details")
+        .forEach((node) => (node.open = false));
+
+    const toggleContenteditableAttr = (editable: boolean = editing.value) => {
       const nodeList = document.querySelectorAll("details");
       console.log(nodeList);
-      // nodeList.forEach((node) => console.log(node.contentEditable));
-      nodeList.forEach((node) =>
-        console.log(
-          (node.getElementsByTagName("summary")[0].getElementsByTagName("h3")[0].contentEditable = "true")
-        )
+
+      nodeList.forEach(
+        (node) =>
+          (node
+            .getElementsByTagName("summary")[0]
+            .getElementsByTagName("h3")[0].contentEditable =
+            editable.toString())
       );
+
       nodeList.forEach((node) =>
-        console.log(
-          (node.getElementsByTagName("div")[0].contentEditable = "true")
+        ["div", "h3", "p"].forEach((tag) =>
+          Array.from(
+            node
+              .getElementsByTagName("summary")[0]
+              .getElementsByTagName("h3")[0]
+              .getElementsByTagName(tag)
+          ).forEach((el) =>
+            el.setAttribute("contentEditable", editable.toString())
+          )
         )
       );
 
       nodeList.forEach(
         (node) =>
-          (node.getElementsByTagName("summary")[0].onkeyup = function (e) {
-            if (e.keyCode == 32) {
-              e.preventDefault();
-            }
-          })
+          (node.getElementsByTagName("div")[0].contentEditable =
+            editable.toString())
       );
+
+      // nodeList.forEach((node) =>
+      //   Array.from(
+      //     node
+      //       .getElementsByTagName("summary")[0]
+      //       .getElementsByTagName("h3")[0]
+      //       .getElementsByTagName("div")
+      //   ).forEach((el) => (el.contentEditable = editable.toString()))
+      // );
+    };
+
+    const createAccordionElement = () => {
+      const details = document.createElement("details");
+
+      const summary = document.createElement("summary");
+      const h3 = document.createElement("h3");
+      h3.innerText = "PLACEHOLDER";
+
+      const div = document.createElement("div");
+      div.classList.add("content");
+
+      const p = document.createElement("p");
+      p.innerText = "PLACEHOLDER";
+
+      summary.appendChild(h3);
+      div.appendChild(p);
+
+      details.appendChild(summary);
+      details.appendChild(div);
+
+      console.log(details.outerHTML);
+      return details.outerHTML;
     };
 
     // ....
     function submit(): void {
       // Send the new content of the editor to the backend.
       // Note: POST creates a new page while PUT modifies a page.
+      toggleContenteditableAttr(false);
+      closeOpenAttr();
 
       const newContent =
         document.getElementById("content")?.outerHTML !== undefined
@@ -204,7 +249,8 @@ export default defineComponent({
       submit,
       checkIfChangesMade,
       formatDoc,
-      test,
+      toggleContenteditableAttr,
+      createAccordionElement,
     };
   },
 });
@@ -302,5 +348,4 @@ export default defineComponent({
   margin-left: 0.5rem;
   margin-right: 0.75rem;
 }
-
 </style>
