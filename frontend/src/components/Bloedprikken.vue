@@ -16,9 +16,13 @@ export default defineComponent({
   props: {
     isLoggedIn: Boolean,
   },
+  emits: ["switchPage", "userLoggedIn"],
   setup(props, { emit }) {
     onMounted(() => {
       emit("switchPage", "bloedprikken");
+      if (document.cookie != "") {
+        emit("userLoggedIn", true);
+      }
     });
     console.log(props.isLoggedIn);
     const show = ref(true);
@@ -27,12 +31,7 @@ export default defineComponent({
 });
 </script>
 
-<style >
-/* :root {
-  --text-color: var(--dark-blue);
-  --background-mask: var(--light-grey);
-} */
-
+<style>
 .tab input {
   position: absolute;
   opacity: 0;
