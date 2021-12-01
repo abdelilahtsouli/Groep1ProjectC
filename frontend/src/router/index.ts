@@ -68,6 +68,7 @@ const routes: Array<RouteRecordRaw> = [
         component: logout
     }
 
+
 ]
 
 const router = createRouter({

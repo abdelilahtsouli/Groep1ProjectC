@@ -28,6 +28,7 @@ namespace Project_C_Website.controllers
 			string secret = "";
 			string token = HttpContext.Request.Form["token_input"];
 			string id = (HttpContext.Request.Form["id"].ToString());
+			string superuser = HttpContext.Request.Form["superuser"].ToString();
 			string oauth_token = "";
 
 			Database database = new Database();
@@ -58,7 +59,8 @@ namespace Project_C_Website.controllers
 				{
 					isCorrectPIN,
 					token = oauth_token,
-					error = ""
+					error = "",
+					superUser = superuser
 				});
 			}
 			else{

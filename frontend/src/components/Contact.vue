@@ -41,7 +41,18 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { defineEmits, onMounted } from "vue";
+
+const emit = defineEmits(["switchPage", "userLoggedIn"]);
+
+onMounted(() => {
+  emit("switchPage", "Contact");
+  if (document.cookie != "") {
+    emit("userLoggedIn", true);
+  }
+});
+</script>
 
 <style>
 .header-contact .content {
