@@ -57,12 +57,11 @@ import { defineEmits, onMounted } from "vue";
 import PageContent from "./PageContent.vue";
 
 
-
 function cookieTest() {
   return document.cookie != "";
 }
 
-const emit = defineEmits(["switchPage", "userLoggedIn"]);
+const emit = defineEmits(["switchPage", "userLoggedIn", "isSuperUser"]);
 
 onMounted(function () {
   emit("switchPage", "home");
