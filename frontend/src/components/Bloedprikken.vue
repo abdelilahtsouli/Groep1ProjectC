@@ -38,7 +38,7 @@ summary::before {
   font-family: "Hiragino Mincho ProN", "Open Sans", sans-serif;
   content: "▶";
   position: absolute;
-  top: 1rem;
+  top: 1.75rem;
   left: 0.8rem;
   transform: rotate(0);
   transform-origin: center;
@@ -57,7 +57,7 @@ details summary {
 }
 @keyframes details-show {
   from {
-    margin-bottom: -80%;
+    /* margin-bottom: -80%; */
     opacity: 0;
     transform: translateY(-100%);
   }

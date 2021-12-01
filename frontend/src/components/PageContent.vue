@@ -13,12 +13,13 @@
         @click="
           formatDoc(
             'insertHTML',
-            `<details><summary >PLACEHOLDER</summary><div class='content'><p>PLACEHOLDER</p></div></details>`
+            `<details contenteditable='false'><summary><h3>PLACEHOLDER</h3></summary><div class='content'><p>PLACEHOLDER</p></div></details>`
           )
         "
       >
         Insert Accordion
       </button>
+      <button @click="test">x</button>
 
       <!-- <button @click="formatDoc('insertorderedlist')" class="editor-button">
         <div v-html="orderedListSVG"></div>
@@ -54,7 +55,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, onMounted, ref } from "vue";
 import { VueCookieNext } from "vue-cookie-next";
 import axios from "axios";
 
@@ -86,6 +87,31 @@ export default defineComponent({
     const pageId = ref(props.id);
     const editing = ref(false);
     const changesMade = ref(false);
+
+    const test = () => {
+      const nodeList = document.querySelectorAll("details");
+      console.log(nodeList);
+      // nodeList.forEach((node) => console.log(node.contentEditable));
+      nodeList.forEach((node) =>
+        console.log(
+          (node.getElementsByTagName("summary")[0].getElementsByTagName("h3")[0].contentEditable = "true")
+        )
+      );
+      nodeList.forEach((node) =>
+        console.log(
+          (node.getElementsByTagName("div")[0].contentEditable = "true")
+        )
+      );
+
+      nodeList.forEach(
+        (node) =>
+          (node.getElementsByTagName("summary")[0].onkeyup = function (e) {
+            if (e.keyCode == 32) {
+              e.preventDefault();
+            }
+          })
+      );
+    };
 
     // ....
     function submit(): void {
@@ -178,6 +204,7 @@ export default defineComponent({
       submit,
       checkIfChangesMade,
       formatDoc,
+      test,
     };
   },
 });
@@ -275,4 +302,5 @@ export default defineComponent({
   margin-left: 0.5rem;
   margin-right: 0.75rem;
 }
+
 </style>
