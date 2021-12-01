@@ -28,15 +28,15 @@ namespace Project_C_Website.controllers
 			string secret = "";
 			string token = HttpContext.Request.Form["token_input"];
 			string id = (HttpContext.Request.Form["id"].ToString());
-			string superuser = HttpContext.Request.Form["superuser"].ToString();
 			string oauth_token = "";
-
+			string superuser = "";
 			Database database = new Database();
-			DataTable data = database.BuildQuery("select secret_key from admins WHERE id = @id")
+			DataTable data = database.BuildQuery("select secret_key,superuser from admins WHERE id = @id")
 				.AddParameter("id", Int32.Parse(id)).Select();
 			foreach (DataRow row in data.Rows)
 			{
 				secret = row["secret_key"].ToString();
+				superuser = row["superuser"].ToString();
 			}
 			
             TwoFactorAuthenticator tfa = new TwoFactorAuthenticator();

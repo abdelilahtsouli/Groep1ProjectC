@@ -3,9 +3,9 @@
     <Header />
   </header>
   <footer>
-    <Footer :activePage="activePage" @switchPage="setNewPage" :loggedIn="userIsLoggedIn" @logOut="logOut"/>
+    <Footer :activePage="activePage" @switchPage="setNewPage" :loggedIn="userIsLoggedIn" @logOut="logOut" :isSuperUser="superUser"/>
   </footer>
-  <router-view @switchPage="setNewPage" @userLoggedIn="isLoggedIn" :isLoggedIn="userIsLoggedIn"/>
+  <router-view @switchPage="setNewPage" @userLoggedIn="isLoggedIn" :isLoggedIn="userIsLoggedIn" @isSuperUser="isaSuperUser"/>
 </template>
 
 <script lang="ts" setup>
@@ -52,7 +52,10 @@ function logOut() {
   userIsLoggedIn.value = false;
   console.log(userIsLoggedIn.value)
 }
-
+const superUser = ref(false);
+function isaSuperUser(su: boolean) {
+  superUser.value = su;
+}
 
 
 </script>

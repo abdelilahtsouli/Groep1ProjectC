@@ -81,7 +81,7 @@
           ><a><h4 class="menu-text">Contact</h4></a></router-link
         >
         <router-link
-          v-if="loggedIn"
+          v-if="loggedIn && isSuperUser"
           @click="w3_close()"
           class="menu-buttons"
           to="/createNewUser"
@@ -142,6 +142,7 @@ export default defineComponent({
   props: {
     activePage: String,
     loggedIn: Boolean,
+    isSuperUser: Boolean
   },
 
   setup(props, { emit }) {
@@ -168,6 +169,7 @@ export default defineComponent({
     }
     function logOut() {
       VueCookieNext.removeCookie("token");
+      VueCookieNext.removeCookie("superUser");
       emit("logOut");
     }
     function sidebar_open() {
