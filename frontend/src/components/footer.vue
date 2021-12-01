@@ -64,7 +64,7 @@
           to="/Urineonderzoek"
           ><a><h4 class="menu-text">Urine onderzoek</h4></a></router-link
         >
-        <router-link class="menu-buttons" @click="w3_close()" to="/Locaties"
+        <router-link class="menu-buttons" @click="w3_close()" to="/location"
           ><a><h4 class="menu-text">Locaties</h4></a></router-link
         >
         <router-link
@@ -96,6 +96,7 @@
           :to="`/${activePage}`"
           ><a><h4 class="menu-text">Uitloggen</h4></a></router-link
         >
+
       </div>
     </transition>
   </div>

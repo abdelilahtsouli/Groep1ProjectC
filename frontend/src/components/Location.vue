@@ -10,7 +10,7 @@
     <p>Op deze pagina vindt u alle locaties voor bloedafname.</p>
   </div>
   <div class="map-responsive">
-    <iframe src="https://www.google.com/maps/d/embed?mid=1b_K2S4IW2EyIJf_2WR1jcqo5THYs8fGe&hl=nl" width="600" height="400" style="border:0" allowfullscreen></iframe>
+    <iframe src="https://www.google.com/maps/d/embed?mid=1b_K2S4IW2EyIJf_2WR1jcqo5THYs8fGe&hl=nl&z=8" width="600" height="400" style="border:0" allowfullscreen></iframe>
   </div>
 </template>
 
