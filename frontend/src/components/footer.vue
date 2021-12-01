@@ -11,7 +11,7 @@
         :class="{ 'active-item': activePage === 'home' }"
       >
         <i class="material-icons nav__icon">home</i>
-        <a @click="w3_close()" class="nav__text">Home</a>
+        <a @click="w3_close(); sidebar_close()" class="nav__text">Home</a>
       </router-link>
       <router-link
         to="/Bloedprikken"
@@ -19,7 +19,7 @@
         :class="{ 'active-item': activePage === 'bloedprikken' }"
       >
         <i class="material-icons nav__icon">vaccines</i>
-        <a @click="w3_close()" class="nav__text">Info</a>
+        <a @click="w3_close(); sidebar_close()" class="nav__text">Info</a>
       </router-link>
       <div
         class="w3-button w3-teal w3-xlarge"
@@ -37,19 +37,20 @@
         :class="{ 'active-item': activePage === 'admin' }"
       >
         <i class="material-icons nav__icon">lock</i>
-        <a @click="w3_close()" class="nav__text">Admin</a>
+        <a @click="w3_close(); sidebar_close()" class="nav__text">Admin</a>
       </router-link>
       <router-link
-        to="/createNewUser"
+        to="/"
         class="nav__link"
         :class="{ 'active-item': activePage === 'settings' }"
       >
         <i class="material-icons nav__icon">settings</i>
-        <a @click="w3_close()" class="nav__text">Settings</a>
+        <a @click="sidebar_toggle()" class="nav__text">Settings</a>
       </router-link>
+    
     </nav>
     <transition name="fade">
-      <div class="SideBar" style="display: none" id="mySidebar">
+      <div class="UnderBar" style="display: none" id="myUnderbar">
         <i
           @click="w3_close()"
           class="material-icons nav__icon w3-bar-item w3-large exitButton"
@@ -73,8 +74,8 @@
           to="/Openingstijden"
           ><a><h4 class="menu-text">Openingstijden</h4></a></router-link
         >
-        <router-link class="menu-buttons" @click="w3_close()" to="/Routeplanner"
-          ><a><h4 class="menu-text">Routeplanner</h4></a></router-link
+        <router-link class="menu-buttons" @click="w3_close()" to="/Veelgesteldevragen"
+          ><a><h4 class="menu-text">Veelgestelde vragen</h4></a></router-link
         >
         <router-link class="menu-buttons" @click="w3_close()" to="/Contact"
           ><a><h4 class="menu-text">Contact</h4></a></router-link
@@ -99,6 +100,35 @@
 
       </div>
     </transition>
+    <transition name="fade-sidebar">
+      <div class="SideBar" style="display: none" id="mySidebar">
+        <i
+          @click="sidebar_close()"
+          class="material-icons nav__icon w3-bar-item w3-large exitButton-sidebar"
+          >close</i
+        >
+        <div class="menu-buttons-sidebar icon" v-if="loggedIn" v-html="profileSVG"></div>
+        <div class="menu-buttons-sidebar" v-if="loggedIn"><a><h6 class="menu-text-sidebar">Welkom user</h6></a></div>
+        <router-link class="menu-buttons-sidebar" @click="sidebar_close()" to="/Bloedprikken"
+          ><a><h4 class="menu-text-sidebar">Bloedprikken</h4></a></router-link
+        >
+        <router-link class="menu-buttons-sidebar" @click="sidebar_close()" to="/Urineonderzoek"
+          ><a><h4 class="menu-text-sidebar">Urine onderzoek</h4></a></router-link
+        >
+        <router-link class="menu-buttons-sidebar" @click="sidebar_close()" to="/Locaties"
+          ><a><h4 class="menu-text-sidebar">Locaties</h4></a></router-link
+        >
+        <router-link class="menu-buttons-sidebar" @click="sidebar_close()" to="/Openingstijden"
+          ><a><h4 class="menu-text-sidebar">Openingstijden</h4></a></router-link
+        >
+        <router-link class="menu-buttons-sidebar" @click="sidebar_close()" to="/Routeplanner"
+          ><a><h4 class="menu-text-sidebar">Routeplanner</h4></a></router-link
+        >
+        <router-link class="menu-buttons-sidebar" @click="sidebar_close()" to="/Contact"
+          ><a><h4 class="menu-text-sidebar">Contact</h4></a></router-link
+        >
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -116,24 +146,37 @@ export default defineComponent({
 
   setup(props, { emit }) {
     const menuOpen = ref(false);
+    const sidebarOpen = ref(false);
 
     function w3_toggle() {
       if (menuOpen.value) w3_close();
-      else w3_open();
+      else w3_open(); sidebar_close();
+    }
+    function sidebar_toggle(){
+      if (sidebarOpen.value) sidebar_close();
+      else sidebar_open(); w3_close();
     }
 
     function w3_open() {
       menuOpen.value = true;
-      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myUnderbar").style.display = "block";
     }
 
     function w3_close() {
       menuOpen.value = false;
-      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myUnderbar").style.display = "none";
     }
     function logOut() {
       VueCookieNext.removeCookie("token");
       emit("logOut");
+    }
+    function sidebar_open() {
+      sidebarOpen.value = true;
+      document.getElementById("mySidebar").style.display = "block";
+    }
+    function sidebar_close() {
+      sidebarOpen.value = false;
+      document.getElementById("mySidebar").style.display = "none";
     }
 
     function emitActivePage(pageName: string): void {
@@ -146,6 +189,9 @@ export default defineComponent({
       w3_toggle,
       emitActivePage,
       logOut,
+      sidebar_open,
+      sidebar_close,
+      sidebar_toggle
     };
   },
 });
@@ -269,6 +315,7 @@ export default defineComponent({
   right: 0;
   font-size: 50px !important;
   z-index: 2;
+  color: white;
 }
 .MenuButton {
   z-index: 1;
@@ -303,12 +350,12 @@ export default defineComponent({
   margin: auto;
   width: 50%;
 }
-.SideBar {
-  animation: fadeIn 1s;
-  -webkit-animation: fadeIn 1s;
-  -moz-animation: fadeIn 1s;
-  -o-animation: fadeIn 1s;
-  -ms-animation: fadeIn 1s;
+.UnderBar {
+  animation: fadeIn 0.5s;
+  -webkit-animation: fadeIn 0.5s;
+  -moz-animation: fadeIn 0.5s;
+  -o-animation: fadeIn 0.5s;
+  -ms-animation: fadeIn 0.5s;
   background-color: var(--dark-blue);
   position: fixed;
   bottom: 55px;
@@ -318,6 +365,66 @@ export default defineComponent({
   overflow-x: auto;
   opacity: 90%;
   border-radius: 15px 15px 0px 0px;
+}
+.menu-text-sidebar {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  color: white;
+}
+.menu-buttons-sidebar {
+  position: relative;
+  top: 15%;
+  width: 100%;
+  height: 10%;
+  display: inline-block;
+  outline: none;
+  z-index: 1;
+  /* text-align: center;
+    position: relative;
+    top: 10%;
+    display: inline-block;
+    width: 100%;
+    outline: none;
+    background-color: transparent;
+    border: 2px solid var(--dark-blue);
+    height: 15%;
+    z-index: -1;*/
+}
+
+
+.exitButton-sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  font-size: 50px !important;
+  color: white;
+} 
+
+
+.SideBar{
+  animation: fadeIn 1s;
+  -webkit-animation: fadeIn 1s;
+  -moz-animation: fadeIn 1s;
+  -o-animation: fadeIn 1s;
+  -ms-animation: fadeIn 1s;
+  background-color: var(--dark-blue);
+  position: fixed;
+  bottom: 55px;
+  width: 60%;
+  right: 0;
+  height: 100%;
+  z-index: 3;
+  overflow-x: auto;
+  opacity: 90%;
+  border-radius: 15px 15px 0px 0px;
+}
+.icon{
+  position: relative;
+  left: 40%;
+  height: 50px;
+  width: 50px;
+  color: white;
 }
 
 @keyframes fadeIn {
@@ -409,5 +516,8 @@ export default defineComponent({
     opacity: 0.9;
   }
 }
+
+
+
 </style>
 

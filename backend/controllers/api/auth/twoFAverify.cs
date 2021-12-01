@@ -27,11 +27,12 @@ namespace Project_C_Website.controllers
 
 			string secret = "";
 			string token = HttpContext.Request.Form["token_input"];
-			string id = (HttpContext.Request.Form["id"]);
+			string id = (HttpContext.Request.Form["id"].ToString());
+			string superuser = HttpContext.Request.Form["superuser"].ToString();
 			string oauth_token = "";
 
 			Database database = new Database();
-			DataTable data = database.BuildQuery("select secret_key from td_user WHERE id = @id")
+			DataTable data = database.BuildQuery("select secret_key from admins WHERE id = @id")
 				.AddParameter("id", Int32.Parse(id)).Select();
 			foreach (DataRow row in data.Rows)
 			{
@@ -48,7 +49,7 @@ namespace Project_C_Website.controllers
 				oauth_token = Convert.ToBase64String(tokenData);
 			}
 			//Update the oauth_token in the database.
-			database.BuildQuery($"UPDATE td_user SET oauth_token = @oauth_token WHERE id = @id")
+			database.BuildQuery($"UPDATE admins SET oauth_token = @oauth_token WHERE id = @id")
 				.AddParameter("oauth_token", oauth_token)
 				.AddParameter("id", Int32.Parse(id))
 				.Query();
@@ -58,7 +59,8 @@ namespace Project_C_Website.controllers
 				{
 					isCorrectPIN,
 					token = oauth_token,
-					error = ""
+					error = "",
+					superUser = superuser
 				});
 			}
 			else{

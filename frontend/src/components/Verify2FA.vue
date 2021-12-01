@@ -23,21 +23,22 @@ const verify_Token = ref('');
 let verified = ref(false)
 let token = ref('');
 const errormessage = ref('');
-
+const isSuperUser = ref('')
 
 async function Verify(){
     var bodyFormData = new FormData();
     bodyFormData.append("id", props.id);
     bodyFormData.append("token_input", verify_Token.value)
-    await axios.post("/api/auth/2FAverify", bodyFormData).then((Response: any) => {verified.value = Response.data.isCorrectPIN, token.value = Response.data.token,errormessage.value = Response.data.error})
+    await axios.post("/api/auth/2FAverify", bodyFormData).then((Response: any) => {verified.value = Response.data.isCorrectPIN, token.value = Response.data.token,errormessage.value = Response.data.error, isSuperUser.value = Response.data.superUser})
 
     if(verified.value){
       VueCookieNext.setCookie("token", decodeURI(token.value), {expire :"2h"});
-      
+      VueCookieNext.setCookie("superUser", isSuperUser.value, {expire: "2h"});
       router.push({
         name: "Home"
       })
     }
+    
 }
 
 

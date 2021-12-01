@@ -8,7 +8,8 @@ import createNewUser from '../components/CreateAccount.vue'
 import logout from '../components/logout.vue'
 import Page from '../components/Page.vue'
 import Location from '../components/Location.vue'
-
+import Contact from '../components/Contact.vue'
+import Veelgesteldevragen from '../components/FAQ.vue'
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/', redirect : '/Home'
@@ -24,6 +25,18 @@ const routes: Array<RouteRecordRaw> = [
         name: 'Bloedprikken',
         props: true,
         component: Bloedprikken
+    },
+    {
+        path: '/Veelgesteldevragen',
+        name: 'Veelgesteldevragen',
+        props: true,
+        component: Veelgesteldevragen
+    },
+    {
+        path: '/Contact',
+        name: 'Contact',
+        props: true,
+        component: Contact
     },
     {
         path: '/login',
@@ -62,6 +75,7 @@ const routes: Array<RouteRecordRaw> = [
         props: true,
         component: Location
     }
+
 
 ]
 

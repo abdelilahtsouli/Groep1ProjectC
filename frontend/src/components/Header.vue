@@ -2,11 +2,13 @@
 <template>
   <div>
     <nav class="header">
+      <router-link to="/#/Home">
       <!-- <img class="img" src="../assets/images/star-shl-logo-kleur.png" /> -->
       <img
         class="img"
         src="../assets/images/star-shl-logo-kleur-diapositief.png"
       />
+      </router-link>
     </nav>
   </div>
 </template>
@@ -67,6 +69,7 @@ export default {
   border-bottom-left-radius: 8px;
   /* box-shadow: 0 6px 6px -2px rgba(0, 0, 0, 0.5); */
   box-shadow: 0 6px 15px -2px rgba(112, 128, 144, 0.5);
+  z-index: 1;
   /* background-color: var(--white); */
 }
 

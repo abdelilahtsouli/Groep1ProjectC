@@ -53,7 +53,6 @@ function userLogin() {
   bodyFormData.append("password", message_password.value);
   axios.post(URL_base, bodyFormData).then((Response: any) => {
     errormessage.value = Response.data.message;
-    console.log(Response.data);
     if (Response.data.twoFAenabled == false) {
       router.push({
         name: "twoFA",
@@ -94,6 +93,7 @@ function validateEmail() {
   border-radius: 5px;
 }
 .Log-in {
+
   width: 50%;
   margin: 0 auto;
   margin-top: 50%;

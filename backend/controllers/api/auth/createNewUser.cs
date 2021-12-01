@@ -26,10 +26,7 @@ namespace Project_C_Website.controllers {
 			string Name = HttpContext.Request.Form["Name"];
 			string Email = HttpContext.Request.Form["Email"];
             string Password = HttpContext.Request.Form["Password"];
-			bool superUser = bool.Parse(HttpContext.Request.Form["Superuser"]);
-
-	
-
+			bool superUser = bool.Parse(HttpContext.Request.Form["Superuser"].ToString());
 			// generate a 128-bit salt using a cryptographically strong random sequence of nonzero values
 			byte[] salt = new byte[128 / 8];
 			using (var rngCsp = new RNGCryptoServiceProvider())
@@ -49,8 +46,8 @@ namespace Project_C_Website.controllers {
 
             //Query to insert the new users information into the database
             Database database = new Database();
-			DataTable data = database.BuildQuery($"SELECT (id) FROM td_user").Select();
-			database.BuildQuery($"INSERT INTO td_user (id, name, email, password, twofa, salt, superuser) VALUES (@id, @name, @email, @password, @twofa, @salt, @superuser)")
+			DataTable data = database.BuildQuery($"SELECT (id) FROM admins").Select();
+			database.BuildQuery($"INSERT INTO admins (id, name, email, password, twofa, salt, superuser) VALUES (@id, @name, @email, @password, @twofa, @salt, @superuser)")
 				.AddParameter("id", (data.Rows.Count + 1))
 				.AddParameter("name", Name)
 				.AddParameter("email", Email)
@@ -63,7 +60,8 @@ namespace Project_C_Website.controllers {
 
 			database.Close();
             return JsonSerializer.Serialize(new{
-				userCreated = true
+				userCreated = true,
+				id = data.Rows.Count + 1
 			});
 		}
 		static string BytesToString(byte[] bytes)
