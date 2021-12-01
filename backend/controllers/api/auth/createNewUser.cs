@@ -46,8 +46,8 @@ namespace Project_C_Website.controllers {
 
             //Query to insert the new users information into the database
             Database database = new Database();
-			DataTable data = database.BuildQuery($"SELECT (id) FROM td_user").Select();
-			database.BuildQuery($"INSERT INTO td_user (id, name, email, password, twofa, salt, superuser) VALUES (@id, @name, @email, @password, @twofa, @salt, @superuser)")
+			DataTable data = database.BuildQuery($"SELECT (id) FROM admins").Select();
+			database.BuildQuery($"INSERT INTO admins (id, name, email, password, twofa, salt, superuser) VALUES (@id, @name, @email, @password, @twofa, @salt, @superuser)")
 				.AddParameter("id", (data.Rows.Count + 1))
 				.AddParameter("name", Name)
 				.AddParameter("email", Email)

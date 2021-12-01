@@ -43,7 +43,7 @@ namespace Project_C_Website.controllers {
 
 
 			Database database = new Database();
-			database.BuildQuery($"UPDATE td_user SET secret_key = @secret, twofa = @twofa WHERE id = @id")
+			database.BuildQuery($"UPDATE admins SET secret_key = @secret, twofa = @twofa WHERE id = @id")
 				.AddParameter("twofa", true)
 				.AddParameter("secret", rString)
 				.AddParameter("id", Int32.Parse(id))

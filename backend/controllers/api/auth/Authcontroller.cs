@@ -30,7 +30,7 @@ namespace Project_C_Website.controllers {
 
 			// Execute the query on the database.
 			Database database = new Database();
-			DataTable data = database.BuildQuery("select * from td_user").Select();
+			DataTable data = database.BuildQuery("select * from admins").Select();
 	
 			// Loop through each row in the query and check if the details are correct.
 			foreach (DataRow row in data.Rows) {
