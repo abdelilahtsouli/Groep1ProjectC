@@ -32,11 +32,6 @@ export default defineComponent({
 </script>
 
 <style>
-/* :root {
-  --text-color: var(--dark-blue);
-  --background-mask: var(--light-grey);
-} */
-
 .tab input {
   position: absolute;
   opacity: 0;
