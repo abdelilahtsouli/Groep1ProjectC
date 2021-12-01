@@ -32,12 +32,22 @@
         </div>
       </div>
       <router-link
+        v-if="!loggedIn"
         to="/login"
         class="nav__link"
         :class="{ 'active-item': activePage === 'admin' }"
       >
         <i class="material-icons nav__icon">lock</i>
-        <a @click="w3_close(); sidebar_close()" class="nav__text">Admin</a>
+        <a  @click="w3_close(); sidebar_close()" class="nav__text">Admin</a>
+      </router-link>
+      <router-link
+        v-if="loggedIn"
+        to="/"
+        class="nav__link"
+        :class="{ 'active-item': activePage === 'admin' }"
+      >
+        <i class="material-icons nav__icon">lock</i>
+        <a  @click="w3_close(); sidebar_close()" class="nav__text">Admin</a>
       </router-link>
       <div
         class="nav__link"

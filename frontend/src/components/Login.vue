@@ -27,11 +27,11 @@ import { ref } from "vue";
 import axios from "axios";
 import router from "../router";
 
-// Jamey
+
 import {defineEmits, onMounted} from "vue";
 const emit = defineEmits(["switchPage"]);
 onMounted(() => emit("switchPage", "admin"))
-//
+
 
 const URL_base = "/api/auth/login";
 const message_email = ref("");

@@ -60,12 +60,6 @@ import { defineEmits, onMounted, defineProps } from "vue";
 import { VueCookieNext } from "vue-cookie-next";
 import PageContent from "./PageContent.vue";
 
-
-function cookieTest() {
-  return document.cookie != "";
-}
-
-
 const emit = defineEmits(["switchPage", "userLoggedIn", "isSuperUser"]);
 
 onMounted(function () {
