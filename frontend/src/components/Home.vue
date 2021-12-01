@@ -34,7 +34,7 @@
             >
           </button>
           <button class="block">
-            <router-link to="#"
+            <router-link to="/location"
               ><div v-html="locationArrowSvg"></div>
               <a>Routeplanner</a></router-link
             >
