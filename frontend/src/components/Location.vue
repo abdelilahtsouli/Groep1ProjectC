@@ -1,5 +1,5 @@
 <template>
-  <div class="text">
+  <div class="content-location">
     <h1>Locaties bloedafname</h1>
     <h4>Coronamaatregelen op onze locaties</h4>
     <p>Star-shl blijft de anderhalve meter afstand handhaven. Op onze locaties komen mensen met een kwetsbare gezondheid. Het afstand houden beschermt deze patiënten tegen risico op overdracht van Covid-19. Daarnaast willen we voorkomen dat medewerkers besmet raken en niet kunnen werken.</p>
@@ -16,8 +16,16 @@
 
 <style>
 
+.content-location{
+  margin: 0;
+  margin-top: 100px;
+
+
+  text-align: center;
+  width: 100%;
+}
 .map-responsive{
-  margin: 50px 50px 50px 50px;
+  margin: 15px 15px 80px 15px;
     overflow:hidden;
     padding-bottom:56.25%;
     position:relative;
