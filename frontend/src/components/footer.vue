@@ -149,6 +149,7 @@ export default defineComponent({
     const menuOpen = ref(false);
     const sidebarOpen = ref(false);
 
+
     function w3_toggle() {
       if (menuOpen.value) w3_close();
       else w3_open(); sidebar_close();

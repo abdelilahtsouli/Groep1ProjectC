@@ -64,12 +64,6 @@ const routes: Array<RouteRecordRaw> = [
         component: createNewUser
     },
     {
-        path: '/logout/:page',
-        name: 'logout',
-        props: true,
-        component: logout
-    },
-    {
         path: '/location',
         name: 'location',
         props: true,

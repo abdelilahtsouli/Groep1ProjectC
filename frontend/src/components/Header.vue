@@ -13,45 +13,7 @@
   </div>
 </template>
 
-<script lang = "ts">
-import axios from 'axios'
-import HeaderDropdown from './HeaderDropdown.vue'
-import { ref } from 'vue'
-export default {
-    components: {  },
-    name: 'Header',
-    data () {
-        return {
-            services: [
-                {
-                    title: 'Log in als Administrator',
-                    link: 'login'
-                },
-                {
-                    title: 'Info',
-                    link: '#'
-                },
-                {
-                    title: 'Locaties',
-                    link: 'location'
-                }
-            ]
-        }
-    },
-    setup() {
-        const pages = ref([]);
 
-        axios.get("./api/pages")
-        .then((response: any) => {
-            pages.value = response.data;
-        });
-
-        return {
-            pages
-        };
-    }
-}
-</script>
 
 <style scoped>
 
