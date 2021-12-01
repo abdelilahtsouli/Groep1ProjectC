@@ -19,29 +19,22 @@
 .content-location{
   margin: 0;
   margin-top: 100px;
-
-
   text-align: center;
   width: 100%;
 }
 .map-responsive{
   margin: 15px 15px 80px 15px;
-    overflow:hidden;
-    padding-bottom:56.25%;
-    position:relative;
-    height:400px;
+  overflow:hidden;
+  padding-bottom:56.25%;
+  position:relative;
+  height:400px;
 }
 .map-responsive iframe{
-    left:0;
-    top:0;
-    height:100%;
-    width:100%;
-    position:absolute;
-}
-
-.text {
-  width: 50%;
-  margin: 0 auto;
+  left:0;
+  top:0;
+  height:100%;
+  width:100%;
+  position:absolute;
 }
 
 </style>

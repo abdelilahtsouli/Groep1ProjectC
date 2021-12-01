@@ -40,7 +40,7 @@
         <a @click="w3_close(); sidebar_close()" class="nav__text">Admin</a>
       </router-link>
       <router-link
-        to="/"
+        :to="`/${activePage}`"
         class="nav__link"
         :class="{ 'active-item': activePage === 'settings' }"
       >
