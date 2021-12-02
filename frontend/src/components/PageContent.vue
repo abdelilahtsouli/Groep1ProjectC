@@ -106,7 +106,7 @@ export default defineComponent({
           // TODO: Show that the request is successfull.
         });
 
-      content.value = newContent;
+      content.value = newContent as string;
       changesMade.value = false;
     }
 

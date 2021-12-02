@@ -171,12 +171,12 @@ export default defineComponent({
 
     function w3_open() {
       menuOpen.value = true;
-      document.getElementById("myUnderbar").style.display = "block";
+      document.getElementById("myUnderbar")!.style.display = "block";
     }
 
     function w3_close() {
       menuOpen.value = false;
-      document.getElementById("myUnderbar").style.display = "none";
+      document.getElementById("myUnderbar")!.style.display = "none";
     }
     function logOut() {
       VueCookieNext.removeCookie("token");
@@ -185,11 +185,11 @@ export default defineComponent({
     }
     function sidebar_open() {
       sidebarOpen.value = true;
-      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("mySidebar")!.style.display = "block";
     }
     function sidebar_close() {
       sidebarOpen.value = false;
-      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("mySidebar")!.style.display = "none";
     }
 
     function emitActivePage(pageName: string): void {
