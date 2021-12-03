@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, ref } from "vue";
-import PageContent from "./PageContent.vue";
+import PageContent from "../components/PageContent.vue";
 
 export default defineComponent({
   components: {

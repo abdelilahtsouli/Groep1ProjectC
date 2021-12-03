@@ -58,7 +58,7 @@
 <script lang="ts" setup>
 import { defineEmits, onMounted, defineProps } from "vue";
 import { VueCookieNext } from "vue-cookie-next";
-import PageContent from "./PageContent.vue";
+import PageContent from "../components/PageContent.vue";
 
 const emit = defineEmits(["switchPage", "userLoggedIn", "isSuperUser"]);
 
