@@ -3,11 +3,11 @@
   <div class="twoFA">
     <div class="twoFA-QR">
       <h5>Scan de onderstaande code met de google Authenticator</h5><br>
-      <img class="qr-img" :src="QR_Code" />
+      <img class="qr-img" :src="qrcode" />
       <div>
         <br><br>
         <h5>Wanneer u de QR code heeft gescanned met de Google Authenticator app voer de 6 cijferige code hieronder in</h5>
-        <input class="qr-input" v-model="verify_Token" placeholder="6-cijferige code uit de authenticator app">
+        <input class="qr-input" v-model="verifyCode" placeholder="6-cijferige code uit de authenticator app">
         <button type="submit" @click="Verify()">Verify</button>
       </div>
     </div>
@@ -17,27 +17,28 @@
 
 
 <script lang="ts" setup>
-import { onMounted, ref } from "vue";
+import { onMounted, ref, defineProps } from "vue";
 import axios from "axios";
-import { defineProps } from "vue";
 import router from '../router'
 import { VueCookieNext } from 'vue-cookie-next'
 
-let QR_Code = ref("");
 const props = defineProps<{ id: string, email: string}>();
-const verify_Token = ref('');
-let verified = ref(false)
-let token = ref('');
-const errormessage = ref('');
+
+const qrcode = ref("");
+const verifyCode = ref('');
+const isVerified = ref(false);
+const errorMessage = ref(''); // Note: This error message never gets used inside of the html.
 
 async function Verify(){
+  let token = "";
+
   var bodyFormData = new FormData();
   bodyFormData.append("id", props.id);
-  bodyFormData.append("token_input", verify_Token.value)
-  await axios.post("/api/auth/2FAverify", bodyFormData).then((Response: any) => {verified.value = Response.data.isCorrectPIN, token.value = Response.data.token,errormessage.value = Response.data.error})
+  bodyFormData.append("token_input", verifyCode.value)
+  await axios.post("/api/auth/2FAverify", bodyFormData).then((Response: any) => {isVerified.value = Response.data.isCorrectPIN, token = Response.data.token,errorMessage.value = Response.data.error})
 
-  if(verified.value){
-    VueCookieNext.setCookie("token", decodeURI(token.value), {expire :"2h"});
+  if(isVerified.value){
+    VueCookieNext.setCookie("token", decodeURI(token), {expire :"2h"});
     router.push({
       name: "Home"
     })
@@ -51,7 +52,7 @@ async function twoFactorAuthentication() {
   bodyFormData.append("id", props.id);
   await axios
     .post("/api/auth/2FA", bodyFormData)
-    .then((Response: any) => QR_Code.value = (Response.data.qrCodeImageUrl))
+    .then((Response: any) => qrcode.value = (Response.data.qrCodeImageUrl))
 }
 
 onMounted(async function () {

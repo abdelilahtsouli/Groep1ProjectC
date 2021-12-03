@@ -3,38 +3,39 @@
     <Header />
   </header>
   <footer>
-    <Footer :activePage="activePage" @switchPage="setNewPage" :loggedIn="userIsLoggedIn" @logOut="logOut" :isSuperUser="superUser"/>
+    <Footer :activePage="activePage" @switchPage="setNewPage" :loggedIn="isUserLoggedIn" @logout="logout" :isSuperUser="isSuperUser"/>
   </footer>
-  <router-view @switchPage="setNewPage" @userLoggedIn="isLoggedIn" :isLoggedIn="userIsLoggedIn" @isSuperUser="isaSuperUser"/>
+  <router-view @switchPage="setNewPage" @userLoggedIn="setIsLoggedIn" :isLoggedIn="isUserLoggedIn" @isSuperUser="setIsSuperUser"/>
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref, watch, watchEffect } from "vue";
+import { ref } from "vue";
 import Header from "./components/Header.vue";
 import Footer from "./components/footer.vue";
 import { VueCookieNext } from "vue-cookie-next";
 
 const activePage = ref("");
-
-
+const isUserLoggedIn = ref(false);
+const isSuperUser = ref(false);
 
 function setNewPage(pageName: string): void {
   activePage.value = pageName;
 }
 
-const userIsLoggedIn = ref(false);
-function isLoggedIn(loggedIn: boolean) {
-  userIsLoggedIn.value = loggedIn;
-}
-function logOut() {
-  userIsLoggedIn.value = false;
-  console.log(userIsLoggedIn.value)
-}
-const superUser = ref(false);
-function isaSuperUser(su: boolean) {
-  superUser.value = su;
+function setIsLoggedIn(loggedIn: boolean) {
+  isUserLoggedIn.value = loggedIn;
 }
 
+function setIsSuperUser(su: boolean) {
+  isSuperUser.value = su;
+}
+
+function logout() {
+  isUserLoggedIn.value = false;
+
+  VueCookieNext.removeCookie("token");
+  VueCookieNext.removeCookie("superUser");
+}
 
 </script>
 <style>

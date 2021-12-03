@@ -11,7 +11,7 @@
         :class="{ 'active-item': activePage === 'home' }"
       >
         <i class="material-icons nav__icon">home</i>
-        <a @click="w3_close(); sidebar_close()" class="nav__text">Home</a>
+        <a @click="close_menu(); close_sidebar()" class="nav__text">Home</a>
       </router-link>
       <router-link
         to="/Bloedprikken"
@@ -19,11 +19,11 @@
         :class="{ 'active-item': activePage === 'bloedprikken' }"
       >
         <i class="material-icons nav__icon">vaccines</i>
-        <a @click="w3_close(); sidebar_close()" class="nav__text">Info</a>
+        <a @click="close_menu(); close_sidebar()" class="nav__text">Info</a>
       </router-link>
       <div
         class="w3-button w3-teal w3-xlarge"
-        @click="w3_toggle()"
+        @click="toggle_menu()"
         :class="{ 'active-item': menuOpen }"
       >
         <div class="MenuButton">
@@ -38,7 +38,7 @@
         :class="{ 'active-item': activePage === 'admin' }"
       >
         <i class="material-icons nav__icon">lock</i>
-        <a  @click="w3_close(); sidebar_close()" class="nav__text">Admin</a>
+        <a  @click="close_menu(); close_sidebar()" class="nav__text">Admin</a>
       </router-link>
       <router-link
         v-if="loggedIn"
@@ -47,11 +47,11 @@
         :class="{ 'active-item': activePage === 'admin' }"
       >
         <i class="material-icons nav__icon">lock</i>
-        <a  @click="w3_close(); sidebar_close()" class="nav__text">Admin</a>
+        <a  @click="close_menu(); close_sidebar()" class="nav__text">Admin</a>
       </router-link>
       <div
         class="nav__link"
-        @click="sidebar_toggle()"
+        @click="toggle_sidebar()"
         :class="{ 'active-item': activePage === 'settings' }"
       >
         <i class="material-icons nav__icon">settings</i>
@@ -60,39 +60,39 @@
     
     </nav>
     <transition name="fade">
-      <div class="UnderBar" style="display: none" id="myUnderbar">
+      <div class="UnderBar" style="display: none" id="underbar">
         <i
-          @click="w3_close()"
+          @click="close_menu()"
           class="material-icons nav__icon w3-bar-item w3-large exitButton"
           >close</i
         >
-        <router-link class="menu-buttons" @click="w3_close()" to="/Bloedprikken"
+        <router-link class="menu-buttons" @click="close_menu()" to="/Bloedprikken"
           ><a><h4 class="menu-text">Bloedprikken</h4></a></router-link
         >
         <router-link
           class="menu-buttons"
-          @click="w3_close()"
+          @click="close_menu()"
           to="/Urineonderzoek"
           ><a><h4 class="menu-text">Urine onderzoek</h4></a></router-link
         >
-        <router-link class="menu-buttons" @click="w3_close()" to="/location"
+        <router-link class="menu-buttons" @click="close_menu()" to="/location"
           ><a><h4 class="menu-text">Locaties</h4></a></router-link
         >
         <router-link
           class="menu-buttons"
-          @click="w3_close()"
+          @click="close_menu()"
           to="/Openingstijden"
           ><a><h4 class="menu-text">Openingstijden</h4></a></router-link
         >
-        <router-link class="menu-buttons" @click="w3_close()" to="/Veelgesteldevragen"
+        <router-link class="menu-buttons" @click="close_menu()" to="/Veelgesteldevragen"
           ><a><h4 class="menu-text">Veelgestelde vragen</h4></a></router-link
         >
-        <router-link class="menu-buttons" @click="w3_close()" to="/Contact"
+        <router-link class="menu-buttons" @click="close_menu()" to="/Contact"
           ><a><h4 class="menu-text">Contact</h4></a></router-link
         >
         <router-link
           v-if="loggedIn && isSuperUser"
-          @click="w3_close()"
+          @click="close_menu()"
           class="menu-buttons"
           to="/createNewUser"
           ><a><h4 class="menu-text">Nieuw account aanmaken</h4></a></router-link
@@ -100,8 +100,8 @@
         <router-link
           v-if="loggedIn"
           @click="
-            w3_close();
-            logOut();
+            close_menu();
+            logout();
           "
           class="menu-buttons"
           :to="`/${activePage}`"
@@ -111,30 +111,30 @@
       </div>
     </transition>
     <transition name="fade-sidebar">
-      <div class="SideBar" style="display: none" id="mySidebar">
+      <div class="SideBar" style="display: none" id="sidebar">
         <i
-          @click="sidebar_close()"
+          @click="close_sidebar()"
           class="material-icons nav__icon w3-bar-item w3-large exitButton-sidebar"
           >close</i
         >
         <div class="menu-buttons-sidebar icon" v-if="loggedIn" v-html="profileSVG"></div>
         <div class="menu-buttons-sidebar" v-if="loggedIn"><a><h6 class="menu-text-sidebar">Welkom user</h6></a></div>
-        <router-link class="menu-buttons-sidebar" @click="sidebar_close()" to="/Bloedprikken"
+        <router-link class="menu-buttons-sidebar" @click="close_sidebar()" to="/Bloedprikken"
           ><a><h4 class="menu-text-sidebar">Bloedprikken</h4></a></router-link
         >
-        <router-link class="menu-buttons-sidebar" @click="sidebar_close()" to="/Urineonderzoek"
+        <router-link class="menu-buttons-sidebar" @click="close_sidebar()" to="/Urineonderzoek"
           ><a><h4 class="menu-text-sidebar">Urine onderzoek</h4></a></router-link
         >
-        <router-link class="menu-buttons-sidebar" @click="sidebar_close()" to="/Locaties"
+        <router-link class="menu-buttons-sidebar" @click="close_sidebar()" to="/Locaties"
           ><a><h4 class="menu-text-sidebar">Locaties</h4></a></router-link
         >
-        <router-link class="menu-buttons-sidebar" @click="sidebar_close()" to="/Openingstijden"
+        <router-link class="menu-buttons-sidebar" @click="close_sidebar()" to="/Openingstijden"
           ><a><h4 class="menu-text-sidebar">Openingstijden</h4></a></router-link
         >
-        <router-link class="menu-buttons-sidebar" @click="sidebar_close()" to="/Routeplanner"
+        <router-link class="menu-buttons-sidebar" @click="close_sidebar()" to="/Routeplanner"
           ><a><h4 class="menu-text-sidebar">Routeplanner</h4></a></router-link
         >
-        <router-link class="menu-buttons-sidebar" @click="sidebar_close()" to="/Contact"
+        <router-link class="menu-buttons-sidebar" @click="close_sidebar()" to="/Contact"
           ><a><h4 class="menu-text-sidebar">Contact</h4></a></router-link
         >
       </div>
@@ -143,10 +143,9 @@
 </template>
 
 <script lang="ts">
-import { isNodeEmpty } from "@tiptap/core";
 import { VueCookieNext } from "vue-cookie-next";
-import { defineComponent, ref, defineProps } from "vue";
-import router from "../router";
+import { defineComponent, ref } from "vue";
+
 export default defineComponent({
   name: "Footer",
   props: {
@@ -159,52 +158,56 @@ export default defineComponent({
     const menuOpen = ref(false);
     const sidebarOpen = ref(false);
 
-
-    function w3_toggle() {
-      if (menuOpen.value) w3_close();
-      else w3_open(); sidebar_close();
-    }
-    function sidebar_toggle(){
-      if (sidebarOpen.value) sidebar_close();
-      else sidebar_open(); w3_close();
+    // Toggle, open or close the menu.
+    function toggle_menu() {
+      if (menuOpen.value) close_menu();
+      else open_menu(); close_sidebar();
     }
 
-    function w3_open() {
+    function open_menu() {
       menuOpen.value = true;
-      document.getElementById("myUnderbar")!.style.display = "block";
+      document.getElementById("underbar")!.style.display = "block";
     }
 
-    function w3_close() {
+    function close_menu() {
       menuOpen.value = false;
-      document.getElementById("myUnderbar")!.style.display = "none";
+      document.getElementById("underbar")!.style.display = "none";
     }
-    function logOut() {
-      VueCookieNext.removeCookie("token");
-      VueCookieNext.removeCookie("superUser");
-      emit("logOut");
+
+    // Toggle, open or close the sidebar.
+    function toggle_sidebar(){
+      if (sidebarOpen.value) close_sidebar();
+      else open_sidebar(); close_menu();
     }
-    function sidebar_open() {
+    
+    function open_sidebar() {
       sidebarOpen.value = true;
-      document.getElementById("mySidebar")!.style.display = "block";
+      document.getElementById("sidebar")!.style.display = "block";
     }
-    function sidebar_close() {
+
+    function close_sidebar() {
       sidebarOpen.value = false;
-      document.getElementById("mySidebar")!.style.display = "none";
+      document.getElementById("sidebar")!.style.display = "none";
     }
 
     function emitActivePage(pageName: string): void {
       emit("switchPage", pageName);
     }
+
+    function logout() {
+      emit("logout");
+    }
+
     return {
       menuOpen,
-      w3_open,
-      w3_close,
-      w3_toggle,
+      open_menu,
+      close_menu,
+      toggle_menu,
       emitActivePage,
-      logOut,
-      sidebar_open,
-      sidebar_close,
-      sidebar_toggle
+      logout,
+      open_sidebar,
+      close_sidebar,
+      toggle_sidebar
     };
   },
 });

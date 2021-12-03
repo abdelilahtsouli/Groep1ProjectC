@@ -79,11 +79,14 @@ export default defineComponent({
     const editing = ref(false);
     const changesMade = ref(false);
 
-    // ....
-    function submit(): void {
-      // Send the new content of the editor to the backend.
-      // Note: POST creates a new page while PUT modifies a page.
+    function isLoggedIn() {
+      return VueCookieNext.getCookie("token") != null;
+    }
 
+    console.log(isLoggedIn());
+
+    // Send the content to the backend.
+    function submit(): void {
       const newContent =
         document.getElementById("content")?.outerHTML !== undefined
           ? document.getElementById("content")?.outerHTML
@@ -110,7 +113,7 @@ export default defineComponent({
       changesMade.value = false;
     }
 
-    // ....
+    // Get the content of a page with id and load it onto the page.
     function updatePage(id: string): void {
       axios
         .get("./api/pages/" + id)
