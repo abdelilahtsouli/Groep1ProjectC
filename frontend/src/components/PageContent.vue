@@ -9,16 +9,15 @@
         <div v-html="paragraphSVG"></div>
       </button>
       <div class="divider"></div>
-      <button @click="formatDoc('insertHTML', createAccordionElement()); toggleContenteditableAttr()">
+      <button
+        @click="
+          formatDoc('insertHTML', createAccordionElement());
+          createChildElements('newAccordion');
+          toggleContenteditableAttr();
+        "
+      >
         Insert Accordion
       </button>
-
-      <!-- <button @click="formatDoc('insertorderedlist')" class="editor-button">
-        <div v-html="orderedListSVG"></div>
-      </button>
-      <button @click="formatDoc('insertunorderedlist')" class="editor-button">
-        <div v-html="unorderedListSVG"></div>
-      </button> -->
     </div>
 
     <!-- Edit Button -->
@@ -35,6 +34,7 @@
 
     <!-- Page content loaded from database -->
     <div
+      id="content"
       v-html="content"
       class="uneditableContent"
       :contenteditable="editing"
@@ -87,15 +87,23 @@ export default defineComponent({
     const editing = ref(false);
     const changesMade = ref(false);
 
-    const closeOpenAttr = () =>
-      document
-        .querySelectorAll("details")
-        .forEach((node) => (node.open = false));
+    // Closes details tag and hides the remove button, before sending the content the database.
+    const SetDefaultAccordion = () => {
+      const nodeList = document.querySelectorAll("details");
+      nodeList.forEach((node) => (node.open = false));
+      nodeList.forEach(
+        (node) =>
+          (node
+            .getElementsByTagName("summary")[0]
+            .getElementsByTagName("button")[0].style.display = "none")
+      );
+    };
 
+    // Toggles many fields to make the accordions editable
     const toggleContenteditableAttr = (editable: boolean = editing.value) => {
       const nodeList = document.querySelectorAll("details");
-      console.log(nodeList);
 
+      // Makes h3 tags editable
       nodeList.forEach(
         (node) =>
           (node
@@ -104,6 +112,17 @@ export default defineComponent({
             editable.toString())
       );
 
+      // Makes the removal buttons visible while editing
+      nodeList.forEach(
+        (node) =>
+          (node
+            .getElementsByTagName("summary")[0]
+            .getElementsByTagName("button")[0].style.display = editable
+            ? "initial"
+            : "none")
+      );
+
+      // Makes the content of the accordion editable
       nodeList.forEach((node) =>
         ["div", "h3", "p"].forEach((tag) =>
           Array.from(
@@ -117,24 +136,48 @@ export default defineComponent({
         )
       );
 
+      // Makes the content of the accordion editable
       nodeList.forEach(
         (node) =>
           (node.getElementsByTagName("div")[0].contentEditable =
             editable.toString())
       );
 
-      // nodeList.forEach((node) =>
-      //   Array.from(
-      //     node
-      //       .getElementsByTagName("summary")[0]
-      //       .getElementsByTagName("h3")[0]
-      //       .getElementsByTagName("div")
-      //   ).forEach((el) => (el.contentEditable = editable.toString()))
-      // );
+      // Prevents pressing space-bar from opening accodrions while edditing the summary tag
+      nodeList.forEach(
+        (node) =>
+          (node.onkeyup = (event) => {
+            if (event.keyCode == 32) {
+              event.preventDefault();
+            }
+          })
+      );
+
+      // On button click, removes parent detail tag with all childs.
+      // Adds this functionality to the specific buttons.
+      nodeList.forEach(
+        (node) =>
+          (node
+            .getElementsByTagName("summary")[0]
+            .getElementsByTagName("button")[0].onclick = (event) => {
+            const details = <Node>(
+              (<HTMLElement>event.target).parentNode?.parentNode
+            );
+            details.parentNode?.removeChild(details);
+            checkIfChangesMade();
+          })
+      );
     };
 
+    // Returns an accordion element.
     const createAccordionElement = () => {
       const details = document.createElement("details");
+      details.id = "newAccordion";
+      details.onkeyup = (event) => {
+        if (event.keyCode == 32) {
+          event.preventDefault();
+        }
+      };
 
       const summary = document.createElement("summary");
       const h3 = document.createElement("h3");
@@ -143,11 +186,7 @@ export default defineComponent({
       const div = document.createElement("div");
       div.classList.add("content");
 
-      const p = document.createElement("p");
-      p.innerText = "PLACEHOLDER";
-
       summary.appendChild(h3);
-      div.appendChild(p);
 
       details.appendChild(summary);
       details.appendChild(div);
@@ -156,16 +195,33 @@ export default defineComponent({
       return details.outerHTML;
     };
 
+    // Creates child elements for the new accordion element.
+    const createChildElements = (id: string) => {
+      const newAccordion = document.getElementById(id);
+
+      const p = document.createElement("p");
+      p.innerText = "PLACEHOLDER";
+
+      const button = document.createElement("button");
+      button.innerText = "X";
+      button.style.display = "none";
+      button.classList.add("remove-button");
+
+      newAccordion?.getElementsByTagName("div")[0].appendChild(p);
+      newAccordion?.getElementsByTagName("summary")[0].appendChild(button);
+      newAccordion?.removeAttribute("id");
+      newAccordion?.setAttribute("contenteditable", "false");
+    };
+
     // ....
     function submit(): void {
       // Send the new content of the editor to the backend.
-      // Note: POST creates a new page while PUT modifies a page.
-      toggleContenteditableAttr(false);
-      closeOpenAttr();
+      // Note: POST creates a new page while PUT modifies a page
+      SetDefaultAccordion();
 
       const newContent =
-        document.getElementById("content")?.outerHTML !== undefined
-          ? document.getElementById("content")?.outerHTML
+        document.getElementById("content")?.innerHTML !== undefined
+          ? document.getElementById("content")?.innerHTML
           : "Er was een probleem bij het laden van deze pagina.";
 
       axios
@@ -227,7 +283,7 @@ export default defineComponent({
     // Compares original content with editor content
     const checkIfChangesMade = () => {
       changesMade.value =
-        document.getElementById("content")?.outerHTML !== content.value;
+        document.getElementById("content")?.innerHTML !== content.value;
     };
 
     if (props.id != undefined) updatePage(props.id);
@@ -251,6 +307,7 @@ export default defineComponent({
       formatDoc,
       toggleContenteditableAttr,
       createAccordionElement,
+      createChildElements,
     };
   },
 });

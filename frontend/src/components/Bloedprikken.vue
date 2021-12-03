@@ -33,7 +33,9 @@ export default defineComponent({
 
 <style>
 /* # The Rotating Marker # */
-details summary::-webkit-details-marker { display: none; }
+details summary::-webkit-details-marker {
+  display: none;
+}
 summary::before {
   font-family: "Hiragino Mincho ProN", "Open Sans", sans-serif;
   content: "▶";
@@ -50,7 +52,9 @@ details[open] > summary:before {
 }
 
 /* # The Sliding Summary # */
-details { overflow: hidden; }
+details {
+  overflow: hidden;
+}
 details summary {
   position: relative;
   z-index: 1;
@@ -70,7 +74,9 @@ details > *:not(summary) {
   color: transparent;
   overflow: hidden;
 }
-details[open] > *:not(summary) { color: inherit; }
+details[open] > *:not(summary) {
+  color: inherit;
+}
 
 /* # Just Some Pretty Styles # */
 [contenteditable] {
@@ -79,7 +85,7 @@ details[open] > *:not(summary) { color: inherit; }
 
 details {
   box-sizing: border-box;
-  border-radius: 8px;  
+  border-radius: 8px;
   margin-top: 5px;
   background: white;
   box-shadow: 0 6px 15px -2px rgba(112, 128, 144, 0.5);
@@ -117,4 +123,18 @@ details[open] summary::before {
   border-bottom-left-radius: 8px;
 }
 
+.remove-button {
+  top: 0%;
+  right: 0%;
+  height: 30px;
+  width: 30px;
+  /* fill: var(--dark-blue); */
+  color: var(--light-red);
+  right: 0;
+  z-index: 5;
+  position: absolute;
+  background-color: red;
+  color: white;
+  border-radius: 8px;
+}
 </style>
