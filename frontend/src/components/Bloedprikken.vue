@@ -136,5 +136,6 @@ details[open] summary::before {
   background-color: red;
   color: white;
   border-radius: 8px;
+  border-color: red;
 }
 </style>
