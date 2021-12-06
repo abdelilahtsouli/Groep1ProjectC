@@ -40,8 +40,10 @@ summary::before {
   font-family: "Hiragino Mincho ProN", "Open Sans", sans-serif;
   content: "▶";
   position: absolute;
-  top: 1.75rem;
-  left: 0.8rem;
+  /* top: 1.75rem; */
+  top: 5vw;
+  /* left: 0.8rem; */
+  left: 5vw;
   transform: rotate(0);
   transform-origin: center;
   transition: 0.2s transform ease;
@@ -103,6 +105,11 @@ summary {
   padding-left: 2.2rem;
   position: relative;
   cursor: pointer;
+  height: 5vw;
+}
+summary h3 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 details[open] summary,
 summary:hover {
