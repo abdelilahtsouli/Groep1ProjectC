@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, isVNode, onBeforeUnmount, onMounted } from "vue";
+import { defineComponent, onBeforeUnmount, onMounted } from "vue";
 
 export default defineComponent({
   emits: ["checkForChanges"],
@@ -58,7 +58,6 @@ export default defineComponent({
             ? "initial"
             : "none")
       );
-
       // Makes the content of the accordion editable
       nodeList.forEach((node) =>
         ["div", "h3", "p"].forEach((tag) =>
@@ -140,7 +139,6 @@ export default defineComponent({
       if (TagCompatible()) {
         formatDoc("insertHTML", createAccordionElement());
         createChildElements("newAccordion");
-        //TODO emit
         toggleContenteditableAttr(true);
       }
     };
