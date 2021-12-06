@@ -1,4 +1,7 @@
 <template>
+  <div class="searchbar">
+    <input type="text" v-model="search" placeholder="Zoek locaties">
+  </div>
   <div class="content-location">
     <div class="text-content">
       <h1>Locaties bloedafname</h1>
@@ -15,6 +18,14 @@
     <iframe src="https://www.google.com/maps/d/embed?mid=1b_K2S4IW2EyIJf_2WR1jcqo5THYs8fGe&hl=nl&z=8" width="600" height="400" style="border:0" allowfullscreen></iframe>
   </div>
 </template>
+
+<script lang="ts" setup>
+import { ref } from "@vue/reactivity";
+
+
+const search = ref('')
+console.log(search)
+</script>
 
 <style>
 
@@ -40,6 +51,11 @@
   height:100%;
   width:100%;
   position:absolute;
+}
+.searchbar {
+  margin-top: 100px;
+  text-align: center;
+  width: 100%;
 }
 
 </style>
