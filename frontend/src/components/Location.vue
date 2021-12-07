@@ -1,7 +1,15 @@
 <template>
+<div class="show-locations">
   <div class="searchbar">
     <input type="text" v-model="search" placeholder="Zoek locaties">
+      <div v-for="location in filterLocations" :key="location" class="single-location">
+        <h1>{{ location.locationname }}</h1>
+        <p>{{ location.street }}</p>
+        <p>{{ location.postcode }} {{ location.city }}</p>
+      </div>
   </div>
+</div>
+  
   <div class="content-location">
     <div class="text-content">
       <h1>Locaties bloedafname</h1>
@@ -19,12 +27,50 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import { ref } from "@vue/reactivity";
-
-
-const search = ref('')
-console.log(search)
+<script>
+const locations = [
+  {
+    city: "Giessenburg",
+    locationname: "Gezondheidscentrum Giessenburg",
+    street: "Kastanjeplein 5",
+    postcode: "3381 LT",
+    openinghours: "08.00 - 10.00",
+    particularities: "Vrije inloop: geen afspraak nodig",
+    lat: "51.8536808604307",
+    lon: "4.8878154476493"
+  },
+  {
+    city: "Gorinchem",
+    locationname: "Gezondheidscentrum Zorgpunt West",
+    street: "Mollenburgseweg 15",
+    postcode: "4205 HB",
+    openinghours: "08.00 - 10.00 uur",
+    particularities: "Alleen op afspraak",
+    lat: "51.8415444870278",
+    lon: "4.9647241099002"
+  },
+  {
+    city: "Gorinchem",
+    locationname: "Prikpost Star-SHL",
+    street: "Robberstraat 5",
+    postcode: "4201 AK",
+    openinghours: "08.00 - 11.00 uur",
+    particularities: "Vrije inloop: geen afspraak nodig",
+    lat: "51.8279357787020",
+    lon: "4.9772161084258"
+  },
+];
+export default {
+  data() {
+    return { search: "", locations };
+  },
+  computed: {
+    filterLocations() {
+      const { locations, search } = this;
+      return locations.filter(({ locationname }) => locationname.toLowerCase().includes(search.toLowerCase()) || locationname.toLowerCase().includes(search.toLowerCase()));
+    },
+  },
+};
 </script>
 
 <style>
