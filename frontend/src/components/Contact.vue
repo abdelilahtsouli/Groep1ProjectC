@@ -39,6 +39,7 @@
       </div>
     </div>
   </div>
+  <div class="white-space-bottom"></div>
 </template>
 
 <script setup>
@@ -85,7 +86,7 @@ onMounted(() => {
   z-index: 2;
 }
 .header-contact {
-  margin-bottom: 80px;
+  /* margin-bottom: 80px; */
 }
 .content a {
   color: #e7334c !important;

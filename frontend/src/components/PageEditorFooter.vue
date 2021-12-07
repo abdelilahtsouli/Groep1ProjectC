@@ -24,7 +24,7 @@ export default defineComponent({
     changesMade: {
       type: Boolean,
       required: true,
-    }
+    },
   },
   setup(props, { emit }) {
     // Editor Footer SVG's
@@ -32,11 +32,12 @@ export default defineComponent({
     const checkSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" style="fill: white; background: green; border-radius: 0.4rem" > <path fill="none" d="M0 0h24v24H0z" /> <path d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z" /> </svg>`;
     const arrowRightSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" > <path fill="none" d="M0 0h24v24H0z" /> <path d="M3.741 1.408l18.462 10.154a.5.5 0 0 1 0 .876L3.741 22.592A.5.5 0 0 1 3 22.154V1.846a.5.5 0 0 1 .741-.438zM5 13v6.617L18.85 12 5 4.383V11h5v2H5z" /> </svg>`;
 
-
     const getNewContent = () => {
-      console.log(document.getElementById("content"));
       // Creates a temporary DOM for closing the accordion and hiding the buttons
       const tempDOM = <Document>document.cloneNode(true);
+
+      //-// Resets the accordions //-//
+      
       // Closes details tag and hides the remove button, before sending the content the database.
       const nodeList = tempDOM.querySelectorAll("details");
       nodeList.forEach((node) => (node.open = false));
@@ -46,6 +47,35 @@ export default defineComponent({
             .getElementsByTagName("summary")[0]
             .getElementsByTagName("button")[0].style.display = "none")
       );
+      // Makes h3 tags non-editable
+      nodeList.forEach(
+        (node) =>
+          (node
+            .getElementsByTagName("summary")[0]
+            .getElementsByTagName("h3")[0].contentEditable = "false")
+      );
+
+      // Makes the content of the accordion editable
+      nodeList.forEach((node) =>
+        ["div", "h3", "p"].forEach((tag) =>
+          Array.from(
+            node
+              .getElementsByTagName("summary")[0]
+              .getElementsByTagName("h3")[0]
+              .getElementsByTagName(tag)
+          ).forEach((el) =>
+            el.setAttribute("contentEditable", "false")
+          )
+        )
+      );
+
+      // Makes the content of the accordion editable
+      nodeList.forEach(
+        (node) =>
+          (node.getElementsByTagName("div")[0].contentEditable =
+            "false")
+      );
+      //-// End //-//
       return tempDOM.getElementById("content")?.innerHTML;
     };
 

@@ -31,7 +31,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, watchEffect } from "vue";
 import axios from "axios";
 import PageEditorHeader from "./PageEditorHeader.vue";
 import PageEditorFooter from "./PageEditorFooter.vue";
@@ -88,6 +88,7 @@ export default defineComponent({
     function setNewContent(newContent: string) {
       changesMade.value = false;
       content.value = newContent;
+      // editing.value = false;
     }
 
     // Compares original content with editor content
@@ -116,6 +117,7 @@ export default defineComponent({
 
     if (props.id != undefined) updatePage(props.id);
 
+    watchEffect(() => console.log(document.getElementById("content")));
     return {
       content,
       editing,

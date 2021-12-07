@@ -1,11 +1,24 @@
 <template>
-  <header>
-    <Header />
-  </header>
-  <footer>
-    <Footer :activePage="activePage" @switchPage="setNewPage" :loggedIn="userIsLoggedIn" @logOut="logOut" :isSuperUser="superUser"/>
-  </footer>
-  <router-view @switchPage="setNewPage" @userLoggedIn="isLoggedIn" :isLoggedIn="userIsLoggedIn" @isSuperUser="isaSuperUser"/>
+<div class="app-background">
+    <header>
+      <Header />
+    </header>
+    <footer>
+      <Footer
+        :activePage="activePage"
+        @switchPage="setNewPage"
+        :loggedIn="userIsLoggedIn"
+        @logOut="logOut"
+        :isSuperUser="superUser"
+      />
+    </footer>
+    <router-view
+      @switchPage="setNewPage"
+      @userLoggedIn="isLoggedIn"
+      :isLoggedIn="userIsLoggedIn"
+      @isSuperUser="isaSuperUser"
+    />
+    </div>
 </template>
 
 <script lang="ts" setup>
@@ -15,8 +28,6 @@ import Footer from "./components/footer.vue";
 import { VueCookieNext } from "vue-cookie-next";
 
 const activePage = ref("");
-
-
 
 function setNewPage(pageName: string): void {
   activePage.value = pageName;
@@ -28,14 +39,12 @@ function isLoggedIn(loggedIn: boolean) {
 }
 function logOut() {
   userIsLoggedIn.value = false;
-  console.log(userIsLoggedIn.value)
+  console.log(userIsLoggedIn.value);
 }
 const superUser = ref(false);
 function isaSuperUser(su: boolean) {
   superUser.value = su;
 }
-
-
 </script>
 <style>
 #app {
@@ -45,4 +54,8 @@ function isaSuperUser(su: boolean) {
   color: #2c3e50;
 }
 
+.app-background{
+  height: 100vh;;
+  background-color: var(--page-background-color);
+}
 </style>

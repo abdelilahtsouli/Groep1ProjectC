@@ -92,14 +92,14 @@ const props = defineProps({
 
 <style>
 .white-space-top {
-  background-color: var(--light-grey);
+  background-color: var(--page-background-color);
   width: 100%;
   height: 55px;
   border-radius: 8px 0px;
 }
 
 .white-space-bottom {
-  background-color: var(--light-grey);
+  background-color: var(--page-background-color);
   width: 100%;
   height: 55px;
   border-radius: 0px 8px;
