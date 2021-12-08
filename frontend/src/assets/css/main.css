@@ -10,12 +10,12 @@
 
 @font-face {
     font-family: Regular;
-    src: url("Offside-Regular.ttf");
+    src: url("./fonts/Offside-Regular.ttf");
 }
 
 @font-face {
     font-family: LightAndBold;
-    src: url("OpenSans-Regular.ttf")
+    src: url("./fonts/OpenSans-Regular.ttf")
 }
 
 h1,

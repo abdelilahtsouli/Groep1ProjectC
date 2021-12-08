@@ -42,7 +42,9 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style scoped>
+@import "../assets/css/page-components/main.css";
+
 .content-location {
   /* margin-top: 100px; */
   text-align: center;
