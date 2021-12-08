@@ -34,7 +34,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onBeforeUnmount, onMounted, ref } from "vue";
+import {
+  defineComponent,
+  onBeforeUnmount,
+  onMounted,
+  ref,
+  watchEffect,
+} from "vue";
 
 export default defineComponent({
   emits: ["checkForChanges"],
@@ -48,6 +54,7 @@ export default defineComponent({
     const boldSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M8 11h4.5a2.5 2.5 0 1 0 0-5H8v5zm10 4.5a4.5 4.5 0 0 1-4.5 4.5H6V4h6.5a4.5 4.5 0 0 1 3.256 7.606A4.498 4.498 0 0 1 18 15.5zM8 13v5h5.5a2.5 2.5 0 1 0 0-5H8z"/></svg>`;
     const italicSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M15 20H7v-2h2.927l2.116-12H9V4h8v2h-2.927l-2.116 12H15z"/></svg>`;
     const selectedColor = ref("");
+
     const toggleContenteditableAttr = (editable: boolean) => {
       const nodeList = document.querySelectorAll("details");
 
@@ -127,6 +134,25 @@ export default defineComponent({
             emit("checkForChanges");
           })
       );
+
+      document.body.onpaste = (event: ClipboardEvent) => {
+        // cancel paste
+        event.preventDefault();
+        // get text representation of clipboard
+        var text = event.clipboardData.getData("text/plain");
+        document.execCommand("insertHTML", false, text);
+      };
+
+      (<HTMLElement>document.getElementById("content")).onkeyup = (event) => {
+        if (event.key === "Backspace") {
+          const contentDiv = document.getElementById("content");
+          if (!contentDiv?.hasChildNodes()) {
+            const pTag = document.createElement("p");
+            pTag.innerText = "Plaats hier uw text.";
+            contentDiv?.appendChild(pTag);
+          }
+        }
+      };
     };
 
     onMounted(() => {
@@ -138,15 +164,20 @@ export default defineComponent({
     });
 
     // Formats editable content
-    function formatDoc(sCmd: string, sValue: string): void {
+    function formatDoc(
+      sCmd: string,
+      sValue: string,
+      checkForChanges: boolean = true
+    ): void {
       const oDoc = document.getElementById("content");
       document.execCommand(sCmd, false, sValue);
       if (oDoc) {
         oDoc.focus();
       }
-      console.log(sValue);
       selectedColor.value = "";
-      emit("checkForChanges");
+      if (checkForChanges) {
+        emit("checkForChanges");
+      }
     }
 
     const TagCompatible = () => {
@@ -161,9 +192,10 @@ export default defineComponent({
 
     const createAccordion = () => {
       if (TagCompatible()) {
-        formatDoc("insertHTML", createAccordionElement());
+        formatDoc("insertHTML", createAccordionElement(), false);
         createChildElements("newAccordion");
         toggleContenteditableAttr(true);
+        emit("checkForChanges");
       }
     };
 
@@ -195,7 +227,6 @@ export default defineComponent({
     // Creates child elements for the new accordion element.
     const createChildElements = (id: string) => {
       const newAccordion = document.getElementById(id);
-
       const p = document.createElement("p");
       p.innerText = "PLACEHOLDER";
 

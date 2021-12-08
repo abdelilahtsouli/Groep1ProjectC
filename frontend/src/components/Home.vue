@@ -65,8 +65,8 @@ const emit = defineEmits(["switchPage", "userLoggedIn", "isSuperUser"]);
 onMounted(function () {
   emit("switchPage", "home");
   if (document.cookie != "") {
-    emit("isSuperUser", VueCookieNext.getCookie("superUser") == 'True')
-    emit("userLoggedIn",true)
+    emit("isSuperUser", VueCookieNext.getCookie("superUser") == "True");
+    emit("userLoggedIn", true);
   }
 });
 
@@ -86,8 +86,6 @@ const props = defineProps({
     required: true,
   },
 });
-
-
 </script>
 
 <style>
@@ -176,12 +174,14 @@ const props = defineProps({
 }
 
 .container {
-  padding-top: 5px;
+  /* padding-top: 5px; */
+  /* margin: 0 10px; */
   /* border-top: 1px solid var(--light-grey); */
   /* border-bottom: 1px solid var(--light-grey); */
 }
 
 .uneditableContent {
+  padding-top: 5px;
   margin: 0 10px;
   text-align: center;
 }
@@ -227,6 +227,4 @@ const props = defineProps({
   /* background-color: #d4d4d1; */
   opacity: 50%;
 }
-
-
 </style>

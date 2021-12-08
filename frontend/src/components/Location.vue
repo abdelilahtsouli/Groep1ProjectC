@@ -1,39 +1,46 @@
 <template>
   <div class="white-space-top"></div>
-  <div class="content-location">
-    <div class="text-content">
-      <h1>Locaties bloedafname</h1>
-      <h4>Coronamaatregelen op onze locaties</h4>
-      <p>
-        Star-shl blijft de anderhalve meter afstand handhaven. Op onze locaties
-        komen mensen met een kwetsbare gezondheid. Het afstand houden beschermt
-        deze patiënten tegen risico op overdracht van Covid-19. Daarnaast willen
-        we voorkomen dat medewerkers besmet raken en niet kunnen werken.
-      </p>
-      <br />
-      <h4>Mondkapjes verplicht</h4>
-      <p>
-        Mondkapjes zijn sinds 6 november 2021 verplicht in publieke ruimtes. We
-        vragen patiënten daarom dringend een zelf meegebracht mondkapje te
-        dragen op de locaties van Star-shl. Star-shl volgt hierin het beleid van
-        de Rijksoverheid. Onze medewerkers maken gebruik van een mondneusmasker
-        en handschoenen.
-      </p>
-      <br />
-      <p>Op deze pagina vindt u alle locaties voor bloedafname.</p>
+  <page-content :id="3" :isLoggedIn="isLoggedIn"></page-content>
+  <div class="uneditableContent">
+    <div class="map-responsive">
+      <iframe
+        src="https://www.google.com/maps/d/embed?mid=1b_K2S4IW2EyIJf_2WR1jcqo5THYs8fGe&hl=nl&z=8"
+        width="600"
+        height="400"
+        style="border: 0"
+        allowfullscreen
+      ></iframe>
     </div>
-  </div>
-  <div class="map-responsive">
-    <iframe
-      src="https://www.google.com/maps/d/embed?mid=1b_K2S4IW2EyIJf_2WR1jcqo5THYs8fGe&hl=nl&z=8"
-      width="600"
-      height="400"
-      style="border: 0"
-      allowfullscreen
-    ></iframe>
   </div>
   <div class="white-space-bottom"></div>
 </template>
+
+<script lang="ts">
+import { defineComponent, onMounted } from "vue";
+import PageContent from "./PageContent.vue";
+
+export default defineComponent({
+  props: {
+    isLoggedIn: {
+      type: Boolean,
+      required: true,
+    },
+  },
+  emits: ["switchPage", "userLoggedIn"],
+  components: {
+    PageContent,
+  },
+  setup(props, { emit }) {
+    onMounted(() => {
+      emit("switchPage", "locaties");
+      if (document.cookie != "") {
+        emit("userLoggedIn", true);
+      }
+    });
+    return {};
+  },
+});
+</script>
 
 <style>
 .content-location {

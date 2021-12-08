@@ -117,7 +117,6 @@ export default defineComponent({
 
     if (props.id != undefined) updatePage(props.id);
 
-    watchEffect(() => console.log(document.getElementById("content")));
     return {
       content,
       editing,
