@@ -64,34 +64,6 @@ export default defineComponent({
       isLoggedIn.value = data.loggedIn;
     });
 
-    // Send the content to the backend.
-    function submit(): void {
-      const newContent =
-        document.getElementById("content")?.outerHTML !== undefined
-          ? document.getElementById("content")?.outerHTML
-          : "Er was een probleem bij het laden van deze pagina.";
-
-      axios
-        .put(
-          "./api/pages/" + props.id,
-          {
-            content: newContent,
-          },
-          {
-            headers: {
-              authorization: VueCookieNext.getCookie("token"),
-            },
-          }
-        )
-        .then((response: any) => {
-          console.log(response);
-          // TODO: Show that the request is successfull.
-        });
-
-      content.value = newContent as string;
-      changesMade.value = false;
-    }
-
     // Get the content of a page with id and load it onto the page.
     function updatePage(id: string): void {
       axios
@@ -132,7 +104,6 @@ export default defineComponent({
       //  Accodrion buttons have display in their style which results in "changesMade.value = true" always
       // Solution:
       //  Created temporary DOM object, where button display is switched to the original state
-      console.log(document.getElementById("content"));
       const tempDom = <Document>document.cloneNode(true);
       const tempDomContent = tempDom.getElementById("content");
       tempDomContent

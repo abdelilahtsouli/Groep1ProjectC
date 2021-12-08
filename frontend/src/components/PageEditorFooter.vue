@@ -18,7 +18,7 @@ export default defineComponent({
   emits: ["newContent"],
   props: {
     pageId: {
-      type: String,
+      type: Number,
       required: true,
     },
     changesMade: {

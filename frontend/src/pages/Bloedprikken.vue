@@ -16,104 +16,121 @@ export default defineComponent({
 </script>
 
 <style>
-/* :root {
-  --text-color: var(--dark-blue);
-  --background-mask: var(--light-grey);
-} */
-
-.tab input {
+/* # The Rotating Marker # */
+details summary::-webkit-details-marker {
+  display: none;
+}
+summary::before {
+  font-family: "Hiragino Mincho ProN", "Open Sans", sans-serif;
+  content: "▶";
   position: absolute;
-  opacity: 0;
-  z-index: -1;
+  /* top: 1.75rem; */
+  /* top: 5vw; */
+  top: 2.5vh;
+  /* left: 0.8rem; */
+  left: 5vw;
+  transform: rotate(0);
+  transform-origin: center;
+  transition: 0.2s transform ease;
 }
-.row {
-  display: flex;
-}
-.row .col {
-  flex: 1;
-}
-.row .col:last-child {
-  /* margin-left: 1em; */
-  /* margin: 0 10px; */
-  margin: 0 10px 5px 10px;
-}
-
-/* Accordion styles */
-.tabs {
-  border-radius: 8px;
-  overflow: hidden;
-  /* box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5); */
-  /* box-shadow: 0 6px 6px -2px rgba(0, 0, 0, 0.5); */
-  /* box-shadow: 0 6px 6px -2px rgba(112, 128, 144, 0.5); */
-  box-shadow: 0 6px 15px -2px rgba(112, 128, 144, 0.5);
-}
-.tab {
-  background: var(--background-mask);
-  width: 100%;
-  color: var(--text-color);
-  overflow: hidden;
-}
-.tab-label {
-  display: flex;
-  justify-content: space-between;
-  padding: 1em;
-  background: var(--background-mask);
-  font-weight: bold;
-  cursor: pointer;
-  /* border-bottom: 1px solid grey; */
-  /* Icon */
-}
-
-/* .tab-label:hover {
-  background: #1a252f;
-} */
-
-.tab-label::after {
-  content: "\276F";
-  width: 1em;
-  height: 1em;
-  text-align: center;
-  /* transition: all 0.35s; */
-  transition: all 1s ease;
-}
-
-.tab-content {
-  max-height: 0;
-  padding: 0 1em;
-  color: var(--background-mask);
-  background: var(--background-mask);
-  /* transition: all 0.35s; */
-  /* transition: all 0.5s ease; */
-  transition: all 1s ease;
-}
-
-.tab-content li {
-  margin: 5px 0;
-  /* text-align: left; */
-}
-
-.tab-close {
-  display: flex;
-  justify-content: flex-end;
-  padding: 1em;
-  font-size: 0.75em;
-  background: var(--background-mask);
-  cursor: pointer;
-  /*  */
-  transition: all 1s ease;
-}
-/* .tab-close:hover {
-  background: #1a252f;
-} */
-
-/* input:checked + .tab-label {
-  background: #1a252f;
-} */
-input:checked + .tab-label::after {
+details[open] > summary:before {
   transform: rotate(90deg);
+  transition: 0.45s transform ease;
 }
-input:checked ~ .tab-content {
-  max-height: 100vh;
-  padding: 1em;
+
+/* # The Sliding Summary # */
+details {
+  overflow: hidden;
+}
+details summary {
+  position: relative;
+}
+@keyframes details-show {
+  from {
+    /* margin-bottom: -80%; */
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+details > *:not(summary) {
+  animation: details-show 500ms ease-in-out;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+  color: transparent;
+  overflow: hidden;
+}
+details[open] > *:not(summary) {
+  color: inherit;
+}
+
+/* # Just Some Pretty Styles # */
+[contenteditable] {
+  outline: 0px solid transparent;
+}
+
+details {
+  box-sizing: border-box;
+  border-radius: 8px;
+  margin-top: 5px;
+  background: white;
+  box-shadow: 0 6px 15px -2px rgba(112, 128, 144, 0.5);
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+}
+summary {
+  border: 4px solid transparent;
+  outline: none;
+  padding: 1rem;
+  display: block;
+  background: #142d49;
+  color: white;
+  padding-left: 2.2rem;
+  position: relative;
+  cursor: pointer;
+  height: 5vw;
+  z-index: 2;
+}
+summary h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+details[open] summary,
+summary:hover {
+  color: white;
+  background: #142d49;
+}
+summary:hover strong,
+details[open] summary strong,
+summary:hover::before,
+details[open] summary::before {
+  color: white;
+}
+.content {
+  z-index: 1;
+  padding: 10px;
+  border: 2px solid #142d49;
+  border-top: none;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.remove-button {
+  top: 0%;
+  right: 0%;
+  height: 30px;
+  width: 30px;
+  /* fill: var(--dark-blue); */
+  color: var(--light-red);
+  right: 0;
+  z-index: 5;
+  position: absolute;
+  background-color: red;
+  color: white;
+  border-radius: 8px;
+  border-color: red;
 }
 </style>
