@@ -10,7 +10,7 @@
         Op deze pagina vindt u veelgestelde vragen, onder andere over het
         coronavirus in relatie tot Star-shl. Voor algemene vragen over corona
         verwijzen wij u naar de
-        <a href="https://www.rivm.nl/coronavirus-covid-19/actueel"
+        <a target="_blank" href="https://www.rivm.nl/coronavirus-covid-19/actueel"
           >website van het RIVM</a
         >.
       </p>
@@ -99,7 +99,7 @@
         en handschoenen.
       </p>
     </div>
-    <div></div>
+    <div class="white-space-bottom"></div>
   </div>
 </template>
 

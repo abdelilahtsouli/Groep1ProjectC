@@ -72,14 +72,14 @@ const checkListSvg = `<svg aria-hidden="true" focusable="false" data-prefix="fas
 
 <style>
 .white-space-top {
-  background-color: var(--light-grey);
+  background-color: var(--page-background-color);
   width: 100%;
   height: 55px;
   border-radius: 8px 0px;
 }
 
 .white-space-bottom {
-  background-color: var(--light-grey);
+  background-color: var(--page-background-color);
   width: 100%;
   height: 55px;
   border-radius: 0px 8px;
@@ -156,12 +156,14 @@ const checkListSvg = `<svg aria-hidden="true" focusable="false" data-prefix="fas
 }
 
 .container {
-  padding-top: 5px;
+  /* padding-top: 5px; */
+  /* margin: 0 10px; */
   /* border-top: 1px solid var(--light-grey); */
   /* border-bottom: 1px solid var(--light-grey); */
 }
 
 .uneditableContent {
+  padding-top: 5px;
   margin: 0 10px;
   text-align: center;
 }
@@ -207,6 +209,4 @@ const checkListSvg = `<svg aria-hidden="true" focusable="false" data-prefix="fas
   /* background-color: #d4d4d1; */
   opacity: 50%;
 }
-
-
 </style>

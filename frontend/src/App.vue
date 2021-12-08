@@ -31,4 +31,8 @@ onMounted(() => {
   color: #2c3e50;
 }
 
+.app-background{
+  height: 100vh;;
+  background-color: var(--page-background-color);
+}
 </style>

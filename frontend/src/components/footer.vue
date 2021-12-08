@@ -249,7 +249,7 @@ export default defineComponent({
   background-color: var(--white);
   overflow-x: auto;
   opacity: 100;
-  z-index: 1;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
