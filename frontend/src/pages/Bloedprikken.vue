@@ -1,31 +1,17 @@
 <template>
   <div class="white-space-top"></div>
-  <page-content :id="2" :isLoggedIn="isLoggedIn"></page-content>
+  <page-content :id="2"></page-content>
   <div class="white-space-bottom"></div>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref } from "vue";
+import { defineComponent } from "vue";
 import PageContent from "../components/PageContent.vue";
 
 export default defineComponent({
   components: {
     PageContent,
   },
-  props: {
-    isLoggedIn: Boolean,
-  },
-  emits: ["switchPage", "userLoggedIn"],
-  setup(props, { emit }) {
-    onMounted(() => {
-      emit("switchPage", "bloedprikken");
-      if (document.cookie != "") {
-        emit("userLoggedIn", true);
-      }
-    });
-    console.log(props.isLoggedIn);
-  },
-
 });
 </script>
 

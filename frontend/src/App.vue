@@ -3,39 +3,24 @@
     <Header />
   </header>
   <footer>
-    <Footer :activePage="activePage" @switchPage="setNewPage" :loggedIn="isUserLoggedIn" @logout="logout" :isSuperUser="isSuperUser"/>
+    <Footer />
   </footer>
-  <router-view @switchPage="setNewPage" @userLoggedIn="setIsLoggedIn" :isLoggedIn="isUserLoggedIn" @isSuperUser="setIsSuperUser"/>
+  <router-view/>
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
-import Header from "./components/Header.vue";
-import Footer from "./components/footer.vue";
+import { ref, onMounted } from "vue";
 import { VueCookieNext } from "vue-cookie-next";
+import Header from "./components/Header.vue";
+import Footer from "./components/Footer.vue";
+import bus from "./bus";
 
-const activePage = ref("");
-const isUserLoggedIn = ref(false);
-const isSuperUser = ref(false);
-
-function setNewPage(pageName: string): void {
-  activePage.value = pageName;
-}
-
-function setIsLoggedIn(loggedIn: boolean) {
-  isUserLoggedIn.value = loggedIn;
-}
-
-function setIsSuperUser(su: boolean) {
-  isSuperUser.value = su;
-}
-
-function logout() {
-  isUserLoggedIn.value = false;
-
-  VueCookieNext.removeCookie("token");
-  VueCookieNext.removeCookie("superUser");
-}
+onMounted(() => {
+  bus.emit("sessionModify", {
+      "loggedIn": VueCookieNext.getCookie("token") != null,
+      "superUser": VueCookieNext.getCookie("superUser") != null
+  });
+});
 
 </script>
 <style>

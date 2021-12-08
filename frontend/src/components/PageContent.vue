@@ -49,17 +49,14 @@
 import { defineComponent, ref } from "vue";
 import { VueCookieNext } from "vue-cookie-next";
 import axios from "axios";
+import bus from "../bus";
 
 export default defineComponent({
   props: {
     id: {
-      type: String,
+      type: Number,
       required: true,
-    },
-    isLoggedIn: {
-      type: Boolean,
-      required: true,
-    },
+    }
   },
   setup(props) {
     // Edit Button SVG's
@@ -78,12 +75,11 @@ export default defineComponent({
     const pageId = ref(props.id);
     const editing = ref(false);
     const changesMade = ref(false);
+    const isLoggedIn = ref(VueCookieNext.getCookie("token") != null);
 
-    function isLoggedIn() {
-      return VueCookieNext.getCookie("token") != null;
-    }
-
-    console.log(isLoggedIn());
+    bus.on("sessionModify", (data: any) => {
+      isLoggedIn.value = data.loggedIn;
+    });
 
     // Send the content to the backend.
     function submit(): void {
@@ -154,11 +150,12 @@ export default defineComponent({
         document.getElementById("content")?.outerHTML !== content.value;
     };
 
-    if (props.id != undefined) updatePage(props.id);
+    if (props.id != undefined) updatePage(props.id.toString());
 
     return {
       content,
       pageId,
+      isLoggedIn,
       editing,
       editSVG,
       crossSVG,

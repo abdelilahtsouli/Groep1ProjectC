@@ -45,12 +45,8 @@
 import { ref } from "vue";
 import axios from "axios";
 
-// Jamey
-import {defineEmits, onMounted} from "vue";
 import router from "../router";
-const emit = defineEmits(["switchPage"]);
-onMounted(() => emit("switchPage", "settings"))
-//
+
 const id = ref('');
 const Name = ref('');
 const Email = ref('');

@@ -21,13 +21,14 @@ import { onMounted, ref, defineProps } from "vue";
 import axios from "axios";
 import router from '../router'
 import { VueCookieNext } from 'vue-cookie-next'
+import bus from "../bus"
 
 const props = defineProps<{ id: string, email: string}>();
 
 const qrcode = ref("");
 const verifyCode = ref('');
 const isVerified = ref(false);
-const errorMessage = ref(''); // Note: This error message never gets used inside of the html.
+const errorMessage = ref('');
 
 async function Verify(){
   let token = "";
@@ -39,6 +40,10 @@ async function Verify(){
 
   if(isVerified.value){
     VueCookieNext.setCookie("token", decodeURI(token), {expire :"2h"});
+    bus.emit("sessionModify", {
+      "loggedIn": VueCookieNext.getCookie("token") != null,
+      "superUser": VueCookieNext.getCookie("superUser") != null
+    });
     router.push({
       name: "Home"
     })

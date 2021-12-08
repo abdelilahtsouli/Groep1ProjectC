@@ -5,22 +5,27 @@
       rel="stylesheet"
     />
     <nav class="footer">
+      <!-- Home -->
       <router-link
         to="/Home"
         class="nav__link"
         :class="{ 'active-item': activePage === 'home' }"
       >
         <i class="material-icons nav__icon">home</i>
-        <a @click="close_menu(); close_sidebar()" class="nav__text">Home</a>
+        <a @click="close_menu(); close_sidebar(); setActivePage('home')" class="nav__text">Home</a>
       </router-link>
+
+      <!-- Bloedprikken -->
       <router-link
         to="/Bloedprikken"
         class="nav__link nav__link--active"
         :class="{ 'active-item': activePage === 'bloedprikken' }"
       >
         <i class="material-icons nav__icon">vaccines</i>
-        <a @click="close_menu(); close_sidebar()" class="nav__text">Info</a>
+        <a @click="close_menu(); close_sidebar(); setActivePage('bloedprikken')" class="nav__text">Info</a>
       </router-link>
+
+      <!-- Menu -->
       <div
         class="w3-button w3-teal w3-xlarge"
         @click="toggle_menu()"
@@ -31,6 +36,8 @@
           <span class="nav__text">Menu</span>
         </div>
       </div>
+
+      <!-- Admin -->
       <router-link
         v-if="!loggedIn"
         to="/login"
@@ -38,7 +45,7 @@
         :class="{ 'active-item': activePage === 'admin' }"
       >
         <i class="material-icons nav__icon">lock</i>
-        <a  @click="close_menu(); close_sidebar()" class="nav__text">Admin</a>
+        <a  @click="close_menu(); close_sidebar(); setActivePage('admin')" class="nav__text">Admin</a>
       </router-link>
       <router-link
         v-if="loggedIn"
@@ -47,15 +54,17 @@
         :class="{ 'active-item': activePage === 'admin' }"
       >
         <i class="material-icons nav__icon">lock</i>
-        <a  @click="close_menu(); close_sidebar()" class="nav__text">Admin</a>
+        <a  @click="close_menu(); close_sidebar(); setActivePage('admin')" class="nav__text">Admin</a>
       </router-link>
+
+      <!-- Settings -->
       <div
         class="nav__link"
         @click="toggle_sidebar()"
         :class="{ 'active-item': activePage === 'settings' }"
       >
         <i class="material-icons nav__icon">settings</i>
-        <a  class="nav__text">Settings</a>
+        <a class="nav__text">Settings</a>
       </div>
     
     </nav>
@@ -75,7 +84,7 @@
           to="/Urineonderzoek"
           ><a><h4 class="menu-text">Urine onderzoek</h4></a></router-link
         >
-        <router-link class="menu-buttons" @click="close_menu()" to="/location"
+        <router-link class="menu-buttons" @click="close_menu()" to="/Location"
           ><a><h4 class="menu-text">Locaties</h4></a></router-link
         >
         <router-link
@@ -104,7 +113,7 @@
             logout();
           "
           class="menu-buttons"
-          :to="`/${activePage}`"
+          :to="`/home`"
           ><a><h4 class="menu-text">Uitloggen</h4></a></router-link
         >
 
@@ -117,7 +126,10 @@
           class="material-icons nav__icon w3-bar-item w3-large exitButton-sidebar"
           >close</i
         >
-        <div class="menu-buttons-sidebar icon" v-if="loggedIn" v-html="profileSVG"></div>
+        <!-- 
+          profileSVG does not exist.
+          <div class="menu-buttons-sidebar icon" v-if="loggedIn" v-html="profileSVG"></div>
+        -->
         <div class="menu-buttons-sidebar" v-if="loggedIn"><a><h6 class="menu-text-sidebar">Welkom user</h6></a></div>
         <router-link class="menu-buttons-sidebar" @click="close_sidebar()" to="/Bloedprikken"
           ><a><h4 class="menu-text-sidebar">Bloedprikken</h4></a></router-link
@@ -125,7 +137,7 @@
         <router-link class="menu-buttons-sidebar" @click="close_sidebar()" to="/Urineonderzoek"
           ><a><h4 class="menu-text-sidebar">Urine onderzoek</h4></a></router-link
         >
-        <router-link class="menu-buttons-sidebar" @click="close_sidebar()" to="/Locaties"
+        <router-link class="menu-buttons-sidebar" @click="close_sidebar()" to="/Location"
           ><a><h4 class="menu-text-sidebar">Locaties</h4></a></router-link
         >
         <router-link class="menu-buttons-sidebar" @click="close_sidebar()" to="/Openingstijden"
@@ -143,20 +155,22 @@
 </template>
 
 <script lang="ts">
-import { VueCookieNext } from "vue-cookie-next";
 import { defineComponent, ref } from "vue";
+import { VueCookieNext } from "vue-cookie-next";
+import bus from "../bus";
 
 export default defineComponent({
-  name: "Footer",
-  props: {
-    activePage: String,
-    loggedIn: Boolean,
-    isSuperUser: Boolean
-  },
-
-  setup(props, { emit }) {
+  setup() {
     const menuOpen = ref(false);
     const sidebarOpen = ref(false);
+    const activePage = ref("home");
+
+    const loggedIn = ref(false);
+    const isSuperUser = ref(false);
+
+    function setActivePage(page: string) {
+      activePage.value = page;
+    }
 
     // Toggle, open or close the menu.
     function toggle_menu() {
@@ -190,20 +204,31 @@ export default defineComponent({
       document.getElementById("sidebar")!.style.display = "none";
     }
 
-    function emitActivePage(pageName: string): void {
-      emit("switchPage", pageName);
+    function logout() {
+      bus.emit("sessionModify", {
+        "loggedIn": false,
+        "superUser": false
+      });
+
+      VueCookieNext.removeCookie("token");
+      VueCookieNext.removeCookie("superUser");
     }
 
-    function logout() {
-      emit("logout");
-    }
+    bus.on("sessionModify", (data: any) => {
+      loggedIn.value = data.loggedIn;
+      isSuperUser.value = data.superUser;
+    });
 
     return {
       menuOpen,
+      sidebarOpen,
+      activePage,
+      loggedIn,
+      isSuperUser,
+      setActivePage,
       open_menu,
       close_menu,
       toggle_menu,
-      emitActivePage,
       logout,
       open_sidebar,
       close_sidebar,

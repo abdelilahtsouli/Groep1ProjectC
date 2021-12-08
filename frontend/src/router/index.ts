@@ -10,6 +10,13 @@ import Page from '../components/Page.vue'
 import Location from '../pages/Location.vue'
 import Contact from '../pages/Contact.vue'
 import Veelgesteldevragen from '../pages/FAQ.vue'
+
+// These pages still need to be created.
+// For now these placeholders are used!
+import Urineonderzoek from '../pages/Location.vue'
+import Openingstijden from '../pages/Location.vue'
+import Routeplanner from '../pages/Location.vue'
+
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/', redirect : '/Home'
@@ -39,6 +46,21 @@ const routes: Array<RouteRecordRaw> = [
         component: Contact
     },
     {
+        path: '/Urineonderzoek',
+        name: 'Urineonderzoek',
+        component: Urineonderzoek
+    },
+    {
+        path: '/Openingstijden',
+        name: 'Openingstijden',
+        component: Openingstijden
+    },
+    {
+        path: '/Routeplanner',
+        name: 'Routeplanner',
+        component: Routeplanner
+    },
+    {
         path: '/login',
         name: 'Login',
         props: true,
@@ -64,7 +86,7 @@ const routes: Array<RouteRecordRaw> = [
         component: createNewUser
     },
     {
-        path: '/location',
+        path: '/Location',
         name: 'location',
         props: true,
         component: Location

@@ -27,12 +27,6 @@ import { ref } from "vue";
 import axios from "axios";
 import router from "../router";
 
-
-import {defineEmits, onMounted} from "vue";
-const emit = defineEmits(["switchPage"]);
-onMounted(() => emit("switchPage", "admin"))
-
-
 const URL_base = "/api/auth/login";
 const message_email = ref("");
 const message_password = ref("");
@@ -56,7 +50,7 @@ function userLogin() {
     if (Response.data.twoFAenabled == false) {
       router.push({
         name: "twoFA",
-        params: { id: Response.data.id },
+        params: { id: Response.data.id, email: Response.data.email },
       });
     } else if (Response.data.twoFAenabled == true) {
       router.push({

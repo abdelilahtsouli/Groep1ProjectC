@@ -103,20 +103,6 @@
   </div>
 </template>
 
-<script setup>
-import { defineEmits, onMounted } from "vue";
-
-const emit = defineEmits(["switchPage", "userLoggedIn"]);
-
-onMounted(() => {
-  emit("switchPage", "Veelgesteldevragen");
-  if (document.cookie != "") {
-    emit("userLoggedIn", true);
-  }
-});
-
-</script>
-
 <style>
 .header-faq {
   position: relative;

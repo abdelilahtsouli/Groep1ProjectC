@@ -13,8 +13,6 @@
   </div>
 </template>
 
-
-
 <style scoped>
 
 .header {

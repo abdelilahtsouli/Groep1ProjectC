@@ -17,6 +17,7 @@ import {defineProps} from 'vue';
 import { VueCookieNext } from 'vue-cookie-next'
 import axios from "axios"; 
 import router from '../router';
+import bus from "../bus";
 
 const props = defineProps<{id : string}>();
 const verify_Token = ref('');
@@ -34,6 +35,12 @@ async function Verify(){
     if(verified.value){
       VueCookieNext.setCookie("token", decodeURI(token.value), {expire :"2h"});
       VueCookieNext.setCookie("superUser", isSuperUser.value, {expire: "2h"});
+
+      bus.emit("sessionModify", {
+        "loggedIn": true,
+        "superUser": isSuperUser.value == "True"
+      });
+
       router.push({
         name: "Home"
       })
