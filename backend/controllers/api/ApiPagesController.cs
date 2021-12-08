@@ -68,7 +68,7 @@ namespace Project_C_Website.controllers {
 
 		public bool isValidOauth(string token) {
 			Database database = new Database();
-			DataTable data = database.BuildQuery("select * from td_user where oauth_token=@token")
+			DataTable data = database.BuildQuery("select * from admins where oauth_token=@token")
 				.AddParameter("token", token)
 				.Select();
 
