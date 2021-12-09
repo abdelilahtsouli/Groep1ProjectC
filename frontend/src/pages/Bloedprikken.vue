@@ -14,7 +14,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped>
-@import "../assets/css/page-components/main.css";
-</style>

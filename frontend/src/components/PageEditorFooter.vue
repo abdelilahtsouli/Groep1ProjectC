@@ -114,18 +114,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
+@import "../assets/css/editor-components/editorbutton.css";
+
 .editor .footer {
-  /* def */
-  /* border-top: 3px solid black;
-  display: flex;
-  flex: 0 0 auto;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  white-space: nowrap;
-  padding: 0.25rem 0.75rem;
-  border-radius: 8px; */
-  
   display: flex;
   flex: 0 0 auto;
   align-items: center;
@@ -140,32 +131,8 @@ export default defineComponent({
   padding: 0.25rem 0.75rem;
 }
 
-/* .editor .white-space {
-  width: 97.5%;
-  border-radius: 8px;
-  background-color: transparent;
-  height: 2rem;
-} */
-
 .editor .footer p {
   border-bottom: 1px solid black;
   margin: 5px;
-}
-
-.editor-button {
-  width: 1.75rem;
-  height: 1.75rem;
-  color: #0d0d0d;
-  border: none;
-  background-color: transparent;
-  border-radius: 0.4rem;
-  padding: 0.25rem;
-  margin-right: 0.25rem;
-  cursor: pointer;
-}
-
-.editor-button svg {
-  width: 100%;
-  height: 100%;
 }
 </style>

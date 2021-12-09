@@ -1,10 +1,10 @@
-.uneditableContent {
+.text-box {
   padding-top: 5px;
   margin: 0 10px;
   text-align: center;
 }
 
-.uneditableContent p {
+.text-box p {
   font-size: 15px;
   margin-top: 0;
   margin-left: 10px;
@@ -12,12 +12,12 @@
   margin-bottom: 20px;
 }
 
-.uneditableContent h3 {
+.text-box h3 {
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-.uneditableContent svg {
+.text-box svg {
   height: 24px;
   width: 24px;
   color: var(--light-red);

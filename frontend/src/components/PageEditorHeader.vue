@@ -257,54 +257,15 @@ export default defineComponent({
 </script>
 
 <style scoped>
+@import "../assets/css/editor-components/editorbutton.css";
+
 .editor .header {
-  /* def */
-  /* border-bottom: 3px solid black;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  flex: 0 0 auto;
-  flex-wrap: wrap;
-  padding: 0.25rem; */
-
-  /* position: absolute; */
-  /* border-top: 3px solid black;
-  background-color: white;
-  position: absolute;
-  z-index: 5; */
-
   display: flex;
   align-items: center;
   flex: 0 0 auto;
   flex-wrap: wrap;
   padding: 0.25rem;
   border-bottom: 3px solid #0d0d0d;
-}
-/* .editor .white-space {
-  width: 97.5%;
-  border-radius: 8px;
-  background-color: transparent;
-  height: 2rem;
-} */
-
-.divider {
-  width: 2px;
-  height: 1.25rem;
-  background-color: rgba(0, 0, 0, 0.1);
-  margin-left: 0.5rem;
-  margin-right: 0.75rem;
-}
-
-.editor-button {
-  width: 1.75rem;
-  height: 1.75rem;
-  color: #0d0d0d;
-  border: none;
-  background-color: transparent;
-  border-radius: 0.4rem;
-  padding: 0.25rem;
-  margin-right: 0.25rem;
-  cursor: pointer;
 }
 
 .editor-button-select {
@@ -320,8 +281,11 @@ export default defineComponent({
   cursor: pointer;
 }
 
-.editor-button svg {
-  width: 100%;
-  height: 100%;
+.divider {
+  width: 2px;
+  height: 1.25rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin-left: 0.5rem;
+  margin-right: 0.75rem;
 }
 </style>
