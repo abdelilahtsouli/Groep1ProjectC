@@ -46,6 +46,7 @@
             >
           </button>
           <router-view></router-view>
+          
         </div>
         <!-- Actual page content -->
         <page-content :id="1"></page-content>

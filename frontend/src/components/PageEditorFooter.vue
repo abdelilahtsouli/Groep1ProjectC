@@ -104,8 +104,6 @@ export default defineComponent({
           console.log(response);
           emit("newContent", newContent, response);
         });
-
-      // TODO send emit
     }
     return { crossSVG, checkMarkSVG, arrowRightSVG, submit };
   },

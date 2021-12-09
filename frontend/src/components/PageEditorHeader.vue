@@ -44,7 +44,7 @@
 </template>
 
 <script lang="ts">
-import UploadFileButton from "./UploadFile.vue";
+import UploadFileButton from "./UploadFileButton.vue";
 import { defineComponent, onBeforeUnmount, onMounted, ref } from "vue";
 
 export default defineComponent({
@@ -74,12 +74,10 @@ export default defineComponent({
       const nodeList = document.querySelectorAll("details");
 
       // Makes h3 tags editable
-      nodeList.forEach(
-        (node) =>
-          (node
-            .getElementsByTagName("summary")[0]
-            .getElementsByTagName("h3")[0].contentEditable =
-            editable.toString())
+      nodeList.forEach((node) =>
+        Array.from(
+          node.getElementsByTagName("summary")[0].getElementsByTagName("h3")
+        ).forEach((el) => (el.contentEditable = editable.toString()))
       );
 
       // Disables enter key in accordion Header: summary->h3

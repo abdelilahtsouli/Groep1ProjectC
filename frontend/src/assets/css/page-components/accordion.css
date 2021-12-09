@@ -8,7 +8,8 @@ summary::before {
   position: absolute;
   /* top: 1.75rem; */
   /* top: 5vw; */
-  top: 2.25vh;
+  /* top: 2.25vh; */
+  top: 33%;
   /* left: 0.8rem; */
   left: 5vw;
   transform: rotate(0);
@@ -55,6 +56,7 @@ details {
   box-sizing: border-box;
   border-radius: 8px;
   margin-top: 5px;
+  margin-bottom: 10px;
   background: white;
   box-shadow: 0 6px 15px -2px rgba(112, 128, 144, 0.5);
   text-align: center;
@@ -64,22 +66,23 @@ details {
 summary {
   border: 4px solid transparent;
   outline: none;
-  padding: 1rem;
+  /* padding: 1rem; */
+  padding: 0 1rem;
   display: block;
   background: #142d49;
   color: white;
   padding-left: 2.2rem;
   position: relative;
   cursor: pointer;
-  height: 5vw;
+  /* height: 5vw; */
   z-index: 2;
 }
-summary h3 {
+/* summary h3 {
   white-space: nowrap;
   overflow: hidden;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
-}
+} */
 details[open] summary,
 summary:hover {
   color: white;

@@ -84,32 +84,32 @@ export default {
     }
 
     function upload(event: any) {
-      const file = event.target.files[0];
+      if (parentNodeNot("SUMMARY")) {
+        const file = event.target.files[0];
 
-      var formData = new FormData();
-      formData.append("media", file);
+        var formData = new FormData();
+        formData.append("media", file);
 
-      axios
-        .post("/cdn/", formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            Authorization: <string>getCookie("token"),
-          },
-        })
-        .then(
-          (response: any) => {
-            if (parentNodeNot("SUMMARY")) {
+        axios
+          .post("/cdn/", formData, {
+            headers: {
+              "Content-Type": "multipart/form-data",
+              Authorization: <string>getCookie("token"),
+            },
+          })
+          .then(
+            (response: any) => {
               if (file.type === "image/png" || file.type === "image/jpeg") {
                 createImage(response.data.id, file.type);
               } else if (file.type === "video/mp4") {
-                createVideo(response.data.id)
+                createVideo(response.data.id);
               }
+            },
+            (error: any) => {
+              console.log(error.value);
             }
-          },
-          (error: any) => {
-            console.log(error.value);
-          }
-        );
+          );
+      }
     }
 
     return {
