@@ -87,7 +87,6 @@ export default defineComponent({
         content !== undefined
           ? content
           : "Er was een probleem bij het laden van deze pagina.";
-
       axios
         .put(
           "./api/pages/" + props.pageId,

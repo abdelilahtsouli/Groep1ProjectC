@@ -1,11 +1,19 @@
 <template>
   <div class="header">
-    <button @click="formatDoc('formatblock', 'h3')" class="editor-button">
-      <div v-html="headerSVG"></div>
-    </button>
-    <button @click="formatDoc('formatblock', 'p')" class="editor-button">
-      <div v-html="paragraphSVG"></div>
-    </button>
+    <select
+      class="editor-button-select"
+      v-model="selectedTextType"
+      @change="formatDoc('formatblock', selectedTextType)"
+    >
+      <option disabled value="">Teksttype</option>
+      <option value="p">Paragraaf</option>
+      <option value="h1">Kop 1</option>
+      <option value="h2">Kop 2</option>
+      <option value="h3">Kop 3</option>
+      <option value="h4">Kop 4</option>
+      <option value="h5">Kop 5</option>
+      <option value="h6">Kop 6</option>
+    </select>
     <div class="divider"></div>
     <button @click="createAccordion" class="editor-button">
       <div v-html="addRowSVG"></div>
@@ -30,15 +38,17 @@
       <option value="blue">Blauw</option>
       <option value="green">Groen</option>
     </select>
+    <upload-file-button></upload-file-button>
   </div>
   <div class="white-space"></div>
 </template>
 
 <script lang="ts">
+import UploadFileButton from "./UploadFile.vue";
 import { defineComponent, onBeforeUnmount, onMounted, ref } from "vue";
 
 export default defineComponent({
-  components: {},
+  components: { UploadFileButton },
   emits: ["checkForChanges"],
   setup(props, { emit }) {
     // Editor Header SVG's
@@ -50,8 +60,17 @@ export default defineComponent({
     const boldSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M8 11h4.5a2.5 2.5 0 1 0 0-5H8v5zm10 4.5a4.5 4.5 0 0 1-4.5 4.5H6V4h6.5a4.5 4.5 0 0 1 3.256 7.606A4.498 4.498 0 0 1 18 15.5zM8 13v5h5.5a2.5 2.5 0 1 0 0-5H8z"/></svg>`;
     const italicSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M15 20H7v-2h2.927l2.116-12H9V4h8v2h-2.927l-2.116 12H15z"/></svg>`;
     const selectedColor = ref("");
+    const selectedTextType = ref("");
 
-    const toggleContenteditableAttr = (editable: boolean) => {
+    onMounted(() => {
+      toggleContenteditableAttr(true);
+    });
+
+    onBeforeUnmount(() => {
+      toggleContenteditableAttr(false);
+    });
+
+    function toggleContenteditableAttr(editable: boolean): void {
       const nodeList = document.querySelectorAll("details");
 
       // Makes h3 tags editable
@@ -135,8 +154,10 @@ export default defineComponent({
         // cancel paste
         event.preventDefault();
         // get text representation of clipboard
-        var text = event.clipboardData.getData("text/plain");
-        document.execCommand("insertHTML", false, text);
+        if (event.clipboardData) {
+          var text = event.clipboardData.getData("text/plain");
+          document.execCommand("insertHTML", false, text);
+        }
       };
 
       (<HTMLElement>document.getElementById("content")).onkeyup = (event) => {
@@ -149,15 +170,7 @@ export default defineComponent({
           }
         }
       };
-    };
-
-    onMounted(() => {
-      toggleContenteditableAttr(true);
-    });
-
-    onBeforeUnmount(() => {
-      toggleContenteditableAttr(false);
-    });
+    }
 
     // Formats editable content
     function formatDoc(
@@ -166,37 +179,50 @@ export default defineComponent({
       checkForChanges: boolean = true
     ): void {
       const oDoc = document.getElementById("content");
-      document.execCommand(sCmd, false, sValue);
+      if (hasParent("SUMMARY")) {
+        document.execCommand(sCmd, false, sValue);
+      }
       if (oDoc) {
         oDoc.focus();
       }
-      selectedColor.value = "";
       if (checkForChanges) {
         emit("checkForChanges");
       }
+      selectedColor.value = "";
+      selectedTextType.value = "";
     }
 
-    const TagCompatible = () => {
+    function isTag(tag: string): boolean {
       var node = document.getSelection()?.anchorNode;
       var nodeType = node?.nodeType == 3 ? node.parentNode : node;
       if (nodeType) {
-        return nodeType.nodeName !== "H3";
+        return nodeType.nodeName !== tag;
       } else {
         return false;
       }
-    };
+    }
 
-    const createAccordion = () => {
-      if (TagCompatible()) {
+    function hasParent(tag: string): boolean {
+      var node = document.getSelection()?.anchorNode;
+      var nodeType = node?.nodeType == 3 ? node.parentNode : node;
+      if (nodeType?.parentNode) {
+        return nodeType.parentNode.nodeName !== tag;
+      } else {
+        return false;
+      }
+    }
+
+    function createAccordion(): void {
+      if (isTag("H3")) {
         formatDoc("insertHTML", createAccordionElement(), false);
         createChildElements("newAccordion");
         toggleContenteditableAttr(true);
         emit("checkForChanges");
       }
-    };
+    }
 
     // Returns an accordion element.
-    const createAccordionElement = () => {
+    function createAccordionElement(): string {
       const details = document.createElement("details");
       details.id = "newAccordion";
       details.onkeyup = (event) => {
@@ -218,10 +244,10 @@ export default defineComponent({
       details.appendChild(div);
 
       return details.outerHTML;
-    };
+    }
 
     // Creates child elements for the new accordion element.
-    const createChildElements = (id: string) => {
+    function createChildElements(id: string): void {
       const newAccordion = document.getElementById(id);
       const p = document.createElement("p");
       p.innerText = "PLACEHOLDER";
@@ -235,7 +261,7 @@ export default defineComponent({
       newAccordion?.getElementsByTagName("summary")[0].appendChild(button);
       newAccordion?.removeAttribute("id");
       newAccordion?.setAttribute("contenteditable", "false");
-    };
+    }
 
     return {
       addRowSVG,
@@ -246,8 +272,9 @@ export default defineComponent({
       boldSVG,
       italicSVG,
       selectedColor,
+      selectedTextType,
       formatDoc,
-      TagCompatible,
+      isTag,
       createAccordion,
       createAccordionElement,
       createChildElements,
