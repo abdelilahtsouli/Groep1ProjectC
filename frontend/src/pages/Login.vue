@@ -23,6 +23,7 @@
 </template>
 
 <script lang="ts" setup>
+
 import { ref } from "vue";
 import axios from "axios";
 import router from "../router";
@@ -31,22 +32,29 @@ const URL_base = "/api/auth/login";
 const message_email = ref("");
 const message_password = ref("");
 const errormessage = ref("");
+const loginAttempts =  ref(0);
 
 function userLogin() {
+  loginAttempts.value += 1;
   if (!validateEmail()) {
     errormessage.value = "Voer een geldig e-mail adres in";
     return;
-  }
+    }
   if (message_password.value == "") {
-    errormessage.value = "Enter a password";
+    errormessage.value = "Voer een wachtwoord in";
     return;
   }
 
   var bodyFormData = new FormData();
   bodyFormData.append("email", message_email.value);
   bodyFormData.append("password", message_password.value);
+  bodyFormData.append("loginCounter", loginAttempts.value.toString());
   axios.post(URL_base, bodyFormData).then((Response: any) => {
     errormessage.value = Response.data.message;
+    loginAttempts.value = Response.data.counter;
+    if(loginAttempts.value >= 3){
+      setTimeout(() => {loginAttempts.value = 0}, 300000);
+    }
     if (Response.data.twoFAenabled == false) {
       router.push({
         name: "twoFA",

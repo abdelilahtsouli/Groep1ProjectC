@@ -40,7 +40,7 @@ namespace Project_C_Website.controllers {
 				Byte[] b = System.IO.File.ReadAllBytes(file);
 				return File(b, type);
 			}
-
+			database.Close();
 			this.HttpContext.Response.StatusCode = 404;
 			return Content(JsonSerializer.Serialize(new {
 				Success = false,
@@ -54,7 +54,9 @@ namespace Project_C_Website.controllers {
 				.AddParameter("token", token)
 				.Select();
 
+			database.Close();
 			return data.Rows.Count == 1;
+			
 		}
 
 		// POST /cdn/
@@ -102,7 +104,7 @@ namespace Project_C_Website.controllers {
 			using (var stream = new FileStream(id.ToString(), FileMode.Create)) {
 				file.CopyTo(stream);
 			}
-
+			database.Close();
 			return Ok(new {
 				Success = true,
 				Id = id,

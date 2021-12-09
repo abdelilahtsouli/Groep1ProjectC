@@ -6,7 +6,7 @@
         <img src="../assets/images/stock-img-smiling-chemists.jpg" />
         <h1>Contact</h1>
       </div>
-      <div class="content">
+      <div class="content-contact">
         <div class="content-header">
           <h2><b>Klantcontactcentrum</b></h2>
         </div>
@@ -75,7 +75,7 @@
 .header-contact {
   /* margin-bottom: 80px; */
 }
-.content a {
+.content-contact a {
   color: #e7334c !important;
   text-decoration: none;
 }

@@ -19,19 +19,33 @@ namespace Project_C_Website.controllers {
 	[Route("api/auth/login")]
 	[ApiController]
 	public class AuthController : ControllerBase {
-
+	
 		// POST api/auth/login
 		[HttpPost]
 		public string Post() {
 			// Get a value called email & password from the Request 
 			string email_input = HttpContext.Request.Form["email"];
 			string password_input = HttpContext.Request.Form["password"];
+			int loginAttempt = Int32.Parse(HttpContext.Request.Form["loginCounter"]);
 
-
+			//Keep track of how many times the user tried to login
+			if(loginAttempt >= 3){
+				return JsonSerializer.Serialize(new{
+					success = false,
+					message = "U heeft te vaak geprobeerd in te loggen, probeer het over 5 minuten opnieuw",
+					counter = loginAttempt.ToString()
+				});
+			}
+			if(loginAttempt >= 6){
+				return JsonSerializer.Serialize(new{
+					success = false,
+					message = "U heeft te vaak geprobeerd in te loggen, probeer het over 10 minuten opnieuw",
+					counter = loginAttempt.ToString()
+				});
+			}
 			// Execute the query on the database.
 			Database database = new Database();
 			DataTable data = database.BuildQuery("select * from admins").Select();
-	
 			// Loop through each row in the query and check if the details are correct.
 			foreach (DataRow row in data.Rows) {
 				var newPassword = password_input + row["salt"].ToString();
@@ -49,10 +63,12 @@ namespace Project_C_Website.controllers {
 					});
 				}
 			}
+
 			database.Close();
 			return JsonSerializer.Serialize(new{
 				success = false,
-				message = "Het e-mail adres of wachtwoord is onjuist"
+				message = "Het e-mail adres of wachtwoord is onjuist",
+				
 			});
 		}
 

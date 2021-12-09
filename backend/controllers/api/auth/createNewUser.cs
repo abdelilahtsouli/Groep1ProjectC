@@ -26,9 +26,9 @@ namespace Project_C_Website.controllers {
 			string Name = HttpContext.Request.Form["Name"];
 			string Email = HttpContext.Request.Form["Email"];
             string Password = HttpContext.Request.Form["Password"];
-			bool superUser = bool.Parse(HttpContext.Request.Form["Superuser"].ToString());
-			string oauth = HttpContext.Request.Form["oauth"];
-			bool db_superUser = false;
+			string oauth = HttpContext.Request.Form["oauth"].ToString();
+			bool superUser = false;
+			
 			// generate a 128-bit salt using a cryptographically strong random sequence of nonzero values
 			byte[] salt = new byte[128 / 8];
 			using (var rngCsp = new RNGCryptoServiceProvider())
@@ -43,22 +43,22 @@ namespace Project_C_Website.controllers {
 			byte[] crypto = crypt.ComputeHash(Encoding.ASCII.GetBytes(newPassword));
 			string hash = Encoding.ASCII.GetString(crypto);
 
+			
 
 
 
-            //Query to insert the new users information into the database
             Database database = new Database();
-
-			DataTable data = database.BuildQuery("select superuser from admins WHERE oauth_token = @oauth")
-				.AddParameter("oauth_token", oauth).Select();
-			foreach (DataRow row in data.Rows)
-			{
-				db_superUser = bool.Parse(row["superuser"].ToString());
-
+			//Query to check if the logged in user is authorithized to create new accounts
+			DataTable data1 = database.BuildQuery("select superuser from admins WHERE oauth_token = @oauth_token")
+				.AddParameter("oauth_token", oauth)
+				.Select();
+			foreach (DataRow row in data1.Rows){
+				superUser = bool.Parse(row["superuser"].ToString());
 			}
 
-			if(db_superUser){
-				DataTable data2 = database.BuildQuery($"SELECT (id) FROM admins").Select();
+            //Query to insert the new users information into the database
+			if(superUser){
+				DataTable data = database.BuildQuery($"SELECT (id) FROM admins").Select();
 				database.BuildQuery($"INSERT INTO admins (id, name, email, password, twofa, salt, superuser) VALUES (@id, @name, @email, @password, @twofa, @salt, @superuser)")
 					.AddParameter("id", (data.Rows.Count + 1))
 					.AddParameter("name", Name)
@@ -68,7 +68,7 @@ namespace Project_C_Website.controllers {
 					.AddParameter("password", hash)
 					.AddParameter("salt", newSalt)
 					.Query();
-				
+			
 
 				database.Close();
 				return JsonSerializer.Serialize(new{
@@ -76,19 +76,10 @@ namespace Project_C_Website.controllers {
 					id = data.Rows.Count + 1
 				});
 			}
+			database.Close();
 			return JsonSerializer.Serialize(new{
-				result = false
+				result = "U heeft geen rechten om een nieuw account aan te maken."
 			});
-
-		}
-		static string BytesToString(byte[] bytes)
-		{
-			using (MemoryStream stream = new MemoryStream(bytes))
-			{
-				using (StreamReader streamReader = new StreamReader(stream)) {
-					return streamReader.ReadToEnd();
-				}
-			}
 		}
         
 	}
