@@ -15,7 +15,7 @@
                 />
                 <h3 class="h3-text">superUser</h3>
                 <select v-model="superUser" class="dropdown">
-                  <option value="false" disabled selected hidden></option>
+                  <option value="false" disabled selected></option>
                   <option @click="superUser = 'true'">true</option>
                   <option @click="superUser = 'false'">false</option>
                 </select>
@@ -33,6 +33,7 @@
                 /><br><br>
                 <button @click="sendToServer">Create account</button>
                 <br><h5>{{Error_message}}</h5>
+                <h5>{{account_complete}}</h5>
             </div>
         </div>
     </div>
@@ -44,8 +45,9 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import axios from "axios";
-
 import router from "../router";
+import { VueCookieNext } from "vue-cookie-next";
+
 
 const id = ref('');
 const Name = ref('');
@@ -54,6 +56,7 @@ const superUser = ref('');
 const password = ref('');
 const Password_check = ref('');
 const Error_message = ref('');
+const account_complete = ref('');
 const Created = ref(false);
 
 function passwordCheck(){
@@ -93,6 +96,9 @@ function validateEmail() {
      return true
    }
 }
+function delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+}
 
 async function sendToServer(){
     if(nameCheck() && passwordCheck() && validateEmail() && isSuperUser()){
@@ -101,11 +107,14 @@ async function sendToServer(){
       bodyFormData.append("Email", Email.value);
       bodyFormData.append("Superuser",superUser.value);
       bodyFormData.append("Password", password.value);
+      bodyFormData.append("oauth", VueCookieNext.getCookie("token"));
       await axios.post('/api/auth/createNewUser', bodyFormData)
           .then((Response: any) => (Created.value = Response.data.userCreated) &&  (id.value = Response.data.id))
       if(Created.value){
-          router.push({
-          name: "twoFA", params: {email: Email.value, id: id.value}
+        account_complete.value = 'Account gecreëerd'
+        await delay(1500);
+        router.push({
+        name: "Home", params: {email: Email.value, id: id.value}
         })
       }
     }
@@ -171,6 +180,7 @@ async function sendToServer(){
   border-radius: 5px;
   color: white;
 }
+
 
 
 </style>
