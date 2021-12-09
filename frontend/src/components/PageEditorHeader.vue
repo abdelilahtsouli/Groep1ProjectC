@@ -31,18 +31,14 @@
       <option value="green">Groen</option>
     </select>
   </div>
+  <div class="white-space"></div>
 </template>
 
 <script lang="ts">
-import {
-  defineComponent,
-  onBeforeUnmount,
-  onMounted,
-  ref,
-  watchEffect,
-} from "vue";
+import { defineComponent, onBeforeUnmount, onMounted, ref } from "vue";
 
 export default defineComponent({
+  components: {},
   emits: ["checkForChanges"],
   setup(props, { emit }) {
     // Editor Header SVG's
@@ -262,14 +258,34 @@ export default defineComponent({
 
 <style scoped>
 .editor .header {
-  border-bottom: 3px solid black;
+  /* def */
+  /* border-bottom: 3px solid black;
   border-radius: 8px;
   display: flex;
   align-items: center;
   flex: 0 0 auto;
   flex-wrap: wrap;
+  padding: 0.25rem; */
+
+  /* position: absolute; */
+  /* border-top: 3px solid black;
+  background-color: white;
+  position: absolute;
+  z-index: 5; */
+
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
   padding: 0.25rem;
+  border-bottom: 3px solid #0d0d0d;
 }
+/* .editor .white-space {
+  width: 97.5%;
+  border-radius: 8px;
+  background-color: transparent;
+  height: 2rem;
+} */
 
 .divider {
   width: 2px;
