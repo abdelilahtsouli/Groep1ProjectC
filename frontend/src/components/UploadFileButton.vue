@@ -48,6 +48,7 @@ export default {
       }
     }
 
+    // TODO Move these functions to PageEditorHeader
     function createImage(id: string, type: string) {
       const pTag = document.createElement("p");
       const image = document.createElement("image");
@@ -99,6 +100,7 @@ export default {
           })
           .then(
             (response: any) => {
+              // TODO Emit to Parent (response.data.id, file.type)
               if (file.type === "image/png" || file.type === "image/jpeg") {
                 createImage(response.data.id, file.type);
               } else if (file.type === "video/mp4") {

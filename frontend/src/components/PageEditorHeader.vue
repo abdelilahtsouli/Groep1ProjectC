@@ -70,9 +70,141 @@ export default defineComponent({
       toggleContenteditableAttr(false);
     });
 
+    // Toggles Accordion |=> details => sumary => h3.contentEditable
+    function toggleEditableH3(
+      nodeList: NodeListOf<HTMLDetailsElement>,
+      isEditable: string
+    ): void {
+      nodeList.forEach((node) =>
+        Array.from(
+          node.getElementsByTagName("summary")[0].getElementsByTagName("h3")
+        ).forEach((el) => (el.contentEditable = isEditable))
+      );
+    }
+
+    // Disables enter key for Accordion |=> details => sumary => h3
+    function disableEnterKeyH3(nodeList: NodeListOf<HTMLDetailsElement>): void {
+      nodeList.forEach(
+        (node) =>
+          (node
+            .getElementsByTagName("summary")[0]
+            .getElementsByTagName("h3")[0].onkeydown = (event) => {
+            if (event.key === "Enter") {
+              event.preventDefault();
+            }
+          })
+      );
+    }
+
+    // Disables space key for Accordion |=> details
+    function disableDetailsSpace(
+      nodeList: NodeListOf<HTMLDetailsElement>
+    ): void {
+      nodeList.forEach(
+        (node) =>
+          (node.onkeyup = (event) => {
+            if (event.key === " ") {
+              event.preventDefault();
+            }
+          })
+      );
+    }
+
+    // Toggles Accordion |=> details => sumary => button.style.display
+    function toggleDisplayRemoveButton(
+      nodeList: NodeListOf<HTMLDetailsElement>,
+      isEditable: string
+    ): void {
+      nodeList.forEach(
+        (node) =>
+          (node
+            .getElementsByTagName("summary")[0]
+            .getElementsByTagName("button")[0].style.display = isEditable
+            ? "initial"
+            : "none")
+      );
+    }
+
+    // Toggles Accordion |=> details => div => ["div", "h3", "p"].contentEditable
+    function toggleEditableAccordionContent(
+      nodeList: NodeListOf<HTMLDetailsElement>,
+      isEditable: string
+    ): void {
+      nodeList.forEach((node) =>
+        ["div", "h3", "p"].forEach((tag) =>
+          Array.from(
+            node
+              .getElementsByTagName("summary")[0]
+              .getElementsByTagName("h3")[0]
+              .getElementsByTagName(tag)
+          ).forEach((el) => el.setAttribute("contentEditable", isEditable))
+        )
+      );
+    }
+
+    // ! CAN BE REMOVED?
+    // Toggles Accordion |=> details => div.contentEditable
+    function toggleEditableAccordionDiv(
+      nodeList: NodeListOf<HTMLDetailsElement>,
+      isEditable: string
+    ): void {
+      nodeList.forEach(
+        (node) =>
+          (node.getElementsByTagName("div")[0].contentEditable = isEditable)
+      );
+    }
+
+    // Adds event listener to Accordion |=> details => sumary => button.onclick
+    // Removes the Accordion / parent details tag, with all children
+    function addAccordionRemoveEvent(
+      nodeList: NodeListOf<HTMLDetailsElement>
+    ): void {
+      nodeList.forEach(
+        (node) =>
+          (node
+            .getElementsByTagName("summary")[0]
+            .getElementsByTagName("button")[0].onclick = (event) => {
+            const details = <Node>(
+              (<HTMLElement>event.target).parentNode?.parentNode
+            );
+            details.parentNode?.removeChild(details);
+            emit("checkForChanges");
+          })
+      );
+    }
+
+    // Prevents the user from inserting HTML while edditing in contenteditable tags
+    function changePasteEvent() {
+      document.body.onpaste = (event: ClipboardEvent) => {
+        event.preventDefault();
+        if (event.clipboardData) {
+          var text = event.clipboardData.getData("text/plain");
+          document.execCommand("insertHTML", false, text);
+          // TODO check if this should be inserText
+        }
+      };
+    }
+
+    // When element with id "content" is has no child nodes,
+    // inserts p element with placeholder text
+    function addEmptyContentEvent() {
+      (<HTMLElement>document.getElementById("content")).onkeyup = (event) => {
+        if (event.key === "Backspace") {
+          const contentDiv = document.getElementById("content");
+          if (!contentDiv?.hasChildNodes()) {
+            const pTag = document.createElement("p");
+            pTag.innerText = "Plaats hier uw text.";
+            contentDiv?.appendChild(pTag);
+          }
+        }
+      };
+    }
+
+    // TODO: SPLIT INTO MULTIPLE FUNCTIONS
     function toggleContenteditableAttr(editable: boolean): void {
       const nodeList = document.querySelectorAll("details");
 
+      // ! DONE
       // Makes h3 tags editable
       nodeList.forEach((node) =>
         Array.from(
@@ -80,6 +212,7 @@ export default defineComponent({
         ).forEach((el) => (el.contentEditable = editable.toString()))
       );
 
+      // ! DONE
       // Disables enter key in accordion Header: summary->h3
       nodeList.forEach(
         (node) =>
@@ -91,7 +224,7 @@ export default defineComponent({
             }
           })
       );
-
+      // ! DONE
       // Makes the removal buttons visible while editing
       nodeList.forEach(
         (node) =>
@@ -101,6 +234,8 @@ export default defineComponent({
             ? "initial"
             : "none")
       );
+
+      // ! DONE
       // Makes the content of the accordion editable
       nodeList.forEach((node) =>
         ["div", "h3", "p"].forEach((tag) =>
@@ -115,6 +250,7 @@ export default defineComponent({
         )
       );
 
+      // ! DONE
       // Makes the content of the accordion editable
       nodeList.forEach(
         (node) =>
@@ -122,6 +258,7 @@ export default defineComponent({
             editable.toString())
       );
 
+      // ! DONE
       // Prevents pressing space-bar from opening accodrions while edditing the summary tag
       nodeList.forEach(
         (node) =>
@@ -132,6 +269,7 @@ export default defineComponent({
           })
       );
 
+      // ! DONE
       // On button click, removes parent detail tag with all childs.
       // Adds this functionality to the specific buttons.
       nodeList.forEach(
@@ -148,6 +286,7 @@ export default defineComponent({
           })
       );
 
+      // ! DONE
       document.body.onpaste = (event: ClipboardEvent) => {
         // cancel paste
         event.preventDefault();
@@ -155,9 +294,11 @@ export default defineComponent({
         if (event.clipboardData) {
           var text = event.clipboardData.getData("text/plain");
           document.execCommand("insertHTML", false, text);
+          // TODO check if this should be inserText
         }
       };
 
+      // ! DONE
       (<HTMLElement>document.getElementById("content")).onkeyup = (event) => {
         if (event.key === "Backspace") {
           const contentDiv = document.getElementById("content");
