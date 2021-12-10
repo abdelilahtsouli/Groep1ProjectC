@@ -62,7 +62,7 @@ export default {
   },
 
   mounted() {
-    fetch('http://localhost:3000/locations')
+    fetch('http://' + window.location.host +'/locations.json')
     .then(response => response.json())
     .then(data => this.locations = data)
     .then(data => this.baseLocations = data)
@@ -148,7 +148,7 @@ export default {
     },
 
     clearLocations() {
-      fetch('http://localhost:3000/locations')
+      fetch('http://' + window.location.host +'/locations.json')
       .then(response => response.json())
       .then(data => this.locations = data)
     }
