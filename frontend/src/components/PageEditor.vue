@@ -3,7 +3,11 @@
     <!-- Editor Header -->
     <page-editor-header @checkForChanges="checkForChanges"></page-editor-header>
     <div>
-      <div v-html="editSVG" class="edit-button" @click="$emit('stopEditing')"></div>
+      <div
+        v-html="editSVG"
+        class="edit-button"
+        @click="$emit('stopEditing')"
+      ></div>
     </div>
 
     <!-- Page content loaded from database -->
@@ -26,6 +30,12 @@
 </template>
 
 <script lang="ts">
+import {
+  toggleDisplayRemoveButton,
+  toggleEditableAccordionDiv,
+  toggleEditableH3,
+  toggleDetails,
+} from "./EditorUtility";
 import PageEditorHeader from "./PageEditorHeader.vue";
 import PageEditorFooter from "./PageEditorFooter.vue";
 import { defineComponent, ref } from "vue";
@@ -68,18 +78,16 @@ export default defineComponent({
     // Solution:
     //  Created temporary DOM object, where button display is switched to the original state
     const checkForChanges = () => {
-      // // changesMade.value =
-      // //   document.getElementById("content")?.innerHTML !== content.value;
       const tempDom = <Document>document.cloneNode(true);
       const tempDomContent = tempDom.getElementById("content");
-      tempDomContent
-        ?.querySelectorAll("details")
-        .forEach(
-          (node) =>
-            (node
-              .getElementsByTagName("summary")[0]
-              .getElementsByTagName("button")[0].style.display = "none")
-        );
+
+      const nodeList = tempDomContent?.querySelectorAll("details");
+      if (nodeList) {
+        toggleDisplayRemoveButton(nodeList, false);
+        toggleEditableH3(nodeList, false);
+        toggleEditableAccordionDiv(nodeList, false);
+        toggleDetails(nodeList, false);
+      }
 
       changesMade.value =
         content.value !== tempDom.getElementById("content")?.innerHTML;

@@ -20,6 +20,7 @@
 </template>
 
 <script lang="ts">
+import { hasParent } from "./EditorUtility";
 import axios from "axios";
 
 function getCookie(name: string): string | null {
@@ -38,54 +39,10 @@ function getCookie(name: string): string | null {
 }
 
 export default {
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  setup() {
-    function formatDoc(sCmd: string, sValue: string): void {
-      const oDoc = document.getElementById("content");
-      document.execCommand(sCmd, false, sValue);
-      if (oDoc) {
-        oDoc.focus();
-      }
-    }
-
-    // TODO Move these functions to PageEditorHeader
-    function createImage(id: string, type: string) {
-      const pTag = document.createElement("p");
-      const image = document.createElement("image");
-      image.setAttribute("src", `/cdn/${id}`);
-      image.setAttribute("type", `${type}`);
-      image.style.maxHeight = "100%";
-      image.style.maxWidth = "100%";
-      pTag.appendChild(image);
-      formatDoc("insertHTML", pTag.outerHTML);
-    }
-
-    function createVideo(id: string) {
-      const div = document.createElement("div");
-      const video = document.createElement("video");
-      const source = document.createElement("source");
-      video.controls = true;
-      video.disablePictureInPicture = true;
-      video.setAttribute("controlsList", "nodownload noplaybackrate ");
-      source.src = `\\cdn\\${id}`;
-      source.type = "video/mp4";
-      video.appendChild(source);
-      div.appendChild(video);
-      formatDoc("insertHTML", div.outerHTML);
-    }
-
-    function parentNodeNot(tag: string): boolean {
-      var node = document.getSelection()?.anchorNode;
-      var nodeType = node?.nodeType == 3 ? node.parentNode : node;
-      if (nodeType?.parentNode) {
-        return nodeType.parentNode.nodeName !== tag;
-      } else {
-        return false;
-      }
-    }
-
+  emits: ["imageUploaded", "videoUploaded"],
+  setup(props, { emit }) {
     function upload(event: any) {
-      if (parentNodeNot("SUMMARY")) {
+      if (!hasParent("SUMMARY")) {
         const file = event.target.files[0];
 
         var formData = new FormData();
@@ -102,15 +59,17 @@ export default {
             (response: any) => {
               // TODO Emit to Parent (response.data.id, file.type)
               if (file.type === "image/png" || file.type === "image/jpeg") {
-                createImage(response.data.id, file.type);
+                emit("imageUploaded", response.data.id, file.type);
               } else if (file.type === "video/mp4") {
-                createVideo(response.data.id);
+                emit("videoUploaded", response.data.id);
               }
             },
             (error: any) => {
               console.log(error.value);
             }
           );
+      } else {
+        console.log("image/video upload blocked");
       }
     }
 

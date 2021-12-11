@@ -3,7 +3,13 @@
     <select
       class="editor-button-select"
       v-model="selectedTextType"
-      @change="formatDoc('formatblock', selectedTextType)"
+      @change="
+        formatDoc({
+          sCmd: 'formatblock',
+          sValue: selectedTextType,
+          blockParentTags: ['SUMMARY'],
+        })
+      "
     >
       <option disabled value="">Teksttype</option>
       <option value="p">Paragraaf</option>
@@ -19,17 +25,17 @@
       <div v-html="addRowSVG"></div>
     </button>
     <div class="divider"></div>
-    <button @click="formatDoc('bold')" class="editor-button">
+    <button @click="formatDoc({ sCmd: 'bold' })" class="editor-button">
       <div v-html="boldSVG"></div>
     </button>
-    <button @click="formatDoc('italic')" class="editor-button">
+    <button @click="formatDoc({ sCmd: 'italic' })" class="editor-button">
       <div v-html="italicSVG"></div>
     </button>
     <div class="divider"></div>
     <select
       class="editor-button-select"
       v-model="selectedColor"
-      @change="formatDoc('forecolor', selectedColor)"
+      @change="formatDoc({ sCmd: 'forecolor', sValue: selectedColor })"
     >
       <option disabled value="">Tekstkleur</option>
       <option value="#2C3E50">Zwart</option>
@@ -38,7 +44,10 @@
       <option value="blue">Blauw</option>
       <option value="green">Groen</option>
     </select>
-    <upload-file-button></upload-file-button>
+    <upload-file-button
+      @imageUploaded="createImage"
+      @videoUploaded="createVideo"
+    ></upload-file-button>
   </div>
   <div class="white-space"></div>
 </template>
@@ -46,6 +55,15 @@
 <script lang="ts">
 import UploadFileButton from "./UploadFileButton.vue";
 import { defineComponent, onBeforeUnmount, onMounted, ref } from "vue";
+import * as EditorUtility from "./EditorUtility";
+
+interface kwargFortmatDoc {
+  sCmd: string;
+  sValue?: string;
+  checkForChanges?: boolean;
+  blockTags?: string[];
+  blockParentTags?: string[];
+}
 
 export default defineComponent({
   components: { UploadFileButton },
@@ -70,90 +88,7 @@ export default defineComponent({
       toggleContenteditableAttr(false);
     });
 
-    // Toggles Accordion |=> details => sumary => h3.contentEditable
-    function toggleEditableH3(
-      nodeList: NodeListOf<HTMLDetailsElement>,
-      isEditable: string
-    ): void {
-      nodeList.forEach((node) =>
-        Array.from(
-          node.getElementsByTagName("summary")[0].getElementsByTagName("h3")
-        ).forEach((el) => (el.contentEditable = isEditable))
-      );
-    }
-
-    // Disables enter key for Accordion |=> details => sumary => h3
-    function disableEnterKeyH3(nodeList: NodeListOf<HTMLDetailsElement>): void {
-      nodeList.forEach(
-        (node) =>
-          (node
-            .getElementsByTagName("summary")[0]
-            .getElementsByTagName("h3")[0].onkeydown = (event) => {
-            if (event.key === "Enter") {
-              event.preventDefault();
-            }
-          })
-      );
-    }
-
-    // Disables space key for Accordion |=> details
-    function disableDetailsSpace(
-      nodeList: NodeListOf<HTMLDetailsElement>
-    ): void {
-      nodeList.forEach(
-        (node) =>
-          (node.onkeyup = (event) => {
-            if (event.key === " ") {
-              event.preventDefault();
-            }
-          })
-      );
-    }
-
-    // Toggles Accordion |=> details => sumary => button.style.display
-    function toggleDisplayRemoveButton(
-      nodeList: NodeListOf<HTMLDetailsElement>,
-      isEditable: string
-    ): void {
-      nodeList.forEach(
-        (node) =>
-          (node
-            .getElementsByTagName("summary")[0]
-            .getElementsByTagName("button")[0].style.display = isEditable
-            ? "initial"
-            : "none")
-      );
-    }
-
-    // Toggles Accordion |=> details => div => ["div", "h3", "p"].contentEditable
-    function toggleEditableAccordionContent(
-      nodeList: NodeListOf<HTMLDetailsElement>,
-      isEditable: string
-    ): void {
-      nodeList.forEach((node) =>
-        ["div", "h3", "p"].forEach((tag) =>
-          Array.from(
-            node
-              .getElementsByTagName("summary")[0]
-              .getElementsByTagName("h3")[0]
-              .getElementsByTagName(tag)
-          ).forEach((el) => el.setAttribute("contentEditable", isEditable))
-        )
-      );
-    }
-
-    // ! CAN BE REMOVED?
-    // Toggles Accordion |=> details => div.contentEditable
-    function toggleEditableAccordionDiv(
-      nodeList: NodeListOf<HTMLDetailsElement>,
-      isEditable: string
-    ): void {
-      nodeList.forEach(
-        (node) =>
-          (node.getElementsByTagName("div")[0].contentEditable = isEditable)
-      );
-    }
-
+    // ! Cannot go into EditorUtitlity -> Has emit
     // Adds event listener to Accordion |=> details => sumary => button.onclick
     // Removes the Accordion / parent details tag, with all children
     function addAccordionRemoveEvent(
@@ -173,154 +108,52 @@ export default defineComponent({
       );
     }
 
-    // Prevents the user from inserting HTML while edditing in contenteditable tags
-    function changePasteEvent() {
-      document.body.onpaste = (event: ClipboardEvent) => {
-        event.preventDefault();
-        if (event.clipboardData) {
-          var text = event.clipboardData.getData("text/plain");
-          document.execCommand("insertHTML", false, text);
-          // TODO check if this should be inserText
-        }
-      };
-    }
-
-    // When element with id "content" is has no child nodes,
-    // inserts p element with placeholder text
-    function addEmptyContentEvent() {
-      (<HTMLElement>document.getElementById("content")).onkeyup = (event) => {
-        if (event.key === "Backspace") {
-          const contentDiv = document.getElementById("content");
-          if (!contentDiv?.hasChildNodes()) {
-            const pTag = document.createElement("p");
-            pTag.innerText = "Plaats hier uw text.";
-            contentDiv?.appendChild(pTag);
-          }
-        }
-      };
-    }
-
-    // TODO: SPLIT INTO MULTIPLE FUNCTIONS
-    function toggleContenteditableAttr(editable: boolean): void {
+    function toggleContenteditableAttr(toggle: boolean): void {
       const nodeList = document.querySelectorAll("details");
 
-      // ! DONE
-      // Makes h3 tags editable
-      nodeList.forEach((node) =>
-        Array.from(
-          node.getElementsByTagName("summary")[0].getElementsByTagName("h3")
-        ).forEach((el) => (el.contentEditable = editable.toString()))
-      );
-
-      // ! DONE
-      // Disables enter key in accordion Header: summary->h3
-      nodeList.forEach(
-        (node) =>
-          (node
-            .getElementsByTagName("summary")[0]
-            .getElementsByTagName("h3")[0].onkeydown = (event) => {
-            if (event.key === "Enter") {
-              event.preventDefault();
-            }
-          })
-      );
-      // ! DONE
-      // Makes the removal buttons visible while editing
-      nodeList.forEach(
-        (node) =>
-          (node
-            .getElementsByTagName("summary")[0]
-            .getElementsByTagName("button")[0].style.display = editable
-            ? "initial"
-            : "none")
-      );
-
-      // ! DONE
-      // Makes the content of the accordion editable
-      nodeList.forEach((node) =>
-        ["div", "h3", "p"].forEach((tag) =>
-          Array.from(
-            node
-              .getElementsByTagName("summary")[0]
-              .getElementsByTagName("h3")[0]
-              .getElementsByTagName(tag)
-          ).forEach((el) =>
-            el.setAttribute("contentEditable", editable.toString())
-          )
-        )
-      );
-
-      // ! DONE
-      // Makes the content of the accordion editable
-      nodeList.forEach(
-        (node) =>
-          (node.getElementsByTagName("div")[0].contentEditable =
-            editable.toString())
-      );
-
-      // ! DONE
-      // Prevents pressing space-bar from opening accodrions while edditing the summary tag
-      nodeList.forEach(
-        (node) =>
-          (node.onkeyup = (event) => {
-            if (event.key === " ") {
-              event.preventDefault();
-            }
-          })
-      );
-
-      // ! DONE
-      // On button click, removes parent detail tag with all childs.
-      // Adds this functionality to the specific buttons.
-      nodeList.forEach(
-        (node) =>
-          (node
-            .getElementsByTagName("summary")[0]
-            .getElementsByTagName("button")[0].onclick = (event) => {
-            const details = <Node>(
-              (<HTMLElement>event.target).parentNode?.parentNode
-            );
-            details.parentNode?.removeChild(details);
-            // checkIfChangesMade();
-            emit("checkForChanges");
-          })
-      );
-
-      // ! DONE
-      document.body.onpaste = (event: ClipboardEvent) => {
-        // cancel paste
-        event.preventDefault();
-        // get text representation of clipboard
-        if (event.clipboardData) {
-          var text = event.clipboardData.getData("text/plain");
-          document.execCommand("insertHTML", false, text);
-          // TODO check if this should be inserText
-        }
-      };
-
-      // ! DONE
-      (<HTMLElement>document.getElementById("content")).onkeyup = (event) => {
-        if (event.key === "Backspace") {
-          const contentDiv = document.getElementById("content");
-          if (!contentDiv?.hasChildNodes()) {
-            const pTag = document.createElement("p");
-            pTag.innerText = "Plaats hier uw text.";
-            contentDiv?.appendChild(pTag);
-          }
-        }
-      };
+      // ! Accordion-Header
+      EditorUtility.toggleEditableH3(nodeList, toggle);
+      EditorUtility.disableEnterKeyH3(nodeList);
+      EditorUtility.disableDetailsSpace(nodeList);
+      EditorUtility.toggleDisplayRemoveButton(nodeList, toggle);
+      addAccordionRemoveEvent(nodeList);
+      // ! Accordion-Content
+      EditorUtility.toggleEditableAccordionContent(nodeList, toggle);
+      EditorUtility.toggleEditableAccordionDiv(nodeList, toggle);
+      EditorUtility.addEmptyContentEvent();
+      // ! Element with ID "content"
+      EditorUtility.changePasteEvent();
     }
 
+    // ! Cannot go into EditorUtitlity -> Has emit
     // Formats editable content
-    function formatDoc(
-      sCmd: string,
-      sValue: string,
-      checkForChanges: boolean = true
-    ): void {
+    function formatDoc({
+      sCmd,
+      sValue,
+      checkForChanges = true,
+      blockTags = [],
+      blockParentTags = [],
+    }: kwargFortmatDoc): void {
       const oDoc = document.getElementById("content");
-      if (hasParent("SUMMARY")) {
+
+      let execute = true;
+      blockTags.forEach((tag) => {
+        if (EditorUtility.hasParent(tag)) {
+          execute = false;
+        }
+      });
+      blockParentTags.forEach((tag) => {
+        if (EditorUtility.hasParent(tag)) {
+          execute = false;
+        }
+      });
+
+      if (execute) {
         document.execCommand(sCmd, false, sValue);
+      } else {
+        console.log("Insert action block.\nCannot insert into tag.");
       }
+
       if (oDoc) {
         oDoc.focus();
       }
@@ -331,75 +164,44 @@ export default defineComponent({
       selectedTextType.value = "";
     }
 
-    function isTag(tag: string): boolean {
-      var node = document.getSelection()?.anchorNode;
-      var nodeType = node?.nodeType == 3 ? node.parentNode : node;
-      if (nodeType) {
-        return nodeType.nodeName !== tag;
-      } else {
-        return false;
-      }
-    }
-
-    function hasParent(tag: string): boolean {
-      var node = document.getSelection()?.anchorNode;
-      var nodeType = node?.nodeType == 3 ? node.parentNode : node;
-      if (nodeType?.parentNode) {
-        return nodeType.parentNode.nodeName !== tag;
-      } else {
-        return false;
-      }
-    }
-
+    // ! Cannot go into EditorUtitlity -> Has emit
     function createAccordion(): void {
-      if (isTag("H3")) {
-        formatDoc("insertHTML", createAccordionElement(), false);
-        createChildElements("newAccordion");
+      if (!EditorUtility.isTag("H3")) {
+        formatDoc({
+          sCmd: "insertHTML",
+          sValue: EditorUtility.createAccordionElement(),
+          checkForChanges: false,
+          blockParentTags: ["SUMMARY"],
+        });
+        EditorUtility.createChildElements("newAccordion");
         toggleContenteditableAttr(true);
         emit("checkForChanges");
       }
     }
 
-    // Returns an accordion element.
-    function createAccordionElement(): string {
-      const details = document.createElement("details");
-      details.id = "newAccordion";
-      details.onkeyup = (event) => {
-        if (event.key === " ") {
-          event.preventDefault();
-        }
-      };
-
-      const summary = document.createElement("summary");
-      const h3 = document.createElement("h3");
-      h3.innerText = "PLACEHOLDER";
-
-      const div = document.createElement("div");
-      div.classList.add("content");
-
-      summary.appendChild(h3);
-
-      details.appendChild(summary);
-      details.appendChild(div);
-
-      return details.outerHTML;
+    function createImage(id: string, type: string) {
+      const pTag = document.createElement("p");
+      const image = document.createElement("image");
+      image.setAttribute("src", `/cdn/${id}`);
+      image.setAttribute("type", `${type}`);
+      image.style.maxHeight = "100%";
+      image.style.maxWidth = "100%";
+      pTag.appendChild(image);
+      formatDoc({ sCmd: "insertHTML", sValue: pTag.outerHTML });
     }
 
-    // Creates child elements for the new accordion element.
-    function createChildElements(id: string): void {
-      const newAccordion = document.getElementById(id);
-      const p = document.createElement("p");
-      p.innerText = "PLACEHOLDER";
-
-      const button = document.createElement("button");
-      button.innerText = "X";
-      button.style.display = "none";
-      button.classList.add("remove-button");
-
-      newAccordion?.getElementsByTagName("div")[0].appendChild(p);
-      newAccordion?.getElementsByTagName("summary")[0].appendChild(button);
-      newAccordion?.removeAttribute("id");
-      newAccordion?.setAttribute("contenteditable", "false");
+    function createVideo(id: string) {
+      const div = document.createElement("div");
+      const video = document.createElement("video");
+      const source = document.createElement("source");
+      video.controls = true;
+      video.disablePictureInPicture = true;
+      video.setAttribute("controlsList", "nodownload noplaybackrate ");
+      source.src = `\\cdn\\${id}`;
+      source.type = "video/mp4";
+      video.appendChild(source);
+      div.appendChild(video);
+      formatDoc({ sCmd: "insertHTML", sValue: div.outerHTML });
     }
 
     return {
@@ -413,10 +215,9 @@ export default defineComponent({
       selectedColor,
       selectedTextType,
       formatDoc,
-      isTag,
       createAccordion,
-      createAccordionElement,
-      createChildElements,
+      createImage,
+      createVideo,
     };
   },
 });

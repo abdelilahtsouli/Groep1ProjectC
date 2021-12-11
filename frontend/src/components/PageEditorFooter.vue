@@ -11,6 +11,13 @@
 </template>
 
 <script lang="ts">
+import {
+  toggleDetails,
+  toggleDisplayRemoveButton,
+  toggleEditableAccordionContent,
+  toggleEditableAccordionDiv,
+  toggleEditableH3,
+} from "./EditorUtility";
 import axios from "axios";
 import { defineComponent, ref } from "vue";
 import { VueCookieNext } from "vue-cookie-next";
@@ -38,42 +45,15 @@ export default defineComponent({
       const tempDOM = <Document>document.cloneNode(true);
 
       //-// Resets the accordions //-//
-
       // Closes details tag and hides the remove button, before sending the content the database.
       const nodeList = tempDOM.querySelectorAll("details");
-      nodeList.forEach((node) => (node.open = false));
-      nodeList.forEach(
-        (node) =>
-          (node
-            .getElementsByTagName("summary")[0]
-            .getElementsByTagName("button")[0].style.display = "none")
-      );
-      // Makes h3 tags non-editable
-      nodeList.forEach(
-        (node) =>
-          (node
-            .getElementsByTagName("summary")[0]
-            .getElementsByTagName("h3")[0].contentEditable = "false")
-      );
-
-      // Makes the content of the accordion editable
-      nodeList.forEach((node) =>
-        ["div", "h3", "p"].forEach((tag) =>
-          Array.from(
-            node
-              .getElementsByTagName("summary")[0]
-              .getElementsByTagName("h3")[0]
-              .getElementsByTagName(tag)
-          ).forEach((el) => el.setAttribute("contentEditable", "false"))
-        )
-      );
-
-      // Makes the content of the accordion editable
-      nodeList.forEach(
-        (node) =>
-          (node.getElementsByTagName("div")[0].contentEditable = "false")
-      );
+      toggleDetails(nodeList, false);
+      toggleDisplayRemoveButton(nodeList, false);
+      toggleEditableH3(nodeList, false);
+      toggleEditableAccordionContent(nodeList, false);
+      toggleEditableAccordionDiv(nodeList, false);
       //-// End //-//
+
       return tempDOM.getElementById("content")?.innerHTML;
     };
 
