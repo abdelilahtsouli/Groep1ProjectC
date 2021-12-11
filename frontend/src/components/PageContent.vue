@@ -28,11 +28,12 @@
 
 <script lang="ts">
 import PageEditor from "./PageEditor.vue";
-import { defineComponent, ref } from "vue";
+import { defineComponent, onUpdated, ref } from "vue";
 import { VueCookieNext } from "vue-cookie-next";
 import axios from "axios";
 import bus from "../bus";
 import Modal from "./Modal.vue";
+import { setAll, showSlides, slideIndex } from "./SlideShowUtility";
 
 export default defineComponent({
   props: {
@@ -88,7 +89,17 @@ export default defineComponent({
       console.log(serverResponse);
     }
 
-    if (props.id != undefined) updatePage(props.id.toString());
+    if (props.id != undefined) {
+      updatePage(props.id.toString());
+    }
+
+    onUpdated(() => {
+      console.log("onUpdated - fired")
+      if (document.getElementById("slideshow")) {
+        setAll();
+        showSlides(slideIndex);
+      }
+    });
 
     return {
       editSVG,
@@ -104,5 +115,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
+@import "../assets/css/SlideShow.css";
 @import "../assets/css/page-components/main.css";
 </style>

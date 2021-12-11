@@ -35,6 +35,9 @@ import {
   toggleEditableAccordionDiv,
   toggleEditableH3,
   toggleDetails,
+  disableCtrlA,
+  resetSlideShowDot,
+  resetImageDisplay,
 } from "./EditorUtility";
 import PageEditorHeader from "./PageEditorHeader.vue";
 import PageEditorFooter from "./PageEditorFooter.vue";
@@ -89,9 +92,16 @@ export default defineComponent({
         toggleDetails(nodeList, false);
       }
 
+      if (tempDomContent) {
+        resetSlideShowDot(tempDomContent);
+        resetImageDisplay(tempDomContent);
+      }
+
       changesMade.value =
         content.value !== tempDom.getElementById("content")?.innerHTML;
     };
+
+    disableCtrlA();
 
     return {
       checkMarkSVG,

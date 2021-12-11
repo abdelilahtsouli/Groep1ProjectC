@@ -12,6 +12,8 @@
 
 <script lang="ts">
 import {
+  resetImageDisplay,
+  resetSlideShowDot,
   toggleDetails,
   toggleDisplayRemoveButton,
   toggleEditableAccordionContent,
@@ -53,6 +55,12 @@ export default defineComponent({
       toggleEditableAccordionContent(nodeList, false);
       toggleEditableAccordionDiv(nodeList, false);
       //-// End //-//
+
+      const tempDomContent = tempDOM.getElementById("content");
+      if (tempDomContent) {
+        resetSlideShowDot(tempDomContent);
+        resetImageDisplay(tempDomContent);
+      }
 
       return tempDOM.getElementById("content")?.innerHTML;
     };

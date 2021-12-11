@@ -1,68 +1,14 @@
-<template>
-  <div class="slideshow-container">
-    <div v-for="(image, index) in images" :key="index" class="mySlides fade">
-      <div class="numbertext">{{ index + 1 }} / {{ images.length }}</div>
-      <img :src="image" />
-    </div>
+#slideshow {
+  margin: 20px 0;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+}
 
-    <a class="prev" @click="plusSlides(-1)">&#10094;</a>
-    <a class="next" @click="plusSlides(1)">&#10095;</a>
-  </div>
-  <br />
-
-  <div style="text-align: center">
-    <span
-      v-for="(image, index) in images"
-      :key="index"
-      class="dot"
-      @click="currentSlide(index + 1)"
-    ></span>
-  </div>
-</template>
-
-<script lang="ts">
-// Source: https://www.w3schools.com/howto/howto_js_slideshow.asp
-import { onMounted } from "vue";
-export default {
-  setup() {
-    const images = ["/1.png", "/2.png", "/3.png", "/4.png"];
-    var slideIndex = 1;
-    onMounted(() => showSlides(slideIndex));
-
-    function plusSlides(index: number) {
-      showSlides((slideIndex += index));
-    }
-
-    function currentSlide(index: number) {
-      showSlides((slideIndex = index));
-    }
-
-    function showSlides(index: number) {
-      var i;
-      var slides = document.getElementsByClassName("mySlides");
-      var dots = document.getElementsByClassName("dot");
-      if (index > slides.length) {
-        slideIndex = 1;
-      }
-      if (index < 1) {
-        slideIndex = slides.length;
-      }
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex - 1].style.display = "block";
-      dots[slideIndex - 1].className += " active";
-    }
-
-    return { images, plusSlides, currentSlide, showSlides };
-  },
-};
-</script>
-
-<style scoped>
 * {
   box-sizing: border-box;
 }
@@ -70,7 +16,7 @@ export default {
 .mySlides {
   display: none;
 }
-img {
+.mySlides img {
   vertical-align: middle;
   width: 200px;
   height: 300px;
@@ -199,4 +145,9 @@ img {
     font-size: 11px;
   }
 }
-</style>
+
+.prev,
+.next {
+  color: #e7334c !important;
+  text-decoration: none;
+}
