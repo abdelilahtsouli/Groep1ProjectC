@@ -16,17 +16,21 @@ namespace Project_C_Website.controllers {
 	[ApiController]
 	public class CdnController : ControllerBase {
 
+		private string getFilePath(string id) {
+			return "./assets/" + id;
+		}
+
 		// GET cdn/1
 		[HttpGet("{id}")]
 		public IActionResult Get(int id) {
 			Database database = new Database();
-			
+
 			DataTable data = database.BuildQuery("select * from media where media_id=@id")
 				.AddParameter("id", id)
 				.Select();
 
 			foreach (DataRow row in data.Rows) {
-				string file = row["media_id"].ToString();
+				string file = getFilePath(row["media_id"].ToString());
 				string type = row["type"].ToString();
 
 				if (!System.IO.File.Exists(file)) {
@@ -41,6 +45,8 @@ namespace Project_C_Website.controllers {
 				return File(b, type);
 			}
 
+			database.Close();
+
 			this.HttpContext.Response.StatusCode = 404;
 			return Content(JsonSerializer.Serialize(new {
 				Success = false,
@@ -48,11 +54,15 @@ namespace Project_C_Website.controllers {
 			}));
 		}
 
-		public bool isValidOauth(string token) {
+		private bool isValidOauth(string token) {
+			if (token == null) return false;
+
 			Database database = new Database();
-			DataTable data = database.BuildQuery("select * from td_user where oauth_token=@token")
+			DataTable data = database.BuildQuery("select * from admins where oauth_token=@token")
 				.AddParameter("token", token)
 				.Select();
+
+			database.Close();
 
 			return data.Rows.Count == 1;
 		}
@@ -99,14 +109,43 @@ namespace Project_C_Website.controllers {
 				id = int.Parse((row["media_id"].ToString()));
 			}
 
-			using (var stream = new FileStream(id.ToString(), FileMode.Create)) {
+			using (var stream = new FileStream(getFilePath(id.ToString()), FileMode.Create)) {
 				file.CopyTo(stream);
 			}
+
+			database.Close();
 
 			return Ok(new {
 				Success = true,
 				Id = id,
 			});
+		}
+
+		// DELETE /cdn/
+		[HttpDelete("{id}")]
+		public ActionResult Delete(int id) {
+			// Authorization check
+			StringValues oauth_token;
+			Request.Headers.TryGetValue("Authorization", out oauth_token);
+			if (!isValidOauth(oauth_token)) {
+				return BadRequest(new {
+					Success = false,
+					Message = "Invalid oauth token."
+				});
+			}
+
+			Database database = new Database();
+
+			database.BuildQuery("delete from media where media_id=@id")
+				.AddParameter("id", id)
+				.Query();
+
+			database.Close();
+
+			string file = getFilePath(id.ToString());
+			System.IO.File.Delete(file);
+
+			return Ok();
 		}
 	}
 }
