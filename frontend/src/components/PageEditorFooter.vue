@@ -14,12 +14,13 @@
 import {
   resetImageDisplay,
   resetSlideShowDot,
+  toggleEditSlideButtons,
   toggleDetails,
   toggleDisplayRemoveButton,
   toggleEditableAccordionContent,
   toggleEditableAccordionDiv,
   toggleEditableH3,
-} from "./EditorUtility";
+} from "../Extensions/PageEditor/main";
 import axios from "axios";
 import { defineComponent, ref } from "vue";
 import { VueCookieNext } from "vue-cookie-next";
@@ -60,6 +61,14 @@ export default defineComponent({
       if (tempDomContent) {
         resetSlideShowDot(tempDomContent);
         resetImageDisplay(tempDomContent);
+        toggleEditSlideButtons(false, tempDOM);
+        Array.from(
+          tempDOM.getElementsByClassName("slideshow-container")
+        ).forEach((sl) => {
+          const inputElements = tempDOM.getElementsByName("hidden-input");
+          console.log(inputElements);
+          inputElements.forEach((el) => sl.removeChild(el));
+        });
       }
 
       return tempDOM.getElementById("content")?.innerHTML;
@@ -69,7 +78,6 @@ export default defineComponent({
     function submit(): void {
       // Send the new content of the editor to the backend.
       // Note: POST creates a new page while PUT modifies a page
-
       const content = getNewContent();
       const newContent =
         content !== undefined

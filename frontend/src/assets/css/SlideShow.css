@@ -1,11 +1,17 @@
 #slideshow {
   margin: 20px 0;
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-   -khtml-user-select: none; /* Konqueror HTML */
-     -moz-user-select: none; /* Old versions of Firefox */
-      -ms-user-select: none; /* Internet Explorer/Edge */
-          user-select: none; /* Non-prefixed version, currently
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
                                 supported by Chrome, Edge, Opera and Firefox */
 }
 
@@ -16,6 +22,7 @@
 .mySlides {
   display: none;
 }
+
 .mySlides img {
   vertical-align: middle;
   width: 200px;
@@ -54,7 +61,9 @@
 
 .prev:active,
 .next:active,
-.dot:active {
+.dot:active,
+.add-slide-button:active,
+.remove-slide-button:active {
   transform: scale(1.1);
   transition: 0.1s;
 }
@@ -73,6 +82,7 @@
 
 /* On hover, add a black background color with a little bit see-through */
 @media (min-width: 1000px) {
+
   .prev:hover,
   .next:hover {
     background-color: rgba(0, 0, 0, 0.8);
@@ -124,6 +134,7 @@
   from {
     opacity: 0.4;
   }
+
   to {
     opacity: 1;
   }
@@ -133,6 +144,7 @@
   from {
     opacity: 0.4;
   }
+
   to {
     opacity: 1;
   }
@@ -140,6 +152,7 @@
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
+
   .prev,
   .next {
     font-size: 11px;
@@ -150,4 +163,48 @@
 .next {
   color: #e7334c !important;
   text-decoration: none;
+}
+
+.add-slide-button {
+  color: white !important;
+  font-size: 12px;
+  /* padding: 8px 12px; */
+  padding: 8px;
+  /* width: 40px;
+  height: 40px; */
+  position: absolute;
+  top: 1;
+  right: 0;
+  /*  */
+  background-color: green;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px -2px rgb(112 128 144 / 50%);
+}
+
+.remove-slide-button {
+  color: white !important;
+  font-size: 12px;
+  /* padding: 8px 12px; */
+  padding: 8px;
+  /* width: 40px;
+  height: 40px; */
+  position: absolute;
+  top: 1;
+  /* right: 0; */
+  left: 0;
+  /*  */
+  background-color: red;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px -2px rgb(112 128 144 / 50%);
+}
+
+.add-slide-button svg,
+.remove-slide-button svg {
+  fill: white !important;
+}
+
+.add-slide-button input {
+  height: 24px !important;
+  width: 24px !important;
+  padding: 8px !important;
 }

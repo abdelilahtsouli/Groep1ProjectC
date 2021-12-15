@@ -38,7 +38,7 @@ import {
   disableCtrlA,
   resetSlideShowDot,
   resetImageDisplay,
-} from "./EditorUtility";
+} from "../Extensions/PageEditor/main";
 import PageEditorHeader from "./PageEditorHeader.vue";
 import PageEditorFooter from "./PageEditorFooter.vue";
 import { defineComponent, ref } from "vue";

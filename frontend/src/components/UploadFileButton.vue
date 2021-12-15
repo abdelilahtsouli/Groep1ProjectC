@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts">
-import { hasParent } from "./EditorUtility";
+import { hasParent } from "../Extensions/PageEditor/main";
 import axios from "axios";
 
 function getCookie(name: string): string | null {

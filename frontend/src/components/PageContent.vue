@@ -33,7 +33,7 @@ import { VueCookieNext } from "vue-cookie-next";
 import axios from "axios";
 import bus from "../bus";
 import Modal from "./Modal.vue";
-import { setAll, showSlides, slideIndex } from "./SlideShowUtility";
+import { setAll, showSlides, slideIndex } from "../Extensions/SlideShow/main";
 
 export default defineComponent({
   props: {

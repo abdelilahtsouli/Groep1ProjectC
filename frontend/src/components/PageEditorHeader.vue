@@ -55,7 +55,9 @@
 <script lang="ts">
 import UploadFileButton from "./UploadFileButton.vue";
 import { defineComponent, onBeforeUnmount, onMounted, ref } from "vue";
-import * as EditorUtility from "./EditorUtility";
+import * as EditorUtility from "../Extensions/PageEditor/main";
+import { addSlide } from "../Extensions/SlideShow/main";
+import axios from "axios";
 
 interface kwargFortmatDoc {
   sCmd: string;
@@ -63,6 +65,21 @@ interface kwargFortmatDoc {
   checkForChanges?: boolean;
   blockTags?: string[];
   blockParentTags?: string[];
+}
+
+function getCookie(name: string): string | null {
+  const nameLenPlus = name.length + 1;
+  return (
+    document.cookie
+      .split(";")
+      .map((c) => c.trim())
+      .filter((cookie) => {
+        return cookie.substring(0, nameLenPlus) === `${name}=`;
+      })
+      .map((cookie) => {
+        return decodeURIComponent(cookie.substring(nameLenPlus));
+      })[0] || null
+  );
 }
 
 export default defineComponent({
@@ -88,26 +105,6 @@ export default defineComponent({
       toggleContenteditableAttr(false);
     });
 
-    // ! Cannot go into EditorUtitlity -> Has emit
-    // Adds event listener to Accordion |=> details => sumary => button.onclick
-    // Removes the Accordion / parent details tag, with all children
-    function addAccordionRemoveEvent(
-      nodeList: NodeListOf<HTMLDetailsElement>
-    ): void {
-      nodeList.forEach(
-        (node) =>
-          (node
-            .getElementsByTagName("summary")[0]
-            .getElementsByTagName("button")[0].onclick = (event) => {
-            const details = <Node>(
-              (<HTMLElement>event.target).parentNode?.parentNode
-            );
-            details.parentNode?.removeChild(details);
-            emit("checkForChanges");
-          })
-      );
-    }
-
     function toggleContenteditableAttr(toggle: boolean): void {
       const nodeList = document.querySelectorAll("details");
 
@@ -116,13 +113,59 @@ export default defineComponent({
       EditorUtility.disableEnterKeyH3(nodeList);
       EditorUtility.disableDetailsSpace(nodeList);
       EditorUtility.toggleDisplayRemoveButton(nodeList, toggle);
-      addAccordionRemoveEvent(nodeList);
+      setAccordionRemoveEvent(nodeList);
       // ! Accordion-Content
       EditorUtility.toggleEditableAccordionContent(nodeList, toggle);
       EditorUtility.toggleEditableAccordionDiv(nodeList, toggle);
       EditorUtility.addEmptyContentEvent();
       // ! Element with ID "content"
       EditorUtility.changePasteEvent();
+      // ! SlideShow
+      if (document.getElementById("slideshow")) {
+        EditorUtility.toggleEditSlideButtons(toggle, document);
+        toggleHiddenInputElement(toggle);
+        console.log("Slideshow");
+      }
+    }
+
+    function toggleHiddenInputElement(toggle: boolean) {
+      if (toggle) {
+        const inputEl = document.createElement("input");
+        inputEl.id = "hidden-image-input";
+        inputEl.accept = "image/jpeg, image/png";
+        inputEl.type = "file";
+        inputEl.style.display = "none";
+        inputEl.onchange = function upload(event: any) {
+          if (!EditorUtility.hasParent("SUMMARY")) {
+            const file = event.target.files[0];
+            var formData = new FormData();
+            formData.append("media", file);
+
+            axios
+              .post("/cdn/", formData, {
+                headers: {
+                  "Content-Type": "multipart/form-data",
+                  Authorization: <string>getCookie("token"),
+                },
+              })
+              .then(
+                (response: any) => {
+                  // TODO ADD SLIDE
+                  console.log();
+                  addSlide(`/cdn/${response.data.id}`, 0);
+                },
+                (error: any) => {
+                  console.log(error.value);
+                }
+              );
+          } else {
+            console.log("image/video upload blocked");
+          }
+        };
+        document.getElementById("app")?.appendChild(inputEl);
+      } else {
+        document.getElementById("hidden-image-input")?.remove();
+      }
     }
 
     // ! Cannot go into EditorUtitlity -> Has emit
@@ -162,6 +205,26 @@ export default defineComponent({
       }
       selectedColor.value = "";
       selectedTextType.value = "";
+    }
+
+    // ! Cannot go into EditorUtitlity -> Has emit
+    // Adds event listener to Accordion |=> details => sumary => button.onclick
+    // Removes the Accordion / parent details tag, with all children
+    function setAccordionRemoveEvent(
+      nodeList: NodeListOf<HTMLDetailsElement>
+    ): void {
+      nodeList.forEach(
+        (node) =>
+          (node
+            .getElementsByTagName("summary")[0]
+            .getElementsByTagName("button")[0].onclick = (event) => {
+            const details = <Node>(
+              (<HTMLElement>event.target).parentNode?.parentNode
+            );
+            details.parentNode?.removeChild(details);
+            emit("checkForChanges");
+          })
+      );
     }
 
     // ! Cannot go into EditorUtitlity -> Has emit
@@ -225,6 +288,7 @@ export default defineComponent({
 
 <style scoped>
 @import "../assets/css/editor-components/editorbutton.css";
+@import "../assets/css/SlideShow.css";
 
 .editor .header {
   display: flex;
