@@ -62,7 +62,7 @@ export default {
   },
 
   mounted() {
-    fetch('http://' + window.location.host +'/locations.json')
+    fetch('https://' + window.location.host +'/locations.json')
     .then(response => response.json())
     .then(data => this.locations = data)
     .then(data => this.baseLocations = data)
