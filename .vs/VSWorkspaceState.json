@@ -1,6 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\frontend",
+    "\\frontend\\src",
+    "\\frontend\\src\\components",
+    "\\frontend\\src\\Extensions",
+    "\\frontend\\src\\Extensions\\SlideShow",
+    "\\frontend\\src\\pages"
   ],
+  "SelectedNode": "\\frontend\\src\\Extensions\\SlideShow\\main.ts",
   "PreviewInSolutionExplorer": false
 }
