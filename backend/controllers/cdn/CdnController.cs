@@ -11,123 +11,141 @@ using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace Project_C_Website.controllers
-{
-  [Route("/cdn")]
-  [ApiController]
-  public class CdnController : ControllerBase
-  {
+namespace Project_C_Website.controllers {
+	[Route("/cdn")]
+	[ApiController]
+	public class CdnController : ControllerBase {
 
-    // GET cdn/1
-    [HttpGet("{id}")]
-    public IActionResult Get(int id)
-    {
-      Database database = new Database();
+		private string getFilePath(string id) {
+			return "./assets/" + id;
+		}
 
-      DataTable data = database.BuildQuery("select * from media where media_id=@id")
-        .AddParameter("id", id)
-        .Select();
+		// GET cdn/1
+		[HttpGet("{id}")]
+		public IActionResult Get(int id) {
+			Database database = new Database();
 
-      foreach (DataRow row in data.Rows)
-      {
-        string file = row["media_id"].ToString();
-        string type = row["type"].ToString();
+			DataTable data = database.BuildQuery("select * from media where media_id=@id")
+				.AddParameter("id", id)
+				.Select();
 
-        if (!System.IO.File.Exists(file))
-        {
-          this.HttpContext.Response.StatusCode = 500;
-          return Content(JsonSerializer.Serialize(new
-          {
-            Success = false,
-            Message = "File Not Found (doesn't exist on the disk)"
-          }));
-        }
+			foreach (DataRow row in data.Rows) {
+				string file = getFilePath(row["media_id"].ToString());
+				string type = row["type"].ToString();
 
-        Byte[] b = System.IO.File.ReadAllBytes(file);
-        return File(b, type);
-      }
+				if (!System.IO.File.Exists(file)) {
+					this.HttpContext.Response.StatusCode = 500;
+					return Content(JsonSerializer.Serialize(new {
+						Success = false,
+						Message = "File Not Found (doesn't exist on the disk)"
+					}));
+				}
 
-      this.HttpContext.Response.StatusCode = 404;
-      database.Close();
-      return Content(JsonSerializer.Serialize(new
-      {
-        Success = false,
-        Message = "Not Found"
-      }));
-    }
+				Byte[] b = System.IO.File.ReadAllBytes(file);
+				return File(b, type);
+			}
 
-    public bool isValidOauth(string token)
-    {
-      Database database = new Database();
-      DataTable data = database.BuildQuery("select * from admins where oauth_token=@token")
-        .AddParameter("token", token)
-        .Select();
-				
-      database.Close();
-      return data.Rows.Count == 1;
-    }
+			database.Close();
 
-    // POST /cdn/
-    [HttpPost]
-    public ActionResult Post()
-    {
-      // Authorization check
-      StringValues oauth_token;
-      Request.Headers.TryGetValue("Authorization", out oauth_token);
-      if (!isValidOauth(oauth_token))
-      {
-        BadRequest(new
-        {
-          Success = false,
-          Message = "Invalid oauth token."
-        });
-      }
+			this.HttpContext.Response.StatusCode = 404;
+			return Content(JsonSerializer.Serialize(new {
+				Success = false,
+				Message = "Not Found"
+			}));
+		}
 
-      var file = Request.Form.Files[0];
-      string type = file.ContentType;
+		private bool isValidOauth(string token) {
+			if (token == null) return false;
 
-      if (file.Length == 0)
-      {
-        return BadRequest(new
-        {
-          Success = false,
-          Message = "Invalid file."
-        });
-      }
+			Database database = new Database();
+			DataTable data = database.BuildQuery("select * from admins where oauth_token=@token")
+				.AddParameter("token", token)
+				.Select();
 
-      // Make sure the file is not larger then 10mb.
-      if (file.Length > 1000000 * 10)
-      {
-        return BadRequest(new
-        {
-          Success = false,
-          Message = "The file is too large."
-        });
-      }
+			database.Close();
 
-      // Add the media to the database.
-      Database database = new Database();
-      DataTable data = database.BuildQuery("insert into media VALUES (default, @type) RETURNING media_id")
-        .AddParameter("type", type)
-        .Select();
+			return data.Rows.Count == 1;
+		}
 
-      int id = -1;
-      foreach (DataRow row in data.Rows)
-      {
-        id = int.Parse((row["media_id"].ToString()));
-      }
+		// POST /cdn/
+		[HttpPost]
+		public ActionResult Post() {
+			// Authorization check
+			StringValues oauth_token;
+			Request.Headers.TryGetValue("Authorization", out oauth_token);
+			if (!isValidOauth(oauth_token)) {
+				BadRequest(new {
+					Success = false,
+					Message = "Invalid oauth token."
+				});
+			}
 
-      using (var stream = new FileStream(id.ToString(), FileMode.Create))
-      {
-        file.CopyTo(stream);
-      }
+			var file = Request.Form.Files[0];
+			string type = file.ContentType;
 
-      database.Close();
-      return Ok(new
-      {
-        Success = true,
-        Id = id,
-      });
-    }
-  }
+			if (file.Length == 0) {
+				return BadRequest(new {
+					Success = false,
+					Message = "Invalid file."
+				});
+			}
+
+			// Make sure the file is not larger then 10mb.
+			if (file.Length > 1000000 * 10) {
+				return BadRequest(new {
+					Success = false,
+					Message = "The file is too large."
+				});
+			}
+
+			// Add the media to the database.
+			Database database = new Database();
+			DataTable data = database.BuildQuery("insert into media VALUES (default, @type) RETURNING media_id")
+				.AddParameter("type", type)
+				.Select();
+
+			int id = -1;
+			foreach (DataRow row in data.Rows) {
+				id = int.Parse((row["media_id"].ToString()));
+			}
+
+			using (var stream = new FileStream(getFilePath(id.ToString()), FileMode.Create)) {
+				file.CopyTo(stream);
+			}
+
+			database.Close();
+
+			return Ok(new {
+				Success = true,
+				Id = id,
+			});
+		}
+
+		// DELETE /cdn/
+		[HttpDelete("{id}")]
+		public ActionResult Delete(int id) {
+			// Authorization check
+			StringValues oauth_token;
+			Request.Headers.TryGetValue("Authorization", out oauth_token);
+			if (!isValidOauth(oauth_token)) {
+				return BadRequest(new {
+					Success = false,
+					Message = "Invalid oauth token."
+				});
+			}
+
+			Database database = new Database();
+
+			database.BuildQuery("delete from media where media_id=@id")
+				.AddParameter("id", id)
+				.Query();
+
+			database.Close();
+
+			string file = getFilePath(id.ToString());
+			System.IO.File.Delete(file);
+
+			return Ok();
+		}
+	}
 }
