@@ -1,27 +1,41 @@
 <template>
   <div class="header">
-    <button @click="formatDoc('formatblock', 'h3')" class="editor-button">
-      <div v-html="headerSVG"></div>
-    </button>
-    <button @click="formatDoc('formatblock', 'p')" class="editor-button">
-      <div v-html="paragraphSVG"></div>
-    </button>
+    <select
+      class="editor-button-select"
+      v-model="selectedTextType"
+      @change="
+        formatDoc({
+          sCmd: 'formatblock',
+          sValue: selectedTextType,
+          blockParentTags: ['SUMMARY'],
+        })
+      "
+    >
+      <option disabled value="">Teksttype</option>
+      <option value="p">Paragraaf</option>
+      <option value="h1">Kop 1</option>
+      <option value="h2">Kop 2</option>
+      <option value="h3">Kop 3</option>
+      <option value="h4">Kop 4</option>
+      <option value="h5">Kop 5</option>
+      <option value="h6">Kop 6</option>
+    </select>
     <div class="divider"></div>
     <button @click="createAccordion" class="editor-button">
       <div v-html="addRowSVG"></div>
     </button>
     <div class="divider"></div>
-    <button @click="formatDoc('bold')" class="editor-button">
+    <button @click="formatDoc({ sCmd: 'bold' })" class="editor-button">
       <div v-html="boldSVG"></div>
     </button>
-    <button @click="formatDoc('italic')" class="editor-button">
+    <button @click="formatDoc({ sCmd: 'italic' })" class="editor-button">
       <div v-html="italicSVG"></div>
     </button>
     <div class="divider"></div>
     <select
       class="editor-button-select"
       v-model="selectedColor"
-      @change="formatDoc('forecolor', selectedColor)"
+      @change="formatDoc({ sCmd: 'forecolor', sValue: selectedColor })"
     >
       <option disabled value="">Tekstkleur</option>
       <option value="#2C3E50">Zwart</option>
@@ -30,19 +44,46 @@
       <option value="blue">Blauw</option>
       <option value="green">Groen</option>
     </select>
+    <upload-file-button
+      @imageUploaded="createImage"
+      @videoUploaded="createVideo"
+    ></upload-file-button>
   </div>
+  <div class="white-space"></div>
 </template>
 
 <script lang="ts">
-import {
-  defineComponent,
-  onBeforeUnmount,
-  onMounted,
-  ref,
-  watchEffect,
-} from "vue";
+import UploadFileButton from "./UploadFileButton.vue";
+import { defineComponent, onBeforeUnmount, onMounted, ref } from "vue";
+import * as EditorUtility from "../Extensions/PageEditor/main";
+import { addSlide } from "../Extensions/SlideShow/main";
+import axios from "axios";
+
+interface kwargFortmatDoc {
+  sCmd: string;
+  sValue?: string;
+  checkForChanges?: boolean;
+  blockTags?: string[];
+  blockParentTags?: string[];
+}
+
+function getCookie(name: string): string | null {
+  const nameLenPlus = name.length + 1;
+  return (
+    document.cookie
+      .split(";")
+      .map((c) => c.trim())
+      .filter((cookie) => {
+        return cookie.substring(0, nameLenPlus) === `${name}=`;
+      })
+      .map((cookie) => {
+        return decodeURIComponent(cookie.substring(nameLenPlus));
+      })[0] || null
+  );
+}
 
 export default defineComponent({
+  components: { UploadFileButton },
   emits: ["checkForChanges"],
   setup(props, { emit }) {
     // Editor Header SVG's
@@ -54,106 +95,7 @@ export default defineComponent({
     const boldSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M8 11h4.5a2.5 2.5 0 1 0 0-5H8v5zm10 4.5a4.5 4.5 0 0 1-4.5 4.5H6V4h6.5a4.5 4.5 0 0 1 3.256 7.606A4.498 4.498 0 0 1 18 15.5zM8 13v5h5.5a2.5 2.5 0 1 0 0-5H8z"/></svg>`;
     const italicSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M15 20H7v-2h2.927l2.116-12H9V4h8v2h-2.927l-2.116 12H15z"/></svg>`;
     const selectedColor = ref("");
-
-    const toggleContenteditableAttr = (editable: boolean) => {
-      const nodeList = document.querySelectorAll("details");
-
-      // Makes h3 tags editable
-      nodeList.forEach(
-        (node) =>
-          (node
-            .getElementsByTagName("summary")[0]
-            .getElementsByTagName("h3")[0].contentEditable =
-            editable.toString())
-      );
-
-      // Disables enter key in accordion Header: summary->h3
-      nodeList.forEach(
-        (node) =>
-          (node
-            .getElementsByTagName("summary")[0]
-            .getElementsByTagName("h3")[0].onkeydown = (event) => {
-            if (event.key === "Enter") {
-              event.preventDefault();
-            }
-          })
-      );
-
-      // Makes the removal buttons visible while editing
-      nodeList.forEach(
-        (node) =>
-          (node
-            .getElementsByTagName("summary")[0]
-            .getElementsByTagName("button")[0].style.display = editable
-            ? "initial"
-            : "none")
-      );
-      // Makes the content of the accordion editable
-      nodeList.forEach((node) =>
-        ["div", "h3", "p"].forEach((tag) =>
-          Array.from(
-            node
-              .getElementsByTagName("summary")[0]
-              .getElementsByTagName("h3")[0]
-              .getElementsByTagName(tag)
-          ).forEach((el) =>
-            el.setAttribute("contentEditable", editable.toString())
-          )
-        )
-      );
-
-      // Makes the content of the accordion editable
-      nodeList.forEach(
-        (node) =>
-          (node.getElementsByTagName("div")[0].contentEditable =
-            editable.toString())
-      );
-
-      // Prevents pressing space-bar from opening accodrions while edditing the summary tag
-      nodeList.forEach(
-        (node) =>
-          (node.onkeyup = (event) => {
-            if (event.key === " ") {
-              event.preventDefault();
-            }
-          })
-      );
-
-      // On button click, removes parent detail tag with all childs.
-      // Adds this functionality to the specific buttons.
-      nodeList.forEach(
-        (node) =>
-          (node
-            .getElementsByTagName("summary")[0]
-            .getElementsByTagName("button")[0].onclick = (event) => {
-            const details = <Node>(
-              (<HTMLElement>event.target).parentNode?.parentNode
-            );
-            details.parentNode?.removeChild(details);
-            // checkIfChangesMade();
-            emit("checkForChanges");
-          })
-      );
-
-      document.body.onpaste = (event: ClipboardEvent) => {
-        // cancel paste
-        event.preventDefault();
-        // get text representation of clipboard
-        var text = event.clipboardData.getData("text/plain");
-        document.execCommand("insertHTML", false, text);
-      };
-
-      (<HTMLElement>document.getElementById("content")).onkeyup = (event) => {
-        if (event.key === "Backspace") {
-          const contentDiv = document.getElementById("content");
-          if (!contentDiv?.hasChildNodes()) {
-            const pTag = document.createElement("p");
-            pTag.innerText = "Plaats hier uw text.";
-            contentDiv?.appendChild(pTag);
-          }
-        }
-      };
-    };
+    const selectedTextType = ref("");
 
     onMounted(() => {
       toggleContenteditableAttr(true);
@@ -163,83 +105,167 @@ export default defineComponent({
       toggleContenteditableAttr(false);
     });
 
+    function toggleContenteditableAttr(toggle: boolean): void {
+      const nodeList = document.querySelectorAll("details");
+
+      // ! Accordion-Header
+      EditorUtility.toggleEditableH3(nodeList, toggle);
+      EditorUtility.disableEnterKeyH3(nodeList);
+      EditorUtility.disableDetailsSpace(nodeList);
+      EditorUtility.toggleDisplayRemoveButton(nodeList, toggle);
+      setAccordionRemoveEvent(nodeList);
+      // ! Accordion-Content
+      EditorUtility.toggleEditableAccordionContent(nodeList, toggle);
+      EditorUtility.toggleEditableAccordionDiv(nodeList, toggle);
+      EditorUtility.addEmptyContentEvent();
+      // ! Element with ID "content"
+      EditorUtility.changePasteEvent();
+      // ! SlideShow
+      if (document.getElementById("slideshow")) {
+        EditorUtility.toggleEditSlideButtons(toggle, document);
+        toggleHiddenInputElement(toggle);
+        console.log("Slideshow");
+      }
+    }
+
+    function toggleHiddenInputElement(toggle: boolean) {
+      if (toggle) {
+        const inputEl = document.createElement("input");
+        inputEl.id = "hidden-image-input";
+        inputEl.accept = "image/jpeg, image/png";
+        inputEl.type = "file";
+        inputEl.style.display = "none";
+        inputEl.onchange = function upload(event: any) {
+          if (!EditorUtility.hasParent("SUMMARY")) {
+            const file = event.target.files[0];
+            var formData = new FormData();
+            formData.append("media", file);
+
+            axios
+              .post("/cdn/", formData, {
+                headers: {
+                  "Content-Type": "multipart/form-data",
+                  Authorization: <string>getCookie("token"),
+                },
+              })
+              .then(
+                (response: any) => {
+                  // TODO ADD SLIDE
+                  console.log();
+                  addSlide(`/cdn/${response.data.id}`, 0);
+                },
+                (error: any) => {
+                  console.log(error.value);
+                }
+              );
+          } else {
+            console.log("image/video upload blocked");
+          }
+        };
+        document.getElementById("app")?.appendChild(inputEl);
+      } else {
+        document.getElementById("hidden-image-input")?.remove();
+      }
+    }
+
+    // ! Cannot go into EditorUtitlity -> Has emit
     // Formats editable content
-    function formatDoc(
-      sCmd: string,
-      sValue: string,
-      checkForChanges: boolean = true
-    ): void {
+    function formatDoc({
+      sCmd,
+      sValue,
+      checkForChanges = true,
+      blockTags = [],
+      blockParentTags = [],
+    }: kwargFortmatDoc): void {
       const oDoc = document.getElementById("content");
-      document.execCommand(sCmd, false, sValue);
+
+      let execute = true;
+      blockTags.forEach((tag) => {
+        if (EditorUtility.hasParent(tag)) {
+          execute = false;
+        }
+      });
+      blockParentTags.forEach((tag) => {
+        if (EditorUtility.hasParent(tag)) {
+          execute = false;
+        }
+      });
+
+      if (execute) {
+        document.execCommand(sCmd, false, sValue);
+      } else {
+        console.log("Insert action block.\nCannot insert into tag.");
+      }
+
       if (oDoc) {
         oDoc.focus();
       }
-      selectedColor.value = "";
       if (checkForChanges) {
+        emit("checkForChanges");
+      }
+      selectedColor.value = "";
+      selectedTextType.value = "";
+    }
+
+    // ! Cannot go into EditorUtitlity -> Has emit
+    // Adds event listener to Accordion |=> details => sumary => button.onclick
+    // Removes the Accordion / parent details tag, with all children
+    function setAccordionRemoveEvent(
+      nodeList: NodeListOf<HTMLDetailsElement>
+    ): void {
+      nodeList.forEach(
+        (node) =>
+          (node
+            .getElementsByTagName("summary")[0]
+            .getElementsByTagName("button")[0].onclick = (event) => {
+            const details = <Node>(
+              (<HTMLElement>event.target).parentNode?.parentNode
+            );
+            details.parentNode?.removeChild(details);
+            emit("checkForChanges");
+          })
+      );
+    }
+
+    // ! Cannot go into EditorUtitlity -> Has emit
+    function createAccordion(): void {
+      if (!EditorUtility.isTag("H3")) {
+        formatDoc({
+          sCmd: "insertHTML",
+          sValue: EditorUtility.createAccordionElement(),
+          checkForChanges: false,
+          blockParentTags: ["SUMMARY"],
+        });
+        EditorUtility.createChildElements("newAccordion");
+        toggleContenteditableAttr(true);
         emit("checkForChanges");
       }
     }
 
-    const TagCompatible = () => {
-      var node = document.getSelection()?.anchorNode;
-      var nodeType = node?.nodeType == 3 ? node.parentNode : node;
-      if (nodeType) {
-        return nodeType.nodeName !== "H3";
-      } else {
-        return false;
-      }
-    };
+    function createImage(id: string, type: string) {
+      const pTag = document.createElement("p");
+      const image = document.createElement("image");
+      image.setAttribute("src", `/cdn/${id}`);
+      image.setAttribute("type", `${type}`);
+      image.style.maxHeight = "100%";
+      image.style.maxWidth = "100%";
+      pTag.appendChild(image);
+      formatDoc({ sCmd: "insertHTML", sValue: pTag.outerHTML });
+    }
 
-    const createAccordion = () => {
-      if (TagCompatible()) {
-        formatDoc("insertHTML", createAccordionElement(), false);
-        createChildElements("newAccordion");
-        toggleContenteditableAttr(true);
-        emit("checkForChanges");
-      }
-    };
-
-    // Returns an accordion element.
-    const createAccordionElement = () => {
-      const details = document.createElement("details");
-      details.id = "newAccordion";
-      details.onkeyup = (event) => {
-        if (event.key === " ") {
-          event.preventDefault();
-        }
-      };
-
-      const summary = document.createElement("summary");
-      const h3 = document.createElement("h3");
-      h3.innerText = "PLACEHOLDER";
-
+    function createVideo(id: string) {
       const div = document.createElement("div");
-      div.classList.add("content");
-
-      summary.appendChild(h3);
-
-      details.appendChild(summary);
-      details.appendChild(div);
-
-      return details.outerHTML;
-    };
-
-    // Creates child elements for the new accordion element.
-    const createChildElements = (id: string) => {
-      const newAccordion = document.getElementById(id);
-      const p = document.createElement("p");
-      p.innerText = "PLACEHOLDER";
-
-      const button = document.createElement("button");
-      button.innerText = "X";
-      button.style.display = "none";
-      button.classList.add("remove-button");
-
-      newAccordion?.getElementsByTagName("div")[0].appendChild(p);
-      newAccordion?.getElementsByTagName("summary")[0].appendChild(button);
-      newAccordion?.removeAttribute("id");
-      newAccordion?.setAttribute("contenteditable", "false");
-    };
+      const video = document.createElement("video");
+      const source = document.createElement("source");
+      video.controls = true;
+      video.disablePictureInPicture = true;
+      video.setAttribute("controlsList", "nodownload noplaybackrate ");
+      source.src = `\\cdn\\${id}`;
+      source.type = "video/mp4";
+      video.appendChild(source);
+      div.appendChild(video);
+      formatDoc({ sCmd: "insertHTML", sValue: div.outerHTML });
+    }
 
     return {
       addRowSVG,
@@ -250,45 +276,27 @@ export default defineComponent({
       boldSVG,
       italicSVG,
       selectedColor,
+      selectedTextType,
       formatDoc,
-      TagCompatible,
       createAccordion,
-      createAccordionElement,
-      createChildElements,
+      createImage,
+      createVideo,
     };
   },
 });
 </script>
 
 <style scoped>
+@import "../assets/css/editor-components/editorbutton.css";
+@import "../assets/css/SlideShow.css";
+
 .editor .header {
-  border-bottom: 3px solid black;
-  border-radius: 8px;
   display: flex;
   align-items: center;
   flex: 0 0 auto;
   flex-wrap: wrap;
   padding: 0.25rem;
-}
-
-.divider {
-  width: 2px;
-  height: 1.25rem;
-  background-color: rgba(0, 0, 0, 0.1);
-  margin-left: 0.5rem;
-  margin-right: 0.75rem;
-}
-
-.editor-button {
-  width: 1.75rem;
-  height: 1.75rem;
-  color: #0d0d0d;
-  border: none;
-  background-color: transparent;
-  border-radius: 0.4rem;
-  padding: 0.25rem;
-  margin-right: 0.25rem;
-  cursor: pointer;
+  border-bottom: 3px solid #0d0d0d;
 }
 
 .editor-button-select {
@@ -304,8 +312,11 @@ export default defineComponent({
   cursor: pointer;
 }
 
-.editor-button svg {
-  width: 100%;
-  height: 100%;
+.divider {
+  width: 2px;
+  height: 1.25rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin-left: 0.5rem;
+  margin-right: 0.75rem;
 }
 </style>

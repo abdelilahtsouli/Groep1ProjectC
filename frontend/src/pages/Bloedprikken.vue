@@ -1,6 +1,16 @@
 <template>
   <div class="white-space-top"></div>
+  <!-- <div class="text-box">
+    <h3>Coronamaatregelen - zorg goed voor uzelf en voor elkaar</h3>
+    <p>Star-shl blijft de anderhalve meter afstand handhaven. Op onze locaties komen mensen met een kwetsbare gezondheid. Het afstand houden beschermt deze patiënten tegen risico op overdracht van Covid-19. Daarnaast willen we voorkomen dat medewerkers besmet raken en niet kunnen werken.</p>
+    <p>Mondkapjes zijn vanaf 6 november 2021 verplicht in publieke ruimtes. We vragen patiënten daarom dringend een zelf meegebracht mondkapje te dragen op de locaties van Star-shl. Star-shl volgt hierin het beleid van de Rijksoverheid. Onze medewerkers maken gebruik van een mondneusmasker en handschoenen.</p>
+    <slide-show></slide-show>
+    <p>Realiseert u zich a.u.b. dat vaccinatie tegen het coronavirus geen 100% garantie geeft tegen verspreiding van het virus onder ons. Dit betekent dat we u kunnen vragen (als ook als u al gevaccineerd bent) of u klachten heeft die passen bij corona. We kunnen ook vragen of er sprake is van thuisquarantaine of een risicocontact met corona. Dit doen wij om onze dienstverlening voor iedereen zo veilig mogelijk te maken.</p>
+  </div> -->
+  <!-- <test></test> -->
   <page-content :id="2"></page-content>
+  <!-- <slide-show></slide-show>
+  <page-content :id="2"></page-content> -->
   <div class="white-space-bottom"></div>
 </template>
 
@@ -14,123 +24,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style>
-/* # The Rotating Marker # */
-details summary::-webkit-details-marker {
-  display: none;
-}
-summary::before {
-  font-family: "Hiragino Mincho ProN", "Open Sans", sans-serif;
-  content: "▶";
-  position: absolute;
-  /* top: 1.75rem; */
-  /* top: 5vw; */
-  top: 2.5vh;
-  /* left: 0.8rem; */
-  left: 5vw;
-  transform: rotate(0);
-  transform-origin: center;
-  transition: 0.2s transform ease;
-}
-details[open] > summary:before {
-  transform: rotate(90deg);
-  transition: 0.45s transform ease;
-}
-
-/* # The Sliding Summary # */
-details {
-  overflow: hidden;
-}
-details summary {
-  position: relative;
-}
-@keyframes details-show {
-  from {
-    /* margin-bottom: -80%; */
-    opacity: 0;
-    transform: translateY(-100%);
-  }
-}
-details > *:not(summary) {
-  animation: details-show 500ms ease-in-out;
-  position: relative;
-  z-index: 1;
-  transition: all 0.3s ease-in-out;
-  color: transparent;
-  overflow: hidden;
-}
-details[open] > *:not(summary) {
-  color: inherit;
-}
-
-/* # Just Some Pretty Styles # */
-[contenteditable] {
-  outline: 0px solid transparent;
-}
-
-details {
-  box-sizing: border-box;
-  border-radius: 8px;
-  margin-top: 5px;
-  background: white;
-  box-shadow: 0 6px 15px -2px rgba(112, 128, 144, 0.5);
-  text-align: center;
-  width: 100%;
-  z-index: 1;
-}
-summary {
-  border: 4px solid transparent;
-  outline: none;
-  padding: 1rem;
-  display: block;
-  background: #142d49;
-  color: white;
-  padding-left: 2.2rem;
-  position: relative;
-  cursor: pointer;
-  height: 5vw;
-  z-index: 2;
-}
-summary h3 {
-  white-space: nowrap;
-  overflow: hidden;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-}
-details[open] summary,
-summary:hover {
-  color: white;
-  background: #142d49;
-}
-summary:hover strong,
-details[open] summary strong,
-summary:hover::before,
-details[open] summary::before {
-  color: white;
-}
-.content {
-  z-index: 1;
-  padding: 10px;
-  border: 2px solid #142d49;
-  border-top: none;
-  border-bottom-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-}
-
-.remove-button {
-  top: 0%;
-  right: 0%;
-  height: 30px;
-  width: 30px;
-  /* fill: var(--dark-blue); */
-  color: var(--light-red);
-  right: 0;
-  z-index: 5;
-  position: absolute;
-  background-color: red;
-  color: white;
-  border-radius: 8px;
-  border-color: red;
-}
-</style>

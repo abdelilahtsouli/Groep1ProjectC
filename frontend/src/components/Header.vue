@@ -29,6 +29,7 @@
   /* box-shadow: 0 6px 6px -2px rgba(0, 0, 0, 0.5); */
   box-shadow: 0 6px 15px -2px rgba(112, 128, 144, 0.5);
   /* background-color: var(--white); */
+  /* position: absolute; */
 }
 
 /* @media only screen and (min-width: 750px) and (max-width: 1000px) {

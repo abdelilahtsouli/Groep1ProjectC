@@ -1,7 +1,7 @@
 <template>
   <div class="white-space-top"></div>
   <page-content :id="3" :isLoggedIn="isLoggedIn"></page-content>
-  <div class="uneditableContent">
+  <div class="text-box">
     <div class="map-responsive">
       <iframe
         src="https://www.google.com/maps/d/embed?mid=1b_K2S4IW2EyIJf_2WR1jcqo5THYs8fGe&hl=nl&z=8"
@@ -42,15 +42,12 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style scoped>
+@import "../assets/css/page-components/textbox.css";
+
 .content-location {
-  /* margin-top: 100px; */
   text-align: center;
   width: 100%;
-}
-.text-content p {
-  margin-left: 10px;
-  margin-right: 10px;
 }
 .map-responsive {
   /* margin: 15px 15px 80px 15px; */
