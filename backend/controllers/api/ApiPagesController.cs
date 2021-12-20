@@ -25,7 +25,7 @@ namespace Project_C_Website.controllers {
 			List<Object> pages = new List<Object>();
 
 			Database database = new Database();
-			DataTable pagesData = database.BuildQuery("select * from pages order by id").Select();
+			DataTable pagesData = database.BuildQuery("SELECT * FROM pages ORDER BY id").Select();
 
 			foreach (DataRow row in pagesData.Rows) {
 				pages.Add(new {
@@ -42,7 +42,7 @@ namespace Project_C_Website.controllers {
 		[HttpGet("{id}")]
 		public string Get(int id) {
 			Database database = new Database();
-			DataTable pagesData = database.BuildQuery("select * from pages where id=@id")
+			DataTable pagesData = database.BuildQuery("SELECT * FROM pages WHERE id=@id")
 				.AddParameter("id", id)
 				.Select();
 
@@ -70,7 +70,7 @@ namespace Project_C_Website.controllers {
 			if (token == null) return false;
 
 			Database database = new Database();
-			DataTable data = database.BuildQuery("select * from admins where oauth_token=@token")
+			DataTable data = database.BuildQuery("SELECT * FROM admins WHERE oauth_token=@token")
 				.AddParameter("token", token)
 				.Select();
 
@@ -96,7 +96,7 @@ namespace Project_C_Website.controllers {
 			long timeInMs = DateTimeOffset.Now.ToUnixTimeMilliseconds();
 
 			Database database = new Database();
-			DataTable data = database.BuildQuery("insert into pages values (default, @name, @created_at, @updated_at, @content) returning id")
+			DataTable data = database.BuildQuery("INSERT INTO pages VALUES (default, @name, @created_at, @updated_at, @content) RETURNING id")
 				.AddParameter("name", name)
 				.AddParameter("created_at", timeInMs)
 				.AddParameter("updated_at", timeInMs)
@@ -132,7 +132,7 @@ namespace Project_C_Website.controllers {
 			long timeInMs = DateTimeOffset.Now.ToUnixTimeMilliseconds();
 
 			Database database = new Database();
-			database.BuildQuery("update pages set content=@content, updated_at=@updated_at where id=@id")
+			database.BuildQuery("UPDATE pages SET content=@content, updated_at=@updated_at where id=@id")
 				.AddParameter("content", content)
 				.AddParameter("updated_at", timeInMs)
 				.AddParameter("id", id)
@@ -158,7 +158,7 @@ namespace Project_C_Website.controllers {
 			}
 
 			Database database = new Database();
-			database.BuildQuery("delete from pages where id=@id")
+			database.BuildQuery("DELETE FROM pages WHERE id=@id")
 				.AddParameter("id", id)
 				.Query();
 
