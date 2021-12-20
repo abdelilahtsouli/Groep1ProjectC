@@ -45,6 +45,7 @@ namespace Project_C_Website.controllers {
 						// add the timeout of 5 minutes.
 						unixtime += 5*60 *1000;
 					}
+					// if IP adress exist in db update it with new counter and timeout
 					database.BuildQuery($"UPDATE loginattempts SET attempts=@counter, timeout=@unixtime WHERE ipadress=@ip")
 						.AddParameter("ip", ClientIP)
 						.AddParameter("counter", Int32.Parse(loginAttempt))
@@ -55,7 +56,7 @@ namespace Project_C_Website.controllers {
 
 				}
 			}
-
+			// if IP adress doesnt exist in db add it
 			if(!contains){
 				database.BuildQuery($"INSERT INTO loginattempts (ipadress, attempts, timeout) VALUES (@ip, @counter, @unixtime)")
 				.AddParameter("ip", ClientIP)
@@ -63,7 +64,7 @@ namespace Project_C_Website.controllers {
 				.AddParameter("unixtime", unixtime)
 				.Query();
 			}
-
+			// Get current unix timestamp
 			DateTime current = DateTime.Now;
 			long unixTimeStamp = ((DateTimeOffset)current).ToUnixTimeSeconds();
 			int CurrentTimeStamp = Convert.ToInt32(unixTimeStamp);
@@ -95,7 +96,7 @@ namespace Project_C_Website.controllers {
 				string hash = Encoding.ASCII.GetString(crypto);
 
 				if (row["email"].ToString() == email_input && row["password"].ToString() == hash) {
-
+					database.Close();
 					return JsonSerializer.Serialize(new {
 						id = Int32.Parse(row["id"].ToString()),
 						email = email_input,
