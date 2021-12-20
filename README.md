@@ -28,4 +28,5 @@ yarn build:watch
 ```
 cd backend
 nuget install npgsql
+dotnet add package GoogleAuthenticator --version 2.2.0
 ```
