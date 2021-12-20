@@ -34,6 +34,8 @@ namespace Project_C_Website.controllers {
 				string type = row["type"].ToString();
 
 				if (!System.IO.File.Exists(file)) {
+					database.Close();
+
 					this.HttpContext.Response.StatusCode = 500;
 					return Content(JsonSerializer.Serialize(new {
 						Success = false,
