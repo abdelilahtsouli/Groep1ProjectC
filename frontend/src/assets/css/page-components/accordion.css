@@ -1,8 +1,8 @@
 /* # The Rotating Marker # */
-details summary::-webkit-details-marker {
+.text-box details summary::-webkit-details-marker {
   display: none;
 }
-summary::before {
+.text-box summary::before {
   font-family: "Hiragino Mincho ProN", "Open Sans", sans-serif;
   content: "▶";
   position: absolute;
@@ -16,13 +16,13 @@ summary::before {
   transform-origin: center;
   transition: 0.2s transform ease;
 }
-details[open] > summary:before {
+.text-box details[open] > summary:before {
   transform: rotate(90deg);
   transition: 0.45s transform ease;
 }
 
 /* # The Sliding Summary # */
-details {
+.text-box details {
   overflow: hidden;
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
@@ -32,7 +32,7 @@ details {
           user-select: none; /* Non-prefixed version, currently
                                 supported by Chrome, Edge, Opera and Firefox */
 }
-details summary {
+.text-box details summary {
   position: relative;
 }
 @keyframes details-show {
@@ -42,7 +42,7 @@ details summary {
     transform: translateY(-100%);
   }
 }
-details > *:not(summary) {
+.text-box details > *:not(summary) {
   animation: details-show 500ms ease-in-out;
   position: relative;
   z-index: 1;
@@ -50,7 +50,7 @@ details > *:not(summary) {
   color: transparent;
   overflow: hidden;
 }
-details[open] > *:not(summary) {
+.text-box details[open] > *:not(summary) {
   color: inherit;
 }
 
@@ -59,7 +59,7 @@ details[open] > *:not(summary) {
   outline: 0px solid transparent;
 }
 
-details {
+.text-box details {
   box-sizing: border-box;
   border-radius: 8px;
   margin-top: 5px;
@@ -70,7 +70,7 @@ details {
   width: 100%;
   z-index: 1;
 }
-summary {
+.text-box summary {
   border: 4px solid transparent;
   outline: none;
   /* padding: 1rem; */
@@ -90,15 +90,15 @@ summary {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
 } */
-details[open] summary,
-summary:hover {
+.text-box details[open] summary,
+.text-box summary:hover {
   color: white;
   background: #142d49;
 }
-summary:hover strong,
-details[open] summary strong,
-summary:hover::before,
-details[open] summary::before {
+.text-box summary:hover strong,
+.text-box details[open] summary strong,
+.text-box summary:hover::before,
+.text-box details[open] summary::before {
   color: white;
 }
 
@@ -125,4 +125,8 @@ details[open] summary::before {
   color: white;
   border-radius: 8px;
   border-color: red;
+}
+
+.test:not(summary) {
+ top: 10%;
 }

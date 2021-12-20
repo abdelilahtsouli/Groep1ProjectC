@@ -23,14 +23,14 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent, onBeforeUnmount, onMounted, ref } from "vue";
 
 export default defineComponent({
   setup() {
     const showModal = ref(false);
 
-    function disableScroll() {
+    function disableScroll(): void {
       // Get the current page scroll position
       const scrollTop =
         window.pageYOffset || document.documentElement.scrollTop;
@@ -42,7 +42,7 @@ export default defineComponent({
       };
     }
 
-    function enableScroll() {
+    function enableScroll(): void {
       // eslint-disable-next-line @typescript-eslint/no-empty-function
       window.onscroll = function () {};
     }
@@ -120,5 +120,4 @@ export default defineComponent({
 .modal-leave-to {
   opacity: 0;
 }
-
 </style>

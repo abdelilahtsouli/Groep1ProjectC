@@ -53,6 +53,7 @@
 </template>
 
 <script lang="ts">
+import Editor from "../Extensions/PageEditor/index";
 import UploadFileButton from "./UploadFileButton.vue";
 import { defineComponent, onBeforeUnmount, onMounted, ref } from "vue";
 import * as EditorUtility from "../Extensions/PageEditor/main";
@@ -98,32 +99,42 @@ export default defineComponent({
     const selectedTextType = ref("");
 
     onMounted(() => {
-      toggleContenteditableAttr(true);
+      toggleEditor(true);
     });
 
     onBeforeUnmount(() => {
-      toggleContenteditableAttr(false);
+      toggleEditor(false);
     });
 
-    function toggleContenteditableAttr(toggle: boolean): void {
+    const editor = new Editor();
+
+    function toggleEditor(toggle: boolean): void {
       const nodeList = document.querySelectorAll("details");
 
-      // ! Accordion-Header
-      EditorUtility.toggleEditableH3(nodeList, toggle);
-      EditorUtility.disableEnterKeyH3(nodeList);
-      EditorUtility.disableDetailsSpace(nodeList);
-      EditorUtility.toggleDisplayRemoveButton(nodeList, toggle);
-      setAccordionRemoveEvent(nodeList);
-      // ! Accordion-Content
-      EditorUtility.toggleEditableAccordionContent(nodeList, toggle);
-      EditorUtility.toggleEditableAccordionDiv(nodeList, toggle);
-      EditorUtility.addEmptyContentEvent();
-      // ! Element with ID "content"
-      EditorUtility.changePasteEvent();
+      //
+      editor.accordion.toggleAccordion(nodeList, toggle);
+      editor.addEmptyContentEvent();
+      editor.changePasteEvent();
+
+      // // ! Accordion-Header
+      // EditorUtility.toggleEditableH3(nodeList, toggle);
+      // EditorUtility.disableEnterKeyH3(nodeList);
+      // EditorUtility.disableDetailsSpace(nodeList);
+      // EditorUtility.toggleDisplayRemoveButton(nodeList, toggle);
+      // setAccordionRemoveEvent(nodeList);
+      // // ! Accordion-Content
+      // EditorUtility.toggleEditableAccordionContent(nodeList, toggle);
+      // EditorUtility.toggleEditableAccordionDiv(nodeList, toggle);
+      // // ! Editor itself
+      // EditorUtility.addEmptyContentEvent();
+      // // ! Editor itself
+      // EditorUtility.changePasteEvent();
       // ! SlideShow
       if (document.getElementById("slideshow")) {
-        EditorUtility.toggleEditSlideButtons(toggle, document);
-        toggleHiddenInputElement(toggle);
+        editor.slideshow.toggleEditSlideButtons(toggle, document);
+        // EditorUtility.toggleEditSlideButtons(toggle, document);
+        editor.toggleHiddenInputElement(toggle);
+        // toggleHiddenInputElement(toggle);
         console.log("Slideshow");
       }
     }
@@ -136,7 +147,7 @@ export default defineComponent({
         inputEl.type = "file";
         inputEl.style.display = "none";
         inputEl.onchange = function upload(event: any) {
-          if (!EditorUtility.hasParent("SUMMARY")) {
+          if (!editor.hasParent("SUMMARY")) {
             const file = event.target.files[0];
             var formData = new FormData();
             formData.append("media", file);
@@ -181,12 +192,12 @@ export default defineComponent({
 
       let execute = true;
       blockTags.forEach((tag) => {
-        if (EditorUtility.hasParent(tag)) {
+        if (editor.isTag(tag)) {
           execute = false;
         }
       });
       blockParentTags.forEach((tag) => {
-        if (EditorUtility.hasParent(tag)) {
+        if (editor.hasParent(tag)) {
           execute = false;
         }
       });
@@ -229,15 +240,15 @@ export default defineComponent({
 
     // ! Cannot go into EditorUtitlity -> Has emit
     function createAccordion(): void {
-      if (!EditorUtility.isTag("H3")) {
+      if (!editor.isTag("H3")) {
         formatDoc({
           sCmd: "insertHTML",
-          sValue: EditorUtility.createAccordionElement(),
+          sValue: editor.accordion.createAccordionElement(),
           checkForChanges: false,
           blockParentTags: ["SUMMARY"],
         });
-        EditorUtility.createChildElements("newAccordion");
-        toggleContenteditableAttr(true);
+        editor.accordion.createChildElements("newAccordion");
+        toggleEditor(true);
         emit("checkForChanges");
       }
     }

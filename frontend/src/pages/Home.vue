@@ -16,7 +16,7 @@
             >
           </button>
           <button class="block">
-            <router-link to="#"
+            <router-link to="/Urineonderzoek"
               ><div v-html="vialSvg"></div>
               <a>Urine Onderzoek</a></router-link
             >

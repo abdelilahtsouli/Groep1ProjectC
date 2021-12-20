@@ -1,6 +1,6 @@
 <template>
   <div class="white-space-top"></div>
-  <page-content :id="2"></page-content>
+  <page-content :id="6"></page-content>
   <div class="white-space-bottom"></div>
 </template>
 

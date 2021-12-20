@@ -50,6 +50,7 @@ export default defineComponent({
       //-// Resets the accordions //-//
       // Closes details tag and hides the remove button, before sending the content the database.
       const nodeList = tempDOM.querySelectorAll("details");
+      console.log(nodeList.forEach((node) => console.log(node)))
       toggleDetails(nodeList, false);
       toggleDisplayRemoveButton(nodeList, false);
       toggleEditableH3(nodeList, false);
@@ -65,7 +66,7 @@ export default defineComponent({
         Array.from(
           tempDOM.getElementsByClassName("slideshow-container")
         ).forEach((sl) => {
-          const inputElements = tempDOM.getElementsByName("hidden-input");
+          const inputElements = tempDOM.getElementsByName("hidden-image-input");
           console.log(inputElements);
           inputElements.forEach((el) => sl.removeChild(el));
         });

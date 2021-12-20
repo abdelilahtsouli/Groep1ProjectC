@@ -1,7 +1,9 @@
 <template>
   <div class="editor">
     <!-- Editor Header -->
-    <page-editor-header @checkForChanges="checkForChanges"></page-editor-header>
+    <page-editor-header
+      @checkForChanges="checkForChanges"
+    ></page-editor-header>
     <div>
       <div
         v-html="editSVG"

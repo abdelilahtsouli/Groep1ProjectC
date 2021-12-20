@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import Home from '../pages/Home.vue'
 import Bloedprikken from '../pages/Bloedprikken.vue'
+import Urineonderzoek from "../pages/UrineOnderzoek.vue"
 import Login from '../pages/Login.vue'
 import twoFASetup from '../pages/2FAsetup.vue'
 import twoFAverify from '../pages/Verify2FA.vue'
@@ -13,7 +14,6 @@ import Veelgesteldevragen from '../pages/FAQ.vue'
 
 // These pages still need to be created.
 // For now these placeholders are used!
-import Urineonderzoek from '../pages/Location.vue'
 import Openingstijden from '../pages/Location.vue'
 import Routeplanner from '../pages/Location.vue'
 

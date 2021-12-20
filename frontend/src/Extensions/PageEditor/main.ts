@@ -1,5 +1,6 @@
 import { removeSlide } from "../SlideShow/main";
 
+// ! Merged
 // Toggles Accodrion |=> details.open
 export function toggleDetails(
   nodeList: NodeListOf<HTMLDetailsElement>,
@@ -8,6 +9,7 @@ export function toggleDetails(
   nodeList.forEach((node) => (node.open = toggle));
 }
 
+// ! Merged
 // Toggles Accordion |=> details => sumary => h3.contentEditable
 export function toggleEditableH3(
   nodeList: NodeListOf<HTMLDetailsElement>,
@@ -20,6 +22,7 @@ export function toggleEditableH3(
   );
 }
 
+// ! Merged
 // Disables enter key for Accordion |=> details => sumary => h3
 export function disableEnterKeyH3(
   nodeList: NodeListOf<HTMLDetailsElement>
@@ -36,6 +39,7 @@ export function disableEnterKeyH3(
   );
 }
 
+// ! Merged
 // Disables space key for Accordion |=> details
 export function disableDetailsSpace(
   nodeList: NodeListOf<HTMLDetailsElement>
@@ -49,7 +53,7 @@ export function disableDetailsSpace(
       })
   );
 }
-
+// ! Merged
 // Toggles Accordion |=> details => sumary => button.style.display
 export function toggleDisplayRemoveButton(
   nodeList: NodeListOf<HTMLDetailsElement>,
@@ -65,6 +69,7 @@ export function toggleDisplayRemoveButton(
   );
 }
 
+// ! Merged
 // Toggles Accordion |=> details => div => ["div", "h3", "p"].contentEditable
 export function toggleEditableAccordionContent(
   nodeList: NodeListOf<HTMLDetailsElement>,
@@ -82,6 +87,7 @@ export function toggleEditableAccordionContent(
   );
 }
 
+// ! Merged
 // ! Check if this can be removed
 // Toggles Accordion |=> details => div.contentEditable
 export function toggleEditableAccordionDiv(
@@ -214,7 +220,10 @@ export function resetImageDisplay(element: HTMLElement): void {
 }
 
 export function toggleEditSlideButtons(toggle: boolean, dom: Document): void {
-  if (toggle) {
+  const addButton = dom.getElementsByName("add-slide");
+  const removeButton = dom.getElementsByName("remove-slide");
+
+  if (toggle && !addButton[0] && !removeButton[0]) {
     const addSlideButton = dom.createElement("span");
     addSlideButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M21 15v3h3v2h-3v3h-2v-3h-3v-2h3v-3h2zm.008-12c.548 0 .992.445.992.993v9.349A5.99 5.99 0 0 0 20 13V5H4l.001 14 9.292-9.293a.999.999 0 0 1 1.32-.084l.093.085 3.546 3.55a6.003 6.003 0 0 0-3.91 7.743L2.992 21A.993.993 0 0 1 2 20.007V3.993A1 1 0 0 1 2.992 3h18.016zM8 7a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></svg>`;
     addSlideButton.setAttribute("name", "add-slide");
