@@ -31,6 +31,7 @@ namespace Project_C_Website.controllers {
 
 				if (!System.IO.File.Exists(file)) {
 					this.HttpContext.Response.StatusCode = 500;
+					database.Close();
 					return Content(JsonSerializer.Serialize(new {
 						Success = false,
 						Message = "File Not Found (doesn't exist on the disk)"

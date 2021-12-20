@@ -472,11 +472,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\woute\\Documents\\GitHub\\Groep1ProjectC\\backend\\Project C Website.csproj",
+      "projectUniqueName": "C:\\Users\\woute\\Desktop\\Groep1ProjectC\\backend\\Project C Website.csproj",
       "projectName": "Project C Website",
-      "projectPath": "C:\\Users\\woute\\Documents\\GitHub\\Groep1ProjectC\\backend\\Project C Website.csproj",
+      "projectPath": "C:\\Users\\woute\\Desktop\\Groep1ProjectC\\backend\\Project C Website.csproj",
       "packagesPath": "C:\\Users\\woute\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\woute\\Documents\\GitHub\\Groep1ProjectC\\backend\\obj\\",
+      "outputPath": "C:\\Users\\woute\\Desktop\\Groep1ProjectC\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
