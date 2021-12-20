@@ -55,6 +55,7 @@ namespace Project_C_Website.controllers {
 
 				}
 			}
+
 			if(!contains){
 				database.BuildQuery($"INSERT INTO loginattempts (ipadress, attempts, timeout) VALUES (@ip, @counter, @unixtime)")
 				.AddParameter("ip", ClientIP)
@@ -66,22 +67,24 @@ namespace Project_C_Website.controllers {
 			DateTime current = DateTime.Now;
 			long unixTimeStamp = ((DateTimeOffset)current).ToUnixTimeSeconds();
 			int CurrentTimeStamp = Convert.ToInt32(unixTimeStamp);
-
 			if(CurrentTimeStamp < Int32.Parse(timeout)){
 				database.Close();
 				return JsonSerializer.Serialize(new {
 					message = "U heeft te veel inlog pogingen gehad probeer het over 5 minuten nog een keer."
 				});
 			}
-			// Reset timeout after 5 minites have passed.
-			else if(CurrentTimeStamp == Int32.Parse(timeout)){
-				database.BuildQuery($"UPDATE loginattempts SET attempts=@counter WHERE ipadress=@ip")
-					.AddParameter("ip", ClientIP)
-					.AddParameter("counter", 0)
+			if(CurrentTimeStamp > Int32.Parse(timeout)){
+			// Delete rows if Current time is later then timeout
+				database.BuildQuery("DELETE FROM loginattempts WHERE @timeout > @current ")
+					.AddParameter("timeout", Int32.Parse(timeout))
+					.AddParameter("current", CurrentTimeStamp)
 					.Query();
+				// database.BuildQuery($"UPDATE loginattempts SET attempts=@counter WHERE ipadress=@ip")
+				// 	.AddParameter("ip", ClientIP)
+				// 	.AddParameter("counter", 0)
+				// 	.Query();
 			}
 				
-
 			// Execute the query on the database.
 			DataTable data = database.BuildQuery("select * from admins").Select();
 			// Loop through each row in the query and check if the details are correct.
@@ -101,6 +104,7 @@ namespace Project_C_Website.controllers {
 					});
 				}
 			}
+
 
 			database.Close();
 			return JsonSerializer.Serialize(new{
