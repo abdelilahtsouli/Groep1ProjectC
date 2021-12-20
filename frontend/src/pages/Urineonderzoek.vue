@@ -4,8 +4,7 @@
         <img src="../assets/images/fotolaborant.jpg" class="img-banner">
         <h1 class="header-text">Urineonderzoek</h1>
     </div>
-    <div class="content">
-
+    <div class="uneditableContent">
         <h3>Doel onderzoek</h3>
             <p>
                 Om meer te weten te komen over uw gezondheid, 
@@ -51,12 +50,12 @@
 .img-field{
     position: relative;
     text-align: center;
-
+    margin-bottom: 0px;
 }
 .img-banner{
     width: 100%;
     height: 50vw;
-    border-radius: 8px ;
+    border-radius: 8px;
 }
 .header-text{
     position: absolute;

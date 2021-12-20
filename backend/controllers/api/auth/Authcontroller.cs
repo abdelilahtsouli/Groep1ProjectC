@@ -36,7 +36,6 @@ namespace Project_C_Website.controllers {
 			int unixtime = Convert.ToInt32(unixTime);
 
 
-
 			Database database = new Database();
 			DataTable data1 = database.BuildQuery("SELECT ipadress,timeout,attempts FROM loginattempts").Select();
 			foreach (DataRow row in data1.Rows){
