@@ -64,7 +64,7 @@
         
         :class="{ 'active-item': activePage === 'settings' }"
       >
-        <i class="material-icons nav__icon">settings</i>
+        <i class="material-icons nav__icon">child_care</i>
         <a class="nav__text">Kids</a>
       </router-link>
     

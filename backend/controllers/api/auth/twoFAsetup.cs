@@ -38,7 +38,7 @@ namespace Project_C_Website.controllers {
 			var setupInfo = tfa.GenerateSetupCode("star-shl", email, rString, true);
 
 			string qrCodeImageUrl = setupInfo.QrCodeSetupImageUrl;
-
+			string qrCodeManual = setupInfo.ManualEntryKey;
 
 
 
@@ -52,6 +52,7 @@ namespace Project_C_Website.controllers {
 			database.Close();
 			return JsonSerializer.Serialize(new{
 				qrCodeImageUrl,
+				qrCodeManual
 			});
 		}
 

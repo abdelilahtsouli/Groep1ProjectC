@@ -28,3 +28,8 @@ export default defineComponent({
   },
 });
 </script>
+<style>
+.header-text{
+  color: white;
+}
+</style>
