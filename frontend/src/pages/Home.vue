@@ -22,7 +22,7 @@
             >
           </button>
           <button class="block top-right-border">
-            <router-link to="#"
+            <router-link to="/location"
               ><div v-html="mapMarkerSvg"></div>
               <a>Locaties</a></router-link
             >
@@ -34,7 +34,7 @@
             >
           </button>
           <button class="block">
-            <router-link to="/location"
+            <router-link to="#"
               ><div v-html="locationArrowSvg"></div>
               <a>Routeplanner</a></router-link
             >

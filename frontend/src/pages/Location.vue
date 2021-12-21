@@ -56,17 +56,12 @@
 <script>
 import { defineComponent } from "@vue/runtime-core";
 import axios from "axios";
-import PageContent from "../components/PageContent.vue";
 
 const locations = []
 const baseLocations = []
 const length = 10
 var notFound = false
 export default defineComponent({
-
-  components: {
-    PageContent,
-  },
 
   data() {
     return { search: "", locations, length, baseLocations, notFound};
