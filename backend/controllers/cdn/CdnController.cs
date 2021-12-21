@@ -37,6 +37,7 @@ namespace Project_C_Website.controllers {
 					database.Close();
 
 					this.HttpContext.Response.StatusCode = 500;
+					database.Close();
 					return Content(JsonSerializer.Serialize(new {
 						Success = false,
 						Message = "File Not Found (doesn't exist on the disk)"
@@ -65,8 +66,8 @@ namespace Project_C_Website.controllers {
 				.Select();
 
 			database.Close();
-
 			return data.Rows.Count == 1;
+			
 		}
 
 		// POST /cdn/

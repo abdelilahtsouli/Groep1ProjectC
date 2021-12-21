@@ -13,7 +13,7 @@ import Veelgesteldevragen from '../pages/FAQ.vue'
 
 // These pages still need to be created.
 // For now these placeholders are used!
-import Urineonderzoek from '../pages/Location.vue'
+import Urineonderzoek from '../pages/Urineonderzoek.vue'
 import Openingstijden from '../pages/Location.vue'
 import Routeplanner from '../pages/Location.vue'
 
