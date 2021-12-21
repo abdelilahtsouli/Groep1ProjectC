@@ -1,13 +1,10 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import Home from '../pages/Home.vue'
 import Bloedprikken from '../pages/Bloedprikken.vue'
-import Urineonderzoek from "../pages/UrineOnderzoek.vue"
 import Login from '../pages/Login.vue'
 import twoFASetup from '../pages/2FAsetup.vue'
 import twoFAverify from '../pages/Verify2FA.vue'
 import createNewUser from '../pages/CreateAccount.vue'
-import logout from '../components/logout.vue'
-import Page from '../components/Page.vue'
 import Location from '../pages/Location.vue'
 import Contact from '../pages/Contact.vue'
 import Veelgesteldevragen from '../pages/FAQ.vue'
