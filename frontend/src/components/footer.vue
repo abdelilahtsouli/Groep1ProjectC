@@ -12,7 +12,7 @@
         :class="{ 'active-item': activePage === 'home' }"
       >
         <i class="material-icons nav__icon">home</i>
-        <a @click="close_menu(); close_sidebar(); setActivePage('home')" class="nav__text">Home</a>
+        <a @click="close_menu(); setActivePage('home')" class="nav__text">Home</a>
       </router-link>
 
       <!-- Bloedprikken -->
@@ -22,7 +22,7 @@
         :class="{ 'active-item': activePage === 'bloedprikken' }"
       >
         <i class="material-icons nav__icon">vaccines</i>
-        <a @click="close_menu(); close_sidebar(); setActivePage('bloedprikken')" class="nav__text">Info</a>
+        <a @click="close_menu(); setActivePage('bloedprikken')" class="nav__text">Info</a>
       </router-link>
 
       <!-- Menu -->
@@ -45,7 +45,7 @@
         :class="{ 'active-item': activePage === 'admin' }"
       >
         <i class="material-icons nav__icon">lock</i>
-        <a  @click="close_menu(); close_sidebar(); setActivePage('admin')" class="nav__text">Admin</a>
+        <a  @click="close_menu();  setActivePage('admin')" class="nav__text">Admin</a>
       </router-link>
       <router-link
         v-if="loggedIn"
@@ -54,18 +54,19 @@
         :class="{ 'active-item': activePage === 'admin' }"
       >
         <i class="material-icons nav__icon">lock</i>
-        <a  @click="close_menu(); close_sidebar(); setActivePage('admin')" class="nav__text">Admin</a>
+        <a  @click="close_menu(); setActivePage('admin')" class="nav__text">Admin</a>
       </router-link>
 
       <!-- Settings -->
-      <div
+      <router-link
+        to="/Kinderen"
         class="nav__link"
-        @click="toggle_sidebar()"
+        
         :class="{ 'active-item': activePage === 'settings' }"
       >
         <i class="material-icons nav__icon">settings</i>
-        <a class="nav__text">Settings</a>
-      </div>
+        <a class="nav__text">Kids</a>
+      </router-link>
     
     </nav>
     <transition name="fade">
@@ -119,38 +120,7 @@
 
       </div>
     </transition>
-    <transition name="fade-sidebar">
-      <div class="SideBar" style="display: none" id="sidebar">
-        <i
-          @click="close_sidebar()"
-          class="material-icons nav__icon w3-bar-item w3-large exitButton-sidebar"
-          >close</i
-        >
-        <!-- 
-          profileSVG does not exist.
-          <div class="menu-buttons-sidebar icon" v-if="loggedIn" v-html="profileSVG"></div>
-        -->
-        <div class="menu-buttons-sidebar" v-if="loggedIn"><a><h6 class="menu-text-sidebar">Welkom user</h6></a></div>
-        <router-link class="menu-buttons-sidebar" @click="close_sidebar()" to="/Bloedprikken"
-          ><a><h4 class="menu-text-sidebar">Bloedprikken</h4></a></router-link
-        >
-        <router-link class="menu-buttons-sidebar" @click="close_sidebar()" to="/Urineonderzoek"
-          ><a><h4 class="menu-text-sidebar">Urine onderzoek</h4></a></router-link
-        >
-        <router-link class="menu-buttons-sidebar" @click="close_sidebar()" to="/Location"
-          ><a><h4 class="menu-text-sidebar">Locaties</h4></a></router-link
-        >
-        <router-link class="menu-buttons-sidebar" @click="close_sidebar()" to="/Openingstijden"
-          ><a><h4 class="menu-text-sidebar">Openingstijden</h4></a></router-link
-        >
-        <router-link class="menu-buttons-sidebar" @click="close_sidebar()" to="/Routeplanner"
-          ><a><h4 class="menu-text-sidebar">Routeplanner</h4></a></router-link
-        >
-        <router-link class="menu-buttons-sidebar" @click="close_sidebar()" to="/Contact"
-          ><a><h4 class="menu-text-sidebar">Contact</h4></a></router-link
-        >
-      </div>
-    </transition>
+   
   </div>
 </template>
 
@@ -162,7 +132,6 @@ import bus from "../bus";
 export default defineComponent({
   setup() {
     const menuOpen = ref(false);
-    const sidebarOpen = ref(false);
     const activePage = ref("home");
 
     const loggedIn = ref(false);
@@ -175,7 +144,7 @@ export default defineComponent({
     // Toggle, open or close the menu.
     function toggle_menu() {
       if (menuOpen.value) close_menu();
-      else open_menu(); close_sidebar();
+      else{open_menu()}
     }
 
     function open_menu() {
@@ -189,20 +158,8 @@ export default defineComponent({
     }
 
     // Toggle, open or close the sidebar.
-    function toggle_sidebar(){
-      if (sidebarOpen.value) close_sidebar();
-      else open_sidebar(); close_menu();
-    }
-    
-    function open_sidebar() {
-      sidebarOpen.value = true;
-      document.getElementById("sidebar")!.style.display = "block";
-    }
 
-    function close_sidebar() {
-      sidebarOpen.value = false;
-      document.getElementById("sidebar")!.style.display = "none";
-    }
+
 
     function logout() {
       bus.emit("sessionModify", {
@@ -221,7 +178,6 @@ export default defineComponent({
 
     return {
       menuOpen,
-      sidebarOpen,
       activePage,
       loggedIn,
       isSuperUser,
@@ -230,9 +186,7 @@ export default defineComponent({
       close_menu,
       toggle_menu,
       logout,
-      open_sidebar,
-      close_sidebar,
-      toggle_sidebar
+
     };
   },
 });
