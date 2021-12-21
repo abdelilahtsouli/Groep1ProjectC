@@ -29,6 +29,8 @@ namespace Project_C_Website.controllers {
 				.AddParameter("id", id)
 				.Select();
 
+			database.Close();
+
 			foreach (DataRow row in data.Rows) {
 				string file = getFilePath(row["media_id"].ToString());
 				string type = row["type"].ToString();
