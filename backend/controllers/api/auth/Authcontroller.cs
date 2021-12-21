@@ -55,6 +55,8 @@ namespace Project_C_Website.controllers {
 
 				}
 			}
+
+			
 			// if IP adress doesnt exist in db add it
 			if(!contains){
 				database.BuildQuery($"INSERT INTO loginattempts (ipadress, attempts, timeout) VALUES (@ip, @counter, @unixtime)")
