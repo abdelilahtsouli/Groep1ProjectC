@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import Home from '../pages/Home.vue'
 import Bloedprikken from '../pages/Bloedprikken.vue'
+import Urineonderzoek from "../pages/UrineOnderzoek.vue"
 import Login from '../pages/Login.vue'
 import twoFASetup from '../pages/2FAsetup.vue'
 import twoFAverify from '../pages/Verify2FA.vue'

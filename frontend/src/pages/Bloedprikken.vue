@@ -11,10 +11,7 @@
     <slide-show></slide-show>
     <p>Realiseert u zich a.u.b. dat vaccinatie tegen het coronavirus geen 100% garantie geeft tegen verspreiding van het virus onder ons. Dit betekent dat we u kunnen vragen (als ook als u al gevaccineerd bent) of u klachten heeft die passen bij corona. We kunnen ook vragen of er sprake is van thuisquarantaine of een risicocontact met corona. Dit doen wij om onze dienstverlening voor iedereen zo veilig mogelijk te maken.</p>
   </div> -->
-  <!-- <test></test> -->
   <page-content :id="2"></page-content>
-  <!-- <slide-show></slide-show>
-  <page-content :id="2"></page-content> -->
   <div class="white-space-bottom"></div>
 </template>
 

@@ -11,16 +11,7 @@
 </template>
 
 <script lang="ts">
-import {
-  resetImageDisplay,
-  resetSlideShowDot,
-  toggleEditSlideButtons,
-  toggleDetails,
-  toggleDisplayRemoveButton,
-  toggleEditableAccordionContent,
-  toggleEditableAccordionDiv,
-  toggleEditableH3,
-} from "../Extensions/PageEditor/main";
+import Editor from "../Extensions/PageEditor/index"
 import axios from "axios";
 import { defineComponent, ref } from "vue";
 import { VueCookieNext } from "vue-cookie-next";
@@ -48,28 +39,8 @@ export default defineComponent({
       const tempDOM = <Document>document.cloneNode(true);
 
       //-// Resets the accordions //-//
-      // Closes details tag and hides the remove button, before sending the content the database.
-      const nodeList = tempDOM.querySelectorAll("details");
-      toggleDetails(nodeList, false);
-      toggleDisplayRemoveButton(nodeList, false);
-      toggleEditableH3(nodeList, false);
-      toggleEditableAccordionContent(nodeList, false);
-      toggleEditableAccordionDiv(nodeList, false);
-      //-// End //-//
-
-      const tempDomContent = tempDOM.getElementById("content");
-      if (tempDomContent) {
-        resetSlideShowDot(tempDomContent);
-        resetImageDisplay(tempDomContent);
-        toggleEditSlideButtons(false, tempDOM);
-        Array.from(
-          tempDOM.getElementsByClassName("slideshow-container")
-        ).forEach((sl) => {
-          const inputElements = tempDOM.getElementsByName("hidden-input");
-          console.log(inputElements);
-          inputElements.forEach((el) => sl.removeChild(el));
-        });
-      }
+      Editor.getInstance().accordion.reset(tempDOM)
+      Editor.getInstance().slideshow.reset(tempDOM)
 
       return tempDOM.getElementById("content")?.innerHTML;
     };

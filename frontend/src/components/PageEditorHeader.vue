@@ -53,39 +53,20 @@
 </template>
 
 <script lang="ts">
+import Editor from "../Extensions/PageEditor/index";
 import UploadFileButton from "./UploadFileButton.vue";
 import { defineComponent, onBeforeUnmount, onMounted, ref } from "vue";
-import * as EditorUtility from "../Extensions/PageEditor/main";
-import { addSlide } from "../Extensions/SlideShow/main";
-import axios from "axios";
 
 interface kwargFortmatDoc {
   sCmd: string;
   sValue?: string;
-  checkForChanges?: boolean;
   blockTags?: string[];
   blockParentTags?: string[];
 }
 
-function getCookie(name: string): string | null {
-  const nameLenPlus = name.length + 1;
-  return (
-    document.cookie
-      .split(";")
-      .map((c) => c.trim())
-      .filter((cookie) => {
-        return cookie.substring(0, nameLenPlus) === `${name}=`;
-      })
-      .map((cookie) => {
-        return decodeURIComponent(cookie.substring(nameLenPlus));
-      })[0] || null
-  );
-}
-
 export default defineComponent({
   components: { UploadFileButton },
-  emits: ["checkForChanges"],
-  setup(props, { emit }) {
+  setup() {
     // Editor Header SVG's
     const addRowSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0H24V24H0z"/><path d="M12 13c2.761 0 5 2.239 5 5s-2.239 5-5 5-5-2.239-5-5 2.239-5 5-5zm1 2h-2v1.999L9 17v2l2-.001V21h2v-2.001L15 19v-2l-2-.001V15zm7-12c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1H4c-.552 0-1-.448-1-1V4c0-.552.448-1 1-1h16zM5 5v4h14V5H5z"/></svg>`;
     const paragraphSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" > <path fill="none" d="M0 0h24v24H0z" /> <path d="M12 6v15h-2v-5a6 6 0 1 1 0-12h10v2h-3v15h-2V6h-3zm-2 0a4 4 0 1 0 0 8V6z" /> </svg>`;
@@ -94,86 +75,35 @@ export default defineComponent({
     const unorderedListSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M8 4h13v2H8V4zM4.5 6.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 7a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 6.9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM8 11h13v2H8v-2zm0 7h13v2H8v-2z"/></svg>`;
     const boldSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M8 11h4.5a2.5 2.5 0 1 0 0-5H8v5zm10 4.5a4.5 4.5 0 0 1-4.5 4.5H6V4h6.5a4.5 4.5 0 0 1 3.256 7.606A4.498 4.498 0 0 1 18 15.5zM8 13v5h5.5a2.5 2.5 0 1 0 0-5H8z"/></svg>`;
     const italicSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M15 20H7v-2h2.927l2.116-12H9V4h8v2h-2.927l-2.116 12H15z"/></svg>`;
+
     const selectedColor = ref("");
     const selectedTextType = ref("");
 
     onMounted(() => {
-      toggleContenteditableAttr(true);
+      toggleEditor(true);
     });
 
     onBeforeUnmount(() => {
-      toggleContenteditableAttr(false);
+      toggleEditor(false);
     });
 
-    function toggleContenteditableAttr(toggle: boolean): void {
+    function toggleEditor(toggle: boolean): void {
       const nodeList = document.querySelectorAll("details");
 
-      // ! Accordion-Header
-      EditorUtility.toggleEditableH3(nodeList, toggle);
-      EditorUtility.disableEnterKeyH3(nodeList);
-      EditorUtility.disableDetailsSpace(nodeList);
-      EditorUtility.toggleDisplayRemoveButton(nodeList, toggle);
-      setAccordionRemoveEvent(nodeList);
-      // ! Accordion-Content
-      EditorUtility.toggleEditableAccordionContent(nodeList, toggle);
-      EditorUtility.toggleEditableAccordionDiv(nodeList, toggle);
-      EditorUtility.addEmptyContentEvent();
-      // ! Element with ID "content"
-      EditorUtility.changePasteEvent();
-      // ! SlideShow
+      Editor.getInstance().accordion.toggleAccordion(nodeList, toggle);
+      Editor.getInstance().addEmptyContentEvent();
+      Editor.getInstance().changePasteEvent();
+
       if (document.getElementById("slideshow")) {
-        EditorUtility.toggleEditSlideButtons(toggle, document);
-        toggleHiddenInputElement(toggle);
-        console.log("Slideshow");
+        Editor.getInstance().slideshow.toggleEditSlideButtons(toggle, document);
+        Editor.getInstance().toggleHiddenInputElement(toggle);
       }
     }
 
-    function toggleHiddenInputElement(toggle: boolean) {
-      if (toggle) {
-        const inputEl = document.createElement("input");
-        inputEl.id = "hidden-image-input";
-        inputEl.accept = "image/jpeg, image/png";
-        inputEl.type = "file";
-        inputEl.style.display = "none";
-        inputEl.onchange = function upload(event: any) {
-          if (!EditorUtility.hasParent("SUMMARY")) {
-            const file = event.target.files[0];
-            var formData = new FormData();
-            formData.append("media", file);
-
-            axios
-              .post("/cdn/", formData, {
-                headers: {
-                  "Content-Type": "multipart/form-data",
-                  Authorization: <string>getCookie("token"),
-                },
-              })
-              .then(
-                (response: any) => {
-                  // TODO ADD SLIDE
-                  console.log();
-                  addSlide(`/cdn/${response.data.id}`, 0);
-                },
-                (error: any) => {
-                  console.log(error.value);
-                }
-              );
-          } else {
-            console.log("image/video upload blocked");
-          }
-        };
-        document.getElementById("app")?.appendChild(inputEl);
-      } else {
-        document.getElementById("hidden-image-input")?.remove();
-      }
-    }
-
-    // ! Cannot go into EditorUtitlity -> Has emit
     // Formats editable content
     function formatDoc({
       sCmd,
       sValue,
-      checkForChanges = true,
       blockTags = [],
       blockParentTags = [],
     }: kwargFortmatDoc): void {
@@ -181,12 +111,12 @@ export default defineComponent({
 
       let execute = true;
       blockTags.forEach((tag) => {
-        if (EditorUtility.hasParent(tag)) {
+        if (Editor.getInstance().isTag(tag)) {
           execute = false;
         }
       });
       blockParentTags.forEach((tag) => {
-        if (EditorUtility.hasParent(tag)) {
+        if (Editor.getInstance().hasParent(tag)) {
           execute = false;
         }
       });
@@ -200,45 +130,19 @@ export default defineComponent({
       if (oDoc) {
         oDoc.focus();
       }
-      if (checkForChanges) {
-        emit("checkForChanges");
-      }
       selectedColor.value = "";
       selectedTextType.value = "";
     }
 
-    // ! Cannot go into EditorUtitlity -> Has emit
-    // Adds event listener to Accordion |=> details => sumary => button.onclick
-    // Removes the Accordion / parent details tag, with all children
-    function setAccordionRemoveEvent(
-      nodeList: NodeListOf<HTMLDetailsElement>
-    ): void {
-      nodeList.forEach(
-        (node) =>
-          (node
-            .getElementsByTagName("summary")[0]
-            .getElementsByTagName("button")[0].onclick = (event) => {
-            const details = <Node>(
-              (<HTMLElement>event.target).parentNode?.parentNode
-            );
-            details.parentNode?.removeChild(details);
-            emit("checkForChanges");
-          })
-      );
-    }
-
-    // ! Cannot go into EditorUtitlity -> Has emit
     function createAccordion(): void {
-      if (!EditorUtility.isTag("H3")) {
+      if (!Editor.getInstance().isTag("H3")) {
         formatDoc({
           sCmd: "insertHTML",
-          sValue: EditorUtility.createAccordionElement(),
-          checkForChanges: false,
+          sValue: Editor.getInstance().accordion.createAccordionElement(),
           blockParentTags: ["SUMMARY"],
         });
-        EditorUtility.createChildElements("newAccordion");
-        toggleContenteditableAttr(true);
-        emit("checkForChanges");
+        Editor.getInstance().accordion.createChildElements("newAccordion");
+        toggleEditor(true);
       }
     }
 
@@ -258,7 +162,7 @@ export default defineComponent({
       const video = document.createElement("video");
       const source = document.createElement("source");
       video.controls = true;
-      video.disablePictureInPicture = true;
+      video.setAttribute("disablePictureInPicture", "true");
       video.setAttribute("controlsList", "nodownload noplaybackrate ");
       source.src = `\\cdn\\${id}`;
       source.type = "video/mp4";

@@ -20,7 +20,8 @@
 </template>
 
 <script lang="ts">
-import { hasParent } from "../Extensions/PageEditor/main";
+import Editor from "../Extensions/PageEditor/index";
+import {defineComponent} from "vue";
 import axios from "axios";
 
 function getCookie(name: string): string | null {
@@ -38,11 +39,11 @@ function getCookie(name: string): string | null {
   );
 }
 
-export default {
+export default defineComponent({
   emits: ["imageUploaded", "videoUploaded"],
   setup(props, { emit }) {
     function upload(event: any) {
-      if (!hasParent("SUMMARY")) {
+      if (!Editor.getInstance().hasParent("SUMMARY")) {
         const file = event.target.files[0];
 
         var formData = new FormData();
@@ -77,7 +78,7 @@ export default {
       upload,
     };
   },
-};
+});
 </script>
 
 <style scoped>
