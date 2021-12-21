@@ -1,5 +1,9 @@
 <template>
   <div class="white-space-top"></div>
+      <div class="img-field">
+        <img src="../assets/images/star-bloedprikken.jpg" class="img-banner">
+        <h1 class="header-text">Bloedprikken</h1>
+    </div>
   <!-- <div class="text-box">
     <h3>Coronamaatregelen - zorg goed voor uzelf en voor elkaar</h3>
     <p>Star-shl blijft de anderhalve meter afstand handhaven. Op onze locaties komen mensen met een kwetsbare gezondheid. Het afstand houden beschermt deze patiënten tegen risico op overdracht van Covid-19. Daarnaast willen we voorkomen dat medewerkers besmet raken en niet kunnen werken.</p>
