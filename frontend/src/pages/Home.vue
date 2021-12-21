@@ -28,15 +28,15 @@
             >
           </button>
           <button class="block bottom-left-border">
-            <router-link to="#"
+            <router-link to="/Kinderen"
               ><div v-html="clockSvg"></div>
-              <a>Openingstijden</a></router-link
+              <a>Kids</a></router-link
             >
           </button>
           <button class="block">
-            <router-link to="#"
+            <router-link to="/Veelgesteldevragen"
               ><div v-html="locationArrowSvg"></div>
-              <a>Routeplanner</a></router-link
+              <a>FAQ</a></router-link
             >
           </button>
           <button class="block bottom-right-border">
