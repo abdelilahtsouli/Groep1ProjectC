@@ -16,7 +16,7 @@
 
   <div class="location-page">
 
-    <input class="searchbar" type="text" v-model="search" placeholder="Vul hier uw locatie in">
+    <input class="searchbar" type="text" v-model="search" placeholder="Vul uw locatie in">
     <button class="search-button" @click="getCoordinates(search)">Zoek</button>
 
     <h3 v-if="notFound">Postcode niet gevonden</h3>
@@ -72,7 +72,6 @@ export default defineComponent({
     .then(response => response.json())
     .then(data => this.locations = data)
     .then(data => this.baseLocations = data)
-    console.log(this.locations)
   },
 
  methods: {
@@ -81,6 +80,7 @@ export default defineComponent({
       this.notFound = false
       if (inputAddress == "") {
         this.clearLocations()
+        this.showAllLocations()
       } else {
         this.length = 10
       try {
@@ -154,7 +154,7 @@ export default defineComponent({
     },
 
     clearLocations() {
-      fetch('https://' + window.location.host +'/locations.json')
+      fetch('/locations.json')
       .then(response => response.json())
       .then(data => this.locations = data)
     }
@@ -163,7 +163,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
 
 .content p {
   text-align: left;
@@ -174,10 +173,10 @@ h3 {
   margin-bottom: 40px;
 }
 .content {
-  /*border: 3px solid green;*/
   margin-left: auto;
   margin-right: auto;
   width: 86%;
+  border: none;
 }
 .single-location {
   display: block;
@@ -187,7 +186,7 @@ h3 {
   margin-top: 5px;
   margin-bottom: 5px;
 }
-/*.home-button:active,*/ .search-button, .more-button, .navigate-button {
+.search-button, .more-button, .navigate-button {
   background-color: #e7334c;
   border: none;
   color: white;
@@ -202,17 +201,14 @@ h3 {
   border-radius: 0;
   margin-top: 20px;
 }
-/*.home-button:active,*/ .search-button:active, .more-button:active {
+.search-button:active, .more-button:active {
   background-color: red;
   box-shadow: 0 5px #666;
   transform: translateY(1px);
 }
-/*.home-button {
-  height: 25;
-  width: 25%;
-}*/
+
 .more-button {
-  width: 60%;
+  width: 65%;
   margin-top: 20px;
 }
 .navigate-button {
@@ -325,49 +321,3 @@ p {
 }
 
 </style>
-
-<!--
-<template>
-  <div class="white-space-top"></div>
-  <page-content :id="3" :isLoggedIn="isLoggedIn"></page-content>
-  <div class="text-box">
-    <div class="map-responsive">
-      <iframe
-        src="https://www.google.com/maps/d/embed?mid=1b_K2S4IW2EyIJf_2WR1jcqo5THYs8fGe&hl=nl&z=8"
-        width="600"
-        height="400"
-        style="border: 0"
-        allowfullscreen
-      ></iframe>
-    </div>
-  </div>
-  <div class="white-space-bottom"></div>
-</template>
-
-<script lang="ts">
-import { defineComponent, onMounted } from "vue";
-import PageContent from "../components/PageContent.vue";
-
-export default defineComponent({
-  props: {
-    isLoggedIn: {
-      type: Boolean,
-      required: true,
-    },
-  },
-  emits: ["switchPage", "userLoggedIn"],
-  components: {
-    PageContent,
-  },
-  setup(props, { emit }) {
-    onMounted(() => {
-      emit("switchPage", "locaties");
-      if (document.cookie != "") {
-        emit("userLoggedIn", true);
-      }
-    });
-    return {};
-  },
-});
-</script>
--->
