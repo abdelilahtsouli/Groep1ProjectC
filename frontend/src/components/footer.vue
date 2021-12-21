@@ -91,8 +91,8 @@
         <router-link
           class="menu-buttons"
           @click="close_menu()"
-          to="/Openingstijden"
-          ><a><h4 class="menu-text">Openingstijden</h4></a></router-link
+          to="/Kinderen"
+          ><a><h4 class="menu-text">Kids</h4></a></router-link
         >
         <router-link class="menu-buttons" @click="close_menu()" to="/Veelgesteldevragen"
           ><a><h4 class="menu-text">Veelgestelde vragen</h4></a></router-link

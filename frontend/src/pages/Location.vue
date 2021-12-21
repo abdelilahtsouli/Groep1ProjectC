@@ -321,7 +321,7 @@ summary:hover {
   background-color: #e7334c;
 }
 p {
-  text-align: left;
+  text-align: center;
 }
 
 </style>
