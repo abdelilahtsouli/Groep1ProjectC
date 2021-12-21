@@ -2,6 +2,8 @@ import { removeSlide } from "../SlideShow/main";
 
 class SlideShow {
   private static instance: SlideShow;
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  private constructor() {}
   public static getInstance(): SlideShow {
     if (!SlideShow.instance) {
       SlideShow.instance = new SlideShow();
@@ -24,9 +26,9 @@ class SlideShow {
     const slides = element?.getElementsByClassName("mySlides");
     for (let i = 0; i < slides.length; i++) {
       if (i == 0) {
-        slides[i].style.display = "block";
+        (slides[i] as HTMLElement).style.display = "block";
       } else {
-        slides[i].style.display = "none";
+        (slides[i] as HTMLElement).style.display = "none";
       }
     }
   }
@@ -65,6 +67,7 @@ class SlideShow {
         addSlideButtons.forEach((button, counter) => {
           dom
             .getElementsByClassName("slideshow-container")
+            // eslint-disable-next-line no-unexpected-multiline
             [counter].removeChild(button);
           counter++;
         });
@@ -74,6 +77,7 @@ class SlideShow {
         removeSlideButtons.forEach((button, counter) => {
           dom
             .getElementsByClassName("slideshow-container")
+            // eslint-disable-next-line no-unexpected-multiline
             [counter].removeChild(button);
           counter++;
         });

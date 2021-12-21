@@ -1,9 +1,7 @@
 <template>
   <div class="editor">
     <!-- Editor Header -->
-    <page-editor-header
-      @checkForChanges="checkForChanges"
-    ></page-editor-header>
+    <page-editor-header></page-editor-header>
     <div>
       <div
         v-html="editSVG"
@@ -32,15 +30,7 @@
 </template>
 
 <script lang="ts">
-import {
-  toggleDisplayRemoveButton,
-  toggleEditableAccordionDiv,
-  toggleEditableH3,
-  toggleDetails,
-  disableCtrlA,
-  resetSlideShowDot,
-  resetImageDisplay,
-} from "../Extensions/PageEditor/main";
+import Editor from "../Extensions/PageEditor/index"
 import PageEditorHeader from "./PageEditorHeader.vue";
 import PageEditorFooter from "./PageEditorFooter.vue";
 import { defineComponent, ref } from "vue";
@@ -78,32 +68,28 @@ export default defineComponent({
     }
 
     // Compares original content with editor content
-    // Problem:
-    //  Accodrion buttons have display in their style which results in "changesMade.value = true" always
-    // Solution:
-    //  Created temporary DOM object, where button display is switched to the original state
     const checkForChanges = () => {
       const tempDom = <Document>document.cloneNode(true);
       const tempDomContent = tempDom.getElementById("content");
 
-      const nodeList = tempDomContent?.querySelectorAll("details");
-      if (nodeList) {
-        toggleDisplayRemoveButton(nodeList, false);
-        toggleEditableH3(nodeList, false);
-        toggleEditableAccordionDiv(nodeList, false);
-        toggleDetails(nodeList, false);
-      }
+      // const nodeList = tempDomContent?.querySelectorAll("details");
+      // if (nodeList) {
+      //   toggleDisplayRemoveButton(nodeList, false);
+      //   toggleEditableH3(nodeList, false);
+      //   toggleEditableAccordionDiv(nodeList, false);
+      //   toggleDetails(nodeList, false);
+      // }
 
-      if (tempDomContent) {
-        resetSlideShowDot(tempDomContent);
-        resetImageDisplay(tempDomContent);
-      }
+      // if (tempDomContent) {
+      //   resetSlideShowDot(tempDomContent);
+      //   resetImageDisplay(tempDomContent);
+      // }
 
       changesMade.value =
         content.value !== tempDom.getElementById("content")?.innerHTML;
     };
 
-    disableCtrlA();
+    Editor.getInstance().disableCtrlA();
 
     return {
       checkMarkSVG,

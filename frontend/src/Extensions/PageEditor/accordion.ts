@@ -1,5 +1,7 @@
 class Accordion {
   private static instance: Accordion;
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  private constructor() {}
   public static getInstance(): Accordion {
     if (!Accordion.instance) {
       Accordion.instance = new Accordion();

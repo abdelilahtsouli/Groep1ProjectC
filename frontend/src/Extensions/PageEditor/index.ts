@@ -19,12 +19,21 @@ function getCookie(name: string): string | null {
 }
 
 class Editor {
-  accordion: Accordion;
-  slideshow: SlideShow;
+  private static instance: Editor;
+  public accordion: Accordion;
+  public slideshow: SlideShow;
 
-  constructor() {
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  private constructor() {
     this.accordion = Accordion.getInstance();
     this.slideshow = SlideShow.getInstance();
+  }
+
+  public static getInstance(): Editor {
+    if (!Editor.instance) {
+      Editor.instance = new Editor();
+    }
+    return Editor.instance;
   }
 
   // Prevents the user from inserting HTML while edditing in contenteditable tags
