@@ -23,7 +23,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+
+import { onMounted, ref } from "vue";
 import axios from "axios";
 import router from "../router";
 
@@ -31,22 +32,29 @@ const URL_base = "/api/auth/login";
 const message_email = ref("");
 const message_password = ref("");
 const errormessage = ref("");
-
+let loginAttempts =  0;
+let ClientIP = "";
 function userLogin() {
+  loginAttempts += 1;
   if (!validateEmail()) {
     errormessage.value = "Voer een geldig e-mail adres in";
     return;
   }
   if (message_password.value == "") {
-    errormessage.value = "Enter a password";
+    errormessage.value = "Voer een wachtwoord in";
     return;
   }
 
   var bodyFormData = new FormData();
   bodyFormData.append("email", message_email.value);
   bodyFormData.append("password", message_password.value);
+  bodyFormData.append("loginCounter", loginAttempts.toString());
+  bodyFormData.append("clientip", ClientIP);
   axios.post(URL_base, bodyFormData).then((Response: any) => {
     errormessage.value = Response.data.message;
+    if(loginAttempts >= 3){
+      setTimeout(() => {loginAttempts = 0}, 300000);
+    }
     if (Response.data.twoFAenabled == false) {
       router.push({
         name: "twoFA",
@@ -60,6 +68,16 @@ function userLogin() {
     }
   });
 }
+onMounted(() => {
+  fetch('https://api.ipify.org?format=json')
+  .then(x => x.json())
+  .then(({ ip }) => {
+      ClientIP = ip;
+  });
+  
+});
+
+
 
 function validateEmail() {
   const re =

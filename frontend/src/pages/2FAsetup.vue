@@ -4,8 +4,12 @@
     <div class="twoFA-QR">
       <h5>Scan de onderstaande code met de google Authenticator</h5><br>
       <img class="qr-img" :src="qrcode" />
+      <h5>Of voer onderstaande code handmatig toe in de google authenticator app</h5><br>
+      <div class="qrcode-manual">
+        <h5 >{{qrcodeManual}}</h5>
+      </div>
       <div>
-        <br><br>
+        <br>
         <h5>Wanneer u de QR code heeft gescanned met de Google Authenticator app voer de 6 cijferige code hieronder in</h5>
         <input class="qr-input" v-model="verifyCode" placeholder="6-cijferige code uit de authenticator app">
         <button type="submit" @click="Verify()">Verify</button>
@@ -24,7 +28,7 @@ import { VueCookieNext } from 'vue-cookie-next'
 import bus from "../bus"
 
 const props = defineProps<{ id: string, email: string}>();
-
+const qrcodeManual = ref("");
 const qrcode = ref("");
 const verifyCode = ref('');
 const isVerified = ref(false);
@@ -36,7 +40,10 @@ async function Verify(){
   var bodyFormData = new FormData();
   bodyFormData.append("id", props.id);
   bodyFormData.append("token_input", verifyCode.value)
-  await axios.post("/api/auth/2FAverify", bodyFormData).then((Response: any) => {isVerified.value = Response.data.isCorrectPIN, token = Response.data.token,errorMessage.value = Response.data.error})
+  await axios.post("/api/auth/2FAverify", bodyFormData).then((Response: any) =>
+    {isVerified.value = Response.data.isCorrectPIN,
+     token = Response.data.token,
+     errorMessage.value = Response.data.error})
 
   if(isVerified.value){
     VueCookieNext.setCookie("token", decodeURI(token), {expire :"2h"});
@@ -57,7 +64,10 @@ async function twoFactorAuthentication() {
   bodyFormData.append("id", props.id);
   await axios
     .post("/api/auth/2FA", bodyFormData)
-    .then((Response: any) => qrcode.value = (Response.data.qrCodeImageUrl))
+    .then((Response: any) => {
+    qrcode.value = (Response.data.qrCodeImageUrl),
+    qrcodeManual.value = (Response.data.qrCodeManual)
+    })
 }
 
 onMounted(async function () {
@@ -82,16 +92,18 @@ onMounted(async function () {
   background-color: var(--dark-blue);
 }
 .twoFA{
-  width: 50%;
+  width: 70%;
   margin: 0 auto;
   margin-top: 30% !important;
-  padding: 30px;
+  padding: 25px;
   background-color: var(--dark-blue);
   border-radius: 5px;
 }
 .qr-img{
   margin: auto;
   display: block;
+  width: 100%;
+  margin-bottom: 10px;
 
 }
 .twoFA-QR button{
@@ -114,5 +126,9 @@ onMounted(async function () {
   font-size: 0.8em;
   margin: 0;
   margin-bottom: 10px;
+}
+.qrcode-manual {
+  width: 50% !important;
+  color: red !important ;
 }
 </style>

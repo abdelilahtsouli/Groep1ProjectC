@@ -75,4 +75,11 @@ export default defineComponent({
   transform: translate(-50%, -50%);
   z-index: 2;
 }
+.header-contact {
+  /* margin-bottom: 80px; */
+}
+.content-contact a {
+  color: #e7334c !important;
+  text-decoration: none;
+}
 </style>

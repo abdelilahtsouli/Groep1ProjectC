@@ -11,9 +11,11 @@ import Page from '../components/Page.vue'
 import Location from '../pages/Location.vue'
 import Contact from '../pages/Contact.vue'
 import Veelgesteldevragen from '../pages/FAQ.vue'
+import Kids from "../pages/Kids.vue"
 
 // These pages still need to be created.
 // For now these placeholders are used!
+import Urineonderzoek from '../pages/Urineonderzoek.vue'
 import Openingstijden from '../pages/Location.vue'
 import Routeplanner from '../pages/Location.vue'
 
@@ -26,7 +28,12 @@ const routes: Array<RouteRecordRaw> = [
         name: 'Home',
         props: true,
         component: Home
-    },   
+    },  
+    {
+        path: '/Kinderen',
+        name: 'Kids',
+        component: Kids
+    },
     {
         path: '/Bloedprikken',
         name: 'Bloedprikken',

@@ -25,21 +25,27 @@ namespace Project_C_Website.controllers {
 		public IActionResult Get(int id) {
 			Database database = new Database();
 
-			DataTable data = database.BuildQuery("select * from media where media_id=@id")
+			DataTable data = database.BuildQuery("SELECT * FROM media WHERE media_id=@id")
 				.AddParameter("id", id)
 				.Select();
+
+			database.Close();
 
 			foreach (DataRow row in data.Rows) {
 				string file = getFilePath(row["media_id"].ToString());
 				string type = row["type"].ToString();
 
 				if (!System.IO.File.Exists(file)) {
+					database.Close();
+
 					this.HttpContext.Response.StatusCode = 500;
 					return Content(JsonSerializer.Serialize(new {
 						Success = false,
 						Message = "File Not Found (doesn't exist on the disk)"
 					}));
 				}
+
+				database.Close();
 
 				Byte[] b = System.IO.File.ReadAllBytes(file);
 				return File(b, type);
@@ -58,13 +64,13 @@ namespace Project_C_Website.controllers {
 			if (token == null) return false;
 
 			Database database = new Database();
-			DataTable data = database.BuildQuery("select * from admins where oauth_token=@token")
+			DataTable data = database.BuildQuery("SELECT * FROM admins WHERE oauth_token=@token")
 				.AddParameter("token", token)
 				.Select();
 
 			database.Close();
-
 			return data.Rows.Count == 1;
+			
 		}
 
 		// POST /cdn/
@@ -100,7 +106,7 @@ namespace Project_C_Website.controllers {
 
 			// Add the media to the database.
 			Database database = new Database();
-			DataTable data = database.BuildQuery("insert into media VALUES (default, @type) RETURNING media_id")
+			DataTable data = database.BuildQuery("INSERT INTO media VALUES (default, @type) RETURNING media_id")
 				.AddParameter("type", type)
 				.Select();
 
@@ -136,7 +142,7 @@ namespace Project_C_Website.controllers {
 
 			Database database = new Database();
 
-			database.BuildQuery("delete from media where media_id=@id")
+			database.BuildQuery("DELETE FROM media WHERE media_id=@id")
 				.AddParameter("id", id)
 				.Query();
 
