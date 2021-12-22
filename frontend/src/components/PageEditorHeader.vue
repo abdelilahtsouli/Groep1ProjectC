@@ -124,7 +124,7 @@ export default defineComponent({
       if (execute) {
         document.execCommand(sCmd, false, sValue);
       } else {
-        console.log("Insert action block.\nCannot insert into tag.");
+        console.error("Insert action block.\nCannot insert into tag.");
       }
 
       if (oDoc) {

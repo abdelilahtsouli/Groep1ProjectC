@@ -114,15 +114,14 @@ class Editor {
             .then(
               (response: any) => {
                 // TODO ADD SLIDE
-                console.log();
                 addSlide(`/cdn/${response.data.id}`, 0);
               },
               (error: any) => {
-                console.log(error.value);
+                console.error(error.value);
               }
             );
         } else {
-          console.log("image/video upload blocked");
+          console.error("image/video upload blocked");
         }
       };
       document.getElementById("app")?.appendChild(inputEl);

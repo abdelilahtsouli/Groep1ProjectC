@@ -91,7 +91,7 @@ export default defineComponent({
         var longitude = response.data.features[0].center[0]
 
       } catch (err) {
-        console.log(err)
+        console.error(err)
         this.notFound = true
       }
       this.search = ""

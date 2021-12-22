@@ -43,7 +43,6 @@ class SlideShow {
       addSlideButton.setAttribute("name", "add-slide");
       addSlideButton.classList.add("add-slide-button");
       addSlideButton.onclick = () => {
-        console.log(document.getElementById("hidden-image-input"));
         document.getElementById("hidden-image-input")?.click();
       };
   
@@ -95,7 +94,6 @@ class SlideShow {
         dom.getElementsByClassName("slideshow-container")
       ).forEach((sl) => {
         const inputElements = dom.getElementsByName("hidden-image-input");
-        console.log(inputElements);
         inputElements.forEach((el) => sl.removeChild(el));
       });
     }

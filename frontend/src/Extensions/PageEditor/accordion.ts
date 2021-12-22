@@ -199,7 +199,6 @@ class Accordion {
 
   public reset(dom: Document): void {
     const nodeList = dom.querySelectorAll("details");
-    console.log(nodeList.forEach((node) => console.log(node)))
     this.toggleOpen(nodeList, false);
     this.toggleDisplayRemoveButton(nodeList, false);
     this.toggleHeaderContentEditable(nodeList, false);

@@ -86,7 +86,6 @@ export default defineComponent({
       content.value = newContent;
       editing.value = false;
       showModal.value = true;
-      console.log(serverResponse);
     }
 
     if (props.id != undefined) {
@@ -94,7 +93,6 @@ export default defineComponent({
     }
 
     onUpdated(() => {
-      console.log("onUpdated - fired")
       if (document.getElementById("slideshow")) {
         setAll();
         showSlides(slideIndex);

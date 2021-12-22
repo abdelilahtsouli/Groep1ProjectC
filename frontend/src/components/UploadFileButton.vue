@@ -66,11 +66,11 @@ export default defineComponent({
               }
             },
             (error: any) => {
-              console.log(error.value);
+              console.error(error.value);
             }
           );
       } else {
-        console.log("image/video upload blocked");
+        console.error("image/video upload blocked");
       }
     }
 

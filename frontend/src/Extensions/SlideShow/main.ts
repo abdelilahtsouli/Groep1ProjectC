@@ -117,10 +117,8 @@ function removeSlide(containerIndex: number): void {
     const slideshow = document.getElementsByClassName("slideshow-container")[
       containerIndex
     ];
-    console.log(slideshow);
     const slideToRemove =
       slideshow.getElementsByClassName("mySlides")[slideIndex - 1];
-    console.log(slideToRemove);
 
     slideshow.removeChild(slideToRemove);
 

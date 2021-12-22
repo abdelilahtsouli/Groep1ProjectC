@@ -67,8 +67,6 @@ export default defineComponent({
           }
         )
         .then((response: any) => {
-          // TODO: Show that the request is successfull.
-          console.log(response);
           emit("newContent", newContent, response);
         });
     }
