@@ -1,14 +1,12 @@
 ## Installation
 ```console
 cd frontend
-
 npm install -g yarn
+npm install -g @vue/cli
 npm install
 
-npm install -g @vue/cli
 
 cd backend
-
 nuget install npgsql
 dotnet add package GoogleAuthenticator --version 2.2.0
 ```
@@ -17,10 +15,9 @@ dotnet add package GoogleAuthenticator --version 2.2.0
 
 ```console
 cd frontend
-
 yarn build:watch
 
-cd backend
 
+cd backend
 dotnet run
 ```
