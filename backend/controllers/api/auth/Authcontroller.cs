@@ -12,6 +12,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Data;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System.Security.Cryptography;
+using System.Web;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Project_C_Website.controllers {
@@ -27,9 +28,9 @@ namespace Project_C_Website.controllers {
 			string email_input = HttpContext.Request.Form["email"];
 			string password_input = HttpContext.Request.Form["password"];
 			string loginAttempt = HttpContext.Request.Form["loginCounter"].ToString();
-			string ClientIP = HttpContext.Request.Form["clientip"];
+			string ClientIP = Request.HttpContext.Connection.RemoteIpAddress.ToString();
 			bool contains = false;
-			string timeout = "";
+			string timeout = "0";
 			//Get current unix time 
 			DateTime foo = DateTime.Now;
 			long unixTime = ((DateTimeOffset)foo).ToUnixTimeSeconds();
@@ -56,7 +57,6 @@ namespace Project_C_Website.controllers {
 				}
 			}
 
-			
 			// if IP adress doesnt exist in db add it
 			if(!contains){
 				database.BuildQuery($"INSERT INTO loginattempts (ipadress, attempts, timeout) VALUES (@ip, @counter, @unixtime)")
@@ -75,7 +75,7 @@ namespace Project_C_Website.controllers {
 					message = "U heeft te veel inlog pogingen gehad probeer het over 5 minuten nog een keer."
 				});
 			}
-			if(CurrentTimeStamp > Int32.Parse(timeout)){
+			if(CurrentTimeStamp >= Int32.Parse(timeout)){
 			// Delete rows if Current time is later then timeout
 				database.BuildQuery("DELETE FROM loginattempts WHERE @timeout > @current ")
 					.AddParameter("timeout", Int32.Parse(timeout))
