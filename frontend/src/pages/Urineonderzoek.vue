@@ -4,7 +4,7 @@
         <img src="../assets/images/fotolaborant.jpg" class="img-banner">
         <h1 class="header-text">Urineonderzoek</h1>
     </div>
-  <page-content :id="6"></page-content>
+  <page-content :id="6"></page-content> 
   <div class="white-space-bottom"></div>
 </template>
 <script lang="ts">
