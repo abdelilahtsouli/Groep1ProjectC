@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts">
-import Editor from "../Extensions/PageEditor/index"
+import Editor from "../extensions/page-editor/index"
 import axios from "axios";
 import { defineComponent, ref } from "vue";
 import { VueCookieNext } from "vue-cookie-next";

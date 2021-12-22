@@ -30,7 +30,7 @@
 </template>
 
 <script lang="ts">
-import Editor from "../Extensions/PageEditor/index"
+import Editor from "../extensions/page-editor/index"
 import PageEditorHeader from "./PageEditorHeader.vue";
 import PageEditorFooter from "./PageEditorFooter.vue";
 import { defineComponent, ref } from "vue";

@@ -1,4 +1,4 @@
-import { removeSlide } from "../SlideShow/main";
+import { removeSlide } from "../slide-show/main";
 
 class SlideShow {
   private static instance: SlideShow;

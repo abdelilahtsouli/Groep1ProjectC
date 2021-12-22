@@ -53,7 +53,7 @@
 </template>
 
 <script lang="ts">
-import Editor from "../Extensions/PageEditor/index";
+import Editor from "../extensions/page-editor/index";
 import UploadFileButton from "./UploadFileButton.vue";
 import { defineComponent, onBeforeUnmount, onMounted, ref } from "vue";
 
@@ -192,7 +192,6 @@ export default defineComponent({
 
 <style scoped>
 @import "../assets/css/editor-components/editorbutton.css";
-@import "../assets/css/SlideShow.css";
 
 .editor .header {
   display: flex;

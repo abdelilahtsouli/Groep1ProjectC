@@ -33,7 +33,7 @@ import { VueCookieNext } from "vue-cookie-next";
 import axios from "axios";
 import bus from "../bus";
 import Modal from "./Modal.vue";
-import { setAll, showSlides, slideIndex } from "../Extensions/SlideShow/main";
+import { setAll, showSlides, slideIndex } from "../extensions/slide-show/main";
 
 export default defineComponent({
   props: {
@@ -113,6 +113,5 @@ export default defineComponent({
 </script>
 
 <style scoped>
-@import "../assets/css/SlideShow.css";
 @import "../assets/css/page-components/main.css";
 </style>

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { addSlide } from "../SlideShow/main";
+import { addSlide } from "../slide-show/main";
 import Accordion from "./accordion";
 import SlideShow from "./slideshow";
 

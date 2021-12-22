@@ -1,4 +1,4 @@
-import "../../assets/css/SlideShow.css";
+import "../../assets/css/page-components/main.css";
 
 export { slideIndex, setAll, showSlides, addSlide, removeSlide };
 
