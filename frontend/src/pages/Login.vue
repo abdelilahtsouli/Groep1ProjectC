@@ -33,7 +33,6 @@ const message_email = ref("");
 const message_password = ref("");
 const errormessage = ref("");
 let loginAttempts =  0;
-let ClientIP = "";
 function userLogin() {
   loginAttempts += 1;
   if (!validateEmail()) {
@@ -49,7 +48,7 @@ function userLogin() {
   bodyFormData.append("email", message_email.value);
   bodyFormData.append("password", message_password.value);
   bodyFormData.append("loginCounter", loginAttempts.toString());
-  bodyFormData.append("clientip", ClientIP);
+
   axios.post(URL_base, bodyFormData).then((Response: any) => {
     errormessage.value = Response.data.message;
     if(loginAttempts >= 3){
@@ -68,14 +67,7 @@ function userLogin() {
     }
   });
 }
-onMounted(() => {
-  fetch('https://api.ipify.org?format=json')
-  .then(x => x.json())
-  .then(({ ip }) => {
-      ClientIP = ip;
-  });
-  
-});
+
 
 
 
