@@ -1,6 +1,12 @@
 <template>
 
   <div class="white-space-top"></div>
+
+    <div class="img-field">
+    <img src="../assets/images/star-shl-locatie.png" class="img-banner">
+    <h1 class="header-text">Locaties</h1>
+  </div>
+
     <div class="content-location">
     <div class="text-content">
       <h1>Locaties bloedafname</h1>
@@ -19,7 +25,7 @@
     <input class="searchbar" type="text" v-model="search" placeholder="Vul uw locatie in">
     <button class="search-button" @click="getCoordinates(search)">Zoek</button>
 
-    <h3 v-if="notFound">Postcode niet gevonden</h3>
+    <h3 v-if="notFound">Locatie niet gevonden</h3>
 
     <div class="all-locations">
       <div class="single-location" v-for="location in this.locations.slice(0, length)" :key="location" >
@@ -91,7 +97,6 @@ export default defineComponent({
         var longitude = response.data.features[0].center[0]
 
       } catch (err) {
-        console.error(err)
         this.notFound = true
       }
       this.search = ""
@@ -150,7 +155,7 @@ export default defineComponent({
     },
 
     goToGoogle(url) {
-      window.location.href = url
+      window.open().location.href = url
     },
 
     clearLocations() {
