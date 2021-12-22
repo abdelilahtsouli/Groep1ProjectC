@@ -28,7 +28,4 @@ backend/obj/*
 
 
 frontend/node_modules/
-backend/obj/Project C Website.csproj.nuget.dgspec.json
-backend/obj/Project C Website.csproj.nuget.g.props
-backend/obj/project.assets.json
-backend/obj/project.nuget.cache
+backend/.vs/
