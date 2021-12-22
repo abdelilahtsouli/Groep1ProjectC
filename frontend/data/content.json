@@ -1,0 +1,52 @@
+{
+    "pages": [
+    {
+        "Id": 1,
+        "Name": "Homepage",
+        "Media": [
+          {
+            "Id": 1,
+            "Type": "image",
+            "Path": "/img/star-shl_logo.png",
+            "Location": "left"
+          },
+          {
+            "Id": 2,
+            "Type": "image",
+            "Path": "/img/star-shl_logo2.png",
+            "Location": "right"
+          },
+          {
+            "Id": 3,
+            "Type": "text",
+            "Content": "Welkom bij de officiële Star-shl web app.",
+            "Location": "left"
+          }
+        ]
+      },
+      {
+        "Id": 2,
+        "Name": "Bloedprikken",
+        "Media": [
+          {
+            "Id": 1,
+            "Type": "text",
+            "Content": "Bij bloedonderzoek nemen we een of meer buisjes bloed af met een hol naaldje. \nDit bloed wordt vervolgens in het laboratorium onderzocht door een analist.\n",
+            "Location": "left"
+          },
+          {
+            "Id": 2,
+            "Type": "video",
+            "Video_HTML": "<iframe src=\"https://player.vimeo.com/video/327045115?h=5568efb67f\" width=\"640\" height=\"360\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen></iframe>",
+            "Location": "right"
+          },
+          {
+            "Id": 3,
+            "Type": "text",
+            "Content": "Bloedonderzoek of onderzoek van urine of ontlasting is nodig wanneer de huisarts of specialist meer te weten wil komen over uw gezondheid. \nDe arts laat ook onderzoek doen om het verloop van ziekte en het effect van een behandeling te bepalen.",
+            "Location": "left"
+          }
+        ]
+    }
+  ]
+}

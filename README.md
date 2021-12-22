@@ -1,24 +1,23 @@
 ## Installation
-```
+```console
 cd frontend
-
 npm install -g yarn
-npm install
-```
-
-## Install Vue CLI
-```
 npm install -g @vue/cli
-```
-or
-```
-yarn global add @vue/cli
+npm install
+
+
+cd backend
+nuget install npgsql
+dotnet add package GoogleAuthenticator --version 2.2.0
 ```
 
-## Build the frontend in watch mode
+## Building
 
-```
+```console
 cd frontend
-
 yarn build:watch
+
+
+cd backend
+dotnet run
 ```

@@ -1,0 +1,46 @@
+.text-box {
+  padding-top: 5px;
+  margin: 0 10px;
+  text-align: center;
+}
+
+.text-box p {
+  /* font-size: 15px; */
+  /* margin: 0 10px 20px 10px; */
+  margin: 10px 10px 20px 10px;
+}
+
+.text-box h1,
+.text-box h2,
+.text-box h3,
+.text-box h4,
+.text-box h4,
+.text-box h6 {
+  margin: 10px 0;
+}
+
+.text-box svg {
+  height: 24px;
+  width: 24px;
+  color: var(--light-red);
+  fill: var(--light-red);
+  margin: 5px 0 0 0;
+  margin-bottom: 5px;
+}
+
+.text-box video {
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  height: initial;
+}
+
+.text-box image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.text-box a {
+  color: #e7334c !important;
+  text-decoration: none;
+}

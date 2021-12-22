@@ -1,5 +1,8 @@
 const path = require("path");
 
 module.exports = {
-    outputDir: path.resolve(__dirname, "../backend/wwwroot/"),
-}
+  outputDir: path.resolve(__dirname, "../backend/wwwroot/"),
+  configureWebpack: {
+    devtool: "source-map",
+  },
+};

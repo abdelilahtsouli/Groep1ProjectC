@@ -1,29 +1,38 @@
 <template>
-  <div>
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
-  </div>
+  <header>
+    <Header />
+  </header>
+  <footer>
+    <Footer />
+  </footer>
+  <router-view/>
 </template>
 
-<script lang="ts">
-import { Options, Vue } from "vue-class-component";
-import HelloWorld from "./components/HelloWorld.vue";
+<script lang="ts" setup>
+import { ref, onMounted } from "vue";
+import { VueCookieNext } from "vue-cookie-next";
+import Header from "./components/Header.vue";
+import Footer from "./components/Footer.vue";
+import bus from "./bus";
 
-@Options({
-  components: {
-    HelloWorld,
-  },
-})
-export default class App extends Vue {}
+onMounted(() => {
+  bus.emit("sessionModify", {
+      "loggedIn": VueCookieNext.getCookie("token") != null,
+      "superUser": VueCookieNext.getCookie("superUser") != null
+  });
+});
+
 </script>
-
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+.app-background{
+  height: 100vh;;
+  background-color: var(--page-background-color);
 }
 </style>
