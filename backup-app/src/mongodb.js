@@ -33,8 +33,8 @@ const mongodbInsert = (document, timestamp) => {
     collection.insertOne(document);
     console.log(`${timestamp} | Upload Succeeded: Document has been added.`);
   } catch (error) {
+    sendMail(settings.Outlook.user, `${timestamp} | Upload Failed`, error);
     console.error(`${timestamp} | Upload Failed:\n${error}`);
-    sendMail(settings.Outlook.user, `${timestamp} | Upload Failed:`, error);
   }
 };
 
