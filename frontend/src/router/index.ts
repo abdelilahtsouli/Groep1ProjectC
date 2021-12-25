@@ -12,7 +12,7 @@ import Kids from "../pages/Kids.vue"
 
 // These pages still need to be created.
 // For now these placeholders are used!
-import Urineonderzoek from '../pages/Urineonderzoek.vue'
+import Urineonderzoek from '../pages/UrineOnderzoek.vue'
 import Openingstijden from '../pages/Location.vue'
 import Routeplanner from '../pages/Location.vue'
 

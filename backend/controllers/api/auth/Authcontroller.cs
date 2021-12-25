@@ -27,11 +27,18 @@ namespace Project_C_Website.controllers {
 			// Get a values from the Request 
 			string email_input = HttpContext.Request.Form["email"];
 			string password_input = HttpContext.Request.Form["password"];
-			string loginAttempt = HttpContext.Request.Form["loginCounter"].ToString();
+			int loginAttempt = 0;
 			string ClientIP = Request.HttpContext.Connection.RemoteIpAddress.ToString();
 			bool contains = false;
 			string timeout = "0";
+			if(email_input == null && password_input == null){
+				return JsonSerializer.Serialize(new{
+					success = false,
+					message = "Het e-mail adres of wachtwoord is onjuist",
+				});
+			}
 			//Get current unix time 
+			
 			DateTime foo = DateTime.Now;
 			long unixTime = ((DateTimeOffset)foo).ToUnixTimeSeconds();
 			int unixtime = Convert.ToInt32(unixTime);
@@ -45,10 +52,11 @@ namespace Project_C_Website.controllers {
 						// add the timeout of 5 minutes.
 						unixtime += 5*60 *1000;
 					}
+					loginAttempt += Int32.Parse(row["attempts"].ToString()) + 1;
 					// if IP adress exist in db update it with new counter and timeout
 					database.BuildQuery($"UPDATE loginattempts SET attempts=@counter, timeout=@unixtime WHERE ipadress=@ip")
 						.AddParameter("ip", ClientIP)
-						.AddParameter("counter", Int32.Parse(loginAttempt))
+						.AddParameter("counter", loginAttempt)
 						.AddParameter("unixtime", unixtime)
 						.Query();
 					contains = true;
@@ -59,9 +67,10 @@ namespace Project_C_Website.controllers {
 
 			// if IP adress doesnt exist in db add it
 			if(!contains){
+				loginAttempt += 1;
 				database.BuildQuery($"INSERT INTO loginattempts (ipadress, attempts, timeout) VALUES (@ip, @counter, @unixtime)")
 				.AddParameter("ip", ClientIP)
-				.AddParameter("counter", Int32.Parse(loginAttempt))
+				.AddParameter("counter", loginAttempt)
 				.AddParameter("unixtime", unixtime)
 				.Query();
 			}
