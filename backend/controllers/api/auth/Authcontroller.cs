@@ -38,11 +38,9 @@ namespace Project_C_Website.controllers {
 				});
 			}
 			//Get current unix time 
-			
 			DateTime foo = DateTime.Now;
 			long unixTime = ((DateTimeOffset)foo).ToUnixTimeSeconds();
 			int unixtime = Convert.ToInt32(unixTime);
-
 
 			Database database = new Database();
 			DataTable data1 = database.BuildQuery("SELECT ipadress,timeout,attempts FROM loginattempts").Select();
