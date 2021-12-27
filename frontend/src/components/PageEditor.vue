@@ -30,11 +30,27 @@
 </template>
 
 <script lang="ts">
-import Editor from "../extensions/page-editor/index"
+import Editor from "../extensions/page-editor/index";
 import PageEditorHeader from "./PageEditorHeader.vue";
 import PageEditorFooter from "./PageEditorFooter.vue";
-import { defineComponent, ref } from "vue";
+import { defineComponent, onBeforeUnmount, ref } from "vue";
 import { VueCookieNext } from "vue-cookie-next";
+import axios from "axios";
+
+function getCookie(name: string): string | null {
+  const nameLenPlus = name.length + 1;
+  return (
+    document.cookie
+      .split(";")
+      .map((c) => c.trim())
+      .filter((cookie) => {
+        return cookie.substring(0, nameLenPlus) === `${name}=`;
+      })
+      .map((cookie) => {
+        return decodeURIComponent(cookie.substring(nameLenPlus));
+      })[0] || null
+  );
+}
 
 export default defineComponent({
   props: {
@@ -59,11 +75,42 @@ export default defineComponent({
     const changesMade = ref(false);
     const isLoggedIn = ref(VueCookieNext.getCookie("token") != null);
 
+    let contentSend = false;
+
+    onBeforeUnmount(() => {
+      if (!contentSend) {
+        const regEX = /\/cdn\/([0-9]*)/g;
+
+        const editorContent = document.getElementById("content");
+        if (editorContent) {
+          const editorIds = getSubstrings(
+            editorContent.innerHTML,
+            regEX
+          );
+          const actualIds = getSubstrings(props.content, regEX);
+  
+          // console.log({ editorContent: editorContent });
+          // console.log({ actualContent: actualContent });
+  
+          const unusedMediaInBackend = editorIds?.filter(
+            (element) => !actualIds.includes(element)
+          );
+  
+          // console.log({ unusedMediaInBackend: unusedMediaInBackend });
+          removeMedia(unusedMediaInBackend);
+        } else{
+          console.error("Element with id `Content` does not exist.")
+        }
+      }
+    });
+
     // Emit send from PageEditorFooter when newContent is submitted and send to database
     // Sets content.value = newContent
     function setNewContent(newContent: string, serverResponse: any) {
       changesMade.value = false;
+      contentSend = true;
       content.value = newContent;
+      removeMedia(getUnusedMedia());
       emit("newContent", newContent, serverResponse);
     }
 
@@ -87,6 +134,43 @@ export default defineComponent({
 
       changesMade.value =
         content.value !== tempDom.getElementById("content")?.innerHTML;
+    };
+
+    const getSubstrings = (text: string, regEX: RegExp): string[] => {
+      const matches = text.match(regEX);
+      return matches === null ? [] : matches;
+    };
+
+    const getUnusedMedia = (): string[] => {
+      const regEX = /\/cdn\/([0-9]*)/g;
+
+      const oldContentIds = getSubstrings(props.content, regEX);
+      const newContentIds = getSubstrings(content.value, regEX);
+
+      // console.log({ OldContentIds: oldContentIds });
+      // console.log({ NewContentIds: newContentIds });
+      const disjointedArr = oldContentIds?.filter(
+        (element) => !newContentIds?.includes(element)
+      );
+      // console.log({ UpForRemoval: disjointedArr });
+
+      return disjointedArr === undefined ? [] : disjointedArr;
+    };
+
+    const removeMedia = (mediaIds: Array<string>): void => {
+      // console.log({mediaIds: mediaIds});
+      mediaIds.forEach((id) => {
+        axios
+          .delete(id, {
+            headers: {
+              Authorization: <string>getCookie("token"),
+            },
+          })
+          .then((response: any) => {
+            // console.log(response);
+          })
+          .catch();
+      });
     };
 
     Editor.getInstance().disableCtrlA();
