@@ -79,27 +79,22 @@ export default defineComponent({
 
     onBeforeUnmount(() => {
       if (!contentSend) {
-        const regEX = /\/cdn\/([0-9]*)/g;
-
         const editorContent = document.getElementById("content");
         if (editorContent) {
-          const editorIds = getSubstrings(
-            editorContent.innerHTML,
-            regEX
-          );
-          const actualIds = getSubstrings(props.content, regEX);
-  
-          // console.log({ editorContent: editorContent });
-          // console.log({ actualContent: actualContent });
-  
+          const editorIds = getSrcIds(editorContent.innerHTML);
+          const actualIds = getSrcIds(props.content);
+
+          console.log({ editorContent: editorIds });
+          console.log({ actualContent: actualIds });
+
           const unusedMediaInBackend = editorIds?.filter(
             (element) => !actualIds.includes(element)
           );
-  
+
           // console.log({ unusedMediaInBackend: unusedMediaInBackend });
           removeMedia(unusedMediaInBackend);
-        } else{
-          console.error("Element with id `Content` does not exist.")
+        } else {
+          console.error("Element with id `Content` does not exist.");
         }
       }
     });
@@ -136,29 +131,47 @@ export default defineComponent({
         content.value !== tempDom.getElementById("content")?.innerHTML;
     };
 
-    const getSubstrings = (text: string, regEX: RegExp): string[] => {
-      const matches = text.match(regEX);
-      return matches === null ? [] : matches;
+    const getSrcIds = (htmlString: string): string[] => {
+      const tempHtml = document.createElement("html");
+      tempHtml.innerHTML = htmlString;
+
+      const tempDOM = new Document();
+      tempDOM.appendChild(tempHtml);
+
+      const tempBody = tempDOM.body;
+
+      const sourceAttributes: Array<string> = [];
+
+      if (tempBody) {
+        // Image
+        Array.from(tempBody.getElementsByTagName("img")).forEach((element) =>
+          sourceAttributes.push(element.src)
+        );
+
+        // Video
+        Array.from(tempBody.getElementsByTagName("video")).forEach(
+          (videoElement) =>
+            Array.from(videoElement.getElementsByTagName("source")).forEach(
+              (sourceElement) => sourceAttributes.push(sourceElement.src)
+            )
+        );
+      }
+
+      return sourceAttributes;
     };
 
     const getUnusedMedia = (): string[] => {
-      const regEX = /\/cdn\/([0-9]*)/g;
+      const oldContentIds = getSrcIds(props.content);
+      const newContentIds = getSrcIds(content.value);
 
-      const oldContentIds = getSubstrings(props.content, regEX);
-      const newContentIds = getSubstrings(content.value, regEX);
-
-      // console.log({ OldContentIds: oldContentIds });
-      // console.log({ NewContentIds: newContentIds });
-      const disjointedArr = oldContentIds?.filter(
+      const unusedMedia = oldContentIds?.filter(
         (element) => !newContentIds?.includes(element)
       );
-      // console.log({ UpForRemoval: disjointedArr });
 
-      return disjointedArr === undefined ? [] : disjointedArr;
+      return unusedMedia === undefined ? [] : unusedMedia;
     };
 
     const removeMedia = (mediaIds: Array<string>): void => {
-      // console.log({mediaIds: mediaIds});
       mediaIds.forEach((id) => {
         axios
           .delete(id, {
@@ -166,9 +179,7 @@ export default defineComponent({
               Authorization: <string>getCookie("token"),
             },
           })
-          .then((response: any) => {
-            // console.log(response);
-          })
+          .then((response: any) => {})
           .catch();
       });
     };
