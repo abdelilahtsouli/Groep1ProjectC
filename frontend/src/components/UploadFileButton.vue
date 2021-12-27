@@ -21,7 +21,7 @@
 
 <script lang="ts">
 import Editor from "../extensions/page-editor/index";
-import {defineComponent} from "vue";
+import { defineComponent } from "vue";
 import axios from "axios";
 
 function getCookie(name: string): string | null {
@@ -37,6 +37,31 @@ function getCookie(name: string): string | null {
         return decodeURIComponent(cookie.substring(nameLenPlus));
       })[0] || null
   );
+}
+
+function createImage(id: string, type: string): HTMLParagraphElement {
+  const pTag = document.createElement("p");
+  const image = document.createElement("image");
+  image.setAttribute("src", `/cdn/${id}`);
+  image.setAttribute("type", `${type}`);
+  image.style.maxHeight = "100%";
+  image.style.maxWidth = "100%";
+  pTag.appendChild(image);
+  return pTag;
+}
+
+function createVideo(id: string): HTMLDivElement {
+  const div = document.createElement("div");
+  const video = document.createElement("video");
+  const source = document.createElement("source");
+  video.controls = true;
+  video.setAttribute("disablePictureInPicture", "true");
+  video.setAttribute("controlsList", "nodownload noplaybackrate ");
+  source.src = `/cdn/${id}`;
+  source.type = "video/mp4";
+  video.appendChild(source);
+  div.appendChild(video);
+  return div;
 }
 
 export default defineComponent({
@@ -60,9 +85,9 @@ export default defineComponent({
             (response: any) => {
               // TODO Emit to Parent (response.data.id, file.type)
               if (file.type === "image/png" || file.type === "image/jpeg") {
-                emit("imageUploaded", response.data.id, file.type);
+                emit("imageUploaded",  createImage(response.data.id, file.type));
               } else if (file.type === "video/mp4") {
-                emit("videoUploaded", response.data.id);
+                emit("videoUploaded", createVideo(response.data.id));
               }
             },
             (error: any) => {

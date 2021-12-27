@@ -122,45 +122,41 @@ class Accordion {
   // TODO: Check
   // Returns an accordion element as a string
   public createAccordionElement(): string {
+    const document  = new Document();
+    
     const details = document.createElement("details");
-    details.id = "newAccordion";
+    details.setAttribute("name", "accordion");
     details.onkeyup = (event) => {
       if (event.key === " ") {
         event.preventDefault();
       }
     };
-
+  
     const summary = document.createElement("summary");
     const h3 = document.createElement("h3");
-    h3.innerText = "PLACEHOLDER";
-
+    h3.innerHTML = "PLACEHOLDER";
+  
     const div = document.createElement("div");
     div.classList.add("content");
-
+  
     summary.appendChild(h3);
-
+  
     details.appendChild(summary);
     details.appendChild(div);
+  
+    const p = document.createElement("p");
+    p.innerHTML = "PLACEHOLDER";
+  
+    const button = document.createElement("button");
+    button.innerHTML = "X";
+    button.classList.add("remove-button");
+    
+    details.getElementsByTagName("div")[0].appendChild(p);
+    details.getElementsByTagName("summary")[0].appendChild(button);
+    details.removeAttribute("id");
+    details.setAttribute("contenteditable", "false");
 
     return details.outerHTML;
-  }
-
-  // TODO: Check
-  // Creates child elements for the new accordion element.
-  public createChildElements(id: string): void {
-    const newAccordion = document.getElementById(id);
-    const p = document.createElement("p");
-    p.innerText = "PLACEHOLDER";
-
-    const button = document.createElement("button");
-    button.innerText = "X";
-    button.style.display = "none";
-    button.classList.add("remove-button");
-
-    newAccordion?.getElementsByTagName("div")[0].appendChild(p);
-    newAccordion?.getElementsByTagName("summary")[0].appendChild(button);
-    newAccordion?.removeAttribute("id");
-    newAccordion?.setAttribute("contenteditable", "false");
   }
 
   private toggleHeaderEditable(nodeList: NodeListOf<HTMLDetailsElement>, toggle: boolean) {
@@ -198,7 +194,7 @@ class Accordion {
   }
 
   public reset(dom: Document): void {
-    const nodeList = dom.querySelectorAll("details");
+    const nodeList = dom.getElementsByName("accordion") as NodeListOf<HTMLDetailsElement>;
     this.toggleOpen(nodeList, false);
     this.toggleDisplayRemoveButton(nodeList, false);
     this.toggleHeaderContentEditable(nodeList, false);

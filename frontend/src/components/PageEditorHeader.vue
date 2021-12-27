@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div class="header" @blur="$emit('checkForChanges')">
     <select
       class="editor-button-select"
       v-model="selectedTextType"
@@ -45,8 +45,8 @@
       <option value="green">Groen</option>
     </select>
     <upload-file-button
-      @imageUploaded="createImage"
-      @videoUploaded="createVideo"
+      @imageUploaded="insertMedia"
+      @videoUploaded="insertMedia"
     ></upload-file-button>
   </div>
   <div class="white-space"></div>
@@ -66,7 +66,8 @@ interface kwargFortmatDoc {
 
 export default defineComponent({
   components: { UploadFileButton },
-  setup() {
+  emits: ["checkForChanges"],
+  setup(props, { emit }) {
     // Editor Header SVG's
     const addRowSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0H24V24H0z"/><path d="M12 13c2.761 0 5 2.239 5 5s-2.239 5-5 5-5-2.239-5-5 2.239-5 5-5zm1 2h-2v1.999L9 17v2l2-.001V21h2v-2.001L15 19v-2l-2-.001V15zm7-12c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1H4c-.552 0-1-.448-1-1V4c0-.552.448-1 1-1h16zM5 5v4h14V5H5z"/></svg>`;
     const paragraphSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" > <path fill="none" d="M0 0h24v24H0z" /> <path d="M12 6v15h-2v-5a6 6 0 1 1 0-12h10v2h-3v15h-2V6h-3zm-2 0a4 4 0 1 0 0 8V6z" /> </svg>`;
@@ -88,7 +89,7 @@ export default defineComponent({
     });
 
     function toggleEditor(toggle: boolean): void {
-      const nodeList = document.querySelectorAll("details");
+      const nodeList = document.getElementsByName("accordion") as NodeListOf<HTMLDetailsElement>;
 
       Editor.getInstance().accordion.toggleAccordion(nodeList, toggle);
       Editor.getInstance().addEmptyContentEvent();
@@ -132,44 +133,25 @@ export default defineComponent({
       }
       selectedColor.value = "";
       selectedTextType.value = "";
+
+      emit("checkForChanges");
     }
 
     function createAccordion(): void {
-      if (!Editor.getInstance().isTag("H3")) {
-        formatDoc({
-          sCmd: "insertHTML",
-          sValue: Editor.getInstance().accordion.createAccordionElement(),
-          blockParentTags: ["SUMMARY"],
-        });
-        Editor.getInstance().accordion.createChildElements("newAccordion");
-        toggleEditor(true);
-      }
+      formatDoc({
+        sCmd: "insertHTML",
+        sValue: Editor.getInstance().accordion.createAccordionElement(),
+        blockParentTags: ["SUMMARY"],
+      });
+
+      Editor.getInstance().accordion.toggleAccordion(
+        document.getElementsByName("accordion") as NodeListOf<HTMLDetailsElement>,
+        true
+      );
     }
 
-    function createImage(id: string, type: string) {
-      const pTag = document.createElement("p");
-      const image = document.createElement("image");
-      image.setAttribute("src", `/cdn/${id}`);
-      image.setAttribute("type", `${type}`);
-      image.style.maxHeight = "100%";
-      image.style.maxWidth = "100%";
-      pTag.appendChild(image);
-      formatDoc({ sCmd: "insertHTML", sValue: pTag.outerHTML });
-    }
-
-    function createVideo(id: string) {
-      const div = document.createElement("div");
-      const video = document.createElement("video");
-      const source = document.createElement("source");
-      video.controls = true;
-      video.setAttribute("disablePictureInPicture", "true");
-      video.setAttribute("controlsList", "nodownload noplaybackrate ");
-      source.src = `\\cdn\\${id}`;
-      source.type = "video/mp4";
-      video.appendChild(source);
-      div.appendChild(video);
-      formatDoc({ sCmd: "insertHTML", sValue: div.outerHTML });
-    }
+    const insertMedia = (el: HTMLElement) =>
+      formatDoc({ sCmd: "insertHTML", sValue: el.outerHTML });
 
     return {
       addRowSVG,
@@ -183,8 +165,7 @@ export default defineComponent({
       selectedTextType,
       formatDoc,
       createAccordion,
-      createImage,
-      createVideo,
+      insertMedia,
     };
   },
 });

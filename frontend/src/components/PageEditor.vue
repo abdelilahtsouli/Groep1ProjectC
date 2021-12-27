@@ -1,7 +1,7 @@
 <template>
   <div class="editor">
     <!-- Editor Header -->
-    <page-editor-header></page-editor-header>
+    <page-editor-header @checkForChanges="checkForChanges"></page-editor-header>
     <div>
       <div
         v-html="editSVG"
@@ -84,14 +84,10 @@ export default defineComponent({
           const editorIds = getSrcIds(editorContent.innerHTML);
           const actualIds = getSrcIds(props.content);
 
-          console.log({ editorContent: editorIds });
-          console.log({ actualContent: actualIds });
-
           const unusedMediaInBackend = editorIds?.filter(
             (element) => !actualIds.includes(element)
           );
 
-          // console.log({ unusedMediaInBackend: unusedMediaInBackend });
           removeMedia(unusedMediaInBackend);
         } else {
           console.error("Element with id `Content` does not exist.");
@@ -110,25 +106,17 @@ export default defineComponent({
     }
 
     // Compares original content with editor content
+
     const checkForChanges = () => {
-      const tempDom = <Document>document.cloneNode(true);
-      const tempDomContent = tempDom.getElementById("content");
+      console.log("etst");
+      
+      const tempDOM = <Document>document.cloneNode(true);
 
-      // const nodeList = tempDomContent?.querySelectorAll("details");
-      // if (nodeList) {
-      //   toggleDisplayRemoveButton(nodeList, false);
-      //   toggleEditableH3(nodeList, false);
-      //   toggleEditableAccordionDiv(nodeList, false);
-      //   toggleDetails(nodeList, false);
-      // }
-
-      // if (tempDomContent) {
-      //   resetSlideShowDot(tempDomContent);
-      //   resetImageDisplay(tempDomContent);
-      // }
+      Editor.getInstance().accordion.reset(tempDOM);
+      Editor.getInstance().slideshow.reset(tempDOM);
 
       changesMade.value =
-        content.value !== tempDom.getElementById("content")?.innerHTML;
+        content.value !== tempDOM.getElementById("content")?.innerHTML;
     };
 
     const getSrcIds = (htmlString: string): string[] => {
