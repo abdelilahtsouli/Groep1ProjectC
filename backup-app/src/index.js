@@ -10,7 +10,7 @@ const format = (dateTime) => dateTime < 10 ? "0" + dateTime : dateTime;
 
 const makeSnapshot = async () => {
   const date = new Date();
-  const currentDate = `${format(date.getDate())}-${format(date.getMonth())}-${date.getFullYear()}`;
+  const currentDate = `${format(date.getDate())}-${format(date.getMonth() + 1 > 12 ? 1 : date.getMonth() + 1)}-${date.getFullYear()}`;
   const currentTime = `${format(date.getHours())}:${format(date.getMinutes())}:${format(date.getSeconds())}`;
 
   try {
@@ -31,8 +31,7 @@ const makeSnapshot = async () => {
 if (mongodbConnect()) {
   makeSnapshot();
 
-  // setInterval(makeSnapshot, 1800000);
-  setInterval(makeSnapshot, 600000);
+  setInterval(makeSnapshot, 900000);
 
   mongodbDisconnect();
 }
