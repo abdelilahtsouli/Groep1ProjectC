@@ -9,7 +9,7 @@ const axiosPost = require("./postRequest")
 const format = (dateTime) => dateTime < 10 ? "0" + dateTime : dateTime;
 
 // VPS Server is 1 hour behind Amsterdam time.
-const correctHours = (hours) => hours + 1;
+const correctHours = (hours) => hours + 1 >= 24 ? 0 : hours + 1;
 
 const makeSnapshot = async () => {
   const date = new Date();
