@@ -125,6 +125,7 @@ class Editor {
                   console.error(error.value);
                 }
               );
+            event.target.value = "";
           } else {
             console.error("image/video upload blocked");
           }
