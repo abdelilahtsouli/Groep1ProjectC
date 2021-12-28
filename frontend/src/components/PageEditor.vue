@@ -1,7 +1,7 @@
 <template>
-  <div class="editor">
+  <div class="editor" @click="checkForChanges()">
     <!-- Editor Header -->
-    <page-editor-header></page-editor-header>
+    <page-editor-header @checkForChanges="checkForChanges"></page-editor-header>
     <div>
       <div
         v-html="editSVG"
@@ -79,27 +79,18 @@ export default defineComponent({
 
     onBeforeUnmount(() => {
       if (!contentSend) {
-        const regEX = /\/cdn\/([0-9]*)/g;
-
         const editorContent = document.getElementById("content");
         if (editorContent) {
-          const editorIds = getSubstrings(
-            editorContent.innerHTML,
-            regEX
-          );
-          const actualIds = getSubstrings(props.content, regEX);
-  
-          // console.log({ editorContent: editorContent });
-          // console.log({ actualContent: actualContent });
-  
+          const editorIds = getSrcIds(editorContent.innerHTML);
+          const actualIds = getSrcIds(props.content);
+
           const unusedMediaInBackend = editorIds?.filter(
             (element) => !actualIds.includes(element)
           );
-  
-          // console.log({ unusedMediaInBackend: unusedMediaInBackend });
+
           removeMedia(unusedMediaInBackend);
-        } else{
-          console.error("Element with id `Content` does not exist.")
+        } else {
+          console.error("Element with id `Content` does not exist.");
         }
       }
     });
@@ -115,50 +106,60 @@ export default defineComponent({
     }
 
     // Compares original content with editor content
+
     const checkForChanges = () => {
-      const tempDom = <Document>document.cloneNode(true);
-      const tempDomContent = tempDom.getElementById("content");
+      console.log("checkForChanges");
+      
+      const tempDOM = <Document>document.cloneNode(true);
 
-      // const nodeList = tempDomContent?.querySelectorAll("details");
-      // if (nodeList) {
-      //   toggleDisplayRemoveButton(nodeList, false);
-      //   toggleEditableH3(nodeList, false);
-      //   toggleEditableAccordionDiv(nodeList, false);
-      //   toggleDetails(nodeList, false);
-      // }
-
-      // if (tempDomContent) {
-      //   resetSlideShowDot(tempDomContent);
-      //   resetImageDisplay(tempDomContent);
-      // }
+      Editor.getInstance().accordion.reset(tempDOM);
+      Editor.getInstance().slideshow.reset(tempDOM);
 
       changesMade.value =
-        content.value !== tempDom.getElementById("content")?.innerHTML;
+        content.value !== tempDOM.getElementById("content")?.innerHTML;
     };
 
-    const getSubstrings = (text: string, regEX: RegExp): string[] => {
-      const matches = text.match(regEX);
-      return matches === null ? [] : matches;
+    const getSrcIds = (htmlString: string): string[] => {
+      const tempHtml = document.createElement("html");
+      tempHtml.innerHTML = htmlString;
+
+      const tempDOM = new Document();
+      tempDOM.appendChild(tempHtml);
+
+      const tempBody = tempDOM.body;
+
+      const sourceAttributes: Array<string> = [];
+
+      if (tempBody) {
+        // Image
+        Array.from(tempBody.getElementsByTagName("img")).forEach((element) =>
+          sourceAttributes.push(element.src)
+        );
+
+        // Video
+        Array.from(tempBody.getElementsByTagName("video")).forEach(
+          (videoElement) =>
+            Array.from(videoElement.getElementsByTagName("source")).forEach(
+              (sourceElement) => sourceAttributes.push(sourceElement.src)
+            )
+        );
+      }
+
+      return sourceAttributes;
     };
 
     const getUnusedMedia = (): string[] => {
-      const regEX = /\/cdn\/([0-9]*)/g;
+      const oldContentIds = getSrcIds(props.content);
+      const newContentIds = getSrcIds(content.value);
 
-      const oldContentIds = getSubstrings(props.content, regEX);
-      const newContentIds = getSubstrings(content.value, regEX);
-
-      // console.log({ OldContentIds: oldContentIds });
-      // console.log({ NewContentIds: newContentIds });
-      const disjointedArr = oldContentIds?.filter(
+      const unusedMedia = oldContentIds?.filter(
         (element) => !newContentIds?.includes(element)
       );
-      // console.log({ UpForRemoval: disjointedArr });
 
-      return disjointedArr === undefined ? [] : disjointedArr;
+      return unusedMedia === undefined ? [] : unusedMedia;
     };
 
     const removeMedia = (mediaIds: Array<string>): void => {
-      // console.log({mediaIds: mediaIds});
       mediaIds.forEach((id) => {
         axios
           .delete(id, {
@@ -166,9 +167,7 @@ export default defineComponent({
               Authorization: <string>getCookie("token"),
             },
           })
-          .then((response: any) => {
-            // console.log(response);
-          })
+          .then((response: any) => {})
           .catch();
       });
     };

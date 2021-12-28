@@ -91,7 +91,10 @@ class Editor {
     };
   }
 
-  public toggleHiddenInputElement(toggle: boolean): void {
+  public toggleHiddenInputElement(
+    toggle: boolean,
+    afterUpload?: () => void
+  ): void {
     if (toggle) {
       const inputEl = document.createElement("input");
       inputEl.id = "hidden-image-input";
@@ -99,29 +102,32 @@ class Editor {
       inputEl.type = "file";
       inputEl.style.display = "none";
       inputEl.onchange = (event: any) => {
-        if (!this.hasParent("SUMMARY")) {
-          const file = event.target.files[0];
-          const formData = new FormData();
-          formData.append("media", file);
+        if (event.target.files[0]) {
+          if (!this.hasParent("SUMMARY")) {
+            const file = event.target.files[0];
+            const formData = new FormData();
+            formData.append("media", file);
 
-          axios
-            .post("/cdn/", formData, {
-              headers: {
-                "Content-Type": "multipart/form-data",
-                Authorization: <string>getCookie("token"),
-              },
-            })
-            .then(
-              (response: any) => {
-                // TODO ADD SLIDE
-                addSlide(`/cdn/${response.data.id}`, 0);
-              },
-              (error: any) => {
-                console.error(error.value);
-              }
-            );
-        } else {
-          console.error("image/video upload blocked");
+            axios
+              .post("/cdn/", formData, {
+                headers: {
+                  "Content-Type": "multipart/form-data",
+                  Authorization: <string>getCookie("token"),
+                },
+              })
+              .then(
+                (response: any) => {
+                  // TODO ADD SLIDE
+                  addSlide(`/cdn/${response.data.id}`, 0);
+                  if (afterUpload) afterUpload();
+                },
+                (error: any) => {
+                  console.error(error.value);
+                }
+              );
+          } else {
+            console.error("image/video upload blocked");
+          }
         }
       };
       document.getElementById("app")?.appendChild(inputEl);

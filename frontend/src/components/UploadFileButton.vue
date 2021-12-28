@@ -12,6 +12,7 @@
       />
     </svg>
     <input
+      id="image-video-upload-input"
       accept="image/jpeg, image/png, video/mp4"
       @change="upload($event)"
       type="file"
@@ -21,7 +22,7 @@
 
 <script lang="ts">
 import Editor from "../extensions/page-editor/index";
-import {defineComponent} from "vue";
+import { defineComponent } from "vue";
 import axios from "axios";
 
 function getCookie(name: string): string | null {
@@ -39,38 +40,68 @@ function getCookie(name: string): string | null {
   );
 }
 
+function createImage(id: string, type: string): HTMLParagraphElement {
+  const pTag = document.createElement("p");
+  const image = document.createElement("image");
+  image.setAttribute("src", `/cdn/${id}`);
+  image.setAttribute("type", `${type}`);
+  image.style.maxHeight = "100%";
+  image.style.maxWidth = "100%";
+  pTag.appendChild(image);
+  return pTag;
+}
+
+function createVideo(id: string): HTMLDivElement {
+  const div = document.createElement("div");
+  const video = document.createElement("video");
+  const source = document.createElement("source");
+  video.controls = true;
+  video.setAttribute("disablePictureInPicture", "true");
+  video.setAttribute("controlsList", "nodownload noplaybackrate ");
+  source.src = `/cdn/${id}`;
+  source.type = "video/mp4";
+  video.appendChild(source);
+  div.appendChild(video);
+  return div;
+}
+
 export default defineComponent({
   emits: ["imageUploaded", "videoUploaded"],
   setup(props, { emit }) {
     function upload(event: any) {
-      if (!Editor.getInstance().hasParent("SUMMARY")) {
-        const file = event.target.files[0];
+      if (event.target.files[0]) {
+        if (!Editor.getInstance().hasParent("SUMMARY")) {
+          const file = event.target.files[0];
 
-        var formData = new FormData();
-        formData.append("media", file);
+          var formData = new FormData();
+          formData.append("media", file);
 
-        axios
-          .post("/cdn/", formData, {
-            headers: {
-              "Content-Type": "multipart/form-data",
-              Authorization: <string>getCookie("token"),
-            },
-          })
-          .then(
-            (response: any) => {
-              // TODO Emit to Parent (response.data.id, file.type)
-              if (file.type === "image/png" || file.type === "image/jpeg") {
-                emit("imageUploaded", response.data.id, file.type);
-              } else if (file.type === "video/mp4") {
-                emit("videoUploaded", response.data.id);
+          axios
+            .post("/cdn/", formData, {
+              headers: {
+                "Content-Type": "multipart/form-data",
+                Authorization: <string>getCookie("token"),
+              },
+            })
+            .then(
+              (response: any) => {
+                // TODO Emit to Parent (response.data.id, file.type)
+                if (file.type === "image/png" || file.type === "image/jpeg") {
+                  emit(
+                    "imageUploaded",
+                    createImage(response.data.id, file.type)
+                  );
+                } else if (file.type === "video/mp4") {
+                  emit("videoUploaded", createVideo(response.data.id));
+                }
+              },
+              (error: any) => {
+                console.error(error.value);
               }
-            },
-            (error: any) => {
-              console.error(error.value);
-            }
-          );
-      } else {
-        console.error("image/video upload blocked");
+            );
+        } else {
+          console.error("image/video upload blocked");
+        }
       }
     }
 
