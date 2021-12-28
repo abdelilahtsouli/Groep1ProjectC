@@ -31,7 +31,9 @@ const makeSnapshot = async () => {
   }
 };
 
-if (mongodbConnect()) {
+const mongodbConnection = mongodbConnect().then((result) => result);
+
+if (mongodbConnection) {
   makeSnapshot();
 
   setInterval(makeSnapshot, 900000);

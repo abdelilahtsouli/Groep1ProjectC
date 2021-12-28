@@ -20,6 +20,9 @@ const mongodbConnect = async () => {
       console.error(`Failed to connect to MongoDB server:\n${err}`);
       succes = false;
     }
+
+    axiosPost(`Succeeded to connect to MongoDB server`)
+    console.log(`Succeeded to connect to MongoDB server`)
     succes = true;
   });
 
@@ -31,10 +34,12 @@ const mongodbDisconnect = () => client.close();
 const mongodbInsert = (document, timestamp) => {
   try {
     const collection = client.db(settings.MongoDB.database).collection(settings.MongoDB.collection);
-    collection.insertOne(document);
-
-    axiosPost(`${timestamp} | Upload Succeeded: Document has been added.`);
-    console.log(`${timestamp} | Upload Succeeded: Document has been added.`);
+    collection.insertOne(document).then(
+      (result) => {
+        axiosPost(`${timestamp} | Upload Succeeded | Document has been added with ID: ${result.insertedId}`);
+        console.log(`${timestamp} | Upload Succeeded | Document has been added with ID: ${result.insertedId}`);
+      }
+    );
   } catch (error) {
     axiosPost(`${timestamp} | Upload Failed:\n${error}`);
     console.error(`${timestamp} | Upload Failed:\n${error}`);
