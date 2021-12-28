@@ -1,5 +1,5 @@
 <template>
-  <div class="header" @blur="$emit('checkForChanges')">
+  <div class="header">
     <select
       class="editor-button-select"
       v-model="selectedTextType"
@@ -89,7 +89,9 @@ export default defineComponent({
     });
 
     function toggleEditor(toggle: boolean): void {
-      const nodeList = document.getElementsByName("accordion") as NodeListOf<HTMLDetailsElement>;
+      const nodeList = document.getElementsByName(
+        "accordion"
+      ) as NodeListOf<HTMLDetailsElement>;
 
       Editor.getInstance().accordion.toggleAccordion(nodeList, toggle);
       Editor.getInstance().addEmptyContentEvent();
@@ -97,7 +99,7 @@ export default defineComponent({
 
       if (document.getElementById("slideshow")) {
         Editor.getInstance().slideshow.toggleEditSlideButtons(toggle, document);
-        Editor.getInstance().toggleHiddenInputElement(toggle);
+        Editor.getInstance().toggleHiddenInputElement(toggle, () => emit("checkForChanges"));
       }
     }
 
@@ -145,7 +147,9 @@ export default defineComponent({
       });
 
       Editor.getInstance().accordion.toggleAccordion(
-        document.getElementsByName("accordion") as NodeListOf<HTMLDetailsElement>,
+        document.getElementsByName(
+          "accordion"
+        ) as NodeListOf<HTMLDetailsElement>,
         true
       );
     }

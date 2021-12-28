@@ -1,5 +1,5 @@
 <template>
-  <div class="editor">
+  <div class="editor" @click="checkForChanges()">
     <!-- Editor Header -->
     <page-editor-header @checkForChanges="checkForChanges"></page-editor-header>
     <div>
@@ -108,7 +108,7 @@ export default defineComponent({
     // Compares original content with editor content
 
     const checkForChanges = () => {
-      console.log("etst");
+      console.log("checkForChanges");
       
       const tempDOM = <Document>document.cloneNode(true);
 
