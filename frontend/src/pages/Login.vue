@@ -32,9 +32,9 @@ const URL_base = "/api/auth/login";
 const message_email = ref("");
 const message_password = ref("");
 const errormessage = ref("");
-let loginAttempts =  0;
+
 function userLogin() {
-  loginAttempts += 1;
+
   if (!validateEmail()) {
     errormessage.value = "Voer een geldig e-mail adres in";
     return;
