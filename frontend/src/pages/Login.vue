@@ -47,13 +47,11 @@ function userLogin() {
   var bodyFormData = new FormData();
   bodyFormData.append("email", message_email.value);
   bodyFormData.append("password", message_password.value);
-  bodyFormData.append("loginCounter", loginAttempts.toString());
+
 
   axios.post(URL_base, bodyFormData).then((Response: any) => {
     errormessage.value = Response.data.message;
-    if(loginAttempts >= 3){
-      setTimeout(() => {loginAttempts = 0}, 300000);
-    }
+
     if (Response.data.twoFAenabled == false) {
       router.push({
         name: "twoFA",

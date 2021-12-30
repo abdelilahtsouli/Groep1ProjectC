@@ -30,7 +30,7 @@ namespace Project_C_Website.controllers {
 			int loginAttempt = 0;
 			string ClientIP = Request.HttpContext.Connection.RemoteIpAddress.ToString();
 			bool contains = false;
-			string timeout = "0";
+			string timeout = "9999999999";
 			if(email_input == null && password_input == null){
 				return JsonSerializer.Serialize(new{
 					success = false,
