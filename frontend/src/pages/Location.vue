@@ -9,14 +9,14 @@
 
     <div class="content-location">
     <div class="text-content">
-      <h1>Locaties bloedafname</h1>
       <h4>Coronamaatregelen op onze locaties</h4>
       <p>Star-shl blijft de anderhalve meter afstand handhaven. Op onze locaties komen mensen met een kwetsbare gezondheid. Het afstand houden beschermt deze patiënten tegen risico op overdracht van Covid-19. Daarnaast willen we voorkomen dat medewerkers besmet raken en niet kunnen werken.</p>
       <br>
-      <h4>Mondkapjes verplicht</h4>
-      <p>Mondkapjes zijn sinds 6 november 2021 verplicht in publieke ruimtes. We vragen patiënten daarom dringend een zelf meegebracht mondkapje te dragen op de locaties van Star-shl. Star-shl volgt hierin het beleid van de Rijksoverheid. Onze medewerkers maken gebruik van een mondneusmasker en handschoenen.</p>
+        <h4>Mondkapjes verplicht</h4>
+        <p>Mondkapjes zijn sinds 6 november 2021 verplicht in publieke ruimtes. We vragen patiënten daarom dringend een zelf meegebracht mondkapje te dragen op de locaties van Star-shl. Star-shl volgt hierin het beleid van de Rijksoverheid. Onze medewerkers maken gebruik van een mondneusmasker en handschoenen.</p>
       <br>
-      <p>Hieronder kunt u, door een adres, postcode of plaatsnaam in te vullen, de dichtsbijzijnde priklocaties vinden.</p>
+        <h1>Locaties bloedafname</h1>
+        <p>Hieronder kunt u, door een adres, postcode of plaatsnaam in te vullen, de dichtsbijzijnde priklocaties vinden.</p>
     </div>
   </div>
 
@@ -91,7 +91,7 @@ export default defineComponent({
         this.length = 10
       try {
         const response = await axios.get(
-          `https://api.mapbox.com/geocoding/v5/mapbox.places/${inputAddress}.json?access_token=pk.eyJ1IjoiZGpvb3dlbCIsImEiOiJja3d5Mzd2dmMwaXhtMnBsYWlxdTJkM3VsIn0.Zbc57Rj85s5jwM-D53pf5A`
+          `https://api.mapbox.com/geocoding/v5/mapbox.places/${inputAddress}.json?country=nl&access_token=pk.eyJ1IjoiZGpvb3dlbCIsImEiOiJja3d5Mzd2dmMwaXhtMnBsYWlxdTJkM3VsIn0.Zbc57Rj85s5jwM-D53pf5A`
         );
         var latitude = response.data.features[0].center[1]
         var longitude = response.data.features[0].center[0]
