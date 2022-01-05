@@ -16,7 +16,7 @@ namespace Project_C_Website.controllers {
 	[ApiController]
 	public class CdnController : ControllerBase {
 
-		private string getFilePath(string id) {
+		protected string getFilePath(string id) {
 			return "./assets/" + id;
 		}
 
@@ -38,12 +38,19 @@ namespace Project_C_Website.controllers {
 				if (!System.IO.File.Exists(file)) {
 					database.Close();
 
-					this.HttpContext.Response.StatusCode = 500;
-					return Content(JsonSerializer.Serialize(new {
-						Success = false,
-						Message = "File Not Found (doesn't exist on the disk)"
-					}));
-				}
+
+          // Jamey =>
+          return new ContentResult()
+          {
+            Content = JsonSerializer.Serialize(new
+            {
+              Success = false,
+              Message = "File Not Found (doesn't exist on the disk)"
+            }),
+            StatusCode = 500
+          };
+
+        }
 
 				database.Close();
 
@@ -53,12 +60,17 @@ namespace Project_C_Website.controllers {
 
 			database.Close();
 
-			this.HttpContext.Response.StatusCode = 404;
-			return Content(JsonSerializer.Serialize(new {
-				Success = false,
-				Message = "Not Found"
-			}));
-		}
+      // Jamey =>
+      return new ContentResult()
+      {
+        Content = JsonSerializer.Serialize(new
+        {
+          Success = false,
+          Message = "Not Found"
+				}),
+        StatusCode = 404
+      };
+    }
 
 		private bool isValidOauth(string token) {
 			if (token == null) return false;
