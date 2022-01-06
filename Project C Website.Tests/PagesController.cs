@@ -8,7 +8,7 @@ interface IPage
   public string Name { get; set; }
   public string Content { get; set; }
 }
-struct Page
+struct Page : IPage
 {
   public int Id { get; set; }
   public string Name { get; set; }

@@ -67,7 +67,6 @@ namespace Project_C_Website.Tests
       Assert.NotNull(okObjectResult);
       Assert.Equal(200, okObjectResult.StatusCode);
 
-      //var fileContentResult = actionResult as FileContentResult;
       var resultValue = okObjectResult.Value as CdnContent;
       Assert.NotNull(resultValue);
       Assert.NotNull(resultValue.ContentType);
