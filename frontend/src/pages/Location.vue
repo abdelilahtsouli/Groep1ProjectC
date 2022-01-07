@@ -37,7 +37,10 @@
           <div class="content">
             <p>Adres: {{ location.street }}</p>
             <p>Postcode: {{ location.postcode }} {{ location.city }}</p>
-            <p>Openingstijden: {{ location.openinghours }}</p>
+            <p>Openingstijden:</p>
+            <div class="opening-hours" v-for="(time, day) in location.openinghoursbyday" :key="day">
+              <p>{{ day }} : {{ time.opens }} - {{ time.closes }}</p>
+            </div>
             <p>Bijzonderheden: {{ location.particularities }}</p>
             <button class="navigate-button" @click="goToGoogle(location.url)">Klik om te navigeren</button>
           </div>
@@ -74,7 +77,7 @@ export default defineComponent({
   },
 
   mounted() {
-    fetch('/locations.json')
+    fetch('/star-shl-location-Complete.json')
     .then(response => response.json())
     .then(data => this.locations = data)
     .then(data => this.baseLocations = data)
@@ -159,7 +162,7 @@ export default defineComponent({
     },
 
     clearLocations() {
-      fetch('/locations.json')
+      fetch('/star-shl-location-Complete.json')
       .then(response => response.json())
       .then(data => this.locations = data)
     }
