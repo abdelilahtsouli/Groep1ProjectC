@@ -114,6 +114,14 @@ async function sendToServer() {
     }
   }
 }
+
+const _ = {
+  validateEmail,
+  Email
+}
+
+export default _;
+
 </script>
 
 <style scoped>
