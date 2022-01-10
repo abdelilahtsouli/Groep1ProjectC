@@ -29,7 +29,6 @@
       <div
         class="w3-button w3-teal w3-xlarge"
         @click="toggle_menu()"
-        :class="{ 'active-item': menuOpen }"
       >
         <div class="MenuButton">
           <i class="material-icons nav__icon">menu</i>
@@ -62,10 +61,10 @@
         to="/Kinderen"
         class="nav__link"
         
-        :class="{ 'active-item': activePage === 'settings' }"
+        :class="{ 'active-item': activePage === 'kinderen' }"
       >
         <i class="material-icons nav__icon">child_care</i>
-        <a class="nav__text">Kids</a>
+        <a  @click="close_menu(); setActivePage('kinderen')" class="nav__text">Kids</a>
       </router-link>
     
     </nav>
