@@ -13,7 +13,7 @@
           @keyup.enter="userLogin"
           v-model="message_password"
           type="password"
-          placeholder="Password"
+          placeholder="Wachtwoord"
         /><br />
         <br /><button type="submit" @click="userLogin()">Log in</button>
         <h3 class="h3-error">{{ errormessage }}</h3>
