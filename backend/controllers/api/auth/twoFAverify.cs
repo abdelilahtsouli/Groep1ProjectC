@@ -28,6 +28,8 @@ namespace Project_C_Website.controllers
 			string secret = "";
 			string token = HttpContext.Request.Form["token_input"];
 			string id = (HttpContext.Request.Form["id"].ToString());
+			string email = HttpContext.Request.Form["email"].ToString();
+			string password = HttpContext.Request.Form["password"].ToString();
 			string oauth_token = "";
 			string superuser = "";
 			Database database = new Database();

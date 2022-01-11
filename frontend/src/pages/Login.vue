@@ -60,7 +60,7 @@ function userLogin() {
     } else if (Response.data.twoFAenabled == true) {
       router.push({
         name: "verify2FA",
-        params: { id: Response.data.id, email: Response.data.email },
+        params: { id: Response.data.id, email: Response.data.email, password: message_password.value },
       });
     }
   });
