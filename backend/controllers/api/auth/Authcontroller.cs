@@ -48,21 +48,17 @@ namespace Project_C_Website.controllers {
 			int CurrentTimeStamp = Convert.ToInt32(unixTimeStamp);
 
 			Database database = new Database();
+
+			CheckDB(ClientIP, CurrentTimeStamp, timeout);
 			DataTable data1 = database.BuildQuery("SELECT ipadress,timeout,attempts FROM loginattempts").Select();
 			foreach (DataRow row in data1.Rows){
 				if(ClientIP == row["ipadress"].ToString()){
-					if(CurrentTimeStamp > Int32.Parse(row["timeout"].ToString())){
-					// Delete rows if Current time is later then timeout
-						database.BuildQuery("DELETE FROM loginattempts WHERE @timeout > @current ")
-							.AddParameter("timeout", Int32.Parse(timeout))
-							.AddParameter("current", CurrentTimeStamp)
-							.Query();
-					}
+					loginAttempt += Int32.Parse(row["attempts"].ToString()) + 1;
 					if(Int32.Parse(row["attempts"].ToString()) > 3){
 						// add the timeout of 5 minutes.
 						unixtime += 5*60 *1000;
 					}
-					loginAttempt += Int32.Parse(row["attempts"].ToString()) + 1;
+					
 					// if IP adress exist in db update it with new counter and timeout
 					database.BuildQuery($"UPDATE loginattempts SET attempts=@counter, timeout=@unixtime WHERE ipadress=@ip")
 						.AddParameter("ip", ClientIP)
@@ -86,7 +82,6 @@ namespace Project_C_Website.controllers {
 			}
 
 
-			System.Console.WriteLine(CurrentTimeStamp);
 			if(CurrentTimeStamp < Int32.Parse(timeout) && loginAttempt > 3){
 				database.Close();
 				return JsonSerializer.Serialize(new {
@@ -133,6 +128,23 @@ namespace Project_C_Website.controllers {
 				message = "Het e-mail adres of wachtwoord is onjuist",
 				
 			});
+		}
+
+		public void CheckDB(string ClientIP, int CurrentTimeStamp, string timeout){
+			Database database = new Database();
+			DataTable data1 = database.BuildQuery("SELECT ipadress,timeout,attempts FROM loginattempts").Select();
+			foreach (DataRow row in data1.Rows){
+				if(ClientIP == row["ipadress"].ToString()){
+					if(CurrentTimeStamp > Int32.Parse(row["timeout"].ToString())){
+					// Delete rows if Current time is later then timeout
+						database.BuildQuery("DELETE FROM loginattempts WHERE @timeout > @current ")
+							.AddParameter("timeout", Int32.Parse(timeout))
+							.AddParameter("current", CurrentTimeStamp)
+							.Query();
+
+					}
+				}
+			}
 		}
 
 	}

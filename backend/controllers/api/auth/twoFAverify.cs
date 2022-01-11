@@ -33,8 +33,12 @@ namespace Project_C_Website.controllers
 			string oauth_token = "";
 			string superuser = "";
 			Database database = new Database();
-			DataTable data = database.BuildQuery("select secret_key,superuser from admins WHERE id = @id")
-				.AddParameter("id", Int32.Parse(id)).Select();
+			DataTable data = database.BuildQuery("select secret_key,superuser from admins WHERE id = @id AND email=@email AND password=@password")
+				.AddParameter("id", Int32.Parse(id))
+				.AddParameter("email", email)
+				.AddParameter("password",password)
+				.Select();
+
 			foreach (DataRow row in data.Rows)
 			{
 				secret = row["secret_key"].ToString();

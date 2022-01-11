@@ -27,7 +27,7 @@ import router from '../router'
 import { VueCookieNext } from 'vue-cookie-next'
 import bus from "../bus"
 
-const props = defineProps<{ id: string, email: string}>();
+const props = defineProps<{ id: string, email: string, password: string}>();
 const qrcodeManual = ref("");
 const qrcode = ref("");
 const verifyCode = ref('');
@@ -62,6 +62,7 @@ async function twoFactorAuthentication() {
   var bodyFormData = new FormData();
   bodyFormData.append("email", props.email);
   bodyFormData.append("id", props.id);
+  bodyFormData.append("password", props.password)
   await axios
     .post("/api/auth/2FA", bodyFormData)
     .then((Response: any) => {
