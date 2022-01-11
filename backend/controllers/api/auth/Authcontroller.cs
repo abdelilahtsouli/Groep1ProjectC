@@ -48,7 +48,7 @@ namespace Project_C_Website.controllers {
 			int CurrentTimeStamp = Convert.ToInt32(unixTimeStamp);
 
 			Database database = new Database();
-
+			
 			CheckDB(ClientIP, CurrentTimeStamp, timeout);
 			DataTable data1 = database.BuildQuery("SELECT ipadress,timeout,attempts FROM loginattempts").Select();
 			foreach (DataRow row in data1.Rows){
