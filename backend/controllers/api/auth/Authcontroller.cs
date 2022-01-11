@@ -115,6 +115,7 @@ namespace Project_C_Website.controllers {
 					return JsonSerializer.Serialize(new {
 						id = Int32.Parse(row["id"].ToString()),
 						email = email_input,
+						password = hash,
 						twoFAenabled = bool.Parse(row["twofa"].ToString()),
 						success = true
 					});

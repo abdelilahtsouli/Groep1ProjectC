@@ -55,12 +55,12 @@ function userLogin() {
     if (Response.data.twoFAenabled == false) {
       router.push({
         name: "twoFA",
-        params: { id: Response.data.id, email: Response.data.email, password: message_password.value  },
+        params: { id: Response.data.id, email: Response.data.email, password: Response.data.password },
       });
     } else if (Response.data.twoFAenabled == true) {
       router.push({
         name: "verify2FA",
-        params: { id: Response.data.id, email: Response.data.email, password: message_password.value },
+        params: { id: Response.data.id, email: Response.data.email, password: Response.data.password},
       });
     }
   });

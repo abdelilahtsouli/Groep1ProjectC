@@ -55,8 +55,10 @@ namespace Project_C_Website.controllers
 				oauth_token = Convert.ToBase64String(tokenData);
 			}
 			//Update the oauth_token in the database.
-			database.BuildQuery($"UPDATE admins SET oauth_token = @oauth_token WHERE id = @id")
+			database.BuildQuery($"UPDATE admins SET oauth_token = @oauth_token WHERE id = @id AND email=@email AND password=@password")
 				.AddParameter("oauth_token", oauth_token)
+				.AddParameter("email", email)
+				.AddParameter("password", password)
 				.AddParameter("id", Int32.Parse(id))
 				.Query();
 			database.Close();
