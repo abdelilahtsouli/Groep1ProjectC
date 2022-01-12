@@ -28,11 +28,17 @@ namespace Project_C_Website.controllers
 			string secret = "";
 			string token = HttpContext.Request.Form["token_input"];
 			string id = (HttpContext.Request.Form["id"].ToString());
+			string email = HttpContext.Request.Form["email"].ToString();
+			string password = HttpContext.Request.Form["password"].ToString();
 			string oauth_token = "";
 			string superuser = "";
 			Database database = new Database();
-			DataTable data = database.BuildQuery("select secret_key,superuser from admins WHERE id = @id")
-				.AddParameter("id", Int32.Parse(id)).Select();
+			DataTable data = database.BuildQuery("select secret_key,superuser from admins WHERE id = @id AND email=@email AND password=@password")
+				.AddParameter("id", Int32.Parse(id))
+				.AddParameter("email", email)
+				.AddParameter("password",password)
+				.Select();
+
 			foreach (DataRow row in data.Rows)
 			{
 				secret = row["secret_key"].ToString();
@@ -49,8 +55,10 @@ namespace Project_C_Website.controllers
 				oauth_token = Convert.ToBase64String(tokenData);
 			}
 			//Update the oauth_token in the database.
-			database.BuildQuery($"UPDATE admins SET oauth_token = @oauth_token WHERE id = @id")
+			database.BuildQuery($"UPDATE admins SET oauth_token = @oauth_token WHERE id = @id AND email=@email AND password=@password")
 				.AddParameter("oauth_token", oauth_token)
+				.AddParameter("email", email)
+				.AddParameter("password", password)
 				.AddParameter("id", Int32.Parse(id))
 				.Query();
 			database.Close();
