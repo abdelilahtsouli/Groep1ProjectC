@@ -139,7 +139,7 @@ namespace Project_C_Website.controllers {
 					if(CurrentTimeStamp > Int32.Parse(row["timeout"].ToString())){
 					// Delete rows if Current time is later then timeout
 						database.BuildQuery("DELETE FROM loginattempts WHERE @timeout > @current ")
-							.AddParameter("timeout", Int32.Parse(timeout))
+							.AddParameter("timeout", Int32.Parse(row["timeout"].ToString()))
 							.AddParameter("current", CurrentTimeStamp)
 							.Query();
 
