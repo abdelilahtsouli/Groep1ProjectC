@@ -1,21 +1,36 @@
 :root {
-    --dark-blue: #142d49;
-    --light-blue: #79b9d5;
-    --light-red: #e7334c;
-    --light-grey: lightgrey;
-    --white: #fff;
-    --grey: grey;
-    --page-background-color: rgb(238, 238, 238);
+  --dark-blue: #142d49;
+  --light-blue: #79b9d5;
+  --light-red: #e7334c;
+  --light-grey: lightgrey;
+  --white: #fff;
+  --grey: grey;
+  --page-background-color: rgb(238, 238, 238);
 }
 
 @font-face {
-    font-family: Regular;
-    src: url("./fonts/Offside-Regular.ttf");
+  font-family: Regular;
+  src: url("./fonts/Offside-Regular.ttf");
 }
 
 @font-face {
-    font-family: LightAndBold;
-    src: url("./fonts/OpenSans-Regular.ttf")
+  font-family: LightAndBold;
+  src: url("./fonts/OpenSans-Regular.ttf")
+}
+
+@media only screen and (min-width: 700px) {
+  a {
+    font-size: 1.5rem;
+  }
+  span {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+  p { 
+    font-size: 1.5rem;
+  }
 }
 
 h1,
@@ -26,9 +41,9 @@ h5,
 h6,
 label,
 a {
-    font-family: Regular;
-    text-decoration: none;
-    text-align: center;
+  font-family: Regular;
+  text-decoration: none;
+  text-align: center;
 }
 
 p,
@@ -36,12 +51,12 @@ div,
 input::placeholder,
 option,
 select {
-    font-family: LightAndBold;
-    text-align: center;
+  font-family: LightAndBold;
+  text-align: center;
 }
 
 body {
-    padding: 0;
-    margin: 0;
-    background-color: var(--page-background-color);
+  padding: 0;
+  margin: 0;
+  background-color: var(--page-background-color);
 }

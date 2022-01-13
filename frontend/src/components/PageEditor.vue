@@ -106,7 +106,6 @@ export default defineComponent({
     }
 
     // Compares original content with editor content
-
     const checkForChanges = () => {
       console.log("checkForChanges");
       
