@@ -104,5 +104,24 @@ namespace Project_C_Website.Tests
     //  Assert.True(response.Success);
       
     //}
-  }
+        [Fact]
+        public void isOauthValid_With_Valid_Token_Returns_True()
+            {
+                var controller = new ApiPagesController();
+            
+                var result = controller.isValidOauth("K8azTlkz03Py9SHfziE512kUvTX27m7NzzqXiNif66Y=");
+
+                Assert.True(result);
+            
+            }
+        [Fact]
+        public void isOauthValid_With_inValid_Token_Returns_False()
+        {
+            var controller = new ApiPagesController();
+
+            var result = controller.isValidOauth("123456789098766123hkcvdzjkn,xbvdcfnlkjcv");
+
+            Assert.False(result);
+        }
+    }
 }

@@ -6394,23 +6394,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jamey\\.nuget\\packages\\": {},
+    "C:\\Users\\woute\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jamey\\Development\\Groep1ProjectC\\Project C Website.Tests\\Project C Website.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\woute\\Desktop\\Groep1ProjectC\\Project C Website.Tests\\Project C Website.Tests.csproj",
       "projectName": "Project C Website.Tests",
-      "projectPath": "C:\\Users\\jamey\\Development\\Groep1ProjectC\\Project C Website.Tests\\Project C Website.Tests.csproj",
-      "packagesPath": "C:\\Users\\jamey\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jamey\\Development\\Groep1ProjectC\\Project C Website.Tests\\obj\\",
+      "projectPath": "C:\\Users\\woute\\Desktop\\Groep1ProjectC\\Project C Website.Tests\\Project C Website.Tests.csproj",
+      "packagesPath": "C:\\Users\\woute\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\woute\\Desktop\\Groep1ProjectC\\Project C Website.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\jamey\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\woute\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6425,8 +6425,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\jamey\\Development\\Groep1ProjectC\\backend\\Project C Website.csproj": {
-              "projectPath": "C:\\Users\\jamey\\Development\\Groep1ProjectC\\backend\\Project C Website.csproj"
+            "C:\\Users\\woute\\Desktop\\Groep1ProjectC\\backend\\Project C Website.csproj": {
+              "projectPath": "C:\\Users\\woute\\Desktop\\Groep1ProjectC\\backend\\Project C Website.csproj"
             }
           }
         }
@@ -6477,7 +6477,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
       }
     }
   }
