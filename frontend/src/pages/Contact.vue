@@ -2,7 +2,8 @@
   <div class="white-space-top"></div>
   <div class="header-contact">
     <div class="contact">
-      <img src="../assets/images/stock-img-smiling-chemists.jpg" />
+      <!-- <img src="../assets/images/stock-img-smiling-chemists.jpg" /> -->
+      <img src="../assets/images/healthcare-stock-image.jpg" />
       <h1>Contact</h1>
     </div>
   </div>

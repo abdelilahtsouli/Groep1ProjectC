@@ -77,7 +77,7 @@ class Editor {
   /**
    * Check if the current selection / current carcet position is in a certain tag.
    * @param {string} tag The tag/htmlElment to check for.
-   * @returns {boolean} Whether or not the tag which is currently selected / where the carcet is positioned .
+   * @returns {boolean} Whether or not the tag which is currently selected / where the carcet is positioned.
    */
   public isTag(tag: string): boolean {
     const node = document.getSelection()?.anchorNode;

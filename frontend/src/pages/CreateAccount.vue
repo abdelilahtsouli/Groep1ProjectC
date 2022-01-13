@@ -9,9 +9,8 @@
           <input v-model="Email" placeholder="Email" />
           <h3 class="h3-text">superUser</h3>
           <select v-model="superUser" class="dropdown">
-            <option value="false" disabled selected></option>
-            <option @click="superUser = 'true'">true</option>
-            <option @click="superUser = 'false'">false</option>
+            <option value="false" @click="superUser = 'false'">Nee</option>
+            <option value="true" @click="superUser = 'true'">Ja</option>
           </select>
           <h3 class="h3-text">Wachtwoord</h3>
           <input v-model="password" placeholder="Wachtwoord" type="password" />
@@ -40,7 +39,7 @@ import { VueCookieNext } from "vue-cookie-next";
 const id = ref("");
 const Name = ref("");
 const Email = ref("");
-const superUser = ref("");
+const superUser = ref("false");
 const password = ref("");
 const Password_check = ref("");
 const Error_message = ref("");
