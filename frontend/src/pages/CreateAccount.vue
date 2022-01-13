@@ -113,6 +113,7 @@ async function sendToServer() {
     }
   }
 }
+
 </script>
 
 <style scoped>

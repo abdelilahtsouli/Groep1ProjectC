@@ -19,7 +19,7 @@ import axios from "axios";
 import router from '../router';
 import bus from "../bus";
 
-const props = defineProps<{id : string}>();
+const props = defineProps<{id : string, email: string, password: string}>();
 const verify_Token = ref('');
 let verified = ref(false)
 let token = ref('');
@@ -30,6 +30,8 @@ async function Verify(){
     var bodyFormData = new FormData();
     bodyFormData.append("id", props.id);
     bodyFormData.append("token_input", verify_Token.value)
+    bodyFormData.append("email", props.email)
+    bodyFormData.append("password", props.password )
     await axios.post("/api/auth/2FAverify", bodyFormData).then((Response: any) => {verified.value = Response.data.isCorrectPIN, token.value = Response.data.token,errormessage.value = Response.data.error, isSuperUser.value = Response.data.superUser})
 
     if(verified.value){

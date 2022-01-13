@@ -25,7 +25,12 @@ namespace Project_C_Website.controllers {
 
 			string email = HttpContext.Request.Form["email"];
 			string id = HttpContext.Request.Form["id"].ToString();
-
+			string password = HttpContext.Request.Form["password"].ToString();
+			if(email == null && id == null && password == null){
+				return JsonSerializer.Serialize(new{
+					succes = false
+				});
+			}
 			TwoFactorAuthenticator tfa = new TwoFactorAuthenticator();
 			Random random = new Random();
 
@@ -43,10 +48,11 @@ namespace Project_C_Website.controllers {
 
 
 			Database database = new Database();
-			database.BuildQuery($"UPDATE admins SET secret_key = @secret, twofa = @twofa WHERE id = @id")
+			database.BuildQuery($"UPDATE admins SET secret_key = @secret, twofa = @twofa WHERE email = @email AND password=@password")
 				.AddParameter("twofa", true)
 				.AddParameter("secret", rString)
-				.AddParameter("id", Int32.Parse(id))
+				.AddParameter("email", email)
+				.AddParameter("password", password)
 				.Query();
 
 			database.Close();
