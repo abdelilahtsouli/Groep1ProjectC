@@ -1,0 +1,6121 @@
+[
+    {
+        "id": "1",
+        "city": "Giessenburg",
+        "locationname": "Gezondheidscentrum Giessenburg",
+        "street": "Kastanjeplein 5",
+        "postcode": "3381 LT",
+        "openinghours": "08.00 - 10.00",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.853681",
+        "lon": "4.887815",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:00"
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00"
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:00"
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00"
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00"
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=2472936905110726165",
+		"type": "free entry"
+		
+    },
+    {
+        "id": "2",
+        "city": "Gorinchem",
+        "locationname": "Gezondheidscentrum Zorgpunt West",
+        "street": "Mollenburgseweg 15",
+        "postcode": "4205 HB",
+        "openinghours": "08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.841544",
+        "lon": "4.964724",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=2765622127206754917",
+		"type": "appointment"
+    },
+    {
+        "id": "3",
+        "city": "Gorinchem",
+        "locationname": "Prikpost Star-SHL",
+        "street": "Robberstraat 5",
+        "postcode": "4201 AK",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.827936",
+        "lon": "4.977216",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Robberstraat+5,+4201+AK+Gorinchem&ftid=0x47c685fe99a79acb:0x2b4f8dea4a3de516",
+		"type": "free entry"
+    },
+    {
+        "id": "4",
+        "city": "Hardinxveld-Giessendam",
+        "locationname": "Gezondheidscentrum Hardinxveld-Giessendam",
+        "street": "Peulenstraat 154",
+        "postcode": "3371 AR",
+        "openinghours": "08.00 - 10.30 uurLocatie sluit per 1 december",
+        "openinghoursnew": null,
+        "particularities": "vrije inloop: geen afspraak nodig",
+        "lat": "51.826021",
+        "lon": "4.834333",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=15084657781867616610",
+		"type": "free entry"
+    },
+    {
+        "id": "5",
+        "city": "Herwijnen",
+        "locationname": "Huisartsenpraktijk Herwijnen",
+        "street": "Zworrelstraat 81",
+        "postcode": "4171 AH",
+        "openinghours": "ma, wo en vr 08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "vrije inloop: geen afspraak nodig",
+        "lat": "51.827876",
+        "lon": "5.128616",
+        "days": "ma, wo en vr ",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=14671699777623978204",
+		"type": "free entry"
+    },
+    {
+        "id": "6",
+        "city": "Hoornaar",
+        "locationname": "Huisartsenpraktijk Hoornaar",
+        "street": "Dorpsweg 127",
+        "postcode": "4223 NH",
+        "openinghours": "di en do 08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.879317",
+        "lon": "4.946205",
+        "days": "di en do ",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=16571012979503729289",
+		"type": "free entry"
+    },
+    {
+        "id": "7",
+        "city": "Leerdam",
+        "locationname": "Poort van West",
+        "street": "Burg Meesplein 5k",
+        "postcode": "4142 AZ",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.891460",
+        "lon": "5.085625",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=6561009336183607354",
+		"type": "free entry"
+    },
+    {
+        "id": "8",
+        "city": "Vuren",
+        "locationname": "Huisartsenpraktijk Vuren",
+        "street": "Dorpsstraat 10",
+        "postcode": "4214 DV",
+        "openinghours": "di en do 08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "vrije inloop: geen afspraak nodig",
+        "lat": "51.824429",
+        "lon": "5.048410",
+        "days": "di en do ",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=656185237419923945",
+		"type": "free entry"
+    },
+    {
+        "id": "9",
+        "city": "'s Gravendeel",
+        "locationname": "Het Trefpunt",
+        "street": "Weegje 1d",
+        "postcode": "3295 CT",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.776560",
+        "lon": "4.616466",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Weegje+1d,+3295+CT+%27s-Gravendeel&ftid=0x47c42f76ac1e7861:0x5737f73f7954580f",
+		"type": "free entry"
+    },
+    {
+        "id": "10",
+        "city": "Heinenoord",
+        "locationname": "Cultureel centrum De Tienvoet",
+        "street": "Tienvoet 2",
+        "postcode": "3274 BN",
+        "openinghours": "08.00 - 10.00 uurLocatie is gesloten op 29 november",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.823530",
+        "lon": "4.477890",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=8771423294505217054",
+		"type": "free entry"
+    },
+    {
+        "id": "11",
+        "city": "Maasdam",
+        "locationname": "Ontmoetingscentrum Maasdam",
+        "street": "Raadhuisstraat 35",
+        "postcode": "3299 AP",
+        "openinghours": "ma, di, wo en vr08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.787792",
+        "lon": "4.554455",
+        "days": "ma, di, wo en vr",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=8642817758257166229",
+		"type": "appointment"
+    },
+    {
+        "id": "12",
+        "city": "Mijnsheerenland",
+        "locationname": "De Pastorije",
+        "street": "Van der Waalstraat 20",
+        "postcode": "3271 BW",
+        "openinghours": "ma 07.30 - 10.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.798460",
+        "lon": "4.493119",
+        "days": "ma ",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "07:30",
+                "closes": "10:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=3423719219348032487",
+		"type": "appointment"
+    },
+    {
+        "id": "13",
+        "city": "Nieuw-Beijerland",
+        "locationname": "Dorpshuis De Swaensvoet",
+        "street": "Marktveld 9",
+        "postcode": "3264 Al",
+        "openinghours": "ma, di en do 7.30-10.30",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.812166",
+        "lon": "4.337050",
+        "days": "ma, di en do ",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "07:30",
+                "closes": "10:30 "
+            },
+            "di": {
+                "opens": "07:30",
+                "closes": "10:30 "
+            },
+            "do": {
+                "opens": "07:30",
+                "closes": "10:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=18158424398917373475",
+		"type": "appointment"
+    },
+    {
+        "id": "14",
+        "city": "Oud Beijerland",
+        "locationname": "Diagnostisch Centrum Star-shl",
+        "street": "Nobelstraat 72",
+        "postcode": "3262 PM",
+        "openinghours": "07.30 - 15.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodigMogelijkheid tot glucose tolerantie test. Let op: altijd een telefonische afspraak makenMogelijkheid tot NIPTPrikken voor Ikazia ziekenhuis dagelijks tot 12.30 uur mogelijk.",
+        "lat": "51.825473",
+        "lon": "4.409507",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "07:30",
+                "closes": "15:30 "
+            },
+            "di": {
+                "opens": "07:30",
+                "closes": "15:30 "
+            },
+            "wo": {
+                "opens": "07:30",
+                "closes": "15:30 "
+            },
+            "do": {
+                "opens": "07:30",
+                "closes": "15:30 "
+            },
+            "vr": {
+                "opens": "07:30",
+                "closes": "15:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=14430267137313035918",
+		"type": "free entry"
+    },
+    {
+        "id": "15",
+        "city": "Oud Beijerland",
+        "locationname": "MC Molenaar",
+        "street": "Zoomwijckplein 11",
+        "postcode": "3262 DA",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop, geen afspraak nodig",
+        "lat": "51.822704",
+        "lon": "4.396776",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=4407434471378981087",
+		"type": "free entry"
+    },
+    {
+        "id": "16",
+        "city": "Puttershoek",
+        "locationname": "Gereformeerde Kerk",
+        "street": "Rembrandtstraat 1",
+        "postcode": "3297 EP",
+        "openinghours": "wo08.00-10.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.806638",
+        "lon": "4.565550",
+        "days": "wo",
+        "openinghoursbyday": {
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=7769014283494921354",
+		"type": "free entry"
+    },
+    {
+        "id": "17",
+        "city": "Strijen",
+        "locationname": "Huisartsenpraktijk Bij de molen",
+        "street": "Molenstraat 23",
+        "postcode": "3291EE",
+        "openinghours": "di- do 08.00 - 10:00",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.742219",
+        "lon": "4.555173",
+        "days": "di- do ",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00"
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00"
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=10215562420882136804",
+		"type": "appointment"
+    },
+    {
+        "id": "18",
+        "city": "Westmaas",
+        "locationname": "Piratenland",
+        "street": "Johannes Kolfstraat 1",
+        "postcode": "3273 CA",
+        "openinghours": "wo - do 8.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.787307",
+        "lon": "4.468887",
+        "days": "wo - do ",
+        "openinghoursbyday": {
+            "wo": {
+                "opens": "8:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "8:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=13657707832829387336",
+		"type": "appointment"
+    },
+    {
+        "id": "19",
+        "city": "Zuid Beijerland",
+        "locationname": "Fysiotherapiepraktijk Fysiofitt",
+        "street": "Gravin Sabinastraat 34g",
+        "postcode": "3284 AP",
+        "openinghours": "ma, wo en vr 07.30 - 10.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.750613",
+        "lon": "4.366394",
+        "days": "ma, wo en vr ",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "07:30",
+                "closes": "10:30 "
+            },
+            "wo": {
+                "opens": "07:30",
+                "closes": "10:30 "
+            },
+            "vr": {
+                "opens": "07:30",
+                "closes": "10:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=1268383369269960066",
+		"type": "appointment"
+    },
+    {
+        "id": "20",
+        "city": "Almkerk",
+        "locationname": "Diagnostisch Centrum Star-shl",
+        "street": "Knotwilg 2a",
+        "postcode": "4286 DE",
+        "openinghours": "ma, di, wo en vr7.00 - 10.30 uurdonderdag7.00 - 12.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloopMogelijkheid tot NIPTMogelijkheid tot glucose tolerantie test. Let op: altijd een telefonische afspraak maken",
+        "lat": "51.769765",
+        "lon": "4.957159",
+        "days": "donderdag",
+        "openinghoursbyday": {
+            "do": {
+                "opens": "7:00",
+                "closes": "12:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Knotwilg+2A,+4286+DE+Almkerk&ftid=0x47c685682ef16c93:0xdfa36f4b405e77a",
+		"type": "free entry"
+    },
+    {
+        "id": "21",
+        "city": "Ammerzoden",
+        "locationname": "Het Zonnelied",
+        "street": "Hoge Steeg 2",
+        "postcode": "5324 AD",
+        "openinghours": "ma, wo en vr08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.749841",
+        "lon": "5.221303",
+        "days": "ma, wo en vr",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=722767277081700613",
+		"type": "appointment"
+    },
+    {
+        "id": "22",
+        "city": "Dussen",
+        "locationname": "de Hoeksteen",
+        "street": "Van der Dussenlaan 37",
+        "postcode": "4271 AN",
+        "openinghours": "di en do08.00- 10.00",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.733383",
+        "lon": "4.963328",
+        "days": "di en do",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=4494353527399210500",
+		"type": "free entry"
+    },
+    {
+        "id": "23",
+        "city": "Gameren",
+        "locationname": "Gezondheidscentrum Gameren",
+        "street": "Ridderhof 3a",
+        "postcode": "5311 CM",
+        "openinghours": "di 08.00-10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.801955",
+        "lon": "5.202201",
+        "days": "di ",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Ridderhof+3,+5311+CM+Gameren&ftid=0x47c6f347f3d7fe4d:0x6242144fc2f55993",
+		"type": "free entry"
+    },
+    {
+        "id": "24",
+        "city": "Genderen",
+        "locationname": "Verenigingsgebouw Genderen",
+        "street": "Rondendans 10",
+        "postcode": "4265 JG",
+        "openinghours": "di en do08.30 - 10:30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.736717",
+        "lon": "5.090589",
+        "days": "di en do",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:30",
+                "closes": "10:30 "
+            },
+            "do": {
+                "opens": "08:30",
+                "closes": "10:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=10944851219870618165",
+		"type": "free entry"
+    },
+    {
+        "id": "25",
+        "city": "Hank",
+        "locationname": "Huisartsenpraktijk Hank",
+        "street": "Buitendijk 33b",
+        "postcode": "4273 GC",
+        "openinghours": "di, wo en vr 08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.734515",
+        "lon": "4.892656",
+        "days": "di, wo en vr ",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=14066782257246732604",
+		"type": "appointment"
+    },
+    {
+        "id": "26",
+        "city": "Hedel",
+        "locationname": "Dorpshuis Gelresend",
+        "street": "Molendijk 1",
+        "postcode": "5321 GG",
+        "openinghours": "ma en wo 08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.741750",
+        "lon": "5.260720",
+        "days": "ma en wo ",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=148122888787509016",
+		"type": "free entry"
+    },
+    {
+        "id": "27",
+        "city": "Heerewaarden",
+        "locationname": "Wijkgebouw Kruisvereniging",
+        "street": "Korte Valkestraat 1",
+        "postcode": "6624 AJ",
+        "openinghours": "wo 08.30 - 10.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.817278",
+        "lon": "5.391946",
+        "days": "wo ",
+        "openinghoursbyday": {
+            "wo": {
+                "opens": "08:30",
+                "closes": "10:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://www.google.nl/maps/place/Wijkgebouw+Kruisvereniging/@51.6106646,4.8174274,17z/data=!3m1!4b1!4m5!3m4!1s0x47c69f7267420459:0xb4162eb25c132771!8m2!3d51.6105258!4d4.81963",
+		"type": "free entry"
+    },
+    {
+        "id": "28",
+        "city": "Kerkdriel",
+        "locationname": "Gezondheidscentrum Het Witte Huis",
+        "street": "Leijensteinstraat 4",
+        "postcode": "5331 CT",
+        "openinghours": "08.00 - 11.00 uur.",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.770349",
+        "lon": "5.339643",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=8139703397276920661",
+		"type": "appointment"
+    },
+    {
+        "id": "29",
+        "city": "Nederhemert",
+        "locationname": "Gezondheidscentrum Nederhemert",
+        "street": "Boterbloemstraat 23",
+        "postcode": "5317 NH",
+        "openinghours": "di en vr 08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.767202",
+        "lon": "5.164547",
+        "days": "di en vr ",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Boterbloemstraat+23,+5317+NH+Nederhemert&ftid=0x47c68d3a4ac9f95b:0xc77a4e4d4ddcb96e",
+		"type": "appointment"
+    },
+    {
+        "id": "30",
+        "city": "Nieuwendijk",
+        "locationname": "Huisartsenpraktijk De Singel",
+        "street": "Singel 16e",
+        "postcode": "4255 HD",
+        "openinghours": "08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.776863",
+        "lon": "4.918495",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=17447975571850298022",
+		"type": "free entry"
+    },
+    {
+        "id": "31",
+        "city": "Rijswijk",
+        "locationname": "Kerkelijk centrum De Wijnstok en de Rank",
+        "street": "Rijswijksesteeg 7",
+        "postcode": "4284 EX",
+        "openinghours": "wo08.30 - 10.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.798142",
+        "lon": "5.023417",
+        "days": "wo",
+        "openinghoursbyday": {
+            "wo": {
+                "opens": "08:30",
+                "closes": "10:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=2385713705718026871",
+		"type": "free entry"
+    },
+    {
+        "id": "32",
+        "city": "Sleeuwijk",
+        "locationname": "De Klimroos",
+        "street": "Egelantierpad 31",
+        "postcode": "4254 XT",
+        "openinghours": "vrij08.30 - 10.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.810896",
+        "lon": "4.950879",
+        "days": "vrij",
+        "openinghoursbyday": {
+            "vr": {
+                "opens": "08:30",
+                "closes": "10:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Egelantierpad+31,+4254+XT+Sleeuwijk&ftid=0x47c685bf82aac751:0xa730e92662afba9c",
+		"type": "free entry"
+    },
+    {
+        "id": "33",
+        "city": "Woudrichem",
+        "locationname": "Zorgcentrum De Lemmenskamp",
+        "street": "Wethouder De Joodestraat 2",
+        "postcode": "4285 CD",
+        "openinghours": "di en do08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.811098",
+        "lon": "4.999566",
+        "days": "di en do",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=13192084544761020680",
+		"type": "free entry"
+    },
+    {
+        "id": "34",
+        "city": "Zaltbommel",
+        "locationname": "De Grote Aak",
+        "street": "J. van Oldenbarneveldstraat 2",
+        "postcode": "5301 GX",
+        "openinghours": "di en do 08.30 - 10.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.808745",
+        "lon": "5.251619",
+        "days": "di en do ",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:30",
+                "closes": "10:30 "
+            },
+            "do": {
+                "opens": "08:30",
+                "closes": "10:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=1464116024729644440",
+		"type": "free entry"
+    },
+    {
+        "id": "35",
+        "city": "Alphen",
+        "locationname": "Den Heuvel",
+        "street": "Heuvelstraat 5",
+        "postcode": "5131 AP",
+        "openinghours": "wo08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.484595",
+        "lon": "4.954155",
+        "days": "wo",
+        "openinghoursbyday": {
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=11826064925380448102",
+		"type": "free entry"
+    },
+    {
+        "id": "36",
+        "city": "Baarle Nassau",
+        "locationname": "De Kroon",
+        "street": "St Janshof 1",
+        "postcode": "5111 VV",
+        "openinghours": "8.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.445069",
+        "lon": "4.928298",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "8:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "8:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "8:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "8:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "8:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Sint+Janshof+1,+5111+VV+Baarle-Nassau&ftid=0x47c6bada83a68aaf:0x3dfb6e3c865c3277",
+		"type": "appointment"
+    },
+    {
+        "id": "37",
+        "city": "Bavel",
+        "locationname": "Gezondheidscentrum Tolakker",
+        "street": "Tolakker 7c",
+        "postcode": "4854 NV",
+        "openinghours": "08.00 - 10.30 uur",
+        "openinghoursnew": null,
+        "particularities": "vrije inloop: geen afspraak nodig",
+        "lat": "51.571323",
+        "lon": "4.825095",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=15650831454921889545",
+		"type": "free entry"
+    },
+    {
+        "id": "38",
+        "city": "Bergen op Zoom",
+        "locationname": "Diagnostisch Centrum Star-shl",
+        "street": "Jan Borghoutsplein 55",
+        "postcode": "4624 BS",
+        "openinghours": "07.00 - 15.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop : geen afspraak nodigMogelijkheid tot NIPT",
+        "lat": "51.484145",
+        "lon": "4.304865",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "07:00",
+                "closes": "15:00 "
+            },
+            "di": {
+                "opens": "07:00",
+                "closes": "15:00 "
+            },
+            "wo": {
+                "opens": "07:00",
+                "closes": "15:00 "
+            },
+            "do": {
+                "opens": "07:00",
+                "closes": "15:00 "
+            },
+            "vr": {
+                "opens": "07:00",
+                "closes": "15:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=7255384153237272978",
+		"type": "free entry"
+    },
+    {
+        "id": "39",
+        "city": "Bergen op Zoom",
+        "locationname": "Geminigebouw",
+        "street": "Jacob Obrechtlaan 5a",
+        "postcode": "4611 AP",
+        "openinghours": "ma, di en do 08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.490907",
+        "lon": "4.293963",
+        "days": "ma, di en do ",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Jacob+Obrechtlaan+5A,+4611+AP+Bergen+op+Zoom&ftid=0x47c46cc562989f8b:0xff766c920f9fc98f",
+		"type": "free entry"
+    },
+    {
+        "id": "40",
+        "city": "Bergen op Zoom",
+        "locationname": "Residentie Aquacite",
+        "street": "Ansjovislaan 300",
+        "postcode": "4617 AX",
+        "openinghours": "di en do 08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.477463",
+        "lon": "4.272926",
+        "days": "di en do ",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Ansjovislaan+300,+4617+AX+Bergen+op+Zoom&ftid=0x47c46d1e71bd5b5d:0x18bb33c69a70942a",
+		"type": "free entry"
+    },
+    {
+        "id": "41",
+        "city": "Bergen op Zoom",
+        "locationname": "Huisartsenpraktijk Ameling",
+        "street": "Amperestraat 4B",
+        "postcode": "4622 RE",
+        "openinghours": "di en vr08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop en op afspraak",
+        "lat": null,
+        "lon": null,
+        "days": "di en vr",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=18346596611040776848",
+		"type": "free entry"
+    },
+    {
+        "id": "42",
+        "city": "Bosschenhoofd",
+        "locationname": "t Bossche Hart",
+        "street": "Midzomerplein 2",
+        "postcode": "4744 BZ",
+        "openinghours": "di en do 8.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.560338",
+        "lon": "4.543793",
+        "days": "di en do ",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "8:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "8:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Midzomerplein,+4744+BH+Bosschenhoofd&ftid=0x47c41836c185b181:0xfb262fe768555ddb",
+		"type": "free entry"
+    },
+    {
+        "id": "43",
+        "city": "Breda",
+        "locationname": "Dermatologisch Centrum",
+        "street": "Zomergemstraat 2a",
+        "postcode": "4826 CW",
+        "openinghours": "08.30 - 10.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.611699",
+        "lon": "4.784161",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:30",
+                "closes": "10:30 "
+            },
+            "di": {
+                "opens": "08:30",
+                "closes": "10:30 "
+            },
+            "wo": {
+                "opens": "08:30",
+                "closes": "10:30 "
+            },
+            "do": {
+                "opens": "08:30",
+                "closes": "10:30 "
+            },
+            "vr": {
+                "opens": "08:30",
+                "closes": "10:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=1139746602850006764",
+		"type": "appointment"
+    },
+    {
+        "id": "44",
+        "city": "Breda",
+        "locationname": "Diagnostisch Centrum Star-shl",
+        "street": "St. Ignatiusstraat 4",
+        "postcode": "4817 KL",
+        "openinghours": "07.00 - 16.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloopMogelijkheid tot POC D-dimeer en Troponine (sneltest)Mogelijkheid tot NIPTRust ECG vrije inloop 08.30 - 15.30",
+        "lat": "51.590868",
+        "lon": "4.798934",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            },
+            "di": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            },
+            "wo": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            },
+            "do": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            },
+            "vr": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=9617260908529838510",
+		"type": "free entry"
+    },
+    {
+        "id": "45",
+        "city": "Breda",
+        "locationname": "Diagnostisch Centrum Graaf Hendrik III",
+        "street": "Graaf Hendrik III plein 30",
+        "postcode": "4819 CL",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop, geen afspraak nodig",
+        "lat": "51.577518",
+        "lon": "4.768759",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Graaf+Hendrik+III+Plein+30,+4819+CL+Breda&ftid=0x47c6a0254243e4ef:0x9c4518fcee62b295",
+		"type": "free entry"
+    },
+    {
+        "id": "46",
+        "city": "Breda",
+        "locationname": "MC Flier",
+        "street": "Flierstraat 51",
+        "postcode": "4812 LC",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.571979",
+        "lon": "4.746064",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=7039093721211136417",
+		"type": "appointment"
+    },
+    {
+        "id": "47",
+        "city": "Breda",
+        "locationname": "Gezondheidscentrum Kapelhof",
+        "street": "Kapelstraat 66",
+        "postcode": "4817 NZ",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop, geen afspraak nodig",
+        "lat": "51.589415",
+        "lon": "4.818085",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=3519345657880946666",
+		"type": "free entry"
+    },
+    {
+        "id": "48",
+        "city": "Breda",
+        "locationname": "Huisartsenpraktijk Haagse Beemden",
+        "street": "Hondsdonk 58",
+        "postcode": "4824 CG",
+        "openinghours": "08.00 - 12.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.606141",
+        "lon": "4.744679",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "12:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "12:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "12:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "12:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "12:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=5164147204088104792",
+		"type": "appointment"
+    },
+    {
+        "id": "49",
+        "city": "Breda",
+        "locationname": "Apotheek Wolterman",
+        "street": "Groot Ypelaardreef 69",
+        "postcode": "4834 HC",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.573477",
+        "lon": "4.805006",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=10422630562037420250",
+		"type": "appointment"
+    },
+    {
+        "id": "50",
+        "city": "Breda",
+        "locationname": "Medisch Centrum Magnolia",
+        "street": "Magnoliastraat 75",
+        "postcode": "4814 CN",
+        "openinghours": "08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop",
+        "lat": "51.585596",
+        "lon": "4.755616",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=16143488417083164839",
+		"type": "free entry"
+    },
+    {
+        "id": "51",
+        "city": "Breda",
+        "locationname": "Medisch Centrum Donk Breda",
+        "street": "Essendonk 7a",
+        "postcode": "4824 DA",
+        "openinghours": "ma en wo 13.30 - 15.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.607412",
+        "lon": "4.747533",
+        "days": "ma en wo ",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "13:30",
+                "closes": "15:30 "
+            },
+            "wo": {
+                "opens": "13:30",
+                "closes": "15:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=9381495396080719101",
+		"type": "appointment"
+    },
+    {
+        "id": "52",
+        "city": "Breda",
+        "locationname": "de Kroon",
+        "street": "Kronenburgwerf 23",
+        "postcode": "4812 XR",
+        "openinghours": "08.00-10.30",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.579235",
+        "lon": "4.755419",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "13:30",
+                "closes": "15:30 "
+            },
+            "di": {
+                "opens": "13:30",
+                "closes": "15:30 "
+            },
+            "wo": {
+                "opens": "13:30",
+                "closes": "15:30 "
+            },
+            "do": {
+                "opens": "13:30",
+                "closes": "15:30 "
+            },
+            "vr": {
+                "opens": "13:30",
+                "closes": "15:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=15943145471853725612",
+		"type": "free entry"
+    },
+    {
+        "id": "53",
+        "city": "Chaam",
+        "locationname": "HAP Nugteren en Meijler",
+        "street": "De Werf 1",
+        "postcode": "4861 SC",
+        "openinghours": "ma, di, do en vr 08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "551.505363",
+        "lon": "4.857975",
+        "days": "ma, di, do en vr ",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=17902182147824259609",
+		"type": "appointment"
+    },
+    {
+        "id": "54",
+        "city": "Dinteloord",
+        "locationname": "Wijkgebouw Kruisvereniging",
+        "street": "Westgroeneweg 47",
+        "postcode": "4671 CL",
+        "openinghours": "ma, wo en vr 08.00-10.00",
+        "openinghoursnew": null,
+        "particularities": "vrije inloop : geen afspraak nodig",
+        "lat": "51.636603",
+        "lon": "4.368578",
+        "days": "ma, wo en vr",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Westgroeneweg+47,+4671+CL+Dinteloord&ftid=0x47c43fa5627da379:0x82931df52bda46c5",
+		"type": "free entry"
+    },
+    {
+        "id": "55",
+        "city": "Dongen",
+        "locationname": "Medisch Centrum Beljaart",
+        "street": "Kloosterpad 13a",
+        "postcode": "5104 JT",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.633625",
+        "lon": "4.937622",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=17686307121304556547",
+		"type": "free entry"
+    },
+    {
+        "id": "56",
+        "city": "Dorst",
+        "locationname": "Huisartsenpraktijk van Beijsterveldt",
+        "street": "Taxusstraat 49",
+        "postcode": "4849 AC",
+        "openinghours": "wo 08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.590611",
+        "lon": "4.863699",
+        "days": "wo ",
+        "openinghoursbyday": {
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=17979614569662709432",
+		"type": "appointment"
+    },
+    {
+        "id": "57",
+        "city": "Drunen",
+        "locationname": "Boots Apotheek",
+        "street": "Stationstraat 5",
+        "postcode": "5151 HA",
+        "openinghours": "ma, di, do en vr 08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.690260",
+        "lon": "5.131556",
+        "days": "ma, di, do en vr",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=6047247752091213878",
+		"type": "appointment"
+    },
+    {
+        "id": "58",
+        "city": "Etten-Leur",
+        "locationname": "Diagnostisch Centrum Star-shl De Poort",
+        "street": "Bredaseweg 165",
+        "postcode": "4872 LA",
+        "openinghours": "07.00 - 16.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop Mogelijkheid tot glucose tolerantie test. Let op: altijd een telefonische afspraak maken. Mogelijkheid tot NIPT",
+        "lat": "51.571990",
+        "lon": "4.658665",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            },
+            "di": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            },
+            "wo": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            },
+            "do": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            },
+            "vr": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=13764446928829242383",
+		"type": "free entry"
+    },
+    {
+        "id": "59",
+        "city": "Etten-Leur",
+        "locationname": "Het Huisartsenteam Markt",
+        "street": "Markt 128",
+        "postcode": "4875 CJ",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop",
+        "lat": "51.572033",
+        "lon": "4.631331",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=10965627295736047041",
+		"type": "free entry"
+    },
+    {
+        "id": "60",
+        "city": "Etten-Leur",
+        "locationname": "Gezondheidscentrum De Wiek",
+        "street": "Achter de Molen 15",
+        "postcode": "4873GW",
+        "openinghours": "08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.562373",
+        "lon": "4.648843",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Achter+de+Molen+15,+4873+GW+Etten-Leur&ftid=0x47c41f3c87b95ebf:0x96609382a94fd68a",
+		"type": "free entry"
+    },
+    {
+        "id": "61",
+        "city": "Fijnaart",
+        "locationname": "Fysio Holland Fijnaart",
+        "street": "Nieuwedorpsweg 1",
+        "postcode": "4793 BR",
+        "openinghours": "ma, wo en vr 08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.639294",
+        "lon": "4.469036",
+        "days": "ma, wo en vr",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=12092111485778632933",
+		"type": "appointment"
+    },
+    {
+        "id": "62",
+        "city": "Geertruidenberg",
+        "locationname": "De Brandepoort",
+        "street": "Walgang 77a",
+        "postcode": "4931 DH",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.698678",
+        "lon": "4.864161",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=5622425650719273169",
+		"type": "appointment"
+    },
+    {
+        "id": "63",
+        "city": "Gilze",
+        "locationname": "GC De Flair",
+        "street": "Lange Wagenstraat 55",
+        "postcode": "5126 BB",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.544459",
+        "lon": "4.946730",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=18187557289835678442",
+		"type": "free entry"
+    },
+    {
+        "id": "64",
+        "city": "Halsteren",
+        "locationname": "MC De Spil",
+        "street": "Rondsel 11",
+        "postcode": "4661 TS",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.533804",
+        "lon": "4.286979",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=18408668415309124250",
+		"type": "appointment"
+    },
+    {
+        "id": "65",
+        "city": "Hoeven",
+        "locationname": "Het Punt",
+        "street": "De Halderberge 54",
+        "postcode": "4741 AG",
+        "openinghours": "ma en do 7.30 - 9.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.582074",
+        "lon": "4.586458",
+        "days": "ma en do ",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "7:30",
+                "closes": "9:30 "
+            },
+            "do": {
+                "opens": "7:30",
+                "closes": "9:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=De+Halderberg+54,+4741+AG+Hoeven&ftid=0x47c4188f123040cf:0x493dd420389e3214",
+		"type": "free entry"
+    },
+    {
+        "id": "66",
+        "city": "Hoogerheide",
+        "locationname": "Gemeentehuis Hoogerheide",
+        "street": "Huijbergseweg 3",
+        "postcode": "4631 GC",
+        "openinghours": "08.00 - 12.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.423198",
+        "lon": "4.327589",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "12:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "12:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "12:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "12:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "12:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=4241216972896058822",
+		"type": "free entry"
+    },
+    {
+        "id": "67",
+        "city": "Huijbergen",
+        "locationname": "Margretha Medisch Centrum",
+        "street": "Siardus Bogaertslaan 8a",
+        "postcode": "4635 CM",
+        "openinghours": "di en do 08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.432307",
+        "lon": "4.375014",
+        "days": "di en do ",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=42888370357132891",
+		"type": "appointment"
+    },
+    {
+        "id": "68",
+        "city": "Klundert",
+        "locationname": "Wijkgebouw Kruisvereniging",
+        "street": "Vestkant 2",
+        "postcode": "4791 HD",
+        "openinghours": "08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.665388",
+        "lon": "4.534302",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=14492781901874218065",
+		"type": "free entry"
+    },
+    {
+        "id": "69",
+        "city": "Lage Zwaluwe",
+        "locationname": "De Ganshoek",
+        "street": "Ganshoeksingel 50",
+        "postcode": "4926 CN",
+        "openinghours": "ma, wo en do 07.30 - 10.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.707234",
+        "lon": "4.703357",
+        "days": "ma, wo en do ",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "07:30",
+                "closes": "10:30 "
+            },
+            "wo": {
+                "opens": "07:30",
+                "closes": "10:30 "
+            },
+            "do": {
+                "opens": "07:30",
+                "closes": "10:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Ganshoeksingel+50,+4926+CN+Lage+Zwaluwe&ftid=0x47c42702bc4e2ae1:0xbc8d4f3c62aa924a",
+		"type": "appointment"
+    },
+    {
+        "id": "70",
+        "city": "Made",
+        "locationname": "Gezondheidscentrum Het Vierendeel",
+        "street": "Het Vierendeel 7",
+        "postcode": "4921 LC",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.677140",
+        "lon": "4.787322",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=4355822159284215510",
+		"type": "appointment"
+    },
+    {
+        "id": "71",
+        "city": "Nieuw-Vossemeer",
+        "locationname": "Huisartsenpraktijk Nieuw-Vossemeer",
+        "street": "Dortmundstraat 20",
+        "postcode": "4681 AV",
+        "openinghours": "wo08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.589092",
+        "lon": "4.218869",
+        "days": "wo",
+        "openinghoursbyday": {
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=637724244441503310",
+		"type": "appointment"
+    },
+    {
+        "id": "72",
+        "city": "Oisterwijk",
+        "locationname": "Voorste Stroom",
+        "street": "Moergestelseweg 22",
+        "postcode": "5062 JW",
+        "openinghours": "07.30 - 10.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.572752",
+        "lon": "5.181401",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "07:30",
+                "closes": "10:30 "
+            },
+            "di": {
+                "opens": "07:30",
+                "closes": "10:30 "
+            },
+            "wo": {
+                "opens": "07:30",
+                "closes": "10:30 "
+            },
+            "do": {
+                "opens": "07:30",
+                "closes": "10:30 "
+            },
+            "vr": {
+                "opens": "07:30",
+                "closes": "10:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Moergestelseweg+22,+5062+JW+Oisterwijk&ftid=0x47c6ea9c845541e3:0xc49630860bdd18d0",
+		"type": "free entry"
+    },
+    {
+        "id": "73",
+        "city": "Oosterhout",
+        "locationname": "Diagnostisch Centrum Star-shl",
+        "street": "Pasteurlaan 9b (naast ziekenhuis)",
+        "postcode": "4907 DH",
+        "openinghours": "07.30 - 16.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop en op afspraak Mogelijkheid tot glucose tolerantie test. Let op: altijd een telefonische afspraak maken. Mogelijkheid tot NIPT",
+        "lat": "51.662132",
+        "lon": "4.859913",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "07:30",
+                "closes": "16:00 "
+            },
+            "di": {
+                "opens": "07:30",
+                "closes": "16:00 "
+            },
+            "wo": {
+                "opens": "07:30",
+                "closes": "16:00 "
+            },
+            "do": {
+                "opens": "07:30",
+                "closes": "16:00 "
+            },
+            "vr": {
+                "opens": "07:30",
+                "closes": "16:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://www.google.nl/maps/place/Pasteurlaan+9b,+4901+DH+Oosterhout/@51.6483487,4.8685151,17z/data=!3m1!4b1!4m5!3m4!1s0x47c699404d77d315:0x4eecffa0be681317!8m2!3d51.6483454!4d4.8707038",
+		"type": "free entry"
+    },
+    {
+        "id": "74",
+        "city": "Oosterhout",
+        "locationname": "GC Slotjesveste",
+        "street": "Van Oldeneellaan 34",
+        "postcode": "4902 ZC",
+        "openinghours": "08.00 - 10.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.637563",
+        "lon": "4.860178",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=10897697490809847680",
+		"type": "free entry"
+    },
+    {
+        "id": "75",
+        "city": "Ossendrecht",
+        "locationname": "MC Ossendrecht",
+        "street": "Pottenbergen 15",
+        "postcode": "4641 HK",
+        "openinghours": "08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.396840",
+        "lon": "4.326779",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=11805422903279253808",
+		"type": "appointment"
+    },
+    {
+        "id": "76",
+        "city": "Oud Gastel",
+        "locationname": "Medisch Centrum Nieuw Gastel",
+        "street": "Dreef 2",
+        "postcode": "4751 HT",
+        "openinghours": "di en do 08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.587896",
+        "lon": "4.461250",
+        "days": "di en do ",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=18034328966786560403",
+		"type": "free entry"
+    },
+    {
+        "id": "77",
+        "city": "Oudenbosch",
+        "locationname": "Oudenbosch medisch centrum",
+        "street": "West Vaardeke 11a",
+        "postcode": "4731 MA",
+        "openinghours": "08.00 - 12.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.589732",
+        "lon": "4.524236",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "12:30 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "12:30 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "12:30 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "12:30 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "12:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=15604024261736114092",
+		"type": "free entry"
+    },
+    {
+        "id": "78",
+        "city": "Prinsenbeek",
+        "locationname": "De Drie Linden",
+        "street": "Heisprong 15",
+        "postcode": "4841 NA",
+        "openinghours": "08.00 - 11.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.602482",
+        "lon": "4.704413",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:30 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:30 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:30 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:30 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=15284962400732825067",
+		"type": "free entry"
+    },
+    {
+        "id": "79",
+        "city": "Putte",
+        "locationname": "De Bunt",
+        "street": "Hogebergdreef 55b",
+        "postcode": "4645 EV",
+        "openinghours": "di en do 08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.361692",
+        "lon": "4.396833",
+        "days": "di en do ",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=10564843738356140710",
+		"type": "appointment"
+    },
+    {
+        "id": "80",
+        "city": "Rijen",
+        "locationname": "Diagnostisch Centrum Star-shl",
+        "street": "Schepenstraat 4",
+        "postcode": "5121 BM",
+        "openinghours": "08.00 - 10.00 uur op afspraak \/ 10.00 - 12.00 uur vrije inloop",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak 8.00 tot 10.00 Vrije inloop van 10.00 tot 12.00 uur, dan geen afspraak nodig",
+        "lat": "51.588950",
+        "lon": "4.912516",
+        "days": " ",
+        "openinghoursbyday": {
+			"ma": {
+				"opens": "08:00",
+				"closes": "12:00"
+			},
+			"di": {
+				"opens": "08:00",
+				"closes": "12:00"
+			},
+			"wo": {
+				"opens": "08:00",
+				"closes": "12:00"
+			},
+			"do": {
+				"opens": "08:00",
+				"closes": "12:00"
+			},
+			"vr": {
+				"opens": "08:00",
+				"closes": "12:00"
+			}
+		},
+		"distance": "",
+		"url": "https://maps.google.com/?cid=558528115782477965",
+		"type": "appointment"
+    },
+    {
+        "id": "81",
+        "city": "Rijsbergen",
+        "locationname": "Koutershof",
+        "street": "Koutershof 4",
+        "postcode": "4891 CV",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.514389",
+        "lon": "4.698800",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Koutershof+4,+4891+CV+Rijsbergen&ftid=0x47c41e0da1e0b46f:0xb0c6ce3cd1e807bf",
+		"type": "free entry"
+    },
+    {
+        "id": "82",
+        "city": "Roosendaal",
+        "locationname": "Diagnostisch Centrum Star-shl",
+        "street": "Gezellelaan 18",
+        "postcode": "4707 CD",
+        "openinghours": "07.30 - 15.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop. Mogelijkheid tot NIPT",
+        "lat": "51.520933",
+        "lon": "4.462661",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "07:30",
+                "closes": "15:30 "
+            },
+            "di": {
+                "opens": "07:30",
+                "closes": "15:30 "
+            },
+            "wo": {
+                "opens": "07:30",
+                "closes": "15:30 "
+            },
+            "do": {
+                "opens": "07:30",
+                "closes": "15:30 "
+            },
+            "vr": {
+                "opens": "07:30",
+                "closes": "15:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=5310615100087520445",
+		"type": "free entry"
+    },
+    {
+        "id": "83",
+        "city": "Roosendaal",
+        "locationname": "Medisch Centrum Dunant",
+        "street": "Dunantstraat 111",
+        "postcode": "4701 GZ",
+        "openinghours": "08.00 - 11.00 uur. Deze locatie is op vrijdag 26 november gesloten",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.534750",
+        "lon": "4.462465",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=806903104048761990",
+		"type": "appointment"
+    },
+    {
+        "id": "84",
+        "city": "Roosendaal",
+        "locationname": "M.C. de Weihoek",
+        "street": "Vijfhuizenberg 207",
+        "postcode": "4708 AJ",
+        "openinghours": "di en do08:00-10:00",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.519904",
+        "lon": "4.441283",
+        "days": "di en do",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=11251324141123496998",
+		"type": "appointment"
+    },
+    {
+        "id": "85",
+        "city": "Rucphen",
+        "locationname": "Agora",
+        "street": "Markt 2",
+        "postcode": "4715 CL",
+        "openinghours": "di en wo 08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.534117",
+        "lon": "4.559015",
+        "days": "di en wo ",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=9385871758059533619",
+		"type": "free entry"
+    },
+    {
+        "id": "86",
+        "city": "St. Willebrord",
+        "locationname": "MC Parkzicht",
+        "street": "Pastoor Bastiaansensingel 17d",
+        "postcode": "4711 EC",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.551283",
+        "lon": "4.588731",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Pastoor+Bastiaansensingel+17,+4711+EC+Sint+Willebrord&ftid=0x47c4191d99d119f9:0x8ef648990e8285eb",
+		"type": "free entry"
+    },
+    {
+        "id": "87",
+        "city": "Standdaarbuiten",
+        "locationname": "Huisartsenpraktijk Standdaarbuiten",
+        "street": "Markt 13",
+        "postcode": "4758 BL",
+        "openinghours": "di 8.00 - 10.00",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.611014",
+        "lon": "4.514252",
+        "days": "di ",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "8:00",
+                "closes": "10:00"
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=365620119923017960",
+		"type": "free entry"
+    },
+    {
+        "id": "88",
+        "city": "Steenbergen",
+        "locationname": "Onze Stede",
+        "street": "Rozemarijnstraat 1",
+        "postcode": "4651 EL",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.585848",
+        "lon": "4.320747",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=11884271023069338185",
+		"type": "free entry"
+    },
+    {
+        "id": "89",
+        "city": "Terheijden",
+        "locationname": "Schepenhof Fysio",
+        "street": "Schepenhof 21",
+        "postcode": "4844 BM",
+        "openinghours": "ma, wo en vr08.00 - 10.00",
+        "openinghoursnew": null,
+        "particularities": "vrije inloop: geen afspraak nodig",
+        "lat": "51.641289",
+        "lon": "4.752916",
+        "days": "ma, wo en vr",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:00"
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:00"
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00"
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=6150562586872740662",
+		"type": "free entry"
+    },
+    {
+        "id": "90",
+        "city": "Teteringen",
+        "locationname": "Wijkgebouw Kruisvereniging",
+        "street": "Willebrordstraat 3",
+        "postcode": "4847 RJ",
+        "openinghours": "ma, di, do en vr08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.610589",
+        "lon": "4.820336",
+        "days": "ma, di, do en vr",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=12976610719898478449",
+		"type": "free entry"
+    },
+    {
+        "id": "91",
+        "city": "Tilburg",
+        "locationname": "Diagnostisch Centrum Star-shl",
+        "street": "Lage Witsiebaan 2a",
+        "postcode": "5042 DA",
+        "openinghours": "08.15 - 12.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodigMogelijkheid tot NIPT",
+        "lat": "51.572772",
+        "lon": "5.061260",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:15",
+                "closes": "12:30 "
+            },
+            "di": {
+                "opens": "08:15",
+                "closes": "12:30 "
+            },
+            "wo": {
+                "opens": "08:15",
+                "closes": "12:30 "
+            },
+            "do": {
+                "opens": "08:15",
+                "closes": "12:30 "
+            },
+            "vr": {
+                "opens": "08:15",
+                "closes": "12:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://www.google.nl/maps/place/Lage+Witsiebaan+2A,+5042+DA+Tilburg/@51.5725207,5.0644848,20.78z/data=!4m5!3m4!1s0x47c6be1fb093b1ad:0x5dc89903fe162381!8m2!3d51.5725914!4d5.0645356",
+		"type": "free entry"
+    },
+    {
+        "id": "92",
+        "city": "Tilburg",
+        "locationname": "Gezondheidscentrum Frans Liztstraat",
+        "street": "Frans Liztstraat 6a",
+        "postcode": "5011 RC",
+        "openinghours": "08.00 - 09.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.582342",
+        "lon": "5.080902",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "09:30 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "09:30 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "09:30 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "09:30 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "09:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=11489406993875875859",
+		"type": "free entry"
+    },
+    {
+        "id": "93",
+        "city": "Tilburg",
+        "locationname": "Groenewoud",
+        "street": "Pater Van Den Elzenplein 86",
+        "postcode": "5022 EH",
+        "openinghours": "08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig. Vanaf 1-12-2021 is deze prikpost gesloten",
+        "lat": "51.540602",
+        "lon": "5.094918",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=4039945506111750118",
+		"type": "free entry"
+    },
+    {
+        "id": "94",
+        "city": "Ulvenhout",
+        "locationname": "Dienstencentrum Dorpsplein",
+        "street": "Dorpsplein 13",
+        "postcode": "4851 CP",
+        "openinghours": "08.00 - 10.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.552608",
+        "lon": "4.797308",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=6286218203650543050",
+		"type": "free entry"
+    },
+    {
+        "id": "95",
+        "city": "Willemstad",
+        "locationname": "Fysiotherapiepraktijk",
+        "street": "J. van Glymesstraat 24",
+        "postcode": "4797 Al",
+        "openinghours": "vr 08.00-11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.690841",
+        "lon": "4.439183",
+        "days": "vr ",
+        "openinghoursbyday": {
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=16469206699096911991",
+		"type": "appointment"
+    },
+    {
+        "id": "96",
+        "city": "Wouw",
+        "locationname": "Praktijk Plus",
+        "street": "Bergsestraat 43",
+        "postcode": "4724 CA",
+        "openinghours": "ma, wo en vr 8.00 tot 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.520610",
+        "lon": "4.387749",
+        "days": "ma, wo en vr",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=4528947419603999536",
+		"type": "appointment"
+    },
+    {
+        "id": "97",
+        "city": "Zevenbergen",
+        "locationname": "'t Trefpunt",
+        "street": "Kristallaan 25c",
+        "postcode": "4761 ZC",
+        "openinghours": "07.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.642076",
+        "lon": "4.597326",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "07:00",
+                "closes": "10:00 "
+            },
+            "di": {
+                "opens": "07:00",
+                "closes": "10:00 "
+            },
+            "wo": {
+                "opens": "07:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "07:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "07:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Kristallaan+25C,+4761+ZC+Zevenbergen&ftid=0x47c423ac114186f3:0xa2f4b17b1fe33fc3",
+		"type": "free entry"
+    },
+    {
+        "id": "98",
+        "city": "Zevenbergsche Hoek",
+        "locationname": "Gemeenschapshuis De Zevensprong",
+        "street": "Olavstraat 29",
+        "postcode": "4765 CP",
+        "openinghours": "do 08.30 - 10.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.675084",
+        "lon": "4.677783",
+        "days": "do ",
+        "openinghoursbyday": {
+            "do": {
+                "opens": "08:30",
+                "closes": "10:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=18275039812590370372",
+		"type": "free entry"
+    },
+    {
+        "id": "99",
+        "city": "Zundert",
+        "locationname": "Gezondheidscentrum De Welborg",
+        "street": "De Welborg 3",
+        "postcode": "4881 CZ",
+        "openinghours": "08.00 - 12.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop : geen afspraak nodig",
+        "lat": "51.474554",
+        "lon": "4.667153",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "12:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "12:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "12:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "12:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "12:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=De+Welborg+3,+4881+CZ+Zundert&ftid=0x47c41dad8dd6e475:0xadfabaafc9a48420",
+		"type": "free entry"
+    },
+    {
+        "id": "100",
+        "city": "'s Heer Arendskerke",
+        "locationname": "Huisartsenpraktijk de Drieweg",
+        "street": "Boogstraat 46",
+        "postcode": "4458 CB",
+        "openinghours": "Avond openstelling: di-do 17.30-18.30",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.492879",
+        "lon": "3.826449",
+        "days": " di-do ",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "17:30",
+                "closes": "18:30 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "12:00 "
+            },
+            "do": {
+                "opens": "17:30",
+                "closes": "18:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=17546089289872952010",
+		"type": "appointment"
+    },
+    {
+        "id": "101",
+        "city": "Axel",
+        "locationname": "Huisartsencentrum Axel",
+        "street": "De Ruyterstraat 1-11",
+        "postcode": "4571 BW",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.264760",
+        "lon": "3.912861",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=9686293034072633115",
+		"type": "appointment"
+    },
+    {
+        "id": "102",
+        "city": "Brouwershaven",
+        "locationname": "Poortershof",
+        "street": "Poortdijkstraat 2",
+        "postcode": "4318AN",
+        "openinghours": "wo 08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.730814",
+        "lon": "3.919134",
+        "days": "wo",
+        "openinghoursbyday": {
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=5678658253578433388",
+		"type": "free entry"
+    },
+    {
+        "id": "103",
+        "city": "Bruinisse",
+        "locationname": "Dorpshuis De Vanger",
+        "street": "Molenstraat 52",
+        "postcode": "4311 ED",
+        "openinghours": "di, wo en vr 07.30 - 09.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.661426",
+        "lon": "4.092709",
+        "days": "di, wo en vr ",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "07:30",
+                "closes": "09:30 "
+            },
+            "wo": {
+                "opens": "07:30",
+                "closes": "09:30 "
+            },
+            "vr": {
+                "opens": "07:30",
+                "closes": "09:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=9205750559355063824",
+		"type": "appointment"
+    },
+    {
+        "id": "104",
+        "city": "Burg-Haamstede",
+        "locationname": "Huisartsenpraktijk Baas",
+        "street": "Scheepwerfstraat 26",
+        "postcode": "4328 BC",
+        "openinghours": "ma, wo en vrij 08.00 - 10.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.698556",
+        "lon": "3.745500",
+        "days": "ma, wo en vrij ",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=5033306658575141576",
+		"type": "appointment"
+    },
+    {
+        "id": "105",
+        "city": "Goes",
+        "locationname": "Diagnostisch Centrum Star-shl",
+        "street": "Van Dusseldorpstraat 20",
+        "postcode": "4461 LT",
+        "openinghours": "07.30 - 15.30 uur vrije inloop. Avond openstelling: di-do 15.30 - 18.30 uur op afspraak",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop, geen afspraak nodig van 7.30 tot 15.30 uurAvondopenstelling: Alleen op afspraak di-do 15.30-18.30 uurMogelijkheid tot NIPT",
+        "lat": "51.499190",
+        "lon": "3.900325",
+        "days": " di-do ",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "07.30",
+                "closes": "18:30 "
+            },
+            "wo": {
+                "opens": "07.30",
+                "closes": "18:30 "
+            },
+            "do": {
+                "opens": "07.30",
+                "closes": "18:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=4234862759846875833",
+		"type": "appointment"
+    },
+    {
+        "id": "106",
+        "city": "Heinkenszand",
+        "locationname": "De Grenslinde",
+        "street": "Dorpsstraat 85",
+        "postcode": "4451 AA",
+        "openinghours": "di en do08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.471740",
+        "lon": "3.817866",
+        "days": "di en do",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=11586968565764126607",
+		"type": "free entry"
+    },
+    {
+        "id": "107",
+        "city": "Kapelle",
+        "locationname": "Dorpshuis de Vroone",
+        "street": "CD Vereekestraat 74",
+        "postcode": "4421 CE",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.483079",
+        "lon": "3.962371",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=7634176760066901047",
+		"type": "free entry"
+    },
+    {
+        "id": "108",
+        "city": "Kruiningen",
+        "locationname": "Ons Dorpshuis",
+        "street": "Berghoekstraat 3",
+        "postcode": "4416 BJ",
+        "openinghours": "wo 7.30 - 9.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.448312",
+        "lon": "4.038636",
+        "days": "wo ",
+        "openinghoursbyday": {
+            "wo": {
+                "opens": "7:30",
+                "closes": "9:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=13209983656782498889",
+		"type": "free entry"
+    },
+    {
+        "id": "109",
+        "city": "Lewedorp",
+        "locationname": "Huisartsenpraktijk Westerschenge",
+        "street": "Roompotstraat 52",
+        "postcode": "4456 BE",
+        "openinghours": "Avond openstelling: di-do 17.00-18.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.496874",
+        "lon": "3.748752",
+        "days": " di-do ",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "7:30",
+                "closes": "9:30 "
+            },
+            "wo": {
+                "opens": "7:30",
+                "closes": "9:30 "
+            },
+            "do": {
+                "opens": "7:30",
+                "closes": "9:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=7039181801171012995",
+		"type": "appointment"
+    },
+    {
+        "id": "110",
+        "city": "Nieuwerkerk",
+        "locationname": "De Steenzwaenshof",
+        "street": "Burg. Van Eetenstraat 32",
+        "postcode": "4306 CW",
+        "openinghours": "ma07.30 - 09.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.650775",
+        "lon": "3.997574",
+        "days": "ma",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "07:30",
+                "closes": "09:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=5610948396042106787",
+		"type": "free entry"
+    },
+    {
+        "id": "111",
+        "city": "Ovezande",
+        "locationname": "Huisartsenpraktijk",
+        "street": "Pastoor Fransestraat 2",
+        "postcode": "4441 AX",
+        "openinghours": "di-do 8.00-12.00",
+        "openinghoursnew": null,
+        "particularities": "Afspraak via assistente huisarts",
+        "lat": "51.430693",
+        "lon": "3.820716",
+        "days": "di-do ",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "07:30",
+                "closes": "09:30 "
+            },
+            "wo": {
+                "opens": "07:30",
+                "closes": "09:30 "
+            },
+            "do": {
+                "opens": "07:30",
+                "closes": "09:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=7958606822769643156",
+		"type": "special"
+    },
+    {
+        "id": "112",
+        "city": "Poortvliet",
+        "locationname": "Dorpshuis Ouwe Raed-uus",
+        "street": "Langestraat 16",
+        "postcode": "4693BT",
+        "openinghours": "vr08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.544535",
+        "lon": "4.145411",
+        "days": "vr",
+        "openinghoursbyday": {
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=2291441857231477921",
+		"type": "appointment"
+    },
+    {
+        "id": "113",
+        "city": "Renesse",
+        "locationname": "Vronenburg",
+        "street": "Lindelaan 1",
+        "postcode": "4325 ED",
+        "openinghours": "di en do 08.00 - 10.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.733231",
+        "lon": "3.773244",
+        "days": "di en do ",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Lindelaan+1,+4325+ED+Renesse&ftid=0x47c4f1a394a34baf:0xfe9926a026817594",
+		"type": "free entry"
+    },
+    {
+        "id": "114",
+        "city": "Sint Annaland",
+        "locationname": "Huisartsenpraktijk praktijk de Smisse",
+        "street": "Voorstraat 31",
+        "postcode": "4697 EJ",
+        "openinghours": "ma, wo en vr 08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.601540",
+        "lon": "4.104334",
+        "days": "ma, wo en vr",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=16482227319403683479",
+		"type": "appointment"
+    },
+    {
+        "id": "115",
+        "city": "Sint Maartensdijk",
+        "locationname": "Gemeenschapscentrum Haestinge",
+        "street": "Sportlaan 2d",
+        "postcode": "4695 BA",
+        "openinghours": "8.30 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop, geen afspraak nodig",
+        "lat": "51.547150",
+        "lon": "4.082308",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "8:30",
+                "closes": "10:00 "
+            },
+            "di": {
+                "opens": "8:30",
+                "closes": "10:00 "
+            },
+            "wo": {
+                "opens": "8:30",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "8:30",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "8:30",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=10968941569082697433",
+		"type": "free entry"
+    },
+    {
+        "id": "116",
+        "city": "Stavenisse",
+        "locationname": "Huisartsenpraktijk Stavenisse",
+        "street": "Poststraat 5a",
+        "postcode": "4696BA",
+        "openinghours": "ma en wo 08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.585826",
+        "lon": "4.014593",
+        "days": "ma en wo ",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=13340899835174543321",
+		"type": "appointment"
+    },
+    {
+        "id": "117",
+        "city": "Terneuzen",
+        "locationname": "Huisartsenpraktijk Triniteit",
+        "street": "Willem Alexanderlaan 45",
+        "postcode": "4532 DB",
+        "openinghours": "08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak. Mogelijkheid tot NIPT",
+        "lat": "51.333506",
+        "lon": "3.834086",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Willem+Alexanderlaan+45,+4532+DB+Terneuzen&ftid=0x47c480fb78ed60df:0x136e158e1a708012",
+		"type": "appointment"
+    },
+    {
+        "id": "118",
+        "city": "Tholen",
+        "locationname": "Huisartsenpraktijk De Vliethof",
+        "street": "Vliethof 10",
+        "postcode": "4691 HA",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.535553",
+        "lon": "4.217613",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=12296746937704831825",
+		"type": "appointment"
+    },
+    {
+        "id": "119",
+        "city": "Zierikzee",
+        "locationname": "Diagnostisch Centrum Star-shl",
+        "street": "Borrendamme 2",
+        "postcode": "4301 VD",
+        "openinghours": "07.30 - 10.15 uur op afspraak \/ 10.15 - 12.00 uur vrije inloop. Avond openstelling: di-do 16.30-18.00 uur op afspraak",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak van 7.30 - 10.15 uur. Vrije inloop van werkdagen 10.15 - 12.00, geen afspraak nodig. Avondopenstelling: Alleen op afspraak di - do 16.30 - 18.00 uur. Mogelijkheid tot glucose tolerantie test. Let op: altijd een telefonische afspraak maken. Mogelijkheid tot NIPT",
+        "lat": "51.649762",
+        "lon": "3.907663",
+        "days": " di-do ",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "10:15",
+                "closes": "12:00 "
+            },
+            "wo": {
+                "opens": "10:15",
+                "closes": "12:00 "
+            },
+            "do": {
+                "opens": "10:15",
+                "closes": "12:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=borrendamme+2,+4301+VD+Zierikzee&ftid=0x47c4f56fe91cc0fb:0x415009701f605825",
+		"type": "appointment"
+    },
+    {
+        "id": "120",
+        "city": "s-Heerenhoek",
+        "locationname": "Huisartsenteam Zorg op Zak",
+        "street": "Laustraat 1a",
+        "postcode": "4453 AV",
+        "openinghours": "wo 8.00-9.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Afspraak via assistente huisarts",
+        "lat": "51.452313",
+        "lon": "3.771867",
+        "days": "wo ",
+        "openinghoursbyday": {
+            "wo": {
+                "opens": "10:15",
+                "closes": "12:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=1397932188343071278",
+		"type": "special"
+    },
+    {
+        "id": "121",
+        "city": "Barendrecht",
+        "locationname": "Gezondheidscentrum Kruidentuin",
+        "street": "Kruidentuin 5",
+        "postcode": "2991 RK",
+        "openinghours": "08.00 - 12.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.853039",
+        "lon": "4.547119",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "12:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "12:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "12:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "12:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "12:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=12192108375344008922",
+		"type": "free entry"
+    },
+    {
+        "id": "122",
+        "city": "Barendrecht",
+        "locationname": "Wijkcentrum De Waterpoort",
+        "street": "Middeldijkerplein 9",
+        "postcode": "2993 DL",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.848303",
+        "lon": "4.501075",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=4704577792934650549",
+		"type": "free entry"
+    },
+    {
+        "id": "123",
+        "city": "Bergschenhoek",
+        "locationname": "De Zorghoek",
+        "street": "Verzetstraat 12",
+        "postcode": "2661 HX",
+        "openinghours": "ma, wo en vr 07.30 - 09.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.986556",
+        "lon": "4.504810",
+        "days": "ma, wo en vr",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "07:30",
+                "closes": "09:30 "
+            },
+            "wo": {
+                "opens": "07:30",
+                "closes": "09:30 "
+            },
+            "vr": {
+                "opens": "07:30",
+                "closes": "09:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=7043244209113040597",
+		"type": "appointment"
+    },
+    {
+        "id": "124",
+        "city": "Bergschenhoek",
+        "locationname": "Huisartsen centrum Bergschenhoek",
+        "street": "Oosteindseweg 1",
+        "postcode": "2661 EA",
+        "openinghours": "di en do 08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.991110",
+        "lon": "4.508125",
+        "days": "di en do ",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=18417376938827213236",
+		"type": "appointment"
+    },
+    {
+        "id": "125",
+        "city": "Berkel en Rodenrijs",
+        "locationname": "Gezondheidscentrum Klapwijk",
+        "street": "Klapwijksezoom 103",
+        "postcode": "2652 CG",
+        "openinghours": "08.00 - 10.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.993231",
+        "lon": "4.466651",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=9605400796239783793",
+		"type": "appointment"
+    },
+    {
+        "id": "126",
+        "city": "Berkel en Rodenrijs",
+        "locationname": "Huize Sint Petrus",
+        "street": "Noordeindseweg 94",
+        "postcode": "2651 CX",
+        "openinghours": "wo 8.00 - 9.00",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "52.001688",
+        "lon": "4.482452",
+        "days": "wo ",
+        "openinghoursbyday": {
+            "wo": {
+                "opens": "8:00",
+                "closes": "9:00"
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=4205232689422361471",
+		"type": "free entry"
+    },
+    {
+        "id": "127",
+        "city": "Bleiswijk",
+        "locationname": "De Leeuwerik",
+        "street": "Leeuwerikstraat 2",
+        "postcode": "2665 VH",
+        "openinghours": "di 9.00 - 10.00",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop, geen afspraak nodig",
+        "lat": "52.007520",
+        "lon": "4.532195",
+        "days": "di ",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "9:00",
+                "closes": "10:00"
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=3557265190901898125",
+		"type": "free entry"
+    },
+    {
+        "id": "128",
+        "city": "Brielle",
+        "locationname": "De Ommeloop",
+        "street": "Ommeloop 403",
+        "postcode": "3232 SX",
+        "openinghours": "ma, wo, do en vrij 8.00 tot 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.893244",
+        "lon": "4.165172",
+        "days": "ma, wo, do en vrij",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "9:00",
+                "closes": "10:00"
+            },
+            "wo": {
+                "opens": "9:00",
+                "closes": "10:00"
+            },
+            "do": {
+                "opens": "9:00",
+                "closes": "10:00"
+            },
+            "vr": {
+                "opens": "9:00",
+                "closes": "10:00"
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Ommeloop+403,+3232+ES+Brielle&ftid=0x47c44d8838a29979:0xf9f361bc4d553c81",
+		"type": "free entry"
+    },
+    {
+        "id": "129",
+        "city": "Capelle a\/d IJssel",
+        "locationname": "Gezondheidscentrum Spoorlaan",
+        "street": "Spoorlaan 20",
+        "postcode": "2908 BG",
+        "openinghours": "08.00 - 12.00 uur",
+        "openinghoursnew": null,
+        "particularities": "vrije inloop: geen afspraak nodig",
+        "lat": "51.954011",
+        "lon": "4.577522",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "12:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "12:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "12:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "12:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "12:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=7213716808383836303",
+		"type": "free entry"
+    },
+    {
+        "id": "130",
+        "city": "Capelle a/d IJssel",
+        "locationname": "Rozenburcht",
+        "street": "Nieuwe Laan 18",
+        "postcode": "2902 BW",
+        "openinghours": "07.00 - 16.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig. Mogelijkheid tot POC D-dimeer en Troponine (sneltest) (niet mogelijk op woensdag en vrijdag vanaf 12.00 uur). Mogelijkheid tot NIPT. Mogelijkheid tot glucose tolerantie test. Let op: altijd een telefonische afspraak maken. Rust ECG vrije inloop 8.00-15.30",
+        "lat": "51.922235",
+        "lon": "4.580519",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            },
+            "di": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            },
+            "wo": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            },
+            "do": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            },
+            "vr": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=15855917635216527001",
+		"type": "free entry"
+    },
+    {
+        "id": "131",
+        "city": "Capelle a/d Ijssel",
+        "locationname": "Gezondheidscentrum Oostgaarde",
+        "street": "Linie 2",
+        "postcode": "2905 AX",
+        "openinghours": "08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.934619",
+        "lon": "4.598857",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=1668749050336415553",
+		"type": "appointment"
+    },
+    {
+        "id": "132",
+        "city": "Den Haag",
+        "locationname": "Gezondheidscentrum Vaillantplein",
+        "street": "Ruijsdaelstraat 15",
+        "postcode": "2525 AA",
+        "openinghours": "9.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "52.069140",
+        "lon": "4.299352",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "9:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "9:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "9:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "9:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "9:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=1876919662349133403",
+		"type": "appointment"
+    },
+    {
+        "id": "133",
+        "city": "Den Haag",
+        "locationname": "Rubenshoek",
+        "street": "Vd Vennestraat 185",
+        "postcode": "2525 CE",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig. Mogelijkheid tot NIPT",
+        "lat": "52.065852",
+        "lon": "4.304217",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=3415859918816455198",
+		"type": "free entry"
+    },
+    {
+        "id": "134",
+        "city": "Den Haag",
+        "locationname": "Gezondheidscentrum Houtwijk",
+        "street": "Hildo Kroplaan 71",
+        "postcode": "2552 XM",
+        "openinghours": "08.30 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "52.055386",
+        "lon": "4.250345",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:30",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:30",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:30",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:30",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:30",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=8298984597137566432",
+		"type": "appointment"
+    },
+    {
+        "id": "135",
+        "city": "Den Haag",
+        "locationname": "Gezondheidscentrum Statenkwartier",
+        "street": "President Kennedylaan 15",
+        "postcode": "2517 JK",
+        "openinghours": "08.30 - 11.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "52.088390",
+        "lon": "4.279825",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:30",
+                "closes": "11:30 "
+            },
+            "di": {
+                "opens": "08:30",
+                "closes": "11:30 "
+            },
+            "wo": {
+                "opens": "08:30",
+                "closes": "11:30 "
+            },
+            "do": {
+                "opens": "08:30",
+                "closes": "11:30 "
+            },
+            "vr": {
+                "opens": "08:30",
+                "closes": "11:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=18182515812647641694",
+		"type": "appointment"
+    },
+    {
+        "id": "136",
+        "city": "Den Haag",
+        "locationname": "Gezondheidscentrum Leidschenveen",
+        "street": "Harriet Freezerhof 195",
+        "postcode": "2492 JC",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": null,
+        "lon": null,
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=16752228747351499245",
+		"type": "appointment"
+    },
+    {
+        "id": "137",
+        "city": "Den Haag",
+        "locationname": "Gezondheidscentrum Lage Veld",
+        "street": "Middenweg 157",
+        "postcode": "2548 VE",
+        "openinghours": "wo en vr 08.30 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "52.020540",
+        "lon": "4.296635",
+        "days": "wo en vr ",
+        "openinghoursbyday": {
+            "wo": {
+                "opens": "08:30",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:30",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=9341292558711168306",
+		"type": "appointment"
+    },
+    {
+        "id": "138",
+        "city": "Den Haag",
+        "locationname": "Gezondheidscentrum Nieuw Waldeck",
+        "street": "Strausslaan 90",
+        "postcode": "2551 NR",
+        "openinghours": "di en do 08.30 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "52.060158",
+        "lon": "4.241455",
+        "days": "di en do ",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:30",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:30",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=1056719960643486484",
+		"type": "appointment"
+    },
+    {
+        "id": "139",
+        "city": "Den Haag",
+        "locationname": "Apotheek Zuiderpark",
+        "street": "Apeldoornselaan 265",
+        "postcode": "2573 LK",
+        "openinghours": "ma, wo en vr 08.00 - 10.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "52.065867",
+        "lon": "4.279857",
+        "days": "ma, wo en vr ",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=13035773861111983618",
+		"type": "free entry"
+    },
+    {
+        "id": "140",
+        "city": "Den Haag",
+        "locationname": "Huisartsenpraktijk de Regentes",
+        "street": "Regentesselaan 111-113",
+        "postcode": "2562 CR",
+        "openinghours": "di 10.30 - 12:30 uur en do 08.00 - 10.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "52.077617",
+        "lon": "4.282510",
+        "days": "do",
+        "openinghoursbyday": {
+            "do": {
+                "opens": "08:00",
+                "closes": "10:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=11213044107179924754",
+		"type": "appointment"
+    },
+    {
+        "id": "141",
+        "city": "Den Haag",
+        "locationname": "Medisch Centrum De la Rey",
+        "street": "De la Reyweg 170",
+        "postcode": "2571 GH",
+        "openinghours": "di en do 08.30 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "52.066897",
+        "lon": "4.287528",
+        "days": "di en do ",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:30",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:30",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=De+la+Reyweg+170,+2571+GH+Den+Haag&ftid=0x47c5b12bc24c900d:0x4bb51c002df06fe",
+		"type": "appointment"
+    },
+    {
+        "id": "142",
+        "city": "Den Haag",
+        "locationname": "Medisch Centrum Thomsomplein",
+        "street": "Thomsomplein 23",
+        "postcode": "2565 KV",
+        "openinghours": "di en do 08.00-10:30 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "52.079133",
+        "lon": "4.270789",
+        "days": "di en do",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:30",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:30",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=16658539275996902971",
+		"type": "appointment"
+    },
+    {
+        "id": "143",
+        "city": "Den Haag",
+        "locationname": "De Wasserij",
+        "street": "Asmansweg 6",
+        "postcode": "2571 BK",
+        "openinghours": "ma, wo en vr 08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "52.074713",
+        "lon": "4.290299",
+        "days": "ma, wo en vr ",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=1306853391150182416",
+		"type": "free entry"
+    },
+    {
+        "id": "144",
+        "city": "Den Haag",
+        "locationname": "Huisartsencentrum Moerwijk",
+        "street": "Twickelstraat 120",
+        "postcode": "2531 RB",
+        "openinghours": "ma en vr 08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "52.049554",
+        "lon": "4.306938",
+        "days": "ma en vr",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=8125446574697859999",
+		"type": "appointment"
+    },
+    {
+        "id": "145",
+        "city": "Dordrecht",
+        "locationname": "KV13",
+        "street": "Oranjelaan 11",
+        "postcode": "3311 DH",
+        "openinghours": "07.30 - 08.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.813216",
+        "lon": "4.683987",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "07:30",
+                "closes": "08:30 "
+            },
+            "di": {
+                "opens": "07:30",
+                "closes": "08:30 "
+            },
+            "wo": {
+                "opens": "07:30",
+                "closes": "08:30 "
+            },
+            "do": {
+                "opens": "07:30",
+                "closes": "08:30 "
+            },
+            "vr": {
+                "opens": "07:30",
+                "closes": "08:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=6700157995809719576",
+		"type": "free entry"
+    },
+    {
+        "id": "146",
+        "city": "Dordrecht",
+        "locationname": "Merwelanden",
+        "street": "Haringvlietstraat 515",
+        "postcode": "3313 EM",
+        "openinghours": "ma en do 08.00 - 09.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.811387",
+        "lon": "4.720466",
+        "days": "ma en do ",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "09:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "09:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Haringvlietstraat+515,+3313+EM+Dordrecht&ftid=0x47c429a7c2e2cb4f:0xcc203e26df224f3a",
+		"type": "free entry"
+    },
+    {
+        "id": "147",
+        "city": "Heenvliet",
+        "locationname": "Kerkelijk Verenigingsgebouw Het Trefpunt",
+        "street": "Branderf 3",
+        "postcode": "3218 AH",
+        "openinghours": "di en do 08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop, geen afspraak nodig",
+        "lat": "51.866533",
+        "lon": "4.244934",
+        "days": "di en do",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=11416755165794009767",
+		"type": "free entry"
+    },
+    {
+        "id": "148",
+        "city": "Heerjansdam",
+        "locationname": "Huisartsenpraktijk Heerjansdam",
+        "street": "De Manning 5a",
+        "postcode": "2995 AE",
+        "openinghours": "ma, wo en vr 08.00 - 09.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.835454",
+        "lon": "4.568420",
+        "days": "ma, wo en vr",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "09:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "09:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "09:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=15799534494947891849",
+		"type": "free entry"
+    },
+    {
+        "id": "149",
+        "city": "Hellevoetsluis",
+        "locationname": "Medisch centrum huisartsen",
+        "street": "Woordbouwerplein 1",
+        "postcode": "3224 XL",
+        "openinghours": "07.00 - 16.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig. Mogelijkheid tot glucose tolerantie test. Let op: altijd een telefonische afspraak maken. Mogelijkheid tot NIPT",
+        "lat": "51.830399",
+        "lon": "4.142605",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            },
+            "di": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            },
+            "wo": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            },
+            "do": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            },
+            "vr": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=2614212829602760792",
+		"type": "free entry"
+    },
+    {
+        "id": "150",
+        "city": "Hellevoetsluis",
+        "locationname": "Helius Medisch Centrum Hellevoetsluis",
+        "street": "Schelpenpad 2B",
+        "postcode": "3225 BZ",
+        "openinghours": "di en wo8.00 - 8.30 uur",
+        "openinghoursnew": null,
+        "particularities": "vrije inloop: geen afspraak nodig",
+        "lat": "51.825945",
+        "lon": "4.159149",
+        "days": "di en wo",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "8:00",
+                "closes": "8:30 "
+            },
+            "wo": {
+                "opens": "8:00",
+                "closes": "8:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=8697973568161915488",
+		"type": "free entry"
+    },
+    {
+        "id": "151",
+        "city": "Hoogvliet",
+        "locationname": "De Stelle",
+        "street": "Stelle 4",
+        "postcode": "3191 KE",
+        "openinghours": "ma, di, do en vr07.30 - 16.00 uurwo07.30 - 12.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig. Mogelijkheid tot NIPT",
+        "lat": "51.863496",
+        "lon": "4.368118",
+        "days": "wo",
+        "openinghoursbyday": {
+            "wo": {
+                "opens": "07:30",
+                "closes": "12:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Stelle+4,+3191+KE+Hoogvliet+Rotterdam&ftid=0x47c435f9ab18a757:0x9ed760298cedd6ca",
+		"type": "free entry"
+    },
+    {
+        "id": "152",
+        "city": "Hoogvliet",
+        "locationname": "MC Oude Wal",
+        "street": "Oude Wal 24",
+        "postcode": "3193 EN",
+        "openinghours": "ma, wo en vr 8.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.870689",
+        "lon": "4.353418",
+        "days": "ma, wo en vr",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "8:00",
+                "closes": "10:00 "
+            },
+            "wo": {
+                "opens": "8:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "8:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=9627445172286332733",
+		"type": "free entry"
+    },
+    {
+        "id": "153",
+        "city": "Hoogvliet",
+        "locationname": "GC Doggersbank",
+        "street": "Doggersbank 53",
+        "postcode": "3192 DA",
+        "openinghours": "di - do08:00 - 10:00",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.854521",
+        "lon": "4.362317",
+        "days": "di - do",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00"
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00"
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=10103063166005280184",
+		"type": "free entry"
+    },
+    {
+        "id": "154",
+        "city": "Krimpen a/d IJssel",
+        "locationname": "Groenendaal",
+        "street": "Groenendaal 1",
+        "postcode": "2922 CJ",
+        "openinghours": "07.30 - 17.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig. Mogelijkheid tot glucose tolerantie test. Let op: altijd een telefonische afspraak maken. Mogelijkheid tot NIPT",
+        "lat": "51.920344",
+        "lon": "4.600948",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "07:30",
+                "closes": "17:00 "
+            },
+            "di": {
+                "opens": "07:30",
+                "closes": "17:00 "
+            },
+            "wo": {
+                "opens": "07:30",
+                "closes": "17:00 "
+            },
+            "do": {
+                "opens": "07:30",
+                "closes": "17:00 "
+            },
+            "vr": {
+                "opens": "07:30",
+                "closes": "17:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Groenendaal+1,+2922+CJ+Krimpen+aan+den+IJssel&ftid=0x47c42d46085db157:0x6a28edf997e4e4fb",
+		"type": "free entry"
+    },
+    {
+        "id": "155",
+        "city": "Krimpen a/d Lek",
+        "locationname": "Dokter a/d Lek",
+        "street": "Markt 104-106",
+        "postcode": "2931 EC",
+        "openinghours": "08.00 - 09.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.893982",
+        "lon": "4.629357",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "09:30 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "09:30 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "09:30 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "09:30 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "09:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=De+Markt,+2931+EC+Krimpen+aan+de+Lek&ftid=0x47c42d01f84fe55d:0xfdbcc528f63d15b1",
+		"type": "free entry"
+    },
+    {
+        "id": "156",
+        "city": "Middelharnis",
+        "locationname": "Helius Medisch Centrum Middelharnis",
+        "street": "Langeweg 54",
+        "postcode": "3241 KA",
+        "openinghours": "ma en wo 08.00 - 09.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.758393",
+        "lon": "4.156253",
+        "days": "ma en wo ",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "09:30 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "09:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=9631222145103549246",
+		"type": "free entry"
+    },
+    {
+        "id": "157",
+        "city": "Nieuwerkerk a/d IJssel",
+        "locationname": "Hoed Vierstroom",
+        "street": "Oranjepad 2",
+        "postcode": "2911 AP",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak. Mogelijkheid tot NIPT",
+        "lat": "51.965111",
+        "lon": "4.617367",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Oranjepad+2,+2911+AP+Nieuwerkerk+aan+den+IJssel&ftid=0x47c5d2f2fb34452b:0xe74c39455c4ce65",
+		"type": "appointment"
+    },
+    {
+        "id": "158",
+        "city": "Oostvoorne",
+        "locationname": "Medisch Centrum Oostvoorne",
+        "street": "Gerard van Voorneweg 2",
+        "postcode": "3233 TM",
+        "openinghours": "ma, di , wo en do 8.00 tot 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.910749",
+        "lon": "4.103631",
+        "days": "ma, di , wo en do ",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=1032028584922329678",
+		"type": "appointment"
+    },
+    {
+        "id": "159",
+        "city": "Pernis",
+        "locationname": "Medisch Centrum",
+        "street": "G.A. Soetemanweg 25",
+        "postcode": "3195TC",
+        "openinghours": "ma en do 08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.887923",
+        "lon": "4.390699",
+        "days": "ma en do",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=G.A.+Soetemanweg+25,+3195+TC+Pernis&ftid=0x47c435984793f8c1:0x9b6f5ca644148317",
+		"type": "free entry"
+    },
+    {
+        "id": "160",
+        "city": "Rhoon",
+        "locationname": "Ontmoetingscentrum Het Boerderijtje",
+        "street": "Werkersdijk 1",
+        "postcode": "3161 RK",
+        "openinghours": "wo en vr 8.15-9.15",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.856483",
+        "lon": "4.422039",
+        "days": "wo en vr ",
+        "openinghoursbyday": {
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Werkersdijk+1,+3161+BL+Rhoon&ftid=0x47c4342a5b3648ff:0xcb7fa83357c7970c",
+		"type": "free entry"
+    },
+    {
+        "id": "161",
+        "city": "Ridderkerk",
+        "locationname": "De Zonnehoek",
+        "street": "Kievitsweg 80",
+        "postcode": "2983 AE",
+        "openinghours": "di en wo 08.00 - 09.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.878448",
+        "lon": "4.601351",
+        "days": "di en wo",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:00",
+                "closes": "09:30 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "09:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=2524749901416702758",
+		"type": "appointment"
+    },
+    {
+        "id": "162",
+        "city": "Rockanje",
+        "locationname": "Gezondheidscentrum Rockanje",
+        "street": "Duindoornlaan 1",
+        "postcode": "3235 AH",
+        "openinghours": "08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.873720",
+        "lon": "4.061712",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=4498228776667181747",
+		"type": "free entry"
+    },
+    {
+        "id": "163",
+        "city": "Rotterdam",
+        "locationname": "MC de Witte Keizer",
+        "street": "Vissersdijk 231",
+        "postcode": "3011 GW",
+        "openinghours": "07.00 - 15.45 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop : geen afspraak nodig. Mogelijkheid tot POC D-dimeer en Troponine (sneltest). Mogelijkheid tot glucose tolerantie test. Let op: altijd een telefonische afspraak maken. Mogelijkheid tot NIPT. Navigatie adres: Vissersdijk 245",
+        "lat": "51.919421",
+        "lon": "4.483717",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "07:00",
+                "closes": "15:45 "
+            },
+            "di": {
+                "opens": "07:00",
+                "closes": "15:45 "
+            },
+            "wo": {
+                "opens": "07:00",
+                "closes": "15:45 "
+            },
+            "do": {
+                "opens": "07:00",
+                "closes": "15:45 "
+            },
+            "vr": {
+                "opens": "07:00",
+                "closes": "15:45 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Vissersdijk+231,+3011+GW+Rotterdam&ftid=0x47c4335ea1cb508b:0x6bd0f7c885cd49a4",
+		"type": "free entry"
+    },
+    {
+        "id": "164",
+        "city": "Rotterdam",
+        "locationname": "Delfshaven",
+        "street": "Jan Kruijffstraat 84",
+        "postcode": "3026 VP",
+        "openinghours": "08.00 - 15.45 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop : geen afspraak nodig. Mogelijkheid tot glucose tolerantie test. Let op: altijd een telefonische afspraak maken. Mogelijkheid tot NIPT",
+        "lat": "51.910678",
+        "lon": "4.446458",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "15:45 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "15:45 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "15:45 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "15:45 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "15:45 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Jan+Kruijffstraat+84,+3026+VP+Rotterdam&ftid=0x47c434eb807412ed:0xfc21d45c1f862b0",
+		"type": "free entry"
+    },
+    {
+        "id": "165",
+        "city": "Rotterdam",
+        "locationname": "Liskwartier - Oude Noorden",
+        "street": "Rodenrijselaan 57B",
+        "postcode": "3037 XD",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.934567",
+        "lon": "4.473681",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Rodenrijselaan+57B,+3037+XD+Rotterdam&ftid=0x47c434ab7a491119:0x1f0911df9d5c241e",
+		"type": "free entry"
+    },
+    {
+        "id": "166",
+        "city": "Rotterdam",
+        "locationname": "Binnenhof",
+        "street": "Niels Bohrplaats 7",
+        "postcode": "3068 JK",
+        "openinghours": "07.00 - 16.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.959548",
+        "lon": "4.533369",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            },
+            "di": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            },
+            "wo": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            },
+            "do": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            },
+            "vr": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Niels+Bohrplaats+7,+3068+JK+Rotterdam&ftid=0x47c5cce1e9d36781:0xb1d146841281466d",
+		"type": "free entry"
+    },
+    {
+        "id": "167",
+        "city": "Rotterdam",
+        "locationname": "Medisch Centrum Prinsenland",
+        "street": "Marie van Eijsdenvinckstr 476",
+        "postcode": "3066 HG",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.930092",
+        "lon": "4.545324",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=14652489281499587630",
+		"type": "free entry"
+    },
+    {
+        "id": "168",
+        "city": "Rotterdam",
+        "locationname": "Medisch Centrum Hillegersberg",
+        "street": "Minervaplein 2d",
+        "postcode": "3054 SK",
+        "openinghours": "07.30 - 12.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig. Mogelijkheid tot glucose tolerantie test. Let op: altijd een telefonische afspraak maken. Mogelijkheid tot NIPT",
+        "lat": "51.961395",
+        "lon": "4.490652",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "07:30",
+                "closes": "12:00 "
+            },
+            "di": {
+                "opens": "07:30",
+                "closes": "12:00 "
+            },
+            "wo": {
+                "opens": "07:30",
+                "closes": "12:00 "
+            },
+            "do": {
+                "opens": "07:30",
+                "closes": "12:00 "
+            },
+            "vr": {
+                "opens": "07:30",
+                "closes": "12:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Minervaplein+2,+3054+SK+Rotterdam&ftid=0x47c5cc90cdde98df:0x93a888617305a120",
+		"type": "free entry"
+    },
+    {
+        "id": "169",
+        "city": "Rotterdam",
+        "locationname": "Medisch Centrum Schiebroek",
+        "street": "Kastanjeplein 4",
+        "postcode": "3053 CD",
+        "openinghours": "07.30 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.957507",
+        "lon": "4.466977",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "07:30",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "07:30",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "07:30",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "07:30",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "07:30",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=4991618323282864119",
+		"type": "free entry"
+    },
+    {
+        "id": "170",
+        "city": "Rotterdam",
+        "locationname": "Palmentuin",
+        "street": "Palmentuin 69",
+        "postcode": "3078 JX",
+        "openinghours": "07.30 - 13.00",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig. Mogelijkheid tot NIPT. Mogelijkheid tot glucose tolerantie test. Let op: altijd een telefonische afspraak maken",
+        "lat": "51.893367",
+        "lon": "4.541390",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "07:30",
+                "closes": "13:00"
+            },
+            "di": {
+                "opens": "07:30",
+                "closes": "13:00"
+            },
+            "wo": {
+                "opens": "07:30",
+                "closes": "13:00"
+            },
+            "do": {
+                "opens": "07:30",
+                "closes": "13:00"
+            },
+            "vr": {
+                "opens": "07:30",
+                "closes": "13:00"
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Palmentuin+69,+3078+KJ+Rotterdam&ftid=0x47c4325fd6d6c245:0x3f03467269ff4c53",
+		"type": "free entry"
+    },
+    {
+        "id": "171",
+        "city": "Rotterdam",
+        "locationname": "Huisartsenondersteuningscentrum Aristo",
+        "street": "Aristotelesstraat 6",
+        "postcode": "3076 BD",
+        "openinghours": "08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.882673",
+        "lon": "4.524792",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=6420331690715681961",
+		"type": "appointment"
+    },
+    {
+        "id": "172",
+        "city": "Rotterdam",
+        "locationname": "Carnissesingel",
+        "street": "Carnissesingel 51",
+        "postcode": "3083 JA",
+        "openinghours": "07.30 - 16.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig. Mogelijkheid tot POC D-dimeer en Troponine (sneltest). Mogelijkheid tot glucose tolerantie test. Let op: altijd een telefonische afspraak maken. Mogelijkheid tot NIPT",
+        "lat": "51.886136",
+        "lon": "4.482463",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "07:30",
+                "closes": "16:00 "
+            },
+            "di": {
+                "opens": "07:30",
+                "closes": "16:00 "
+            },
+            "wo": {
+                "opens": "07:30",
+                "closes": "16:00 "
+            },
+            "do": {
+                "opens": "07:30",
+                "closes": "16:00 "
+            },
+            "vr": {
+                "opens": "07:30",
+                "closes": "16:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Carnissesingel+51,+3083+JA+Rotterdam&ftid=0x47c4339b18a970c9:0xb4c95554fe2a82ea",
+		"type": "free entry"
+    },
+    {
+        "id": "173",
+        "city": "Rotterdam",
+        "locationname": "Gezondheidscentrum Oost West",
+        "street": "Abtsweg 2",
+        "postcode": "3042 GD",
+        "openinghours": "ma, wo en vr 08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.936165",
+        "lon": "4.437728",
+        "days": "ma, wo en vr ",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=8478319632050580278",
+		"type": "appointment"
+    },
+    {
+        "id": "174",
+        "city": "Rotterdam",
+        "locationname": "De Paperclip",
+        "street": "Lodewijk Pincoffsweg 84",
+        "postcode": "3071 AS",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.908408",
+        "lon": "4.500774",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Lodewijk+Pincoffsweg+84,+3071+AS+Rotterdam&ftid=0x47c43314b028ddcb:0x94367032b46ac0fa",
+		"type": "appointment"
+    },
+    {
+        "id": "175",
+        "city": "Rotterdam",
+        "locationname": "Gezondheidscentrum Lijn 2",
+        "street": "Slaghekstraat 251",
+        "postcode": "3074 LJ",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.897470",
+        "lon": "4.504259",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=13041839706789097227",
+		"type": "free entry"
+    },
+    {
+        "id": "176",
+        "city": "Rotterdam",
+        "locationname": "Gezondheidscentrum Gezond Blijdorp",
+        "street": "Stadhouderplein 37",
+        "postcode": "3039 ER",
+        "openinghours": "di, do en vrij 08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop, geen afspraak nodig",
+        "lat": "51.931775",
+        "lon": "4.461444",
+        "days": "di, do en vrij",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=14617232803813745932",
+		"type": "free entry"
+    },
+    {
+        "id": "177",
+        "city": "Rotterdam",
+        "locationname": "Gezondheidscentrum Levinas",
+        "street": "Noordeinde 97",
+        "postcode": "3061 EM",
+        "openinghours": "8.00 - 10.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak. LET OP : Vanaf 29 november volledig op vrije inloop: geen afspraak nodig. Mogelijkheid tot glucose tolerantie test. Let op: altijd een telefonische afspraak maken",
+        "lat": "51.927695",
+        "lon": "4.506767",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "8:00",
+                "closes": "10:30 "
+            },
+            "di": {
+                "opens": "8:00",
+                "closes": "10:30 "
+            },
+            "wo": {
+                "opens": "8:00",
+                "closes": "10:30 "
+            },
+            "do": {
+                "opens": "8:00",
+                "closes": "10:30 "
+            },
+            "vr": {
+                "opens": "8:00",
+                "closes": "10:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=7246101637568882174",
+		"type": "appointment"
+    },
+    {
+        "id": "178",
+        "city": "Rotterdam",
+        "locationname": "MC Zuidwijk",
+        "street": "Schere 31",
+        "postcode": "3085 DT",
+        "openinghours": "ma, di en do 09.30 - 11.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.875303",
+        "lon": "4.490864",
+        "days": "ma, di en do ",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "09:30",
+                "closes": "11:30 "
+            },
+            "di": {
+                "opens": "09:30",
+                "closes": "11:30 "
+            },
+            "do": {
+                "opens": "09:30",
+                "closes": "11:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=16962224364191808731",
+		"type": "free entry"
+    },
+    {
+        "id": "179",
+        "city": "Rotterdam",
+        "locationname": "Gezondheidscentrum Zuiderkroon",
+        "street": "Vlissingenplein 1",
+        "postcode": "3086 GZ",
+        "openinghours": "08.00 - 9.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.872364",
+        "lon": "4.469837",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "9:30 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "9:30 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "9:30 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "9:30 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "9:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=9162687334350706364",
+		"type": "free entry"
+    },
+    {
+        "id": "180",
+        "city": "Rotterdam",
+        "locationname": "Gezondheidscentrum Spangen",
+        "street": "PC Hooftplein 45",
+        "postcode": "3027 AW",
+        "openinghours": "08.30 - 10.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak",
+        "lat": "51.917001",
+        "lon": "4.435744",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:30",
+                "closes": "10:30 "
+            },
+            "di": {
+                "opens": "08:30",
+                "closes": "10:30 "
+            },
+            "wo": {
+                "opens": "08:30",
+                "closes": "10:30 "
+            },
+            "do": {
+                "opens": "08:30",
+                "closes": "10:30 "
+            },
+            "vr": {
+                "opens": "08:30",
+                "closes": "10:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=5940929158160233860",
+		"type": "appointment"
+    },
+    {
+        "id": "181",
+        "city": "Rotterdam",
+        "locationname": "Gezondheidscentrum Charley Toorop",
+        "street": "Charley Tooropsingel 48",
+        "postcode": "3059 WG",
+        "openinghours": "07.45 - 09.45 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.969365",
+        "lon": "4.580831",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "07:45",
+                "closes": "09:45 "
+            },
+            "di": {
+                "opens": "07:45",
+                "closes": "09:45 "
+            },
+            "wo": {
+                "opens": "07:45",
+                "closes": "09:45 "
+            },
+            "do": {
+                "opens": "07:45",
+                "closes": "09:45 "
+            },
+            "vr": {
+                "opens": "07:45",
+                "closes": "09:45 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=1512215307849489283",
+		"type": "free entry"
+    },
+    {
+        "id": "182",
+        "city": "Rotterdam",
+        "locationname": "Gezondheidscentrum De Esch",
+        "street": "Rijnwaterstraat 10",
+        "postcode": "3063 HC",
+        "openinghours": "ma, wo en vr 08.30 - 10.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop : geen afspraak nodig",
+        "lat": "51.913517",
+        "lon": "4.520790",
+        "days": "ma, wo en vr",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:30",
+                "closes": "10:30 "
+            },
+            "wo": {
+                "opens": "08:30",
+                "closes": "10:30 "
+            },
+            "vr": {
+                "opens": "08:30",
+                "closes": "10:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=13251258211831068343",
+		"type": "free entry"
+    },
+    {
+        "id": "183",
+        "city": "Rotterdam",
+        "locationname": "Het Alexanderhof",
+        "street": "Bramanteplein 2",
+        "postcode": "3066 BH",
+        "openinghours": "ma, wo en vr 08.00 - 09.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop, geen afspraak nodig",
+        "lat": "51.937405",
+        "lon": "4.550655",
+        "days": "ma, wo en vr ",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "09:30 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "09:30 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "09:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=8078048527603659228",
+		"type": "free entry"
+    },
+    {
+        "id": "184",
+        "city": "Rozenburg",
+        "locationname": "Woonzorgcentrum Blankenburg",
+        "street": "Blankenburg 3",
+        "postcode": "3181 BC",
+        "openinghours": "8.00 - 10.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.901510",
+        "lon": "4.255950",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "8:00",
+                "closes": "10:30 "
+            },
+            "di": {
+                "opens": "8:00",
+                "closes": "10:30 "
+            },
+            "wo": {
+                "opens": "8:00",
+                "closes": "10:30 "
+            },
+            "do": {
+                "opens": "8:00",
+                "closes": "10:30 "
+            },
+            "vr": {
+                "opens": "8:00",
+                "closes": "10:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=15653179772085004140",
+		"type": "free entry"
+    },
+    {
+        "id": "185",
+        "city": "Schiedam",
+        "locationname": "Praktijk Vivitas",
+        "street": "s-Gravenlandseweg 792",
+        "postcode": "3119 NE",
+        "openinghours": "08.00 - 11.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Alleen op afspraak. Mogelijkheid tot NIPT",
+        "lat": "51.921728",
+        "lon": "4.402191",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "11:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=3696618183142705894",
+		"type": "appointment"
+    },
+    {
+        "id": "186",
+        "city": "Spijkenisse",
+        "locationname": "Diagnostisch Centrum Star-shl",
+        "street": "Thorbeckelaan 82",
+        "postcode": "3201 WK",
+        "openinghours": "07.00 - 16.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig. Mogelijkheid tot NIPT",
+        "lat": "51.848089",
+        "lon": "4.334191",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            },
+            "di": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            },
+            "wo": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            },
+            "do": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            },
+            "vr": {
+                "opens": "07:00",
+                "closes": "16:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=12100022618345837985",
+		"type": "free entry"
+    },
+    {
+        "id": "187",
+        "city": "Spijkenisse",
+        "locationname": "Gezondheidscentrum De Akkers",
+        "street": "Lenteakker 3",
+        "postcode": "3206 TB",
+        "openinghours": "08.00 - 09.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.832753",
+        "lon": "4.319385",
+        "days": "",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:00",
+                "closes": "09:30 "
+            },
+            "di": {
+                "opens": "08:00",
+                "closes": "09:30 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "09:30 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "09:30 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "09:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=8664750201401135713",
+		"type": "free entry"
+    },
+    {
+        "id": "188",
+        "city": "Voorschoten",
+        "locationname": "Huisartsenpraktijk Gerts",
+        "street": "Professor van der Waalslaan 25",
+        "postcode": "2251 GH",
+        "openinghours": "ma, wo en vr 08.30 - 09.30 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "52.124200",
+        "lon": "4.451559",
+        "days": "ma, wo en vr",
+        "openinghoursbyday": {
+            "ma": {
+                "opens": "08:30",
+                "closes": "09:30 "
+            },
+            "wo": {
+                "opens": "08:30",
+                "closes": "09:30 "
+            },
+            "vr": {
+                "opens": "08:30",
+                "closes": "09:30 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?cid=7330159642107707920",
+		"type": "free entry"
+    },
+    {
+        "id": "189",
+        "city": "Zuidland",
+        "locationname": "Zorg en Welzijn",
+        "street": "Christinastraat 40",
+        "postcode": "3214 CB",
+        "openinghours": "di, wo, do en vr 08.00 - 10.00 uur",
+        "openinghoursnew": null,
+        "particularities": "Vrije inloop: geen afspraak nodig",
+        "lat": "51.823287",
+        "lon": "4.253226",
+        "days": "di, wo, do en vr",
+        "openinghoursbyday": {
+            "di": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "wo": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "do": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            },
+            "vr": {
+                "opens": "08:00",
+                "closes": "10:00 "
+            }
+        },
+		"distance": "",
+		"url": "https://maps.google.com/?q=Christinastraat+40,+3214+CB+Zuidland&ftid=0x47c44ed36422b7a3:0xd1ea2cd1c1137d97",
+		"type": "free entry"
+    }
+]

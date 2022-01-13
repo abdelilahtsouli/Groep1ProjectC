@@ -21,3 +21,9 @@ yarn build:watch
 cd backend
 dotnet run
 ```
+
+## Testing
+
+```console
+npm run test:unit
+```

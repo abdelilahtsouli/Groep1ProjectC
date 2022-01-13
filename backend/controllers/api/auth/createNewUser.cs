@@ -29,6 +29,12 @@ namespace Project_C_Website.controllers {
 			string oauth = HttpContext.Request.Form["oauth"].ToString();
 			bool superUser = false;
 			
+			if (Name == null || Email == null || Password == null){
+				return JsonSerializer.Serialize(new{
+					result = "Niet alle velden zijn correct ingevuld."
+				});
+			}
+
 			// generate a 128-bit salt using a cryptographically strong random sequence of nonzero values
 			byte[] salt = new byte[128 / 8];
 			using (var rngCsp = new RNGCryptoServiceProvider())
@@ -45,7 +51,7 @@ namespace Project_C_Website.controllers {
 
 			
 
-
+			
 
             Database database = new Database();
 			//Query to check if the logged in user is authorithized to create new accounts
