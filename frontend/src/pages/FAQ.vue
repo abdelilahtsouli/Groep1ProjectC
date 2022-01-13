@@ -2,7 +2,7 @@
   <div>
     <div class="white-space-top"></div>
     <div class="header-faq">
-      <img src="../assets/images/corona.png" />
+      <img src="../assets/images/FAQ.jpg" />
       <h1>Veelgesteldevragen</h1>
     </div>
     <page-content :id="5"></page-content>

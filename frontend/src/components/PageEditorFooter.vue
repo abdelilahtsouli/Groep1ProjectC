@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts">
-import Editor from "../extensions/page-editor/index"
+import Editor from "../extensions/page-editor/index";
 import axios from "axios";
 import { defineComponent, ref } from "vue";
 import { VueCookieNext } from "vue-cookie-next";
@@ -38,9 +38,7 @@ export default defineComponent({
       // Creates a temporary DOM for closing the accordion and hiding the buttons
       const tempDOM = <Document>document.cloneNode(true);
 
-      //-// Resets the accordions //-//
-      Editor.getInstance().accordion.reset(tempDOM)
-      Editor.getInstance().slideshow.reset(tempDOM)
+      Editor.getInstance().resetComponents(tempDOM);
 
       return tempDOM.getElementById("content")?.innerHTML;
     };

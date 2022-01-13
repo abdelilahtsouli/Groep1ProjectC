@@ -58,7 +58,10 @@ export default defineComponent({
       isLoggedIn.value = data.loggedIn;
     });
 
-    // Get the content of a page with id and load it onto the page.
+    /**
+     * Gets the page content of page id: <@param id> and sets <@constant content.value> to that value.
+     * @param {string} id The id of the page that gets get and set.
+     */
     function updatePage(id: string): void {
       axios
         .get("./api/pages/" + id)
@@ -82,6 +85,11 @@ export default defineComponent({
         });
     }
 
+    /**
+     * Sets <@constant content.value> to <@param newContent>
+     * @param {string} newContent The new content of the current page
+     * @param {any} serverResponse The repsonse from the server after the post request from the editor. 
+     */
     function setNewContent(newContent: string, serverResponse: any): void {
       content.value = newContent;
       editing.value = false;

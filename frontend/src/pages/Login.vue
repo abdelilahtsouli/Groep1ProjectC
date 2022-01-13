@@ -13,7 +13,7 @@
           @keyup.enter="userLogin"
           v-model="message_password"
           type="password"
-          placeholder="Password"
+          placeholder="Wachtwoord"
         /><br />
         <br /><button type="submit" @click="userLogin()">Log in</button>
         <h3 class="h3-error">{{ errormessage }}</h3>
@@ -32,9 +32,9 @@ const URL_base = "/api/auth/login";
 const message_email = ref("");
 const message_password = ref("");
 const errormessage = ref("");
-let loginAttempts =  0;
+
 function userLogin() {
-  loginAttempts += 1;
+
   if (!validateEmail()) {
     errormessage.value = "Voer een geldig e-mail adres in";
     return;
@@ -47,28 +47,24 @@ function userLogin() {
   var bodyFormData = new FormData();
   bodyFormData.append("email", message_email.value);
   bodyFormData.append("password", message_password.value);
-  bodyFormData.append("loginCounter", loginAttempts.toString());
+
 
   axios.post(URL_base, bodyFormData).then((Response: any) => {
     errormessage.value = Response.data.message;
-    if(loginAttempts >= 3){
-      setTimeout(() => {loginAttempts = 0}, 300000);
-    }
+
     if (Response.data.twoFAenabled == false) {
       router.push({
         name: "twoFA",
-        params: { id: Response.data.id, email: Response.data.email },
+        params: { id: Response.data.id, email: Response.data.email, password: Response.data.password },
       });
     } else if (Response.data.twoFAenabled == true) {
       router.push({
         name: "verify2FA",
-        params: { id: Response.data.id, email: Response.data.email },
+        params: { id: Response.data.id, email: Response.data.email, password: Response.data.password},
       });
     }
   });
 }
-
-
 
 
 function validateEmail() {

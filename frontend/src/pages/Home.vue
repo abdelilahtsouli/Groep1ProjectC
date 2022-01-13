@@ -5,7 +5,8 @@
       <div class="home">
         <!-- Header image -->
         <div class="header">
-          <img src="../assets/images/stock-img-smiling-chemists.jpg" />
+          <!-- <img src="../assets/images/stock-img-smiling-chemists.jpg" /> -->
+          <img src="../assets/images/healthcare-stock-image.jpg" />
         </div>
         <!-- Shorcut buttons -->
         <div class="block-container">
@@ -151,6 +152,7 @@ const paperPlaneSvg = `<svg aria-hidden="true" focusable="false" data-prefix="fa
   border-radius: 8px;
   /* height: 100vw; */
 }
+
 
 .separator {
   width: 100vw;

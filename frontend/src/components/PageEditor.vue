@@ -1,7 +1,7 @@
 <template>
-  <div class="editor">
+  <div class="editor" @click="checkForChanges()">
     <!-- Editor Header -->
-    <page-editor-header></page-editor-header>
+    <page-editor-header @checkForChanges="checkForChanges"></page-editor-header>
     <div>
       <div
         v-html="editSVG"
@@ -30,11 +30,27 @@
 </template>
 
 <script lang="ts">
-import Editor from "../extensions/page-editor/index"
+import Editor from "../extensions/page-editor/index";
 import PageEditorHeader from "./PageEditorHeader.vue";
 import PageEditorFooter from "./PageEditorFooter.vue";
-import { defineComponent, ref } from "vue";
+import { defineComponent, onBeforeUnmount, ref } from "vue";
 import { VueCookieNext } from "vue-cookie-next";
+import axios from "axios";
+
+function getCookie(name: string): string | null {
+  const nameLenPlus = name.length + 1;
+  return (
+    document.cookie
+      .split(";")
+      .map((c) => c.trim())
+      .filter((cookie) => {
+        return cookie.substring(0, nameLenPlus) === `${name}=`;
+      })
+      .map((cookie) => {
+        return decodeURIComponent(cookie.substring(nameLenPlus));
+      })[0] || null
+  );
+}
 
 export default defineComponent({
   props: {
@@ -59,34 +75,100 @@ export default defineComponent({
     const changesMade = ref(false);
     const isLoggedIn = ref(VueCookieNext.getCookie("token") != null);
 
+    let contentSend = false;
+
+    onBeforeUnmount(() => {
+      if (!contentSend) {
+        const editorContent = document.getElementById("content");
+        if (editorContent) {
+          const editorIds = getSrcIds(editorContent.innerHTML);
+          const actualIds = getSrcIds(props.content);
+
+          const unusedMediaInBackend = editorIds?.filter(
+            (element) => !actualIds.includes(element)
+          );
+
+          removeMedia(unusedMediaInBackend);
+        } else {
+          console.error("Element with id `Content` does not exist.");
+        }
+      }
+    });
+
     // Emit send from PageEditorFooter when newContent is submitted and send to database
     // Sets content.value = newContent
     function setNewContent(newContent: string, serverResponse: any) {
       changesMade.value = false;
+      contentSend = true;
       content.value = newContent;
+      removeMedia(getUnusedMedia());
       emit("newContent", newContent, serverResponse);
     }
 
     // Compares original content with editor content
     const checkForChanges = () => {
-      const tempDom = <Document>document.cloneNode(true);
-      const tempDomContent = tempDom.getElementById("content");
+      console.log("checkForChanges");
+      
+      const tempDOM = <Document>document.cloneNode(true);
 
-      // const nodeList = tempDomContent?.querySelectorAll("details");
-      // if (nodeList) {
-      //   toggleDisplayRemoveButton(nodeList, false);
-      //   toggleEditableH3(nodeList, false);
-      //   toggleEditableAccordionDiv(nodeList, false);
-      //   toggleDetails(nodeList, false);
-      // }
-
-      // if (tempDomContent) {
-      //   resetSlideShowDot(tempDomContent);
-      //   resetImageDisplay(tempDomContent);
-      // }
+      Editor.getInstance().accordion.reset(tempDOM);
+      Editor.getInstance().slideshow.reset(tempDOM);
 
       changesMade.value =
-        content.value !== tempDom.getElementById("content")?.innerHTML;
+        content.value !== tempDOM.getElementById("content")?.innerHTML;
+    };
+
+    const getSrcIds = (htmlString: string): string[] => {
+      const tempHtml = document.createElement("html");
+      tempHtml.innerHTML = htmlString;
+
+      const tempDOM = new Document();
+      tempDOM.appendChild(tempHtml);
+
+      const tempBody = tempDOM.body;
+
+      const sourceAttributes: Array<string> = [];
+
+      if (tempBody) {
+        // Image
+        Array.from(tempBody.getElementsByTagName("img")).forEach((element) =>
+          sourceAttributes.push(element.src)
+        );
+
+        // Video
+        Array.from(tempBody.getElementsByTagName("video")).forEach(
+          (videoElement) =>
+            Array.from(videoElement.getElementsByTagName("source")).forEach(
+              (sourceElement) => sourceAttributes.push(sourceElement.src)
+            )
+        );
+      }
+
+      return sourceAttributes;
+    };
+
+    const getUnusedMedia = (): string[] => {
+      const oldContentIds = getSrcIds(props.content);
+      const newContentIds = getSrcIds(content.value);
+
+      const unusedMedia = oldContentIds?.filter(
+        (element) => !newContentIds?.includes(element)
+      );
+
+      return unusedMedia === undefined ? [] : unusedMedia;
+    };
+
+    const removeMedia = (mediaIds: Array<string>): void => {
+      mediaIds.forEach((id) => {
+        axios
+          .delete(id, {
+            headers: {
+              Authorization: <string>getCookie("token"),
+            },
+          })
+          .then((response: any) => {})
+          .catch();
+      });
     };
 
     Editor.getInstance().disableCtrlA();

@@ -1,9 +1,17 @@
 import { removeSlide } from "../slide-show/main";
 
+/**
+ * Singleton class for making / removing / editing a slideshow.
+ */
 class SlideShow {
   private static instance: SlideShow;
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   private constructor() {}
+  
+  /**
+   * Gets/Sets the instance of the Singleton.
+   * @returns {SlideShow} an instance of SlideShow.
+   */
   public static getInstance(): SlideShow {
     if (!SlideShow.instance) {
       SlideShow.instance = new SlideShow();
@@ -11,6 +19,10 @@ class SlideShow {
     return SlideShow.instance;
   }
 
+  /**
+   * Resets the active dots to where "active" css class is added for dots[i] and removed for all others.
+   * @param {HTMLElement} element The slideshow element which contains the dots to reset.
+   */
   public resetDots(element: HTMLElement): void {
     const slideShowDots = element?.getElementsByClassName("dot");
     for (let i = 0; i < slideShowDots.length; i++) {
@@ -22,6 +34,10 @@ class SlideShow {
     }
   }
   
+  /**
+   * Resets the displays of the images. Image[0] is visible all others are hidden.
+   * @param {HTMLElement} element The slideshow element which contains the images to reset.
+   */
   public resetImageDisplay(element: HTMLElement): void {
     const slides = element?.getElementsByClassName("mySlides");
     for (let i = 0; i < slides.length; i++) {
@@ -33,6 +49,11 @@ class SlideShow {
     }
   }
   
+  /**
+   * Creates and appends or removes the Slideshow edit buttons from the given DOM.
+   * @param {boolean} toggle The boolean whether to create or remove the edit buttons. True = create, false = remove.
+   * @param {Document} dom The document where the changes happen.
+   */
   public toggleEditSlideButtons(toggle: boolean, dom: Document): void {
     const addButton = dom.getElementsByName("add-slide");
     const removeButton = dom.getElementsByName("remove-slide");
@@ -84,6 +105,10 @@ class SlideShow {
     }
   }
 
+  /**
+   * Resets the slideshow. Resets all dots & images and removes the edit buttons.
+   * @param {Document } dom The DOM where the changes happen.
+   */
   public reset(dom: Document): void {
     const domContent = dom.getElementById("content");
     if (domContent) {

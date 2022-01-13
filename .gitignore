@@ -19,13 +19,14 @@ pnpm-debug.log*
 *.suo
 *.ntvs*
 *.njsproj
-*.sln
 *.sw?
 
 backend/bin/*
 backend/wwwroot/*
 backend/obj/*
 
+backup-app/node_modules
+backup-app/package-lock.json
 
 frontend/node_modules/
 backend/.vs/
