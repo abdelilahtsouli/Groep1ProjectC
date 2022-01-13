@@ -60,7 +60,7 @@ namespace Project_C_Website.controllers {
 
 			database.Close();
 			// Jamey
-			//this.HttpContext.Response.StatusCode = 404;
+			// this.HttpContext.Response.StatusCode = 404;
 			return JsonSerializer.Serialize(new {
 				Success = false,
 				Message = "Not Found"
