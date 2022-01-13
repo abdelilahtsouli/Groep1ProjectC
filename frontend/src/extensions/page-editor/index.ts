@@ -3,6 +3,11 @@ import { addSlide } from "../slide-show/main";
 import Accordion from "./accordion";
 import SlideShow from "./slideshow";
 
+/**
+ * Returns the value of a cookie by the given name.
+ * @param name The name of the cookie
+ * @returns {string} The value of the given cookie by name 
+ */
 function getCookie(name: string): string | null {
   const nameLenPlus = name.length + 1;
   return (
