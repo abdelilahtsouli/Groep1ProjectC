@@ -15,11 +15,11 @@
       </p>
     </div>
   </div>
-
+ 
   <div class="location-page">
     <input
       class="searchbar"
-      type="text"
+      type="search"
       v-model="search"
       placeholder="Vul uw locatie in"
     />
